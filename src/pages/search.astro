@@ -26,16 +26,16 @@ const guestCount = (await getCollection("guests")).length;
     </div>
 
     <div class="filter-row">
-      <span id="result-count" class="count" aria-live="polite"></span>
-      <div class="filters" role="group" aria-label="Filter results by type">
-        <button type="button" class="filter-pill active" data-filter="all" aria-pressed="true">All</button>
-        <button type="button" class="filter-pill" data-filter="Episode" aria-pressed="false">Episodes</button>
-        <button type="button" class="filter-pill" data-filter="Guest" aria-pressed="false">Guests</button>
+      <span id="result-count" class="count" role="status" aria-live="polite"></span>
+      <div class="filters" role="radiogroup" aria-label="Filter results by type">
+        <button type="button" class="filter-pill active" data-filter="all" role="radio" aria-checked="true">All</button>
+        <button type="button" class="filter-pill" data-filter="Episode" role="radio" aria-checked="false">Episodes</button>
+        <button type="button" class="filter-pill" data-filter="Guest" role="radio" aria-checked="false">Guests</button>
       </div>
     </div>
   </section>
 
-  <section class="results" id="results" aria-live="polite"></section>
+  <section class="results" id="results" tabindex="-1"></section>
 
   <div class="load-more-row">
     <button type="button" id="load-more" class="pill outline" hidden>Show more results</button>
@@ -106,7 +106,7 @@ const guestCount = (await getCollection("guests")).length;
       const suffix = episodeCount ? ` · ${episodeCount} episode${episodeCount === "1" ? "" : "s"}` : "";
       return `
         <a class="result-card" href="${result.url}">
-          <div class="result-avatar">${escapeHtml(initials(title))}</div>
+          <div class="result-avatar" aria-hidden="true">${escapeHtml(initials(title))}</div>
           <div class="result-body">
             <div class="result-title">${escapeHtml(title)}</div>
             <div class="result-excerpt">${result.excerpt}${escapeHtml(suffix)}</div>
@@ -131,10 +131,15 @@ const guestCount = (await getCollection("guests")).length;
   function renderMore() {
     const resultsEl = document.getElementById("results")!;
     const loadMoreBtn = document.getElementById("load-more") as HTMLButtonElement;
+    const hadFocus = document.activeElement === loadMoreBtn;
     const next = allResults.slice(shown, shown + PAGE_SIZE);
     resultsEl.insertAdjacentHTML("beforeend", next.map(renderResult).join(""));
     shown += next.length;
-    loadMoreBtn.hidden = shown >= allResults.length;
+    const done = shown >= allResults.length;
+    loadMoreBtn.hidden = done;
+    // The button we may have just hidden could be the focused element —
+    // move focus somewhere real instead of letting it silently drop to <body>.
+    if (done && hadFocus) resultsEl.focus();
   }
 
   async function runSearch(term: string) {
@@ -185,10 +190,10 @@ const guestCount = (await getCollection("guests")).length;
     btn.addEventListener("click", () => {
       document.querySelectorAll<HTMLButtonElement>(".filter-pill").forEach((b) => {
         b.classList.remove("active");
-        b.setAttribute("aria-pressed", "false");
+        b.setAttribute("aria-checked", "false");
       });
       btn.classList.add("active");
-      btn.setAttribute("aria-pressed", "true");
+      btn.setAttribute("aria-checked", "true");
       activeFilter = btn.dataset.filter ?? "all";
       runSearch(input.value);
     });
