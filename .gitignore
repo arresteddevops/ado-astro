@@ -1,5 +1,7 @@
 # build output
 dist/
+# generated at build time by scripts/generate-redirects.mjs — see issue #5
+public/_redirects
 # generated types
 .astro/
 

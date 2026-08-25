@@ -47,6 +47,11 @@ redirect to the episode's canonical URL.
 
 **Redirect Stub**:
 A vanity redirect rule. Lives in the legacy repo's `static/_redirects` (hand-maintained,
-already Netlify-format, 49 rules) — **not** `content/redirect/*.md`, which is dead
-content that Hugo renders as ordinary (useless) pages. Same obligation as an Alias,
-different source.
+already Netlify-format, 49 rules) — **not** `content/redirect/*.md`, which Hugo renders
+as ordinary (useless, non-redirecting) pages for 13 of its 16 stems, all already
+shadowed by a `static/_redirects` rule. The other 3 (`matt`, `lpage`, `thoughtworks`)
+never got a `static/_redirects` rule at all — their pages are equally dead on
+production today, but their `landing` frontmatter field is the only record of where
+they were meant to go, so those 3 are carried into `src/data/redirect-stubs.txt`
+alongside the real 49. Same obligation as an Alias, different source. Found during
+issue #5's link-check crawl.

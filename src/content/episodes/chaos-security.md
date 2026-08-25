@@ -20,7 +20,7 @@ sponsors:
   - sdt
 aliases:
   - /154
-transcript: /static/transcripts/chaos-security.txt
+transcript: chaos-security
 explicit: yes
 ---
 

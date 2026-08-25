@@ -18,7 +18,7 @@ hosts:
 sponsors:
   - sdt
 aliases: []
-transcript: /static/transcripts/dont-worry-do-care.md
+transcript: dont-worry-do-care
 explicit: yes
 ---
 

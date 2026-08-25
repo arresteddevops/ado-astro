@@ -9,10 +9,12 @@
   "packageManager": "pnpm@11.21.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/generate-redirects.mjs && astro build",
+    "generate:redirects": "node scripts/generate-redirects.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "validate:feed": "node scripts/validate-feed.mjs",
+    "check:links": "node scripts/check-links.mjs",
     "postinstall": "git config core.hooksPath .githooks || true"
   },
   "dependencies": {

@@ -29,6 +29,11 @@ const {
 
 const { Content } = await render(episode);
 
+const transcriptEntry = transcript ? await getEntry(transcript) : null;
+const { Content: TranscriptContent } = transcriptEntry
+  ? await render(transcriptEntry)
+  : { Content: null };
+
 const guestCards = (
   await Promise.all(
     guests.map(async (g) => {
@@ -95,11 +100,17 @@ const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
         <audio controls src={audioSrc}>
           <a href={audioSrc}>Download the episode audio</a>
         </audio>
-        {transcript && (
-          <a class="pill outline" href={transcript}>Read the transcript</a>
-        )}
       </div>
     </section>
+  )}
+
+  {TranscriptContent && (
+    <details class="transcript">
+      <summary>Read the transcript</summary>
+      <div class="transcript-body">
+        <TranscriptContent />
+      </div>
+    </details>
   )}
 
   {sponsorEntries.length > 0 && (
@@ -271,17 +282,35 @@ const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
     min-width: 240px;
   }
 
-  .pill.outline {
+  .transcript {
+    padding: 0 120px;
+    max-width: var(--content-max-width);
+  }
+
+  .transcript summary {
     display: inline-flex;
     align-items: center;
     min-height: var(--hit-target-min);
     border: 2px solid var(--color-yellow);
-    color: var(--color-yellow);
+    color: var(--color-navy);
     padding: 10px 18px;
     border-radius: var(--radius-pill);
     font-weight: 700;
     font-size: 13px;
-    flex-shrink: 0;
+    cursor: pointer;
+    width: fit-content;
+  }
+
+  .transcript-body {
+    margin-top: 16px;
+    padding: 24px;
+    border: var(--border-width) solid var(--color-navy);
+    border-radius: var(--radius-card);
+    background: var(--color-cream-card);
+    line-height: 1.7;
+    color: var(--color-text);
+    max-height: 480px;
+    overflow-y: auto;
   }
 
   .sponsors {
@@ -344,7 +373,7 @@ const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
   }
 
   @media (max-width: 900px) {
-    .intro, .media, .sponsors, .show-notes, .guests {
+    .intro, .media, .sponsors, .transcript, .show-notes, .guests {
       padding-left: var(--page-padding);
       padding-right: var(--page-padding);
     }

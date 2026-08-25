@@ -24,7 +24,7 @@ sponsors:
   - datadog
 aliases:
   - /42
-transcript: /static/transcripts/chatops.txt
+transcript: chatops
 explicit: yes
 ---
 

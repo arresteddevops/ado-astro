@@ -22,7 +22,7 @@ sponsors:
 aliases:
   - /157
 youtube: 4Xy2aBWjwk0
-transcript: /static/transcripts/service-mesh.md
+transcript: service-mesh
 explicit: no
 ---
 
