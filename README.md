@@ -11,3 +11,5 @@ This is a port of the previous Hugo site ([arresteddevops/ado-hugo](https://gith
 ## License
 
 [Apache 2.0](LICENSE.md)
+
+<!-- verifying PR + Netlify deploy preview workflow -->
