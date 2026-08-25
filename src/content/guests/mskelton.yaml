@@ -1,0 +1,10 @@
+name: Matthew Skelton
+snapshots:
+  - key: mskelton
+    bio: "Matthew Skelton is co-author of Team Topologies: organizing business and technology teams for fast flow. He is Head of Consulting at Conflux and specialises in Continuous Delivery, operability, and organisation dynamics for modern software systems."
+    thumbnail: img/guests/mskelton.png
+    website: https://confluxdigital.net
+    twitter: matthewpskelton
+    github: matthewskelton
+    linkedin: matthewskelton
+placeholder: false

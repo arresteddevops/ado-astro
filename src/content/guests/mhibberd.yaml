@@ -1,0 +1,12 @@
+name: Mark Hibberd
+snapshots:
+  - key: mhibberd
+    bio: |-
+      Mark is the Head Technologist at [Kinesis](https://kinesis.org/) in Sydney, where they help cities and developers (like, property developers)
+      help the climate, using data. He believes in guiding complex systems through change.
+    thumbnail: /img/guests/mhibberd.png
+    website: http://mth.io
+    twitter: markhibberd
+    github: markhibberd
+    linkedin: https://www.linkedin.com/in/markhibberd/
+placeholder: false

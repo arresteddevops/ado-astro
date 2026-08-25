@@ -1,0 +1,9 @@
+name: Jeremy Meiss
+snapshots:
+  - key: jmeiss
+    bio: Jeremy is the Head of DevRel & Community at CircleCI, formerly at Solace, Auth0 and XDA. He is active in the DevRel Community, and is a co-creator of DevOpsPartyGames.com. A lover of all things coffee, community, open source, and tech, he is also house-broken, and (generally) plays well with others.
+    thumbnail: img/guests/jmeiss.jpg
+    website: jmeiss.me
+    twitter: IAmJerdog
+    linkedin: jeremymeiss
+placeholder: false

@@ -1,0 +1,11 @@
+name: Lachlan Evenson
+snapshots:
+  - key: levenson
+    bio: Lachlan is a principal program manager on the Container Compute team at Azure. He has spent the last few years working with Kubernetes and enabling cloud native journeys. Lachie serves as a Cloud Native ambassador and was the Kubernetes 1.16 release lead, and has deep operational knowledge of many Cloud Native projects.
+    thumbnail: img/guests/levenson.png
+    website: https://medium.com/@LachlanEvenson
+    twitter: LachlanEvenson
+    github: lachie83
+    linkedin: lachlanevenson
+    youtube: LachlanEvenson
+placeholder: false

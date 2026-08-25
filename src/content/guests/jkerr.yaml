@@ -1,0 +1,35 @@
+name: Jessica Kerr
+snapshots:
+  - key: jkerr
+    bio: Jessica Kerr is a developer at Atomist, where she works in the domain of software development. She's obsessed with automation as a way to change-and-learn-about our own work, from delivery to code upkeep. Meanwhile she speaks at conferences about TypeScript, yak shaving, music, and symmathesy.
+    thumbnail: img/guests/jkerr.png
+    website: http://jessitron.com
+    twitter: jessitron
+    github: jessitron
+    linkedin: jessicakerr
+  - key: jkerr2
+    bio: |-
+      Jessitron is a consultant as [Jessitron](https://blog.jessitron.com), LLC. You can hire her to [symmathesize](https://blog.jessitron.com/2018/10/25/symmathecist-n/) with your team.
+      She is into resilience engineering, domain-driven design, and of course DevOps -- all the systems-thinky things.
+      She works remotely from St. Louis, MO, where she raises two daughters. Find her also on [&gt;Code](https://greaterthancode.com), and at 
+      conferences around the world.
+    thumbnail: img/guests/jkerr.png
+    website: http://blog.jessitron.com
+    twitter: jessitron
+    github: jessitron
+    linkedin: jessicakerr
+    instagram: jessitronica
+    youtube: channel/UCWaInxwpwDYd6U4Re_N8MQQ
+  - key: jkerr3
+    bio: |-
+      Jessitron now works at [Honeycomb](https://honeycomb.io). Find her blog etc at [Jessitron](https://jessitron.com/blog), LLC. She is into resilience engineering, domain-driven design, and of course DevOps -- all the systems-thinky things.
+      She lives in St. Louis, MO, where she raises two children. Find her also on [&gt;Code](https://greaterthancode.com), and at 
+      conferences around the world.
+    thumbnail: img/guests/jkerr.png
+    website: http://blog.jessitron.com
+    twitter: jessitron
+    github: jessitron
+    linkedin: jessicakerr
+    instagram: jessitronica
+    youtube: channel/UCWaInxwpwDYd6U4Re_N8MQQ
+placeholder: false

@@ -1,0 +1,15 @@
+name: Aaron Rinehart
+snapshots:
+  - key: arinehart
+    bio: Aaron Rinehart currently serves as Chief Enterprise Security Architect at the UnitedHealth Group and has worked and consulted in the field of Information Security and Technology for organizations such as the Department of Homeland Security (DHS), National Aeronautics and Space Administration (NASA), and the Department of Defense (DoD). Aaron has been a featured speaker at several media outlets and conferences, most notably the National Press Club in Washington DC, RSA, HITRUST, DOES Conf and ABC News. Aaron has been interviewed and quoted in various publications including the Huffington Post, Medill News Service, and CBS MarketWatch.
+    thumbnail: img/guests/arinehart.png
+    twitter: aaronrinehart
+    github: AaronSTeneo
+    linkedin: https://www.linkedin.com/in/aaronsrinehart/
+  - key: arinehart2
+    bio: Aaron Rinehart has been expanding the possibilities of chaos engineering in its application to other safety-critical portions of the IT domain notably cybersecurity. He began pioneering the application of security in chaos engineering during his tenure as the Chief Security Architect at the largest private healthcare company in the world, UnitedHealth Group (UHG). While at UHG Rinehart released ChaoSlingr, one of the first open source software releases focused on using chaos engineering in cybersecurity to build more resilient systems. Rinehart recently founded a chaos engineering startup called Verica with Casey Rosenthal from Netflix and is an O'Reilly author, consultant and frequent speaker in the space.
+    thumbnail: img/guests/arinehart2.png
+    website: verica.io
+    twitter: aaronrinehart
+    linkedin: https://www.linkedin.com/in/aaronsrinehart/
+placeholder: false

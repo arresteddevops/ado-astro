@@ -1,0 +1,11 @@
+name: Adrian Moisey
+snapshots:
+  - key: amoisey
+    bio: Adrian is a Systems Engineer at SalesLoft. He is involved with the DevOps scene in Cape Town, organises meetups and is active on the local ZATech slack group.
+    thumbnail: img/guests/amoisey.jpg
+    website: https://adrianmoisey.gitlab.io/
+    twitter: adrianmoisey
+    github: adrianmoisey
+    linkedin: adrian-moisey-b6705744
+    facebook: adrianbmoisey
+placeholder: false

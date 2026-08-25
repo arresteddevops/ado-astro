@@ -1,0 +1,7 @@
+name: Jeff Hodges
+snapshots:
+  - key: jhodges
+    bio: Jeff Hodges is a distributed systems engineer who sometimes helps with crypto. He’s previously worked at Twitter, helped ship Let’s Encrypt, and is currently consulting.
+    thumbnail: img/guests/jhodges.png
+    twitter: jmhodges
+placeholder: false

@@ -1,0 +1,8 @@
+name: Sameer Doshi
+snapshots:
+  - key: sdoshi
+    bio: Sameer is a DevOps Architect at kCura, where he manages DevOps team, responsible for maintaining software development tools, automation, and culture. His work enables a small team of engineers to manage a large code base across a distributed source control system and rapidly spin up complex server environments for a growing development team. Sameer graduated from Boston University with a degree in biomedical engineering. He joined kCura in 2014.
+    thumbnail: img/guests/sdoshi.png
+    twitter: sameesdoshi
+    linkedin: https://www.linkedin.com/in/sameerdoshidevops
+placeholder: false

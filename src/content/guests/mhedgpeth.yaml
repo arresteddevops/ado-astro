@@ -1,0 +1,17 @@
+name: Michael Hedgpeth
+snapshots:
+  - key: mhedgpeth
+    bio: Michael is a Software Architect at NCR working to introduce devops into their Hospitality organization. Change in large organizations require a lot of political skill, and Michael has learned through trial and error what works and what doesn't. When pure technical skill wouldn't suffice, Michael has had to discover the power of his personal brand both internally and externally in order to reach his company's goals and his own goals.
+    thumbnail: img/guests/mhedgpeth.png
+    website: http://hedge-ops.com
+    twitter: michaelhedgpeth
+    github: mhedgpeth
+    linkedin: https://www.linkedin.com/in/michael-hedgpeth-9696b45
+  - key: mhedgpeth2
+    bio: Michael Hedgpeth leads the Application Operations and DevOps team for NCR's Hospitality division. He's most interested these days in applying DevOps to large organizations, teaching people how to make positive career changes, and incident management.
+    thumbnail: img/guests/mhedgpeth2.png
+    website: http://hedge-ops.com
+    twitter: michaelhedgpeth
+    github: mhedgpeth
+    linkedin: https://www.linkedin.com/in/michael-hedgpeth-9696b45
+placeholder: false

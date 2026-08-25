@@ -1,0 +1,8 @@
+name: Corey Quinn
+snapshots:
+  - key: cquinn
+    bio: Corey is a Cloud Economist at [the Duckbill Group](https://www.duckbillgroup.com/). Corey specializes in helping companies improve their AWS bills by making them smaller and less horrifying; hosts the [Screaming in the Cloud](https://www.lastweekinaws.com/podcast/screaming-in-the-cloud/) and [AWS Morning Brief](https://www.lastweekinaws.com/podcast/aws-morning-brief/) podcasts; and curates [Last Week in AWS](https://lastweekinaws.com), a weekly newsletter summarizing the latest in AWS news, blogs, and tools, sprinkled with snark.
+    thumbnail: img/guests/cquinn.png
+    website: https://www.duckbillgroup.com/
+    twitter: quinnypig
+placeholder: false

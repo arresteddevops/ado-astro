@@ -1,0 +1,7 @@
+name: Damon Edwards
+snapshots:
+  - key: dedwards
+    bio: Co-host of DevOps Cafe. The Pat Hughes to John’s Ron Santo.
+    thumbnail: img/guests/dedwards.png
+    twitter: damonedwards
+placeholder: false

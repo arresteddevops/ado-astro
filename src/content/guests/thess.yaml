@@ -1,0 +1,28 @@
+name: Trevor Hess
+snapshots:
+  - key: thess
+    bio: Adding his bio late enough for it to be a cutout stuffed in the playbill, Trevor Hess is a Software Consultant at 10th Magnitude. Usually writing .NET applications on Azure, he always appreciates new challenges. Between exceedingly nerdy anecdotes and useless facts lay some opinions and thoughts about how we build software and teams. Trevor has been seen previously in such shows as "The Fantasticks" and "Joseph And the Amazing Technicolor Computer Screen".
+    thumbnail: img/guests/thess.png
+    twitter: trevorghess
+    github: trevorghess
+  - key: thess2
+    bio: Trevor Hess is a Partner Solution Architect focusing on Microsoft at [Chef Software](https://www.chef.io), working with Microsoft to ensure that Chef is delighting customers and prospects on Windows and the many parts inside Azure! <br /><br /> Coming from a background in .NET Software Development and consulting, he has worked with several large multinational organizations to help kick start their journey to the cloud and the world of DevOps practices and principals. He is excited to engage in new experiences, and learning opportunities. <br /><br /> Trevor enjoys having hearty discussions about DevOps as well organizational change and transformation.
+    thumbnail: img/guests/thess2.png
+    twitter: trevorghess
+    github: trevorghess
+  - key: thess3
+    bio: Trevor Hess is a Partner Solution Architect focusing on Microsoft at [Chef Software](https://www.chef.io), working with Microsoft to ensure that Chef is delighting customers and prospects on Windows and the many parts inside Azure! <br /><br /> Coming from a background in .NET Software Development and consulting, he has worked with several large multinational organizations to help kick start their journey to the cloud and the world of DevOps practices and principals. He is excited to engage in new experiences, and learning opportunities. <br /><br /> Trevor enjoys having hearty discussions about DevOps as well organizational change and transformation.
+    thumbnail: img/guests/thess2.png
+    twitter: trevorghess
+    github: trevorghess
+  - key: thess4
+    bio: |-
+      Trevor Hess is a Senior Product Manager at [Progress Software](https://www.progress.com/) working on [Chef Software](https://www.chef.io/). He currently works on the Chef Application Delivery, Compliance and Infrastructure offerings.
+
+      Coming from a background in .NET Software Development and consulting, he has worked with several large multinational organizations to help kick start their journey to the cloud and the world of DevOps practices and principals. He is excited to engage in new experiences, and learning opportunities. 
+
+      Trevor enjoys having hearty discussions about DevOps as well organizational change and transformation.
+    thumbnail: img/trevor.png
+    twitter: trevorghess
+    github: trevorghess
+placeholder: false

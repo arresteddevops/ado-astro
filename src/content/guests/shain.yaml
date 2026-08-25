@@ -1,0 +1,8 @@
+name: Scott Hain
+snapshots:
+  - key: shain
+    bio: Long time release engineer, mainframe whisperer, problem solver, quality engineer, devopsy person who has seen quite a few amazing and bizarre things in his time in the industry. Currently focused on product quality at Hashicorp. Lives in Seattle and has a loud tuxedo cat his coworkers seem to like more than they like him.
+    thumbnail: img/guests/shain.jpg
+    twitter: elejia
+    github: scotthain
+placeholder: false

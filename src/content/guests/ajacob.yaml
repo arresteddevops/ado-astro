@@ -1,0 +1,14 @@
+name: Adam Jacob
+snapshots:
+  - key: ajacob
+    bio: Adam Jacob is the creator of Chef and co-founder of Chef, Inc. in 2008 and currently serves as its Chief Technology Officer. Prior to Chef, Inc. Adam founded HJK Solutions, an automated infrastructure consultancy. During two years at HJK, Adam built new infrastructures for 15 different startups. Including Adam’s time at HJK, Adam has 13 years of experience as a systems administrator, systems architect, and tools developer.
+    thumbnail: img/guests/ajacob.png
+    twitter: adamhjk
+  - key: ajacob2
+    bio: Adam is an engineering and product innovator, with decades of experience designing, building, and managing large production systems. Adam previously co-founded Chef Software, was the original author of Chef, served as CTO, and was on the board of directors.
+    thumbnail: img/guests/ajacob2.jpg
+    website: https://systeminit.com
+    twitter: adamhjk
+    github: adamhjk
+    pronouns: He/Him
+placeholder: false

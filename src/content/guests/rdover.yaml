@@ -1,0 +1,9 @@
+name: Roni Dover
+snapshots:
+  - key: rdover
+    bio: Infovore, product developer, and a board game geek 🤓. Writes about development practice on [Medium](https://roni-dover.medium.com/). Founded [Digma.ai](https://digma.ai), a development observability opensource platform.
+    thumbnail: img/guests/roni-dover.png
+    website: https://digma.ai
+    twitter: doppleware
+    github: doppleware
+placeholder: false

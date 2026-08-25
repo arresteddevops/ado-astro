@@ -1,0 +1,69 @@
+name: Matty Stratton
+snapshots:
+  - key: mstratton
+    bio: Matty Stratton is a solutions architect at Chef, where he demonstrates how Chef's automation platform provides speed and flexibility to clients' infrastructure. He is devoted to concepts like Continuous Delivery and Infrastructure as Code, and his license plate actually says "DevOps". He lives in Chicago and has an unhealthy obsession with Doctor Who, Firefly, and Game of Thrones. And whiskey.
+    thumbnail: img/guests/mstratton.png
+    website: http://www.mattstratton.com/
+    twitter: mattstratton
+    github: mattstratton
+  - key: mstratton2
+    bio: Matty Stratton is a customer architect at Chef, where he demonstrates how Chef's automation platform provides speed and flexibility to clients' infrastructure. He is devoted to concepts like Continuous Delivery and Infrastructure as Code, and his license plate actually says "DevOps". He lives in the Chicagoland area with his wife Andrea, and his three kids, Henry, Joey, and Sophia. He also has an unhealthy obsession with *Doctor Who*, *Firefly*, and *Game of Thrones*. And whiskey.
+    thumbnail: img/guests/mstratton2.png
+    website: http://www.mattstratton.com/
+    twitter: mattstratton
+    github: mattstratton
+  - key: mstratton3
+    bio: Matt Stratton is a DevOps Advocate at PagerDuty, where he helps dev and ops teams advance the practice of their craft and become more operationally mature. He collaborates with PagerDuty customers and industry thought leaders in the broader DevOps community, and back in the day, his license plate actually said "DevOps". <br /><br /> Matt has over 20 years experience in IT operations, ranging from large financial institutions such as JPMorganChase and internet firms, including Apartments.com. He is a sought-after speaker internationally, presenting at Agile, DevOps, and ITSM focused events, including ChefConf, DevOpsDays, Interop, PINK, and others worldwide. Matt is the founder and co-host of the popular Arrested DevOps podcast, as well as a global organizer of the DevOpsDays set of conferences. <br /><br /> He lives in the Chicagoland area and has three awesome kids - Henry, Joey, and Sophia, who he loves just a little bit more than he loves *Doctor Who*. He is currently on a mission to discover the best phô in the world.
+    thumbnail: img/guests/mstratton3.png
+    website: http://www.mattstratton.com/
+    twitter: mattstratton
+    github: mattstratton
+    linkedin: https://www.linkedin.com/in/mattstratton
+    instagram: mattstratton
+  - key: mstratton4
+    bio: |-
+      Matt Stratton is a Transformation Specialist at Red Hat and a long-time member of the global DevOps community. Back in the day, his license plate actually said "DevOps".
+
+      Matt has over 20 years of experience in IT operations, ranging from large financial institutions such as JPMorganChase to internet firms including Apartments.com. He is a sought-after speaker internationally, presenting at Agile, DevOps, and ITSM focused events, including DevOps Enterprise Summit, DevOpsDays, Interop, PINK, and others worldwide. Matt is the founder and co-host of the popular [Arrested DevOps](https://www.arresteddevops.com) podcast, as well as the global co-chair of the [DevOpsDays](https://www.devopsdays.org) set of conferences.
+
+      He lives in Chicago and has three awesome kids, whom he loves just a little bit more than he loves *Doctor Who*. He is currently on a mission to discover the best phở in the world.
+    thumbnail: img/matt-new.jpg
+    website: http://www.mattstratton.com/
+    twitter: mattstratton
+    github: mattstratton
+    linkedin: https://www.linkedin.com/in/mattstratton
+    instagram: mattstratton
+    youtube: mugsy1274
+    twitch: themattstratton
+  - key: mstratton5
+    bio: |-
+      Matt Stratton is a Transformation Specialist at Red Hat and a long-time member of the global DevOps community. Back in the day, his license plate actually said "DevOps".
+
+      Matt has over 20 years of experience in IT operations, ranging from large financial institutions such as JPMorganChase to internet firms including Apartments.com. He is a sought-after speaker internationally, presenting at Agile, DevOps, and ITSM focused events, including DevOps Enterprise Summit, DevOpsDays, Interop, PINK, and others worldwide. Matt is the founder and co-host of the popular [Arrested DevOps](https://www.arresteddevops.com) podcast, as well as the global co-chair of the [DevOpsDays](https://www.devopsdays.org) set of conferences.
+
+      He lives in Chicago and has three awesome kids, whom he loves just a little bit more than he loves *Doctor Who*. He is currently on a mission to discover the best phở in the world.
+    thumbnail: img/guests/mstratton5.jpg
+    website: http://speaking.mattstratton.com/
+    twitter: mattstratton
+    github: mattstratton
+    linkedin: https://www.linkedin.com/in/mattstratton
+    instagram: mattstratton
+    youtube: mugsy1274
+    twitch: themattstratton
+  - key: mstratton6
+    bio: |-
+      Matty Stratton is the Director of Developer Relations at [Aiven](https://aiven.io), a well-known member of the DevOps community, founder and co-host of the popular [Arrested DevOps](https://www.arresteddevops.com/) podcast, and a global organizer of the [DevOpsDays](https://www.devopsdays.org/) set of conferences.
+
+      Matty has over 20 years of experience in IT operations and is a sought-after speaker internationally, presenting at Agile, DevOps, and cloud engineering focused events worldwide. Demonstrating his keen insight into the changing landscape of technology, he recently changed his license plate from `DEVOPS` to `KUBECTL`.
+
+      He lives in Chicago and has three awesome kids and two Australian Shepherds, whom he loves just a little bit more than he loves Diet Coke.
+    thumbnail: img/guests/mstratton5.jpg
+    website: http://speaking.mattstratton.com/
+    twitter: mattstratton
+    github: mattstratton
+    linkedin: https://www.linkedin.com/in/mattstratton
+    instagram: mattstratton
+    youtube: mugsy1274
+    twitch: themattstratton
+    threads: mattstratton
+placeholder: false

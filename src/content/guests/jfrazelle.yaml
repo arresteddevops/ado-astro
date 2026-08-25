@@ -1,0 +1,18 @@
+name: Jessie Frazelle
+snapshots:
+  - key: jfrazelle
+    bio: Jessie Frazelle is on the security team at Mesosphere working on multi-tenancy for DCOS. She also recently worked on adding seccomp in Docker. She is typecast as the person who runs everything in containers including desktop apps. Nerd by day, rap battle champion by night.
+    thumbnail: img/guests/jfrazelle.png
+    website: https://blog.jessfraz.com/
+    twitter: jessfraz
+  - key: jfrazelle2
+    bio: Jess Frazelle is a Software Engineer at Google. She was previously a Software Engineer at Docker. Jess Frazelle has served as a Maintainer of Docker, Contributor to Runc and Golang as well as other projects. Jess Frazelle is working on making containers more secure. She loves all things involving Linux namespaces and cgroups and is typecasted as the person who runs everything in containers.
+    thumbnail: img/guests/jfrazelle2.png
+    website: https://blog.jessfraz.com/
+    twitter: jessfraz
+  - key: jfrazelle3
+    bio: Jessie Frazelle is a computer programmer who has worked at GitHub, Microsoft, Google, Docker and various companies, startups, even design agencies before that. She’s worked on a lot of the open source projects in the container ecosystem, she’s a top abuser of the GitHub api, and runs her own cloud from her apartment and a colo in NYC called jess cloud.
+    thumbnail: img/guests/jfrazelle3.png
+    website: https://blog.jessfraz.com/
+    twitter: jessfraz
+placeholder: false

@@ -1,0 +1,13 @@
+name: Ryn Daniels
+snapshots:
+  - key: rdaniels
+    bio: Ryn Daniels is an operations engineer and sparkly devops princess whose goal in life is to never again be a one-person ops team. They live in New York where they spend far too much time in the data center and not enough time making hot sauce and homebrewing beer. Ryn is not a member of any pink-haired thought leadership conspiracy which emphatically does not exist.
+    thumbnail: img/guests/rdaniels.png
+    website: https://ryn.works/
+    twitter: rynchantress
+  - key: rdaniels2
+    bio: Ryn Daniels is a senior operations engineer at Etsy who got their start in programming with TI-80 calculators back when Geocities was still cool, and these days has opinions on things like ‘the cloud’ and ‘devops’. Before escaping to the world of operations, they spent a few years doing R&D and systems engineering in the corporate world. They live in Brooklyn with a perfectly reasonable number of cats, and in their spare time can often be found rock-climbing or hand crafting knitted server koozies for the data center. They are co-author of O’Reilly Media’s [Effective DevOps](http://oreil.ly/1BXuIdX).
+    thumbnail: img/guests/rdaniels2.png
+    website: https://ryn.works/
+    twitter: rynchantress
+placeholder: false

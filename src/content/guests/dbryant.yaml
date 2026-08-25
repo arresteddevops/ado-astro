@@ -1,0 +1,10 @@
+name: Daniel Bryant
+snapshots:
+  - key: dbryant
+    bio: Daniel Bryant is the Head of Developer Relations at Ambassador Labs. His technical expertise focuses on ‘DevOps’ tooling, cloud/container platforms, and microservice implementations. Daniel is a long-time coder, platform engineer, and Java Champion who contributes to several open source projects. He also writes for InfoQ, O’Reilly, and The New Stack, and regularly presents at international conferences such as KubeCon, QCon, and JavaOne. In his copious amounts of free time, he enjoys running, reading, and traveling.
+    thumbnail: img/guests/dbryant.jpg
+    twitter: danielbryantuk
+    github: danielbryantuk
+    linkedin: danielbryantuk
+    pronouns: he/him
+placeholder: false

@@ -1,0 +1,12 @@
+name: Silvia Botros
+snapshots:
+  - key: sbotros
+    bio: |-
+      Silvia Botros is a Senior Principal Engineer at Twilio Sendgrid. She likes to help teams scale their databases and build well architected platforms. She loves finding the breaking point of all sorts of technologies and her superpower is EMPing everything she touches.
+
+      You can find out the latest thing Silvia is working on by [following her on twitter](https://twitter.com/dbsmasher) or by reading her posts on [her blog](https://blog.dbsmasher.com).
+    thumbnail: img/guests/sbotros.png
+    website: https://blog.dbsmasher.com
+    twitter: dbsmasher
+    github: silviabotros
+placeholder: false

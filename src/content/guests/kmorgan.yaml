@@ -1,0 +1,10 @@
+name: Kat Morgan
+snapshots:
+  - key: kmorgan
+    bio: "aka: usrbinkat - Platform Engineer @ Cisco"
+    thumbnail: img/guests/kmorgan.png
+    website: https://blog.usrbinkat.io/en/page/about
+    github: https://github.com/usrbinkat
+    linkedin: usrbinkat
+    pronouns: She/Her
+placeholder: false

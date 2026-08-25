@@ -1,0 +1,9 @@
+name: Kent Rancourt
+snapshots:
+  - key: krancourt
+    bio: Kent is a senior engineer at Microsoft, a dad, martial arts instructor, comic book nerd, and Legomaniac.
+    thumbnail: img/guests/krancourt.jpg
+    twitter: krancour
+    github: krancour
+    linkedin: kentrancourt
+placeholder: false

@@ -1,0 +1,11 @@
+name: Charity Majors
+snapshots:
+  - key: cmajors
+    bio: Charity Majors (Parse/Facebook) is an "Accidental Computerer". She was the first infrastructure hire at Parse, which was acquired by Facebook in April 2013. Charity handles all of the backend operations and DBA work, and manages a team of 7 engineers.
+    thumbnail: img/guests/cmajors.png
+    twitter: mipsytipsy
+  - key: cmajors2
+    bio: Cofounder and CTO of Honeycomb, a new startup focused on mining machine data. Previously running infrastructure at Parse, engineering manager at Facebook. Worked with the RocksDB team to build and deploy world’s first Mongo+Rocks in production. Likes single malt scotch.
+    thumbnail: img/guests/cmajors2.png
+    twitter: mipsytipsy
+placeholder: false

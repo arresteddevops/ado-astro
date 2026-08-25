@@ -1,0 +1,18 @@
+name: Steve Giguere
+snapshots:
+  - key: sgiguere
+    bio: "Currently I am enjoying life as a Developer Advocate with Bridgecrew (by Palo Alto) specialising in Cloud and Infrastructure Security Automation. Prior to this I was a Solution Architect for StackRox and Aqua Security specialising in container and kubernetes security and also previously spent several years Synopsys establishing DevSecOps best practices for enterprise CI/CD pipelines.\r
+
+      \r
+
+      I also have killer new podcast called CoSeCast - The Continuous Security Podcast, a personal blog and podcast called Codifyre, and represent Great Britain at playing Ultimate Frisbee."
+    thumbnail: img/guests/sgiguere.jpg
+    website: https://stevegiguere.com
+    twitter: https://twitter.com/_stevegiguere_
+    github: https://githhub.com/eurogig
+    linkedin: https://www.linkedin.com/in/stevegiguere/
+    instagram: eurogig
+    youtube: beernativetv
+    twitch: clust3rf8ck
+    pronouns: He/Him
+placeholder: false

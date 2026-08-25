@@ -1,0 +1,10 @@
+name: Brandon Olin
+snapshots:
+  - key: bolin
+    bio: Lead Systems Engineer at Columbia Sportswear focusing on automation, configuration management, monitoring, and general technologies to drive the business forward.
+    thumbnail: img/guests/bolin.png
+    website: https://devblackops.io/
+    twitter: devblackops
+    github: devblackops
+    linkedin: https://www.linkedin.com/in/brandonolin
+placeholder: false
