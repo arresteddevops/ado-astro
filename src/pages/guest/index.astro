@@ -20,12 +20,13 @@ const episodesByGuest = await getEpisodesByGuestId();
 
   <section class="grid">
     {guests.map((guest, i) => {
-      const bio = guest.data.snapshots[guest.data.snapshots.length - 1].bio;
+      const latest = guest.data.snapshots[guest.data.snapshots.length - 1];
       const count = episodesByGuest.get(guest.id)?.length ?? 0;
       return (
         <PersonCard
           name={guest.data.name}
-          bio={bio}
+          bio={latest.bio}
+          thumbnail={latest.thumbnail}
           href={`/guest/${guest.id}/`}
           episodeCount={count}
           colorIndex={i}

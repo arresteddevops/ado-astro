@@ -394,6 +394,15 @@ function migrateEpisodes(guestIndex, hostIndex, sponsorIndex) {
   // silently letting one episode's redirect shadow the other's.
   const aliasOwners = new Map();
 
+  // 3 episodes' `images[]` frontmatter points at a file that was never at
+  // that exact path — an inserted "static/" segment, or a wrong extension
+  // (survey-confirmed against the real files and production; see issue #7).
+  const imageFixups = {
+    "/img/static/social/fb/deliveryconf.png": "/img/social/fb/deliveryconf.png",
+    "/img/static/social/fb/state-of-devops.png": "/img/social/fb/state-of-devops.png",
+    "img/social/fb/open-communities.png": "img/social/fb/open-communities.jpg",
+  };
+
   let count = 0;
   for (const filePath of listMd(dir, { exclude: ["_index.md"] })) {
     const s = stem(filePath);
@@ -446,7 +455,7 @@ function migrateEpisodes(guestIndex, hostIndex, sponsorIndex) {
         })(),
         episodeImage: get(data, "episode_image"),
         episodeBanner: get(data, "episode_banner"),
-        images: toArray(get(data, "images")),
+        images: toArray(get(data, "images")).map((img) => imageFixups[img] ?? img),
         guests,
         hosts,
         sponsors,

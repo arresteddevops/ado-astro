@@ -1,8 +1,10 @@
 ---
 import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SocialLinks from "../../components/SocialLinks.astro";
 import { getEpisodesByHostId } from "../../lib/hosts";
+import { getMiscAsset } from "../../lib/images";
 
 export async function getStaticPaths() {
   const hosts = await getCollection("hosts");
@@ -22,12 +24,15 @@ const initials = host.data.name
   .map((p) => p[0]?.toUpperCase())
   .join("");
 const sortedEpisodes = [...episodes].sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const image = getMiscAsset(host.data.thumbnail);
 ---
 
 <BaseLayout title={host.data.name}>
   <section class="profile">
     <div class="card">
-      <div class="avatar">{initials}</div>
+      <div class="avatar" aria-hidden="true">
+        {image ? <Image src={image} alt="" width={320} height={320} /> : initials}
+      </div>
       <div class="badge">HOST</div>
       <h1>{host.data.name}</h1>
       {host.data.pronouns && <span class="pronouns">{host.data.pronouns}</span>}
@@ -91,9 +96,17 @@ const sortedEpisodes = [...episodes].sort((a, b) => b.data.date.valueOf() - a.da
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
     font-family: var(--font-display);
     font-size: 52px;
     font-weight: 800;
+  }
+
+  .avatar :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .badge {

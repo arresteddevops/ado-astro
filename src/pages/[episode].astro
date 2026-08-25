@@ -1,8 +1,10 @@
 ---
 import { getCollection, getEntry, getEntries, render } from "astro:content";
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PersonCard from "../components/PersonCard.astro";
 import { MEDIA_PREFIX } from "../consts";
+import { getEpisodeAsset, getEpisodeOgImage } from "../lib/images";
 
 export async function getStaticPaths() {
   const episodes = await getCollection("episodes");
@@ -25,7 +27,11 @@ const {
   sponsors,
   youtube,
   transcript,
+  episodeBanner,
+  images,
 } = episode.data;
+const banner = getEpisodeAsset(episodeBanner);
+const ogImage = getEpisodeOgImage(episode.id, images);
 
 const { Content } = await render(episode);
 
@@ -40,7 +46,7 @@ const guestCards = (
       const person = await getEntry(g.person);
       if (!person) return null;
       const snap = person.data.snapshots.find((s) => s.key === g.snapshot) ?? person.data.snapshots[0];
-      return { id: person.id, name: person.data.name, bio: snap.bio };
+      return { id: person.id, name: person.data.name, bio: snap.bio, thumbnail: snap.thumbnail };
     }),
   )
 ).filter((g) => g !== null);
@@ -52,8 +58,13 @@ const dateLabel = date.toLocaleDateString("en-US", { month: "long", day: "numeri
 const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} image={ogImage}>
   <section class="intro" data-pagefind-body data-pagefind-filter="type:Episode">
+    {banner && (
+      <div class="banner">
+        <Image src={banner} alt="" width={1200} height={400} />
+      </div>
+    )}
     <a class="back" href="/">← All episodes</a>
     <div class="badges">
       <span class="badge episode-badge">EPISODE {episodeNumber}</span>
@@ -135,7 +146,7 @@ const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
       <h2>This episode's guests</h2>
       <div class="grid">
         {guestCards.map((g, i) => (
-          <PersonCard name={g.name} bio={g.bio} href={`/guest/${g.id}/`} colorIndex={i} />
+          <PersonCard name={g.name} bio={g.bio} thumbnail={g.thumbnail} href={`/guest/${g.id}/`} colorIndex={i} />
         ))}
       </div>
     </section>
@@ -155,6 +166,20 @@ const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
     flex-direction: column;
     gap: 20px;
     max-width: var(--content-max-width);
+  }
+
+  .banner {
+    border: var(--border-width) solid var(--color-navy);
+    border-radius: var(--radius-card-lg);
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .banner :global(img) {
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    object-fit: cover;
   }
 
   .back {

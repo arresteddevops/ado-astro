@@ -9,8 +9,9 @@
   "packageManager": "pnpm@11.21.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/generate-redirects.mjs && astro build && pagefind --site dist",
+    "build": "node scripts/generate-redirects.mjs && node scripts/generate-og-images.mjs && astro build && pagefind --site dist",
     "generate:redirects": "node scripts/generate-redirects.mjs",
+    "generate:og": "node scripts/generate-og-images.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "validate:feed": "node scripts/validate-feed.mjs",
@@ -26,7 +27,10 @@
     "esbuild": true
   },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "pagefind": "^1.5.2",
+    "satori": "^0.33.4",
+    "sharp": "^0.35.3",
     "smol-toml": "^1.8.0",
     "yaml": "^2.9.0"
   }

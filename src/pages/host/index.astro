@@ -22,6 +22,7 @@ const episodesByHost = await getEpisodesByHostId();
         <PersonCard
           name={host.data.name}
           bio={host.body ?? ""}
+          thumbnail={host.data.thumbnail}
           href={`/host/${host.id}/`}
           episodeCount={count}
           colorIndex={i}

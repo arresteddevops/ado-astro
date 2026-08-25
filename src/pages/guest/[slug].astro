@@ -1,9 +1,11 @@
 ---
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SocialLinks from "../../components/SocialLinks.astro";
 import { getEpisodesByGuestId } from "../../lib/guests";
 import { renderMarkdown } from "../../lib/markdown";
+import { getMiscAsset } from "../../lib/images";
 
 export async function getStaticPaths() {
   const guests = await getCollection("guests");
@@ -26,12 +28,19 @@ const initials = guest.data.name
 const sortedEpisodes = [...episodes].sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
 const firstAppeared = sortedEpisodes[0]?.data.date.getFullYear();
 const bioHtml = renderMarkdown(latest.bio);
+const image = getMiscAsset(latest.thumbnail);
 ---
 
 <BaseLayout title={guest.data.name} description={latest.bio.slice(0, 160)}>
   <section class="profile" data-pagefind-body data-pagefind-filter="type:Guest">
     <div class="card" data-pagefind-meta={`episodeCount:${episodes.length}`}>
-      <div class="avatar">{initials}</div>
+      <div class="avatar" aria-hidden="true">
+        {image ? (
+          <Image src={image} alt="" width={320} height={320} data-pagefind-meta="image[src]" />
+        ) : (
+          initials
+        )}
+      </div>
       <div class="badge">GUEST</div>
       <h1>{guest.data.name}</h1>
       <SocialLinks website={latest.website} twitter={latest.twitter} github={latest.github} linkedin={latest.linkedin} />
@@ -109,9 +118,17 @@ const bioHtml = renderMarkdown(latest.bio);
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
     font-family: var(--font-display);
     font-size: 52px;
     font-weight: 800;
+  }
+
+  .avatar :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .badge {

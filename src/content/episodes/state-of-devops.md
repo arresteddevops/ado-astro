@@ -9,7 +9,7 @@ podcastDuration: 52:39
 episodeImage: episode/img/state-of-devops.png
 episodeBanner: /episode/img/state-of-devops-banner.png
 images:
-  - /img/static/social/fb/state-of-devops.png
+  - /img/social/fb/state-of-devops.png
 guests:
   - person: nforsgren
     snapshot: nforsgren3
