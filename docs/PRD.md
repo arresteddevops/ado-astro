@@ -64,8 +64,8 @@ own presentation.
 
 ## Content debts (Matty to supply)
 
-- Origin story copy for the About page.
-- Trevor Hess bio.
+- Origin story copy for the About page (draft copy is in the design canvas — needs Matty's punch-up).
+- ~~Trevor Hess bio~~ — pulled from ado-hugo content/host/thess.md.
 - Decision on the "banana stand" hero headline stays (iTunes subtitle suggests yes).
 
 ## Build requirements

@@ -5,8 +5,11 @@ Port of the Hugo site in `../ado-hugo` (github.com/arresteddevops/ado-hugo, cast
 
 ## Current state
 
-Pre-code: design and migration planning. The PRD, ADRs, and glossary live in `docs/` once
-they exist. Don't scaffold Astro until the PRD phase is done.
+Planning complete; build not started. Read before writing code:
+- `docs/PRD.md` — 13 locked decisions, phases (= GitHub issues 1–8), success criteria
+- `docs/adr/` — feed rebuild, person-centric guest model, content source of truth
+- `CONTEXT.md` — the glossary; use its terms (Guest, Bio Snapshot, Alias, The Feed)
+- Design: Broadcast Pop canvas, linked in the PRD (About page copy is draft)
 
 ## Reference: the legacy site (`../ado-hugo`)
 
