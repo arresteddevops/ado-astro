@@ -5,7 +5,8 @@ Port of the Hugo site in `../ado-hugo` (github.com/arresteddevops/ado-hugo, cast
 
 ## Current state
 
-Planning complete; build not started. Read before writing code:
+Migration in progress — see `gh issue list` for phase status (issues 1–8). Read before
+writing code:
 - `docs/PRD.md` — 13 locked decisions, phases (= GitHub issues 1–8), success criteria
 - `docs/adr/` — feed rebuild, person-centric guest model, content source of truth
 - `CONTEXT.md` — the glossary; use its terms (Guest, Bio Snapshot, Alias, The Feed)
@@ -35,4 +36,9 @@ Planning complete; build not started. Read before writing code:
 
 - Package manager: pnpm (assumed; confirm with Matty before scaffolding)
 - Content modeled as Astro content collections (episodes, guests, hosts, sponsors, pages)
+- **Scoped `<style>` never reaches client-injected HTML.** Astro's scoped-CSS hash only
+  attaches to elements present in the template at build time — markup inserted at runtime
+  via `innerHTML`/`insertAdjacentHTML` (e.g. search results) gets none of it and renders
+  unstyled with no error. Put styles for anything client-rendered in a separate
+  `<style is:global>` block. Bit us on the Phase 6 search page.
 - Keep this file short; add decisions as they're made in ADRs under `docs/adr/`

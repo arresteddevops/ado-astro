@@ -25,9 +25,6 @@ const IGNORE_PATTERNS = [
   // Leftover Hugo theme demo content (castanet's example posts) — never
   // real site content.
   /^\/post(\/(first|second))?\/?$/,
-  // Nav already links here; the search page itself is issue #6 (Pagefind),
-  // not yet built. Not a regression from this phase.
-  /^\/search\/?$/,
 ];
 
 function pagePathname(url) {
