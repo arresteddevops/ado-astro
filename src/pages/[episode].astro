@@ -131,19 +131,26 @@ const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
   {sponsorCards.length > 0 && (
     <section class="sponsors">
       <span class="label">BROUGHT TO YOU BY</span>
-      <div class="sponsor-row">
-        {sponsorCards.map((s) =>
-          s.adImage ? (
-            <a class="sponsor-ad" href={s.data.url ?? "/sponsorship/"}>
-              <Image src={s.adImage} alt={s.data.name} width={440} />
-            </a>
-          ) : s.data.url ? (
-            <a class="chip" href={s.data.url}>{s.data.name}</a>
-          ) : (
-            <span class="chip">{s.data.name}</span>
-          ),
-        )}
-      </div>
+      {sponsorCards.some((s) => !s.adImage) && (
+        <div class="sponsor-row">
+          {sponsorCards
+            .filter((s) => !s.adImage)
+            .map((s) =>
+              s.data.url ? (
+                <a class="chip" href={s.data.url}>{s.data.name}</a>
+              ) : (
+                <span class="chip">{s.data.name}</span>
+              ),
+            )}
+        </div>
+      )}
+      {sponsorCards
+        .filter((s) => s.adImage)
+        .map((s) => (
+          <a class="sponsor-ad" href={s.data.url ?? "/sponsorship/"}>
+            <Image src={s.adImage} alt={s.data.name} width={1040} />
+          </a>
+        ))}
     </section>
   )}
 
@@ -370,9 +377,9 @@ const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
     padding: 24px 120px 0;
     max-width: var(--content-max-width);
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 16px;
-    flex-wrap: wrap;
   }
 
   .sponsor-row {
@@ -384,6 +391,7 @@ const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
 
   .sponsor-ad {
     display: block;
+    width: 100%;
     border: var(--border-width) solid var(--color-navy);
     border-radius: 12px;
     overflow: hidden;
@@ -392,7 +400,7 @@ const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
 
   .sponsor-ad :global(img) {
     display: block;
-    width: 220px;
+    width: 100%;
     height: auto;
   }
 
