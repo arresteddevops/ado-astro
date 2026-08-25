@@ -32,7 +32,7 @@ const { bg, fg } = palette[colorIndex % palette.length];
 ---
 
 <a class="card" href={href}>
-  <div class="avatar" style={!image ? `background: ${bg}; color: ${fg};` : undefined}>
+  <div class="avatar" aria-hidden="true" style={!image ? `background: ${bg}; color: ${fg};` : undefined}>
     {image ? <Image src={image} alt="" width={240} height={240} /> : initials}
   </div>
   <span class="name">{name}</span>
