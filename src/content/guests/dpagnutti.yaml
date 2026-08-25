@@ -1,0 +1,8 @@
+name: Doug Pagnutti
+snapshots:
+  - key: dpagnutti
+    bio: Doug Pagnutti is an Industrial Developer Advocate at Tiger Data, where he leads community engagement for engineers and developers building industrial systems. With over 15 years of automation engineering experience, Doug has worked with PLCs, SCADA systems, HMIs, and control architectures for major energy and manufacturing companies including SLB and Dell EMC. As SLB's Senior Automation Engineer, he managed sophisticated control systems for a state-of-the-art explosives manufacturing facility. His technical expertise spans data acquisition, control system design, test engineering, and real-time troubleshooting. Doug holds a Master's degree from the University of British Columbia and a B.A.Sc. in Applied Mathematics from Queen's University.
+    thumbnail: img/guests/dpagnutti.jpg
+    linkedin: pagnutti
+    pronouns: He/Him
+placeholder: false
