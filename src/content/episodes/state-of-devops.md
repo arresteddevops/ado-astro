@@ -11,8 +11,10 @@ episodeBanner: /episode/img/state-of-devops-banner.png
 images:
   - /img/static/social/fb/state-of-devops.png
 guests:
-  - nforsgren
-  - jhumble
+  - person: nforsgren
+    snapshot: nforsgren3
+  - person: jhumble
+    snapshot: jhumble3
 hosts:
   - mstratton
   - jkerr

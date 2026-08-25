@@ -10,7 +10,8 @@ episodeBanner: /episode/img/ci-cd-banner.png
 images:
   - /img/social/fb/ci-cd.png
 guests:
-  - jhumble
+  - person: jhumble
+    snapshot: jhumble2
 hosts:
   - bkromhout
 sponsors:

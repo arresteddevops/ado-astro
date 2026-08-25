@@ -12,7 +12,8 @@ episodeBanner: episode/img/using-ai-banner.png
 images:
   - img/social/fb/using-ai.png
 guests:
-  - kmorgan
+  - person: kmorgan
+    snapshot: kmorgan
 hosts:
   - mstratton
 sponsors:

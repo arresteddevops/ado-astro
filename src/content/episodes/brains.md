@@ -10,8 +10,10 @@ episodeBanner: /episode/img/brains-banner.png
 images:
   - /img/social/fb/brains.png
 guests:
-  - cnash
-  - lholmwood
+  - person: cnash
+    snapshot: cnash
+  - person: lholmwood
+    snapshot: lholmwood
 hosts:
   - bkromhout
   - thess

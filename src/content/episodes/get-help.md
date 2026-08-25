@@ -11,8 +11,10 @@ episodeBanner: /episode/img/get-help-banner.png
 images:
   - /img/social/fb/get-help.png
 guests:
-  - srosenbaum
-  - derding
+  - person: srosenbaum
+    snapshot: srosenbaum
+  - person: derding
+    snapshot: derding
 hosts:
   - mstratton
   - thess

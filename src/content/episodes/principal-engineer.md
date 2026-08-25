@@ -11,7 +11,8 @@ episodeBanner: episode/img/principal-engineer-banner.png
 images:
   - img/social/fb/principal-engineer.png
 guests:
-  - sbotros
+  - person: sbotros
+    snapshot: sbotros
 hosts:
   - mstratton
   - jkerr

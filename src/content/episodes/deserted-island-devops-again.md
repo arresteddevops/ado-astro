@@ -12,15 +12,24 @@ episodeBanner: episode/img/deserted-island-devops-again-banner.jpg
 images:
   - img/social/fb/deserted-island-devops-again.jpg
 guests:
-  - aparker
-  - kfarmer
-  - amedina
-  - roliver
-  - auno-antonison
-  - ablais
-  - jknives
-  - lsantamaria
-  - stiede
+  - person: aparker
+    snapshot: aparker
+  - person: kfarmer
+    snapshot: kfarmer
+  - person: amedina
+    snapshot: amedina2
+  - person: roliver
+    snapshot: roliver
+  - person: auno-antonison
+    snapshot: auno-antonison
+  - person: ablais
+    snapshot: ablais
+  - person: jknives
+    snapshot: jknives
+  - person: lsantamaria
+    snapshot: lsantamaria
+  - person: stiede
+    snapshot: stiede
 hosts:
   - mstratton
 sponsors:

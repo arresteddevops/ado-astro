@@ -10,9 +10,12 @@ episodeBanner: /episode/img/chefconf-2016-banner.png
 images:
   - /img/social/fb/chefconf-2016.png
 guests:
-  - ahedgpeth
-  - fnichol
-  - jcowie
+  - person: ahedgpeth
+    snapshot: ahedgpeth
+  - person: fnichol
+    snapshot: fnichol
+  - person: jcowie
+    snapshot: jcowie
 hosts:
   - mstratton
   - thess

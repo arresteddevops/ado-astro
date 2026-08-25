@@ -10,7 +10,8 @@ episodeBanner: /episode/img/ignite-2018-jdeen-banner.png
 images:
   - /img/social/fb/ignite-2018-jdeen.png
 guests:
-  - jdeen
+  - person: jdeen
+    snapshot: jdeen
 hosts:
   - thess
 sponsors:

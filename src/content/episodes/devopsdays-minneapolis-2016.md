@@ -10,10 +10,14 @@ episodeBanner: /episode/img/devopsdays-minneapolis-2016-banner.png
 images:
   - /img/social/fb/devopsdays-minneapolis-2016.png
 guests:
-  - nforsgren
-  - cmajors
-  - ashafer
-  - jwatters
+  - person: nforsgren
+    snapshot: nforsgren
+  - person: cmajors
+    snapshot: cmajors2
+  - person: ashafer
+    snapshot: ashafer
+  - person: jwatters
+    snapshot: jwatters
 hosts:
   - bkromhout
 sponsors: []

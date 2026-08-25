@@ -10,8 +10,10 @@ episodeBanner: /episode/img/velocity-banner.png
 images:
   - /img/social/fb/velocity.png
 guests:
-  - isombra
-  - jturnbull
+  - person: isombra
+    snapshot: isombra
+  - person: jturnbull
+    snapshot: jturnbull
 hosts:
   - bkromhout
 sponsors:

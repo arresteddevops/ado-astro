@@ -11,10 +11,14 @@ episodeBanner: /episode/img/devopsdays-cape-town-2019-banner.png
 images:
   - /img/social/fb/devopsdays-cape-town-2019.png
 guests:
-  - dmoodley
-  - dmaher
-  - amoisey
-  - cbernard
+  - person: dmoodley
+    snapshot: dmoodley
+  - person: dmaher
+    snapshot: dmaher
+  - person: amoisey
+    snapshot: amoisey
+  - person: cbernard
+    snapshot: cbernard
 hosts:
   - bkromhout
 sponsors:

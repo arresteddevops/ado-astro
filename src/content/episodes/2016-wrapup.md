@@ -10,9 +10,12 @@ episodeBanner: /episode/img/2016-wrapup-banner.png
 images:
   - /img/social/fb/2016-wrapup.png
 guests:
-  - mstratton
-  - thess
-  - bkromhout
+  - person: mstratton
+    snapshot: mstratton2
+  - person: thess
+    snapshot: thess
+  - person: bkromhout
+    snapshot: bkromhout3
 hosts:
   - mstratton
   - thess

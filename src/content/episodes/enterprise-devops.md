@@ -10,9 +10,12 @@ episodeBanner: /episode/img/enterprise-devops-banner.png
 images:
   - /img/social/fb/enterprise-devops.png
 guests:
-  - mducy
-  - rclanton
-  - spereira
+  - person: mducy
+    snapshot: mducy
+  - person: rclanton
+    snapshot: rclanton
+  - person: spereira
+    snapshot: spereira
 hosts:
   - mstratton
   - bkromhout

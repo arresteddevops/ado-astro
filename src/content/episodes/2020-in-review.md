@@ -11,11 +11,16 @@ episodeBanner: episode/img/2020-in-review-banner.png
 images:
   - img/social/fb/2020-in-review.png
 guests:
-  - bkromhout
-  - thess
-  - mstratton
-  - jkerr
-  - jsmith
+  - person: bkromhout
+    snapshot: bkromhout5
+  - person: thess
+    snapshot: thess3
+  - person: mstratton
+    snapshot: mstratton4
+  - person: jkerr
+    snapshot: jkerr2
+  - person: jsmith
+    snapshot: jsmith2
 hosts:
   - jlaha
 sponsors:

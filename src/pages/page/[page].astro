@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EpisodeCard from "../../components/EpisodeCard.astro";
+import { getEpisodesNewestFirst, EPISODES_PER_PAGE } from "../../lib/episodes";
+
+export async function getStaticPaths() {
+  const episodes = await getEpisodesNewestFirst();
+  const totalPages = Math.ceil(episodes.length / EPISODES_PER_PAGE);
+
+  // Page 1 lives at `/` (see index.astro) — this route only covers 2..totalPages,
+  // matching the legacy Hugo site's /page/N/ scheme (which likewise has no /page/1/).
+  return Array.from({ length: totalPages - 1 }, (_, i) => {
+    const pageNumber = i + 2;
+    const start = (pageNumber - 1) * EPISODES_PER_PAGE;
+    return {
+      params: { page: String(pageNumber) },
+      props: {
+        episodes: episodes.slice(start, start + EPISODES_PER_PAGE),
+        pageNumber,
+        totalPages,
+      },
+    };
+  });
+}
+
+const { episodes, pageNumber, totalPages } = Astro.props;
+---
+
+<BaseLayout title={`Episodes — page ${pageNumber}`}>
+  <section class="episodes">
+    <h1>All episodes</h1>
+    <div class="grid">
+      {episodes.map((episode, i) => <EpisodeCard episode={episode} colorIndex={i} />)}
+    </div>
+    <nav class="pager" aria-label="Episode pages">
+      <a class="pill outline" href={pageNumber === 2 ? "/" : `/page/${pageNumber - 1}/`}>← Newer</a>
+      <span class="page-indicator">Page {pageNumber} of {totalPages}</span>
+      {pageNumber < totalPages && <a class="pill outline" href={`/page/${pageNumber + 1}/`}>Older →</a>}
+    </nav>
+  </section>
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 0 0 24px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 48px;
+  }
+
+  .episodes {
+    padding: 56px var(--page-padding) 64px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .pager {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--hit-target-min);
+    padding: 12px 24px;
+    border-radius: var(--radius-pill);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--color-text);
+  }
+
+  .pill.outline {
+    border: 2px solid var(--color-navy);
+  }
+
+  .page-indicator {
+    font-size: 14px;
+    color: var(--color-text-muted);
+    font-weight: 600;
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -12,7 +12,8 @@ episodeBanner: episode/img/learning-to-learn-banner.jpg
 images:
   - img/social/fb/learning-to-learn.jpg
 guests:
-  - sspees
+  - person: sspees
+    snapshot: sspees
 hosts:
   - mstratton
 sponsors:

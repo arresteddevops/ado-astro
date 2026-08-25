@@ -10,10 +10,14 @@ episodeBanner: /episode/img/devopsdays-toronto-2017-banner.png
 images:
   - /img/social/fb/devopsdays-toronto-2017.png
 guests:
-  - rrandolph
-  - amaltson
-  - aaldrich
-  - amansell
+  - person: rrandolph
+    snapshot: rrandolph
+  - person: amaltson
+    snapshot: amaltson
+  - person: aaldrich
+    snapshot: aaldrich
+  - person: amansell
+    snapshot: amansell
 hosts:
   - bkromhout
 sponsors:

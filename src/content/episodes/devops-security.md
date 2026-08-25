@@ -11,7 +11,8 @@ episodeBanner: /episode/img/devops-security-banner.png
 images:
   - /img/social/fb/devops-security.png
 guests:
-  - bhughes
+  - person: bhughes
+    snapshot: bhughes
 hosts:
   - thess
   - mstratton

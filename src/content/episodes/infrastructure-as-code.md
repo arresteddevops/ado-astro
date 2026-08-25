@@ -10,9 +10,12 @@ episodeBanner: /episode/img/infrastructure-as-code-banner.png
 images:
   - /img/social/fb/infrastructure-as-code.png
 guests:
-  - jtimberman
-  - esorenson
-  - rbergeron
+  - person: jtimberman
+    snapshot: jtimberman
+  - person: esorenson
+    snapshot: esorenson
+  - person: rbergeron
+    snapshot: rbergeron
 hosts:
   - mstratton
   - thess

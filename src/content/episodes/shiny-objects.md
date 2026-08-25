@@ -11,8 +11,10 @@ episodeBanner: episode/img/shiny-objects-banner.png
 images:
   - img/social/fb/shiny-objects.png
 guests:
-  - jfrazelle
-  - ashafer
+  - person: jfrazelle
+    snapshot: jfrazelle3
+  - person: ashafer
+    snapshot: ashafer
 hosts:
   - bkromhout
 sponsors:

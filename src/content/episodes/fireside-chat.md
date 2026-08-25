@@ -10,7 +10,8 @@ episodeBanner: /episode/img/fireside-chat-banner.png
 images:
   - /img/social/fb/fireside-chat.png
 guests:
-  - bcantrill
+  - person: bcantrill
+    snapshot: bcantrill
 hosts:
   - bkromhout
 sponsors:

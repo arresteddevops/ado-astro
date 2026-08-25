@@ -10,8 +10,10 @@ episodeBanner: /episode/img/personal-brand-banner.png
 images:
   - /img/social/fb/personal-brand.png
 guests:
-  - ajavor
-  - mhedgpeth
+  - person: ajavor
+    snapshot: ajavor
+  - person: mhedgpeth
+    snapshot: mhedgpeth
 hosts:
   - mstratton
 sponsors:

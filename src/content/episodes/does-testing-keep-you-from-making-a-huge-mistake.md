@@ -11,9 +11,12 @@ episodeBanner: /episode/img/does-testing-keep-you-from-making-a-huge-mistake-ban
 images:
   - /img/social/fb/does-testing-keep-you-from-making-a-huge-mistake.png
 guests:
-  - lcreamer
-  - nbrengle
-  - jsheehan
+  - person: lcreamer
+    snapshot: lcreamer
+  - person: nbrengle
+    snapshot: nbrengle
+  - person: jsheehan
+    snapshot: jsheehan
 hosts:
   - mstratton
   - thess

@@ -10,7 +10,8 @@ episodeBanner: /episode/img/devops-culture-change-banner.png
 images:
   - /img/social/fb/devops-culture-change.png
 guests:
-  - bjoy
+  - person: bjoy
+    snapshot: bjoy
 hosts:
   - mstratton
 sponsors:

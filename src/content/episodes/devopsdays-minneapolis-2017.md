@@ -10,9 +10,12 @@ episodeBanner: /episode/img/devopsdays-minneapolis-2017-banner.png
 images:
   - /img/social/fb/devopsdays-minneapolis-2017.png
 guests:
-  - bliles
-  - jfrazelle
-  - ashafer
+  - person: bliles
+    snapshot: bliles
+  - person: jfrazelle
+    snapshot: jfrazelle2
+  - person: ashafer
+    snapshot: ashafer
 hosts:
   - mstratton
   - bkromhout

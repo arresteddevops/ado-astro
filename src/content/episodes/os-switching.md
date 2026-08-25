@@ -10,7 +10,8 @@ episodeBanner: /episode/img/os-switching-banner.png
 images:
   - /img/social/fb/os-switching.png
 guests:
-  - mwalter
+  - person: mwalter
+    snapshot: mwalter
 hosts:
   - thess
 sponsors:

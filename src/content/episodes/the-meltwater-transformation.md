@@ -11,8 +11,10 @@ episodeBanner: /episode/img/the-meltwater-transformation-banner.png
 images:
   - /img/social/fb/the-meltwater-transformation.png
 guests:
-  - gconnolly
-  - jfreed
+  - person: gconnolly
+    snapshot: gconnolly
+  - person: jfreed
+    snapshot: jfreed
 hosts:
   - jkerr
 sponsors:

@@ -10,7 +10,8 @@ episodeBanner: /episode/img/puppet-banner.png
 images:
   - /img/social/fb/puppet.png
 guests:
-  - esorenson
+  - person: esorenson
+    snapshot: esorenson
 hosts:
   - mstratton
 sponsors:

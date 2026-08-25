@@ -10,10 +10,14 @@ episodeBanner: /episode/img/devopsdays-saltlakecity-banner.png
 images:
   - /img/social/fb/devopsdays-saltlakecity.png
 guests:
-  - nforsgren
-  - wnovack
-  - jvance
-  - mbarlocker
+  - person: nforsgren
+    snapshot: nforsgren2
+  - person: wnovack
+    snapshot: wnovack
+  - person: jvance
+    snapshot: jvance
+  - person: mbarlocker
+    snapshot: mbarlocker
 hosts:
   - mstratton
 sponsors: []

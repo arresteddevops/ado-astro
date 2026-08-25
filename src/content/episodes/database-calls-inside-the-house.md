@@ -11,7 +11,8 @@ episodeBanner: episode/img/database-calls-inside-the-house-banner.jpg
 images:
   - img/social/fb/database-calls-inside-the-house.png
 guests:
-  - gfritchey
+  - person: gfritchey
+    snapshot: gfritchey2
 hosts:
   - mstratton
 sponsors:

@@ -10,7 +10,8 @@ episodeBanner: /episode/img/christine-spang-banner.png
 images:
   - /img/social/fb/christine-spang.png
 guests:
-  - cspang
+  - person: cspang
+    snapshot: cspang
 hosts:
   - mstratton
 sponsors:

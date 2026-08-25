@@ -10,9 +10,12 @@ episodeBanner: /episode/img/hot-takes-banner.png
 images:
   - /img/social/fb/hot-takes.png
 guests:
-  - cmajors
-  - jjubinski
-  - esigler
+  - person: cmajors
+    snapshot: cmajors2
+  - person: jjubinski
+    snapshot: jjubinski3
+  - person: esigler
+    snapshot: esigler
 hosts:
   - mstratton
 sponsors:

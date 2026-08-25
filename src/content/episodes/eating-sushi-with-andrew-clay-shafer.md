@@ -10,7 +10,8 @@ episodeBanner: /episode/img/eating-sushi-with-andrew-clay-shafer-banner.png
 images:
   - /img/social/fb/eating-sushi-with-andrew-clay-shafer.png
 guests:
-  - ashafer
+  - person: ashafer
+    snapshot: ashafer
 hosts:
   - mstratton
   - bkromhout

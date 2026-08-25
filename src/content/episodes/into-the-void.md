@@ -11,8 +11,10 @@ episodeBanner: episode/img/into-the-void-banner.png
 images:
   - img/social/fb/into-the-void.png
 guests:
-  - crosenthal
-  - cnash
+  - person: crosenthal
+    snapshot: crosenthal
+  - person: cnash
+    snapshot: cnash2
 hosts:
   - mstratton
 sponsors:

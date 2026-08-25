@@ -10,7 +10,8 @@ episodeBanner: /episode/img/art-of-monitoring-james-turnbull-banner.png
 images:
   - /img/social/fb/art-of-monitoring-james-turnbull.png
 guests:
-  - jturnbull
+  - person: jturnbull
+    snapshot: jturnbull
 hosts:
   - mstratton
   - thess

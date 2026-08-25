@@ -11,7 +11,8 @@ episodeBanner: episode/img/devops-database-banner.png
 images:
   - img/social/fb/devops-database.png
 guests:
-  - bschwartz
+  - person: bschwartz
+    snapshot: bschwartz
 hosts:
   - mstratton
   - jkerr

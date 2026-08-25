@@ -10,11 +10,16 @@ episodeBanner: /episode/img/devopsdays-kansas-city-2018-banner.png
 images:
   - /img/social/fb/devopsdays-kansas-city-2018.png
 guests:
-  - mhart
-  - jdevita
-  - bclayton
-  - dbarker
-  - amedina
+  - person: mhart
+    snapshot: mhart
+  - person: jdevita
+    snapshot: jdevita
+  - person: bclayton
+    snapshot: bclayton
+  - person: dbarker
+    snapshot: dbarker
+  - person: amedina
+    snapshot: amedina
 hosts:
   - mstratton
 sponsors:

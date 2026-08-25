@@ -10,9 +10,12 @@ episodeBanner: /episode/img/building-an-ops-team-banner.png
 images:
   - /img/social/fb/building-an-ops-team.png
 guests:
-  - cmajors
-  - mrembetsy
-  - pmcdonnell
+  - person: cmajors
+    snapshot: cmajors
+  - person: mrembetsy
+    snapshot: mrembetsy
+  - person: pmcdonnell
+    snapshot: pmcdonnell
 hosts:
   - bkromhout
   - thess

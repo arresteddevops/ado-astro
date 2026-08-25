@@ -12,10 +12,14 @@ episodeBanner: episode/img/ten-years-of-arrested-devops-banner.jpg
 images:
   - img/social/fb/ten-years-of-arrested-devops.png
 guests:
-  - mstratton
-  - bkromhout
-  - jkerr
-  - thess
+  - person: mstratton
+    snapshot: mstratton6
+  - person: bkromhout
+    snapshot: bkromhout6
+  - person: jkerr
+    snapshot: jkerr3
+  - person: thess
+    snapshot: thess4
 hosts:
   - jlaha
 sponsors:

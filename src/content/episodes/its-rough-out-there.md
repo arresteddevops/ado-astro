@@ -12,7 +12,8 @@ episodeBanner: episode/img/its-rough-out-there-banner.png
 images:
   - img/social/fb/its-rough-out-there.png
 guests:
-  - smiller
+  - person: smiller
+    snapshot: smiller
 hosts:
   - mstratton
 sponsors:

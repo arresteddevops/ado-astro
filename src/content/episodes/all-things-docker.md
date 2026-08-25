@@ -11,8 +11,10 @@ episodeBanner: episode/img/all-things-docker-banner.jpg
 images:
   - img/social/fb/all-things-docker.png
 guests:
-  - jcormack
-  - dberkholz
+  - person: jcormack
+    snapshot: jcormack
+  - person: dberkholz
+    snapshot: dberkholz
 hosts:
   - bkromhout
 sponsors:

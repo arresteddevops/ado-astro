@@ -11,7 +11,8 @@ episodeBanner: episode/img/developer-experience-banner.png
 images:
   - img/social/fb/developer-experience.png
 guests:
-  - sstimac
+  - person: sstimac
+    snapshot: sstimac
 hosts:
   - mstratton
 sponsors:

@@ -11,7 +11,8 @@ episodeBanner: episode/img/pushing-left-banner.png
 images:
   - img/episode/default-social.jpg
 guests:
-  - tjanca
+  - person: tjanca
+    snapshot: tjanca
 hosts: []
 sponsors:
   - sdt

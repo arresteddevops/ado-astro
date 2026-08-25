@@ -10,7 +10,8 @@ episodeBanner: /episode/img/gitlab-banner.png
 images:
   - /img/social/fb/gitlab.png
 guests:
-  - jvandervoort
+  - person: jvandervoort
+    snapshot: jvandervoort
 hosts:
   - mstratton
 sponsors:

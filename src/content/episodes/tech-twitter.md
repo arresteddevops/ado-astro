@@ -12,11 +12,16 @@ episodeBanner: episode/img/tech-twitter-banner.jpg
 images:
   - img/social/fb/tech-twitter.jpg
 guests:
-  - srosenbaum
-  - kcosgrove
-  - qanx
-  - aaldrich
-  - jmeiss
+  - person: srosenbaum
+    snapshot: srosenbaum5
+  - person: kcosgrove
+    snapshot: kcosgrove
+  - person: qanx
+    snapshot: qanx
+  - person: aaldrich
+    snapshot: aaldrich3
+  - person: jmeiss
+    snapshot: jmeiss
 hosts:
   - mstratton
 sponsors:

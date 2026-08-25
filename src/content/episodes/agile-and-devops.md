@@ -11,8 +11,10 @@ episodeBanner: /episode/img/agile-and-devops-banner.png
 images:
   - /img/social/fb/agile-and-devops.png
 guests:
-  - pobrien
-  - llagestee
+  - person: pobrien
+    snapshot: pobrien
+  - person: llagestee
+    snapshot: llagestee
 hosts:
   - mstratton
   - thess

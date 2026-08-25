@@ -15,7 +15,12 @@ const episodes = defineCollection({
     episodeImage: z.string(),
     episodeBanner: z.string().optional(),
     images: z.array(z.string()).default([]),
-    guests: z.array(reference("guests")).default([]),
+    // Guests carry which specific Bio Snapshot the episode pointed at (the
+    // legacy stem, e.g. "pcheslock2"), not just the folded person — that's
+    // the whole point of ADR-0002: episode pages show the era-correct bio.
+    guests: z
+      .array(z.object({ person: reference("guests"), snapshot: z.string() }))
+      .default([]),
     hosts: z.array(reference("hosts")).default([]),
     sponsors: z.array(reference("sponsors")).default([]),
     aliases: z.array(z.string()).default([]),

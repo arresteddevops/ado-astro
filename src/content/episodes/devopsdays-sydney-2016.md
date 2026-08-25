@@ -10,11 +10,16 @@ episodeBanner: /episode/img/devopsdays-sydney-2016-banner.png
 images:
   - /img/social/fb/devopsdays-sydney-2016.png
 guests:
-  - mray
-  - mjones
-  - lholmwood
-  - mpollard
-  - kmclaughlin
+  - person: mray
+    snapshot: mray
+  - person: mjones
+    snapshot: mjones
+  - person: lholmwood
+    snapshot: lholmwood2
+  - person: mpollard
+    snapshot: mpollard
+  - person: kmclaughlin
+    snapshot: kmclaughlin
 hosts:
   - bkromhout
 sponsors:

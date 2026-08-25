@@ -10,8 +10,10 @@ episodeBanner: /episode/img/blameless-banner.png
 images:
   - /img/social/fb/blameless.png
 guests:
-  - dzwieback
-  - mrembetsy
+  - person: dzwieback
+    snapshot: dzwieback
+  - person: mrembetsy
+    snapshot: mrembetsy
 hosts:
   - mstratton
   - thess

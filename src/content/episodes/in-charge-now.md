@@ -12,7 +12,8 @@ episodeBanner: episode/img/in-charge-now-banner.jpg
 images:
   - img/social/fb/in-charge-now.png
 guests:
-  - bgreenberg
+  - person: bgreenberg
+    snapshot: bgreenberg
 hosts:
   - mstratton
 sponsors:

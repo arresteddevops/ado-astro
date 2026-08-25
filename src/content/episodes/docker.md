@@ -10,7 +10,8 @@ episodeBanner: /episode/img/docker-banner.png
 images:
   - /img/social/fb/docker.png
 guests:
-  - jturnbull
+  - person: jturnbull
+    snapshot: jturnbull
 hosts:
   - mstratton
   - bkromhout

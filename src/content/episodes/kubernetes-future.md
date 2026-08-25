@@ -11,7 +11,8 @@ episodeBanner: /episode/img/kubernetes-future-banner.png
 images:
   - /img/social/fb/kubernetes-future.png
 guests:
-  - khightower
+  - person: khightower
+    snapshot: khightower2
 hosts:
   - bkromhout
 sponsors:

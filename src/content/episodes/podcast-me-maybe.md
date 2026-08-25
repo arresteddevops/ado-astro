@@ -10,7 +10,8 @@ episodeBanner: /episode/img/podcast-me-maybe-banner.png
 images:
   - /img/social/fb/podcast-me-maybe.png
 guests:
-  - kkingsbury
+  - person: kkingsbury
+    snapshot: kkingsbury
 hosts:
   - mstratton
   - thess

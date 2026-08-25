@@ -11,8 +11,10 @@ episodeBanner: /episode/img/deliveryconf-banner.png
 images:
   - /img/static/social/fb/deliveryconf.png
 guests:
-  - kmugrage
-  - srosenbaum
+  - person: kmugrage
+    snapshot: kmugrage
+  - person: srosenbaum
+    snapshot: srosenbaum3
 hosts:
   - mstratton
 sponsors:

@@ -1,0 +1,83 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  episode: CollectionEntry<"episodes">;
+  /** Cycles the header block through the three accent colors so a grid of
+      cards doesn't read as one flat repeated pattern. */
+  colorIndex?: number;
+}
+
+const { episode, colorIndex = 0 } = Astro.props;
+const { episodeNumber, title, date, podcastDuration } = episode.data;
+const dateLabel = date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+
+const palette = [
+  { bg: "var(--color-red)", fg: "var(--color-cream)" },
+  { bg: "var(--color-navy)", fg: "var(--color-yellow)" },
+  { bg: "var(--color-yellow)", fg: "var(--color-navy)" },
+];
+const { bg, fg } = palette[colorIndex % palette.length];
+---
+
+<a class="card" href={`/${episode.id}/`}>
+  <div class="header" style={`background: ${bg}; color: ${fg};`}>
+    <span class="number">{episodeNumber ?? "—"}</span>
+  </div>
+  <div class="body">
+    <span class="title">{title}</span>
+    <span class="meta">{dateLabel}{podcastDuration ? ` · ${podcastDuration}` : ""}</span>
+  </div>
+</a>
+
+<style>
+  .card {
+    background: var(--color-cream);
+    border: var(--border-width) solid var(--color-navy);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-text);
+  }
+
+  .card:hover {
+    color: var(--color-text);
+  }
+
+  .card:hover .title {
+    color: var(--color-red);
+  }
+
+  .header {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .number {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 800;
+  }
+
+  .body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .meta {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+</style>

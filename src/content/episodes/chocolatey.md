@@ -10,7 +10,8 @@ episodeBanner: /episode/img/chocolatey-banner.png
 images:
   - /img/social/fb/chocolatey.png
 guests:
-  - rreynolds
+  - person: rreynolds
+    snapshot: rreynolds
 hosts:
   - thess
 sponsors:

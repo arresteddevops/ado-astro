@@ -12,7 +12,8 @@ episodeBanner: episode/img/open-communities-banner.jpg
 images:
   - img/social/fb/open-communities.png
 guests:
-  - azigler
+  - person: azigler
+    snapshot: azigler
 hosts:
   - mstratton
 sponsors:

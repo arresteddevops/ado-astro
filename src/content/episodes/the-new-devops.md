@@ -12,7 +12,8 @@ episodeBanner: episode/img/the-new-devops-banner.png
 images:
   - img/social/fb/the-new-devops.png
 guests:
-  - ajacob
+  - person: ajacob
+    snapshot: ajacob2
 hosts:
   - mstratton
 sponsors:

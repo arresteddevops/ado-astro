@@ -11,10 +11,14 @@ episodeBanner: /episode/img/kubernetes-best-practices-banner.png
 images:
   - /img/social/fb/kubernetes-best-practices.png
 guests:
-  - bburns
-  - evillalba
-  - dstrebel
-  - levenson
+  - person: bburns
+    snapshot: bburns
+  - person: evillalba
+    snapshot: evillalba
+  - person: dstrebel
+    snapshot: dstrebel
+  - person: levenson
+    snapshot: levenson
 hosts:
   - bkromhout
 sponsors:

@@ -10,10 +10,14 @@ episodeBanner: /episode/img/devopsdays-chicago-2018-banner.png
 images:
   - /img/social/fb/devopsdays-chicago-2018.png
 guests:
-  - jsmith
-  - kprizy
-  - akalin
-  - mstratton
+  - person: jsmith
+    snapshot: jsmith
+  - person: kprizy
+    snapshot: kprizy
+  - person: akalin
+    snapshot: akalin
+  - person: mstratton
+    snapshot: mstratton3
 hosts:
   - thess
 sponsors:

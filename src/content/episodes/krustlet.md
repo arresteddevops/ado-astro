@@ -11,8 +11,10 @@ episodeBanner: episode/img/krustlet-banner.png
 images:
   - img/social/fb/krustlet.png
 guests:
-  - tthomas
-  - bketelsen
+  - person: tthomas
+    snapshot: tthomas
+  - person: bketelsen
+    snapshot: bketelsen2
 hosts:
   - bkromhout
 sponsors:

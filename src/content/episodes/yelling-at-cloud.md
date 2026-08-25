@@ -10,8 +10,10 @@ episodeBanner: /episode/img/yelling-at-cloud-banner.png
 images:
   - /img/social/fb/yelling-at-cloud.png
 guests:
-  - ashafer
-  - bcantrill
+  - person: ashafer
+    snapshot: ashafer
+  - person: bcantrill
+    snapshot: bcantrill
 hosts:
   - mstratton
   - bkromhout

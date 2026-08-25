@@ -10,8 +10,10 @@ episodeBanner: /episode/img/microservices-banner.png
 images:
   - /img/social/fb/microservices.png
 guests:
-  - dchong
-  - kbastani
+  - person: dchong
+    snapshot: dchong
+  - person: kbastani
+    snapshot: kbastani
 hosts:
   - mstratton
   - bkromhout

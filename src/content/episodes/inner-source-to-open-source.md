@@ -10,7 +10,8 @@ episodeBanner: /episode/img/inner-source-to-open-source-banner.png
 images:
   - /img/social/fb/inner-source-to-open-source.png
 guests:
-  - arinehart
+  - person: arinehart
+    snapshot: arinehart
 hosts:
   - mstratton
 sponsors:

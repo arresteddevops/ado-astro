@@ -11,7 +11,8 @@ episodeBanner: episode/img/flavor-town-banner.jpg
 images:
   - img/social/fb/flavor-town.png
 guests:
-  - mkuritz
+  - person: mkuritz
+    snapshot: mkuritz
 hosts:
   - mstratton
 sponsors:

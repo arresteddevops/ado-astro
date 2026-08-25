@@ -11,12 +11,18 @@ episodeBanner: episode/img/devopsdays-chicago-2020-banner.png
 images:
   - img/social/fb/devopsdays-chicago-2020.png
 guests:
-  - kreedy
-  - srosenbaum
-  - jyee
-  - kcosgrove
-  - lsantamaria
-  - cread
+  - person: kreedy
+    snapshot: kreedy
+  - person: srosenbaum
+    snapshot: srosenbaum4
+  - person: jyee
+    snapshot: jyee
+  - person: kcosgrove
+    snapshot: kcosgrove
+  - person: lsantamaria
+    snapshot: lsantamaria
+  - person: cread
+    snapshot: cread2
 hosts:
   - mstratton
   - thess

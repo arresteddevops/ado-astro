@@ -11,7 +11,8 @@ episodeBanner: episode/img/chaos-security-banner.png
 images:
   - img/social/fb/chaos-security.png
 guests:
-  - arinehart
+  - person: arinehart
+    snapshot: arinehart2
 hosts:
   - mstratton
   - jkerr

@@ -11,9 +11,12 @@ episodeBanner: /episode/img/dev-to-ops-banner.png
 images:
   - /img/social/fb/dev-to-ops.png
 guests:
-  - nburleson
-  - jsmyth
-  - ablythe
+  - person: nburleson
+    snapshot: nburleson
+  - person: jsmyth
+    snapshot: jsmyth
+  - person: ablythe
+    snapshot: ablythe
 hosts:
   - mstratton
   - thess

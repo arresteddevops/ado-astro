@@ -12,8 +12,10 @@ episodeBanner: episode/img/open-tofu-banner.png
 images:
   - img/social/fb/open-tofu.png
 guests:
-  - codaniel
-  - omaislish
+  - person: codaniel
+    snapshot: codaniel
+  - person: omaislish
+    snapshot: omaislish
 hosts:
   - mstratton
 sponsors:

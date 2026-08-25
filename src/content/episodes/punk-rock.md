@@ -10,7 +10,8 @@ episodeBanner: /episode/img/punk-rock-banner.png
 images:
   - /img/social/fb/punk-rock.png
 guests:
-  - jgordon
+  - person: jgordon
+    snapshot: jgordon
 hosts:
   - mstratton
 sponsors:

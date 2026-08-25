@@ -11,7 +11,8 @@ episodeBanner: episode/img/never-stop-learning-banner.jpg
 images:
   - img/social/fb/never-stop-learning.jpg
 guests:
-  - pdebois
+  - person: pdebois
+    snapshot: pdebois
 hosts:
   - mstratton
   - jsmith

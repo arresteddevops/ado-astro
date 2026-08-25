@@ -10,9 +10,12 @@ episodeBanner: /episode/img/2015-in-review-banner.png
 images:
   - /img/social/fb/2015-in-review.png
 guests:
-  - bkromhout
-  - thess
-  - mstratton
+  - person: bkromhout
+    snapshot: bkromhout
+  - person: thess
+    snapshot: thess
+  - person: mstratton
+    snapshot: mstratton
 hosts:
   - mstratton
   - thess

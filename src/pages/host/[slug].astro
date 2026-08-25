@@ -1,0 +1,188 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SocialLinks from "../../components/SocialLinks.astro";
+import { getEpisodesByHostId } from "../../lib/hosts";
+
+export async function getStaticPaths() {
+  const hosts = await getCollection("hosts");
+  const episodesByHost = await getEpisodesByHostId();
+  return hosts.map((host) => ({
+    params: { slug: host.id },
+    props: { host, episodes: episodesByHost.get(host.id) ?? [] },
+  }));
+}
+
+const { host, episodes } = Astro.props;
+const { Content } = await render(host);
+const initials = host.data.name
+  .split(/\s+/)
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((p) => p[0]?.toUpperCase())
+  .join("");
+const sortedEpisodes = [...episodes].sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title={host.data.name}>
+  <section class="profile">
+    <div class="card">
+      <div class="avatar">{initials}</div>
+      <div class="badge">HOST</div>
+      <h1>{host.data.name}</h1>
+      {host.data.pronouns && <span class="pronouns">{host.data.pronouns}</span>}
+      <SocialLinks website={host.data.website} twitter={host.data.twitter} github={host.data.github} linkedin={host.data.linkedin} />
+    </div>
+
+    <div class="bio-block">
+      <Content />
+    </div>
+  </section>
+
+  {sortedEpisodes.length > 0 && (
+    <section class="episodes">
+      <h2>Episodes hosted by {host.data.name}</h2>
+      <div class="grid">
+        {sortedEpisodes.map((episode) => (
+          <a class="row" href={`/${episode.id}/`}>
+            <span class="number">{episode.data.episodeNumber ?? "·"}</span>
+            <span class="title">{episode.data.title}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  h1, h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+  }
+
+  .profile {
+    padding: 56px var(--page-padding) 40px;
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .card {
+    width: 380px;
+    flex-shrink: 0;
+    border: var(--border-width) solid var(--color-navy);
+    border-radius: var(--radius-card-lg);
+    box-shadow: 8px 8px 0 var(--color-red);
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    background: var(--color-cream-card);
+  }
+
+  .avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: var(--color-red);
+    color: var(--color-cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 800;
+  }
+
+  .badge {
+    background: var(--color-yellow);
+    color: var(--color-navy);
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    transform: rotate(-2deg);
+  }
+
+  .card h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .pronouns {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .bio-block {
+    padding-top: 12px;
+    flex: 1;
+    min-width: 0;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  .episodes {
+    padding: 8px var(--page-padding) 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .episodes h2 {
+    font-size: 28px;
+    border-bottom: 3px solid var(--color-yellow);
+    padding-bottom: 8px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .row {
+    border: var(--border-width) solid var(--color-navy);
+    border-radius: 16px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--color-text);
+  }
+
+  .row:hover .title {
+    color: var(--color-red);
+  }
+
+  .number {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--color-red);
+  }
+
+  .title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 900px) {
+    .profile {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card {
+      width: 100%;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

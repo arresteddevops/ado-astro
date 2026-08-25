@@ -11,7 +11,8 @@ episodeBanner: episode/img/devops-magic-banner.png
 images:
   - img/social/fb/devops-magic.png
 guests:
-  - achakrabarti
+  - person: achakrabarti
+    snapshot: achakrabarti
 hosts:
   - mstratton
 sponsors:

@@ -12,7 +12,8 @@ episodeBanner: episode/img/devops-is-not-a-department-banner.jpg
 images:
   - img/social/fb/devops-is-not-a-department.png
 guests:
-  - jduvall
+  - person: jduvall
+    snapshot: jduvall
 hosts:
   - mstratton
 sponsors:

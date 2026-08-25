@@ -10,8 +10,10 @@ episodeBanner: /episode/img/startups-banner.png
 images:
   - /img/social/fb/startups.png
 guests:
-  - cmajors
-  - nforsgren
+  - person: cmajors
+    snapshot: cmajors2
+  - person: nforsgren
+    snapshot: nforsgren2
 hosts:
   - bkromhout
 sponsors:

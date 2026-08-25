@@ -11,7 +11,8 @@ episodeBanner: /episode/img/dont-worry-do-care-banner.jpg
 images:
   - img/social/fb/dont-worry-do-care.png
 guests:
-  - ablohowiak
+  - person: ablohowiak
+    snapshot: ablohowiak
 hosts:
   - jkerr
 sponsors:

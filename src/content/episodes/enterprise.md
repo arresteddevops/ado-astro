@@ -10,7 +10,8 @@ episodeBanner: /episode/img/enterprise-banner.png
 images:
   - /img/social/fb/enterprise.png
 guests:
-  - bliles
+  - person: bliles
+    snapshot: bliles
 hosts:
   - mstratton
   - bkromhout

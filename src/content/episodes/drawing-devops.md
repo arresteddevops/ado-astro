@@ -12,7 +12,8 @@ episodeBanner: episode/img/drawing-devops-banner.png
 images:
   - img/social/fb/drawing-devops.png
 guests:
-  - arodenhiser
+  - person: arodenhiser
+    snapshot: arodenhiser
 hosts:
   - mstratton
 sponsors:

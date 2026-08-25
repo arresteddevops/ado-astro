@@ -11,9 +11,12 @@ episodeBanner: /episode/img/sysadmins-banner.png
 images:
   - /img/social/fb/sysadmins.png
 guests:
-  - cread
-  - mfiedler
-  - bwagner
+  - person: cread
+    snapshot: cread
+  - person: mfiedler
+    snapshot: mfiedler
+  - person: bwagner
+    snapshot: bwagner
 hosts:
   - mstratton
   - thess

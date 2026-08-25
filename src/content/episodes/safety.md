@@ -10,8 +10,10 @@ episodeBanner: /episode/img/safety-banner.png
 images:
   - /img/social/fb/safety.png
 guests:
-  - jreed
-  - mthengvall
+  - person: jreed
+    snapshot: jreed
+  - person: mthengvall
+    snapshot: mthengvall
 hosts:
   - mstratton
 sponsors:

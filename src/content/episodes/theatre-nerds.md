@@ -10,9 +10,12 @@ episodeBanner: /episode/img/theatre-nerds-banner.png
 images:
   - /img/social/fb/theatre-nerds.png
 guests:
-  - ccondon
-  - nharrington
-  - nharvey
+  - person: ccondon
+    snapshot: ccondon
+  - person: nharrington
+    snapshot: nshamrell
+  - person: nharvey
+    snapshot: nharvey
 hosts:
   - thess
 sponsors:

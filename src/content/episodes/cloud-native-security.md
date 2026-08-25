@@ -12,7 +12,8 @@ episodeBanner: episode/img/cloud-native-security-banner.png
 images:
   - img/social/fb/cloud-native-security.png
 guests:
-  - misbitski
+  - person: misbitski
+    snapshot: misbitski
 hosts:
   - mstratton
 sponsors:

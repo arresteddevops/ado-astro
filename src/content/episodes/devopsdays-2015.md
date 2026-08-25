@@ -10,7 +10,8 @@ episodeBanner: /episode/img/devopsdays-2015-banner.png
 images:
   - /img/social/fb/devopsdays-2015.png
 guests:
-  - jwillis
+  - person: jwillis
+    snapshot: jwillis
 hosts:
   - mstratton
   - thess

@@ -10,8 +10,10 @@ episodeBanner: /episode/img/open-source-ops-banner.png
 images:
   - /img/social/fb/open-source-ops.png
 guests:
-  - mhedgpeth
-  - direton
+  - person: mhedgpeth
+    snapshot: mhedgpeth
+  - person: direton
+    snapshot: direton
 hosts:
   - mstratton
   - bkromhout

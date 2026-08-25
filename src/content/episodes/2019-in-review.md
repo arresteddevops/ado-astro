@@ -11,10 +11,14 @@ episodeBanner: /episode/img/2019-in-review-banner.png
 images:
   - /img/social/fb/2019-in-review.png
 guests:
-  - bkromhout
-  - thess
-  - mstratton
-  - jkerr
+  - person: bkromhout
+    snapshot: bkromhout5
+  - person: thess
+    snapshot: thess2
+  - person: mstratton
+    snapshot: mstratton3
+  - person: jkerr
+    snapshot: jkerr
 hosts:
   - jlaha
 sponsors:

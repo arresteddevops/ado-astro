@@ -11,9 +11,12 @@ episodeBanner: /episode/img/configuration-management-banner.png
 images:
   - /img/social/fb/configuration-management.png
 guests:
-  - someara
-  - cwebber
-  - smurawski
+  - person: someara
+    snapshot: someara
+  - person: cwebber
+    snapshot: cwebber
+  - person: smurawski
+    snapshot: smurawski
 hosts:
   - mstratton
   - thess

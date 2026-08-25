@@ -10,7 +10,8 @@ episodeBanner: /episode/img/alice-fireside-chat-banner.png
 images:
   - /img/social/fb/alice-fireside-chat.png
 guests:
-  - agoldfuss
+  - person: agoldfuss
+    snapshot: agoldfuss
 hosts:
   - bkromhout
 sponsors:

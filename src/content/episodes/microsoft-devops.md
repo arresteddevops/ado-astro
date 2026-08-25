@@ -10,8 +10,10 @@ episodeBanner: /episode/img/microsoft-devops-banner.png
 images:
   - /img/social/fb/microsoft-devops.png
 guests:
-  - jsnover
-  - jdevita
+  - person: jsnover
+    snapshot: jsnover
+  - person: jdevita
+    snapshot: jdevita
 hosts:
   - mstratton
   - thess

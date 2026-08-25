@@ -10,8 +10,10 @@ episodeBanner: /episode/img/made-up-words-banner.png
 images:
   - /img/social/fb/made-up-words.png
 guests:
-  - nforsgren
-  - tgross
+  - person: nforsgren
+    snapshot: nforsgren2
+  - person: tgross
+    snapshot: tgross
 hosts:
   - mstratton
   - bkromhout

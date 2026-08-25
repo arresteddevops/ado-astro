@@ -10,8 +10,10 @@ episodeBanner: /episode/img/starting-a-new-devops-job-banner.png
 images:
   - /img/social/fb/starting-a-new-devops-job.png
 guests:
-  - rdaniels
-  - jchamplin
+  - person: rdaniels
+    snapshot: rdaniels
+  - person: jchamplin
+    snapshot: jchamplin
 hosts:
   - mstratton
   - thess

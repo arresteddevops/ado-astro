@@ -12,7 +12,8 @@ episodeBanner: episode/img/platform-engineering-banner.png
 images:
   - img/social/fb/platform-engineering.png
 guests:
-  - dbryant
+  - person: dbryant
+    snapshot: dbryant
 hosts:
   - mstratton
 sponsors:

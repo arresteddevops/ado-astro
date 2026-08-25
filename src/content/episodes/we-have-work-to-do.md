@@ -11,7 +11,8 @@ episodeBanner: episode/img/we-have-work-to-do-banner.jpg
 images:
   - img/social/fb/we-have-work-to-do.jpg
 guests:
-  - tbanks
+  - person: tbanks
+    snapshot: tbanks2
 hosts:
   - mstratton
 sponsors:

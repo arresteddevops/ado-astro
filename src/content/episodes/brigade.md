@@ -11,7 +11,8 @@ episodeBanner: episode/img/brigade-banner.jpg
 images:
   - img/social/fb/brigade.png
 guests:
-  - krancourt
+  - person: krancourt
+    snapshot: krancourt
 hosts:
   - bkromhout
 sponsors:

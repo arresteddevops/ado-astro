@@ -10,9 +10,12 @@ episodeBanner: /episode/img/communities-banner.png
 images:
   - /img/social/fb/communities.png
 guests:
-  - aburgin
-  - dcollins
-  - nharvey
+  - person: aburgin
+    snapshot: aburgin
+  - person: dcollins
+    snapshot: dcollins
+  - person: nharvey
+    snapshot: nharvey
 hosts:
   - mstratton
   - thess

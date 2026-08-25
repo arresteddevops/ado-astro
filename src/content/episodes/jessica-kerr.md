@@ -10,7 +10,8 @@ episodeImage: img/episode/default.jpg
 images:
   - img/episode/default-social.jpg
 guests:
-  - jkerr
+  - person: jkerr
+    snapshot: jkerr
 hosts:
   - mstratton
 sponsors:

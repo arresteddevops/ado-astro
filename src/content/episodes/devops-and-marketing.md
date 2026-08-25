@@ -10,8 +10,10 @@ episodeBanner: /episode/img/devops-and-marketing-banner.png
 images:
   - /img/social/fb/devops-and-marketing.png
 guests:
-  - jhand
-  - ssmith
+  - person: jhand
+    snapshot: jhand
+  - person: ssmith
+    snapshot: ssmith
 hosts:
   - mstratton
   - thess

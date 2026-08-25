@@ -12,7 +12,8 @@ episodeBanner: episode/img/breaking-down-gates-banner.jpg
 images:
   - img/social/fb/breaking-down-gates.jpg
 guests:
-  - tbanks
+  - person: tbanks
+    snapshot: tbanks
 hosts:
   - mstratton
 sponsors:

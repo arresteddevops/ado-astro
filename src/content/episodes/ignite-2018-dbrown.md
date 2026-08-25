@@ -10,8 +10,10 @@ episodeBanner: /episode/img/ignite-2018-dbrown-banner.png
 images:
   - /img/social/fb/ignite-2018-dbrown.png
 guests:
-  - dbrown
-  - jhand
+  - person: dbrown
+    snapshot: dbrown
+  - person: jhand
+    snapshot: jhand
 hosts:
   - thess
 sponsors:

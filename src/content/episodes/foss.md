@@ -10,7 +10,8 @@ episodeBanner: /episode/img/foss-banner.png
 images:
   - /img/social/fb/foss.png
 guests:
-  - vbrasseur
+  - person: vbrasseur
+    snapshot: vbrasseur
 hosts:
   - mstratton
 sponsors:

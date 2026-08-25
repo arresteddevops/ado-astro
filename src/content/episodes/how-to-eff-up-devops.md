@@ -11,9 +11,12 @@ episodeBanner: /episode/img/how-to-eff-up-devops-banner.png
 images:
   - /img/social/fb/how-to-eff-up-devops.png
 guests:
-  - pcheslock
-  - nharvey
-  - rharper
+  - person: pcheslock
+    snapshot: pcheslock
+  - person: nharvey
+    snapshot: nharvey
+  - person: rharper
+    snapshot: rharper
 hosts:
   - mstratton
   - thess

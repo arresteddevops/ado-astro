@@ -10,7 +10,8 @@ episodeBanner: /episode/img/discovery-banner.png
 images:
   - /img/social/fb/discovery.png
 guests:
-  - jevans
+  - person: jevans
+    snapshot: jevans
 hosts:
   - bkromhout
 sponsors:

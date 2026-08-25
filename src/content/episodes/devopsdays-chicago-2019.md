@@ -11,9 +11,12 @@ episodeBanner: /episode/img/devopsdays-chicago-2019-banner.png
 images:
   - /img/social/fb/devopsdays-chicago-2019.png
 guests:
-  - jfrazelle
-  - vhanus
-  - jsmith
+  - person: jfrazelle
+    snapshot: jfrazelle3
+  - person: vhanus
+    snapshot: vhanus
+  - person: jsmith
+    snapshot: jsmith
 hosts:
   - mstratton
   - thess

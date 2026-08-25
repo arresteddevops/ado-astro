@@ -11,8 +11,10 @@ episodeBanner: episode/img/service-mesh-banner.jpg
 images:
   - img/social/fb/service-mesh.png
 guests:
-  - mnoorali
-  - draychev
+  - person: mnoorali
+    snapshot: mnoorali
+  - person: draychev
+    snapshot: draychev
 hosts:
   - bkromhout
 sponsors:

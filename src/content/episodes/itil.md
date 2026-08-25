@@ -10,7 +10,8 @@ episodeBanner: /episode/img/itil-banner.png
 images:
   - /img/social/fb/itil.png
 guests:
-  - sboyd
+  - person: sboyd
+    snapshot: sboyd
 hosts:
   - mstratton
   - thess

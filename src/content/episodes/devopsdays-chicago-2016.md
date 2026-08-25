@@ -10,9 +10,12 @@ episodeBanner: /episode/img/devopsdays-chicago-2016-banner.png
 images:
   - /img/social/fb/devopsdays-chicago-2016.png
 guests:
-  - nharrington
-  - jjubinski
-  - mstahnke
+  - person: nharrington
+    snapshot: nharrington
+  - person: jjubinski
+    snapshot: jjubinski2
+  - person: mstahnke
+    snapshot: mstahnke
 hosts:
   - mstratton
 sponsors:

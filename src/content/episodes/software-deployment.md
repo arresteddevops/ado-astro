@@ -11,7 +11,8 @@ episodeBanner: /episode/img/software-deployment-banner.png
 images:
   - /img/social/fb/software-deployment.png
 guests:
-  - rdey
+  - person: rdey
+    snapshot: rdey
 hosts:
   - mstratton
   - thess

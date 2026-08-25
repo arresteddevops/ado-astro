@@ -12,7 +12,8 @@ episodeBanner: episode/img/words-are-hard-banner.jpg
 images:
   - img/social/fb/words-are-hard.jpg
 guests:
-  - efreeman
+  - person: efreeman
+    snapshot: efreeman2
 hosts:
   - mstratton
 sponsors:
