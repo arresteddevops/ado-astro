@@ -1,0 +1,29 @@
+/* Broadcast Pop design tokens — see docs/PRD.md decision 11 and the design canvas. */
+:root {
+  /* color */
+  --color-cream: #fdf3e0;
+  --color-cream-card: #fdf9ef;
+  --color-navy: #1e2a52;
+  --color-red: #e04f39;
+  --color-yellow: #f5c518;
+  --color-text: var(--color-navy);
+  --color-text-muted: #4a5378;
+  --color-text-on-navy: #fdf3e0;
+  --color-text-on-navy-muted: #9aa3c0;
+
+  /* type */
+  --font-display: "Bricolage Grotesque", "Arial Black", sans-serif;
+  --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+
+  /* shape */
+  --radius-card: 18px;
+  --radius-card-lg: 24px;
+  --radius-pill: 999px;
+  --border-width: 3px;
+  --shadow-offset: 8px 8px 0;
+
+  /* layout */
+  --content-max-width: 1040px;
+  --page-padding: 56px;
+  --hit-target-min: 44px;
+}

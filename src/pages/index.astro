@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Home">
+  <section class="placeholder">
+    <p class="eyebrow">A PODCAST ABOUT DEVOPS</p>
+    <h1>Scaffold's up. Episodes land in issue #3.</h1>
+  </section>
+</BaseLayout>
+
+<style>
+  .placeholder {
+    padding: 88px var(--page-padding);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: var(--content-max-width);
+  }
+
+  .eyebrow {
+    margin: 0;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    color: var(--color-red);
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 48px;
+    line-height: 1.05;
+    font-weight: 800;
+  }
+</style>

@@ -1,0 +1,45 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <span class="brand-name">ARRESTED DEVOPS</span>
+  <p>
+    &copy; 2013&ndash;{year} &middot; <a href="/privacy">Privacy</a> &middot;
+    <a href="/copyright">Copyright</a> &middot;
+    <a href="mailto:shows@arresteddevops.com">shows@arresteddevops.com</a>
+  </p>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-navy);
+    color: var(--color-text-on-navy);
+    padding: 36px var(--page-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 18px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--color-text-on-navy-muted);
+  }
+
+  a {
+    color: var(--color-text-on-navy-muted);
+  }
+
+  a:hover {
+    color: var(--color-yellow);
+  }
+</style>

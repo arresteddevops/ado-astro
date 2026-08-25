@@ -1,0 +1,114 @@
+---
+const navItems = [
+  { label: "Episodes", href: "/" },
+  { label: "Guests", href: "/guest" },
+  { label: "About", href: "/about" },
+  { label: "Search", href: "/search" },
+  { label: "Contact", href: "/contact" },
+];
+
+const path = Astro.url.pathname;
+const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWith(href));
+---
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Arrested DevOps home">
+    <span class="brand-mark" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M6 4v12l10-6L6 4z" fill="#1e2a52"></path>
+      </svg>
+    </span>
+    <span class="brand-name">ARRESTED DEVOPS</span>
+  </a>
+
+  <nav class="site-nav" aria-label="Primary">
+    <ul>
+      {navItems.map((item) => (
+        <li>
+          <a href={item.href} class:list={["nav-link", { active: isActive(item.href) }]}>
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <a class="pill sponsor-cta" href="/sponsorship">Sponsor us</a>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px var(--page-padding);
+    background: var(--color-navy);
+    color: var(--color-text-on-navy);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--color-text-on-navy);
+  }
+
+  .brand:hover {
+    color: var(--color-text-on-navy);
+  }
+
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 800;
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .site-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--hit-target-min);
+    color: var(--color-text-on-navy);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-yellow);
+  }
+
+  .sponsor-cta {
+    background: var(--color-red);
+    color: var(--color-text-on-navy);
+  }
+
+  .sponsor-cta:hover {
+    color: var(--color-text-on-navy);
+    background: color-mix(in srgb, var(--color-red) 85%, black);
+  }
+</style>
