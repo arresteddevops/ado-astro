@@ -1,0 +1,7 @@
+title = "ado-astro gitleaks config"
+
+# Extend gitleaks' default ruleset (AWS/GCP/generic high-entropy/etc.) with
+# no site-specific rules — this is a static content site with no vendor
+# credentials of its own to special-case.
+[extend]
+useDefault = true

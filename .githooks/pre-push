@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Native git hook, wired via `postinstall: git config core.hooksPath .githooks`.
+# Local mirror of the GitHub branch protection already on `main` — catches
+# a direct push before it ever leaves the machine instead of round-tripping
+# to GitHub's rejection.
+set -euo pipefail
+
+current_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  remote_branch="${remote_ref#refs/heads/}"
+  if [[ "$remote_branch" == "main" || "$remote_branch" == "master" ]]; then
+    echo "pre-push: direct push to '$remote_branch' is blocked. Open a PR instead." >&2
+    exit 1
+  fi
+done
+
+if [[ "$current_branch" == "main" || "$current_branch" == "master" ]]; then
+  echo "pre-push: you're on '$current_branch'. Open a PR instead of pushing directly." >&2
+  exit 1
+fi
+
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks git --config .gitleaks.toml --redact --exit-code=1 --log-opts="origin/main..HEAD" || {
+    echo "pre-push: gitleaks found a potential secret. Fix or allowlist it before pushing." >&2
+    exit 1
+  }
+else
+  echo "pre-push: gitleaks not installed locally, skipping secret scan (install with 'brew install gitleaks')." >&2
+fi
+
+pnpm run build
