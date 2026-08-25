@@ -10,7 +10,8 @@ episodeBanner: /episode/img/ignite-2018-ethomson-banner.png
 images:
   - /img/social/fb/ignite-2018-ethomson.png
 guests:
-  - ethomson
+  - person: ethomson
+    snapshot: ethomson
 hosts:
   - thess
 sponsors:

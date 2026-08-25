@@ -10,7 +10,8 @@ episodeBanner: /episode/img/openstack-banner.png
 images:
   - /img/social/fb/openstack.png
 guests:
-  - jjasghar
+  - person: jjasghar
+    snapshot: jjasghar
 hosts:
   - mstratton
 sponsors:

@@ -10,7 +10,8 @@ episodeBanner: /episode/img/fireside-chat-littleidea-banner.png
 images:
   - /img/social/fb/fireside-chat-littleidea.png
 guests:
-  - ashafer
+  - person: ashafer
+    snapshot: ashafer
 hosts:
   - bkromhout
 sponsors:

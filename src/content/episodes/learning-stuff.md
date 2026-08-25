@@ -11,7 +11,8 @@ episodeBanner: episode/img/learning-stuff-banner.jpg
 images:
   - img/social/fb/learning-stuff.png
 guests:
-  - aspittel
+  - person: aspittel
+    snapshot: aspittel
 hosts:
   - mstratton
 sponsors:

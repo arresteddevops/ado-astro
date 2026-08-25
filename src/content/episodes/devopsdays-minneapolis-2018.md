@@ -10,9 +10,12 @@ episodeBanner: /episode/img/devopsdays-minneapolis-2018-banner.png
 images:
   - /img/social/fb/devopsdays-minneapolis-2018.png
 guests:
-  - jleomi
-  - dgillespie
-  - cherro
+  - person: jleomi
+    snapshot: jleomi
+  - person: dgillespie
+    snapshot: dgillespie
+  - person: cherro
+    snapshot: cherro
 hosts:
   - mstratton
   - bkromhout

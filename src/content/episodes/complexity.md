@@ -12,7 +12,8 @@ episodeBanner: episode/img/complexity-banner.jpg
 images:
   - img/social/fb/complexity.png
 guests:
-  - mstahnke
+  - person: mstahnke
+    snapshot: mstahnke2
 hosts:
   - mstratton
 sponsors:

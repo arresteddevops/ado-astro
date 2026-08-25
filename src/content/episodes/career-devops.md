@@ -10,7 +10,8 @@ episodeBanner: /episode/img/career-devops-banner.png
 images:
   - /img/social/fb/career-devops.png
 guests:
-  - jhackert
+  - person: jhackert
+    snapshot: jhackert
 hosts:
   - mstratton
   - thess

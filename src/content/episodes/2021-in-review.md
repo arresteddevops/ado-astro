@@ -12,10 +12,14 @@ episodeBanner: episode/img/2021-in-review-banner.jpg
 images:
   - img/social/fb/2021-in-review.jpg
 guests:
-  - mstratton
-  - bkromhout
-  - jkerr
-  - thess
+  - person: mstratton
+    snapshot: mstratton5
+  - person: bkromhout
+    snapshot: bkromhout6
+  - person: jkerr
+    snapshot: jkerr3
+  - person: thess
+    snapshot: thess4
 hosts:
   - jlaha
 sponsors:

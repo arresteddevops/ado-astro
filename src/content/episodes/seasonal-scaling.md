@@ -10,8 +10,10 @@ episodeBanner: /episode/img/seasonal-scaling-banner.png
 images:
   - /img/social/fb/seasonal-scaling.png
 guests:
-  - rcummings
-  - mcurry
+  - person: rcummings
+    snapshot: rcummings
+  - person: mcurry
+    snapshot: mcurry
 hosts:
   - mstratton
   - bkromhout

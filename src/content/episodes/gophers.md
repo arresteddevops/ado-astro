@@ -10,8 +10,10 @@ episodeBanner: /episode/img/gophers-banner.png
 images:
   - /img/social/fb/gophers.png
 guests:
-  - bketelsen
-  - estmartin
+  - person: bketelsen
+    snapshot: bketelsen
+  - person: estmartin
+    snapshot: estmartin
 hosts:
   - bkromhout
 sponsors:

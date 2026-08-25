@@ -10,9 +10,12 @@ episodeBanner: /episode/img/devopsdays-madison-banner.png
 images:
   - /img/social/fb/devopsdays-madison.png
 guests:
-  - efreeman
-  - jzimmerman
-  - cherro
+  - person: efreeman
+    snapshot: efreeman
+  - person: jzimmerman
+    snapshot: jzimmerman
+  - person: cherro
+    snapshot: cherro
 hosts:
   - mstratton
   - bkromhout

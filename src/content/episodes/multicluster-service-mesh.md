@@ -10,8 +10,10 @@ episodeBanner: episode/img/multicluster-service-mesh-banner.jpg
 images:
   - img/social/fb/multicluster-service-mesh.png
 guests:
-  - pgibson
-  - awang
+  - person: pgibson
+    snapshot: pgibson
+  - person: awang
+    snapshot: awang
 hosts:
   - bkromhout
 sponsors:

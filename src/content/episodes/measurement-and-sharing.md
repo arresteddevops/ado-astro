@@ -10,7 +10,8 @@ episodeBanner: /episode/img/measurement-and-sharing-banner.png
 images:
   - /img/social/fb/measurement-and-sharing.png
 guests:
-  - nforsgren
+  - person: nforsgren
+    snapshot: nforsgren
 hosts:
   - mstratton
 sponsors:

@@ -12,7 +12,8 @@ episodeBanner: episode/img/everything-is-a-product-banner.png
 images:
   - img/social/fb/everything-is-a-product.png
 guests:
-  - smorgan
+  - person: smorgan
+    snapshot: smorgan
 hosts:
   - mstratton
 sponsors:

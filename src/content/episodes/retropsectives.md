@@ -11,9 +11,12 @@ episodeBanner: /episode/img/retrospectives-banner.png
 images:
   - img/social/fb/retrospectives.png
 guests:
-  - atobey
-  - ahidalgo
-  - rheinrichs
+  - person: atobey
+    snapshot: atobey
+  - person: ahidalgo
+    snapshot: ahidalgo
+  - person: rheinrichs
+    snapshot: rheinrichs
 hosts:
   - mstratton
 sponsors:

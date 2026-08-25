@@ -11,8 +11,10 @@ episodeBanner: /episode/img/devops-mythbusters-banner.png
 images:
   - /img/social/fb/devops-mythbusters.png
 guests:
-  - dedwards
-  - sbates
+  - person: dedwards
+    snapshot: dedwards
+  - person: sbates
+    snapshot: sbates
 hosts:
   - thess
   - mstratton

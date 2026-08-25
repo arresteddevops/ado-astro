@@ -10,11 +10,16 @@ episodeBanner: /episode/img/goto-chicago-2018-banner.png
 images:
   - /img/social/fb/goto-chicago-2018.png
 guests:
-  - jhodges
-  - jhendricks
-  - estmartin
-  - ahall
-  - kkingsbury
+  - person: jhodges
+    snapshot: jhodges
+  - person: jhendricks
+    snapshot: jhendricks
+  - person: estmartin
+    snapshot: estmartin
+  - person: ahall
+    snapshot: ahall
+  - person: kkingsbury
+    snapshot: kkingsbury
 hosts:
   - bkromhout
 sponsors:

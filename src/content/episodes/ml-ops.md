@@ -12,7 +12,8 @@ episodeBanner: episode/img/ml-ops-banner.jpg
 images:
   - img/social/fb/ml-ops.png
 guests:
-  - ctroy
+  - person: ctroy
+    snapshot: ctroy
 hosts:
   - jkerr
 sponsors:

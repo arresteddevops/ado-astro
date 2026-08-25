@@ -10,8 +10,10 @@ episodeBanner: /episode/img/containers-security-banner.png
 images:
   - /img/social/fb/containers-security.png
 guests:
-  - bhughes
-  - jfrazelle
+  - person: bhughes
+    snapshot: bhughes
+  - person: jfrazelle
+    snapshot: jfrazelle
 hosts:
   - bkromhout
 sponsors:

@@ -9,7 +9,8 @@ episodeImage: img/episode/default.jpg
 images:
   - img/episode/default-social.jpg
 guests:
-  - smurawski
+  - person: smurawski
+    snapshot: smurawski
 hosts:
   - thess
 sponsors:

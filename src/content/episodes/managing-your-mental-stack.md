@@ -11,7 +11,8 @@ episodeBanner: /episode/img/managing-your-mental-stack-banner.png
 images:
   - /img/social/fb/managing-your-mental-stack.png
 guests:
-  - srosenbaum
+  - person: srosenbaum
+    snapshot: srosenbaum
 hosts:
   - mstratton
   - thess

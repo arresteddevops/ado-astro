@@ -10,7 +10,8 @@ episodeBanner: /episode/img/grandpa-paul-banner.png
 images:
   - /img/social/fb/grandpa-paul.png
 guests:
-  - jreed
+  - person: jreed
+    snapshot: preed
 hosts:
   - mstratton
 sponsors:

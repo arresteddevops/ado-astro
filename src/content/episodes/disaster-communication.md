@@ -10,8 +10,10 @@ episodeBanner: /episode/img/disaster-communication-banner.png
 images:
   - /img/social/fb/disaster-communication.png
 guests:
-  - jsmith
-  - mimbriaco
+  - person: jsmith
+    snapshot: jsmith2
+  - person: mimbriaco
+    snapshot: mimbriaco
 hosts:
   - mstratton
   - bkromhout

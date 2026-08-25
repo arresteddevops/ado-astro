@@ -11,8 +11,10 @@ episodeBanner: /episode/img/cloud-scaling-banner.png
 images:
   - /img/social/fb/cloud-scaling.png
 guests:
-  - scorona
-  - ipapirov
+  - person: scorona
+    snapshot: scorona
+  - person: ipapirov
+    snapshot: ipapirov
 hosts:
   - mstratton
   - thess

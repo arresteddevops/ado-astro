@@ -11,8 +11,10 @@ episodeBanner: /episode/img/implementing-devops-banner.png
 images:
   - /img/social/fb/implementing-devops.png
 guests:
-  - jteinback
-  - candreen
+  - person: jteinback
+    snapshot: jteinback
+  - person: candreen
+    snapshot: candreen
 hosts:
   - mstratton
   - thess

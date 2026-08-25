@@ -11,8 +11,10 @@ episodeBanner: /episode/img/all-together-now-banner.png
 images:
   - /img/social/fb/all-together-now.png
 guests:
-  - adugan
-  - tvernon
+  - person: adugan
+    snapshot: adugan
+  - person: tvernon
+    snapshot: tvernon
 hosts:
   - mstratton
   - thess

@@ -10,9 +10,12 @@ episodeBanner: /episode/img/chatops-banner.jpg
 images:
   - /img/social/fb/chatops.png
 guests:
-  - jhand
-  - srosenbaum
-  - pburkholder
+  - person: jhand
+    snapshot: jhand
+  - person: srosenbaum
+    snapshot: srosenbaum
+  - person: pburkholder
+    snapshot: pburkholder
 hosts:
   - mstratton
   - thess

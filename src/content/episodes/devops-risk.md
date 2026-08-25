@@ -10,9 +10,12 @@ episodeBanner: /episode/img/devops-risk-banner.png
 images:
   - /img/social/fb/devops-risk.png
 guests:
-  - njohnson
-  - mcurry
-  - alee
+  - person: njohnson
+    snapshot: njohnson
+  - person: mcurry
+    snapshot: mcurry2
+  - person: alee
+    snapshot: alee
 hosts:
   - bkromhout
   - mstratton

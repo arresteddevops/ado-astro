@@ -10,10 +10,14 @@ episodeBanner: /episode/img/career-change-into-devops-banner.png
 images:
   - /img/social/fb/career-change-into-devops.png
 guests:
-  - ahedgpeth
-  - mbohl
-  - mhedgpeth
-  - sgupta
+  - person: ahedgpeth
+    snapshot: ahedgpeth3
+  - person: mbohl
+    snapshot: mbohl
+  - person: mhedgpeth
+    snapshot: mhedgpeth2
+  - person: sgupta
+    snapshot: sgupta
 hosts:
   - mstratton
 sponsors:

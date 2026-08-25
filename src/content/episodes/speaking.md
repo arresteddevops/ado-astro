@@ -10,7 +10,8 @@ episodeBanner: /episode/img/speaking-banner.png
 images:
   - /img/social/fb/speaking.png
 guests:
-  - rdaniels
+  - person: rdaniels
+    snapshot: rdaniels2
 hosts:
   - bkromhout
 sponsors:

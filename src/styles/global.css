@@ -17,7 +17,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-red);
+  color: var(--color-red-deep);
 }
 
 /* Any link/button acting as a control must clear the 44px hit-target floor —

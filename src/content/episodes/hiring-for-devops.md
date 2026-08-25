@@ -10,9 +10,12 @@ episodeBanner: /episode/img/hiring-for-devops-banner.png
 images:
   - /img/social/fb/hiring-for-devops.png
 guests:
-  - mfiedler
-  - jjubinski
-  - jhertz
+  - person: mfiedler
+    snapshot: mfiedler
+  - person: jjubinski
+    snapshot: jjubinski
+  - person: jhertz
+    snapshot: jhertz
 hosts:
   - mstratton
   - thess

@@ -10,11 +10,16 @@ episodeBanner: /episode/img/devopsdays-toronto-2016-banner.png
 images:
   - /img/social/fb/devopsdays-toronto-2016.png
 guests:
-  - dcliffe
-  - skowalik
-  - swalberg
-  - spereira
-  - jlaha
+  - person: dcliffe
+    snapshot: dcliffe
+  - person: skowalik
+    snapshot: skowalik
+  - person: swalberg
+    snapshot: swalberg
+  - person: spereira
+    snapshot: spereira2
+  - person: jlaha
+    snapshot: jlaha
 hosts:
   - bkromhout
 sponsors:

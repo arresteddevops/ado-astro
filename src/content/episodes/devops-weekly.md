@@ -10,7 +10,8 @@ episodeBanner: /episode/img/devops-weekly-banner.png
 images:
   - /img/social/fb/devops-weekly.png
 guests:
-  - grushgrove
+  - person: grushgrove
+    snapshot: grushgrove
 hosts:
   - bkromhout
 sponsors:

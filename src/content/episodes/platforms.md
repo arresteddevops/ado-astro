@@ -10,8 +10,10 @@ episodeBanner: /episode/img/platforms-banner.png
 images:
   - /img/social/fb/platforms.png
 guests:
-  - ashafer
-  - khightower
+  - person: ashafer
+    snapshot: ashafer
+  - person: khightower
+    snapshot: khightower
 hosts:
   - bkromhout
 sponsors:

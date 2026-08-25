@@ -10,8 +10,10 @@ episodeBanner: /episode/img/finding-signal-in-the-noise-banner.png
 images:
   - /img/social/fb/finding-signal-in-the-noise.png
 guests:
-  - jdixon
-  - alakhani
+  - person: jdixon
+    snapshot: jdixon
+  - person: alakhani
+    snapshot: alakhani
 hosts:
   - mstratton
   - bkromhout

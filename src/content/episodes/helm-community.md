@@ -11,9 +11,12 @@ episodeBanner: episode/img/helm-community-banner.png
 images:
   - img/social/fb/helm-community.png
 guests:
-  - mfarina
-  - kchu
-  - mbutcher
+  - person: mfarina
+    snapshot: mfarina
+  - person: kchu
+    snapshot: kchu
+  - person: mbutcher
+    snapshot: mbutcher
 hosts:
   - bkromhout
 sponsors:

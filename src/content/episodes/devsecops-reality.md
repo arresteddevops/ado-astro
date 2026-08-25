@@ -12,7 +12,8 @@ episodeBanner: episode/img/devsecops-reality-banner.jpg
 images:
   - img/social/fb/devsecops-reality.jpg
 guests:
-  - sgiguere
+  - person: sgiguere
+    snapshot: sgiguere
 hosts:
   - mstratton
 sponsors:

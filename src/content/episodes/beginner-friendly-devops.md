@@ -11,7 +11,8 @@ episodeBanner: episode/img/beginner-friendly-devops-banner.png
 images:
   - img/social/fb/beginner-friendly-devops.png
 guests:
-  - lsantamaria
+  - person: lsantamaria
+    snapshot: lsantamaria
 hosts:
   - mstratton
 sponsors:

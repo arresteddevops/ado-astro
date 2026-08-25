@@ -11,15 +11,24 @@ episodeBanner: episode/img/deserted-island-devops-banner.jpg
 images:
   - img/social/fb/deserted-island-devops.png
 guests:
-  - aaldrich
-  - aparker
-  - atacke
-  - dsudia
-  - icoldwater
-  - jgrindrod
-  - kcosgrove
-  - kfarmer
-  - mmoore
+  - person: aaldrich
+    snapshot: aaldrich2
+  - person: aparker
+    snapshot: aparker
+  - person: atacke
+    snapshot: atacke
+  - person: dsudia
+    snapshot: dsudia
+  - person: icoldwater
+    snapshot: icoldwater
+  - person: jgrindrod
+    snapshot: jgrindrod
+  - person: kcosgrove
+    snapshot: kcosgrove
+  - person: kfarmer
+    snapshot: kfarmer
+  - person: mmoore
+    snapshot: mmoore
 hosts:
   - mstratton
 sponsors:

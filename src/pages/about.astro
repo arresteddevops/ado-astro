@@ -1,0 +1,245 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PersonCard from "../components/PersonCard.astro";
+
+const episodes = await getCollection("episodes");
+const guests = await getCollection("guests");
+const yearsOnAir = new Date().getFullYear() - 2013;
+
+// Short editorial blurbs for the About page's host cards — distinct from
+// each host's full bio (which lives on their own /host/ page).
+const hostBlurbs: Record<string, string> = {
+  mstratton: "Solution Architect at Turbot, global DevOpsDays organizer. License plate went from DEVOPS to KUBECTL.",
+  bkromhout: "Principal Program Manager at Microsoft Azure, advises the global devopsdays organization after leading it for five years.",
+  jkerr: "Symmathecist in the medium of code. Developer relations at Honeycomb, resilience engineering and systems-thinky things.",
+  jsmith: "Director of Production Operations, author of Operational Anti-Patterns, chapter president of Blacks in Technology.",
+  jlaha: "Event technology professional and devopsdays Minneapolis organizer; usually edits ADO instead of appearing on it.",
+  thess: "Senior Product Manager working on Chef. A .NET-consulting alum who helped large organizations kick-start their journeys to the cloud and DevOps practices.",
+};
+
+const hosts = (await getCollection("hosts")).sort(
+  (a, b) => (a.id === "mstratton" ? -1 : b.id === "mstratton" ? 1 : a.data.name.localeCompare(b.data.name)),
+);
+---
+
+<BaseLayout title="About" description="It's a podcast about DevOps. And also about people.">
+  <section class="intro">
+    <div class="badge">THE SHOW</div>
+    <h1>It's a podcast about DevOps. And also about people.</h1>
+    <p class="lede">
+      Arrested DevOps helps you achieve understanding, develop good practices, and
+      operate your team and organization for maximum DevOps awesomeness — one
+      conversation at a time, since 2013.
+    </p>
+  </section>
+
+  <section class="stats">
+    <div class="stat yellow">
+      <span class="number">{episodes.length}</span>
+      <span class="label">EPISODES</span>
+    </div>
+    <div class="stat navy">
+      <span class="number">{guests.length}</span>
+      <span class="label">GUESTS</span>
+    </div>
+    <div class="stat red">
+      <span class="number">{yearsOnAir}</span>
+      <span class="label">YEARS ON AIR</span>
+    </div>
+    <div class="stat cream">
+      <span class="number">∞</span>
+      <span class="label">HOT TAKES</span>
+    </div>
+  </section>
+
+  <section class="story">
+    <h2>The story so far</h2>
+    <p>
+      Arrested DevOps started in 2013, back when "DevOps" still needed air quotes in
+      most job descriptions. The name is exactly the pun it sounds like — and yes, the
+      iTunes subtitle has always been "There's always DevOps in the Banana Stand."
+      {episodes.length} episodes later, the mission hasn't changed: honest conversations
+      about how teams actually build, run, and un-break software — with the people
+      doing the work, not the people selling the tooling.
+    </p>
+  </section>
+
+  <section class="hosts">
+    <h2>Meet the hosts</h2>
+    <div class="grid">
+      {hosts.map((host, i) => (
+        <PersonCard
+          name={host.data.name}
+          bio={hostBlurbs[host.id] ?? ""}
+          href={`/host/${host.id}/`}
+          colorIndex={i}
+        />
+      ))}
+    </div>
+  </section>
+
+  <section class="cta">
+    <div>
+      <h2>Want on the show?</h2>
+      <p>We're always looking for guests with stories worth telling. Pitch us an episode idea.</p>
+    </div>
+    <a class="pill" href="/contact">Pitch an episode</a>
+  </section>
+</BaseLayout>
+
+<style>
+  h1, h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+  }
+
+  .intro {
+    padding: 64px var(--page-padding) 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 900px;
+  }
+
+  .badge {
+    display: inline-flex;
+    background: var(--color-red-deep);
+    color: var(--color-cream);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    transform: rotate(-2deg);
+    align-self: flex-start;
+  }
+
+  h1 {
+    font-size: 62px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-wrap: pretty;
+  }
+
+  .lede {
+    margin: 0;
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  .stats {
+    margin: 0 var(--page-padding);
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .stat {
+    border: var(--border-width) solid var(--color-navy);
+    border-radius: var(--radius-card);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat.yellow { background: var(--color-yellow); }
+  .stat.navy { background: var(--color-navy); color: var(--color-text-on-navy); }
+  .stat.red { background: var(--color-red-deep); color: var(--color-cream); }
+  .stat.cream { background: var(--color-cream); }
+
+  .number {
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-weight: 800;
+  }
+
+  .label {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+
+  .story {
+    padding: 56px var(--page-padding) 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 900px;
+  }
+
+  .story h2 {
+    font-size: 30px;
+    border-bottom: 3px solid var(--color-yellow);
+    padding-bottom: 8px;
+  }
+
+  .story p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  .hosts {
+    padding: 24px var(--page-padding) 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .hosts h2 {
+    font-size: 30px;
+    border-bottom: 3px solid var(--color-red);
+    padding-bottom: 8px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .cta {
+    margin: 24px var(--page-padding) 64px;
+    background: var(--color-navy);
+    border-radius: var(--radius-card-lg);
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    color: var(--color-text-on-navy);
+  }
+
+  .cta p {
+    margin: 8px 0 0;
+    font-size: 15px;
+    color: var(--color-text-on-navy-muted);
+    max-width: 560px;
+  }
+
+  .pill {
+    background: var(--color-yellow);
+    color: var(--color-navy);
+    padding: 14px 26px;
+    border-radius: var(--radius-pill);
+    font-weight: 800;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .pill:hover {
+    color: var(--color-navy);
+  }
+
+  @media (max-width: 900px) {
+    h1 { font-size: 40px; }
+    .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid { grid-template-columns: 1fr; }
+    .cta { flex-direction: column; align-items: flex-start; }
+  }
+</style>

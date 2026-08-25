@@ -10,9 +10,12 @@ episodeBanner: /episode/img/containers-banner.jpg
 images:
   - /img/social/fb/containers.png
 guests:
-  - jpetazzoni
-  - mheckler
-  - jheckler
+  - person: jpetazzoni
+    snapshot: jpetazzoni
+  - person: mheckler
+    snapshot: mheckler
+  - person: jheckler
+    snapshot: jheckler
 hosts:
   - bkromhout
   - mstratton

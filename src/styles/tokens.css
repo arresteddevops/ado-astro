@@ -5,6 +5,11 @@
   --color-cream-card: #fdf9ef;
   --color-navy: #1e2a52;
   --color-red: #e04f39;
+  /* Same hue, darkened for text/small-badge use: --color-red against cream
+     is only 3.57:1 (fails WCAG AA's 4.5:1 for normal text) — this variant
+     is 5.37:1. Keep --color-red for large text (30px+ bold clears the 3:1
+     large-text floor) and non-text fills/borders/shadows. */
+  --color-red-deep: #b8341f;
   --color-yellow: #f5c518;
   --color-text: var(--color-navy);
   --color-text-muted: #4a5378;

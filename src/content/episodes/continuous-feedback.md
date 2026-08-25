@@ -11,7 +11,8 @@ episodeBanner: episode/img/continuous-feedback-banner.jpg
 images:
   - img/social/fb/continuous-feedback.png
 guests:
-  - rdover
+  - person: rdover
+    snapshot: rdover
 hosts:
   - jkerr
 sponsors:

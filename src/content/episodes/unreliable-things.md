@@ -11,7 +11,8 @@ episodeBanner: episode/img/unreliable-things-banner.jpg
 images:
   - img/social/fb/unreliable-things.jpg
 guests:
-  - mhibberd
+  - person: mhibberd
+    snapshot: mhibberd
 hosts:
   - jkerr
 sponsors:

@@ -11,10 +11,14 @@ episodeBanner: /episode/img/devops-at-etsy-banner.png
 images:
   - /img/social/fb/devops-at-etsy.png
 guests:
-  - jcowie
-  - jallspaw
-  - dyurkiewicz
-  - pbellisano
+  - person: jcowie
+    snapshot: jcowie
+  - person: jallspaw
+    snapshot: jallspaw
+  - person: dyurkiewicz
+    snapshot: dyurkiewicz
+  - person: pbellisano
+    snapshot: pbellisano
 hosts:
   - thess
   - mstratton

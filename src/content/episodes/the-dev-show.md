@@ -11,8 +11,10 @@ episodeBanner: /episode/img/the-dev-show-banner.png
 images:
   - /img/social/fb/the-dev-show.png
 guests:
-  - ddigangi
-  - dbraverman
+  - person: ddigangi
+    snapshot: ddigangi
+  - person: dbraverman
+    snapshot: dbraverman
 hosts:
   - mstratton
   - thess

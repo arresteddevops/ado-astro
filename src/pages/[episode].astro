@@ -1,0 +1,360 @@
+---
+import { getCollection, getEntry, getEntries, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PersonCard from "../components/PersonCard.astro";
+import { MEDIA_PREFIX } from "../consts";
+
+export async function getStaticPaths() {
+  const episodes = await getCollection("episodes");
+  return episodes.map((episode) => ({
+    params: { episode: episode.id },
+    props: { episode },
+  }));
+}
+
+const { episode } = Astro.props;
+const {
+  title,
+  description,
+  date,
+  episodeNumber,
+  podcastFile,
+  podcastDuration,
+  guests,
+  hosts,
+  sponsors,
+  youtube,
+  transcript,
+} = episode.data;
+
+const { Content } = await render(episode);
+
+const guestCards = (
+  await Promise.all(
+    guests.map(async (g) => {
+      const person = await getEntry(g.person);
+      if (!person) return null;
+      const snap = person.data.snapshots.find((s) => s.key === g.snapshot) ?? person.data.snapshots[0];
+      return { id: person.id, name: person.data.name, bio: snap.bio };
+    }),
+  )
+).filter((g) => g !== null);
+
+const hostEntries = await getEntries(hosts);
+const sponsorEntries = await getEntries(sponsors);
+
+const dateLabel = date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="intro">
+    <a class="back" href="/">← All episodes</a>
+    <div class="badges">
+      <span class="badge episode-badge">EPISODE {episodeNumber}</span>
+      {youtube && <span class="badge video-badge">VIDEO</span>}
+      <span class="meta">{dateLabel}{podcastDuration ? ` · ${podcastDuration}` : ""}</span>
+    </div>
+    <h1>{title}</h1>
+    {(guestCards.length > 0 || hostEntries.length > 0) && (
+      <div class="chip-row">
+        {guestCards.length > 0 && <span>with</span>}
+        {guestCards.map((g) => (
+          <a class="chip" href={`/guest/${g.id}/`}>{g.name}</a>
+        ))}
+        {hostEntries.length > 0 && <span>· hosted by</span>}
+        {hostEntries.map((h) => (
+          <a class="chip host" href={`/host/${h.id}/`}>{h.data.name}</a>
+        ))}
+      </div>
+    )}
+  </section>
+
+  {youtube ? (
+    <section class="media">
+      <div class="video-frame">
+        <iframe
+          src={`https://www.youtube.com/embed/${youtube}`}
+          title={`${title} — video`}
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="audio-fallback">
+        <span>Prefer audio?</span>
+        <audio controls src={audioSrc}>
+          <a href={audioSrc}>Download the episode audio</a>
+        </audio>
+      </div>
+    </section>
+  ) : (
+    <section class="media">
+      <div class="audio-card">
+        <span class="now-playing">Now playing</span>
+        <audio controls src={audioSrc}>
+          <a href={audioSrc}>Download the episode audio</a>
+        </audio>
+        {transcript && (
+          <a class="pill outline" href={transcript}>Read the transcript</a>
+        )}
+      </div>
+    </section>
+  )}
+
+  {sponsorEntries.length > 0 && (
+    <section class="sponsors">
+      <span class="label">BROUGHT TO YOU BY</span>
+      {sponsorEntries.map((s) => (
+        s.data.url ? <a class="chip" href={s.data.url}>{s.data.name}</a> : <span class="chip">{s.data.name}</span>
+      ))}
+    </section>
+  )}
+
+  <article class="show-notes">
+    {description && <p class="description">{description}</p>}
+    <Content />
+  </article>
+
+  {guestCards.length > 0 && (
+    <section class="guests">
+      <h2>This episode's guests</h2>
+      <div class="grid">
+        {guestCards.map((g, i) => (
+          <PersonCard name={g.name} bio={g.bio} href={`/guest/${g.id}/`} colorIndex={i} />
+        ))}
+      </div>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  h1, h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+  }
+
+  .intro {
+    padding: 56px 120px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: var(--content-max-width);
+  }
+
+  .back {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-red-deep);
+  }
+
+  .badges {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+  }
+
+  .episode-badge {
+    background: var(--color-yellow);
+    color: var(--color-navy);
+    transform: rotate(-2deg);
+  }
+
+  .video-badge {
+    background: var(--color-red-deep);
+    color: var(--color-cream);
+  }
+
+  .meta {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  h1 {
+    font-size: 52px;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-wrap: pretty;
+  }
+
+  .chip-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--hit-target-min);
+    border: 2px solid var(--color-navy);
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    font-weight: 700;
+    color: var(--color-navy);
+  }
+
+  .chip.host {
+    border-color: var(--color-red-deep);
+    color: var(--color-red-deep);
+  }
+
+  .media {
+    padding: 32px 120px 0;
+    max-width: var(--content-max-width);
+  }
+
+  .video-frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border: var(--border-width) solid var(--color-navy);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+  }
+
+  .video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .audio-fallback {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-text-muted);
+  }
+
+  .audio-fallback audio {
+    flex: 1;
+  }
+
+  .audio-card {
+    background: var(--color-navy);
+    border-radius: var(--radius-card);
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .now-playing {
+    color: var(--color-text-on-navy);
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .audio-card audio {
+    flex: 1;
+    min-width: 240px;
+  }
+
+  .pill.outline {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--hit-target-min);
+    border: 2px solid var(--color-yellow);
+    color: var(--color-yellow);
+    padding: 10px 18px;
+    border-radius: var(--radius-pill);
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .sponsors {
+    padding: 24px 120px 0;
+    max-width: var(--content-max-width);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .label {
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+  }
+
+  .sponsors .chip {
+    font-size: 13px;
+    padding: 6px 14px;
+  }
+
+  .show-notes {
+    padding: 32px 120px 48px;
+    max-width: var(--content-max-width);
+    line-height: 1.65;
+    color: var(--color-text);
+  }
+
+  .description {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .show-notes :global(h2) {
+    font-size: 28px;
+    border-bottom: 3px solid var(--color-yellow);
+    padding-bottom: 8px;
+  }
+
+  .guests {
+    padding: 0 120px 64px;
+    max-width: var(--content-max-width);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .guests h2 {
+    font-size: 28px;
+    border-bottom: 3px solid var(--color-red);
+    padding-bottom: 8px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  @media (max-width: 900px) {
+    .intro, .media, .sponsors, .show-notes, .guests {
+      padding-left: var(--page-padding);
+      padding-right: var(--page-padding);
+    }
+
+    h1 {
+      font-size: 36px;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

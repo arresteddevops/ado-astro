@@ -10,10 +10,14 @@ episodeBanner: /episode/img/devopsdays-ams-2018-banner.png
 images:
   - /img/social/fb/devopsdays-ams-2018.png
 guests:
-  - mcote
-  - jbrown
-  - kbuytaert
-  - tdemeester
+  - person: mcote
+    snapshot: mcote
+  - person: jbrown
+    snapshot: jbrown
+  - person: kbuytaert
+    snapshot: kbuytaert
+  - person: tdemeester
+    snapshot: tdemeester
 hosts:
   - bkromhout
   - mstratton

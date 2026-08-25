@@ -11,7 +11,8 @@ episodeBanner: /episode/img/state-of-open-source-security-banner.png
 images:
   - /img/social/fb/state-of-open-source-security.png
 guests:
-  - amiller
+  - person: amiller
+    snapshot: amiller
 hosts:
   - mstratton
   - jkerr

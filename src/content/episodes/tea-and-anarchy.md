@@ -11,8 +11,10 @@ episodeBanner: episode/img/tea-and-anarchy-banner.png
 images:
   - img/social/fb/tea-and-anarchy.png
 guests:
-  - agoldfuss
-  - icoldwater
+  - person: agoldfuss
+    snapshot: agoldfuss3
+  - person: icoldwater
+    snapshot: icoldwater2
 hosts:
   - bkromhout
 sponsors:

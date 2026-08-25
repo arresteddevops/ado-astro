@@ -11,8 +11,10 @@ episodeBanner: episode/img/cloud-costs-banner.png
 images:
   - img/social/fb/cloud-costs.png
 guests:
-  - cquinn
-  - pcheslock
+  - person: cquinn
+    snapshot: cquinn
+  - person: pcheslock
+    snapshot: pcheslock3
 hosts:
   - jkerr
   - mstratton

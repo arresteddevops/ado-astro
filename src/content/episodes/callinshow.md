@@ -10,8 +10,10 @@ episodeBanner: /episode/img/callinshow-banner.png
 images:
   - /img/social/fb/callinshow.png
 guests:
-  - nforsgren
-  - nharrington
+  - person: nforsgren
+    snapshot: nforsgren2
+  - person: nharrington
+    snapshot: nshamrell
 hosts:
   - mstratton
 sponsors:

@@ -11,7 +11,8 @@ episodeBanner: episode/img/engineers-are-people-banner.jpg
 images:
   - img/social/fb/engineers-are-people.jpg
 guests:
-  - dbieda
+  - person: dbieda
+    snapshot: dbieda
 hosts:
   - mstratton
 sponsors:

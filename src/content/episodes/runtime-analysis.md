@@ -12,7 +12,8 @@ episodeBanner: episode/img/runtime-analysis-banner.jpg
 images:
   - img/social/fb/runtime-analysis.png
 guests:
-  - bkelly
+  - person: bkelly
+    snapshot: bkelly
 hosts:
   - mstratton
 sponsors:

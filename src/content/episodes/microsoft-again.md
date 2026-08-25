@@ -10,11 +10,16 @@ episodeBanner: /episode/img/microsoft-again-banner.png
 images:
   - /img/social/fb/microsoft-again.png
 guests:
-  - lbennett
-  - bolin
-  - rdunn
-  - gsarti
-  - chunt
+  - person: lbennett
+    snapshot: lbennett
+  - person: bolin
+    snapshot: bolin
+  - person: rdunn
+    snapshot: rdunn
+  - person: gsarti
+    snapshot: gsarti
+  - person: chunt
+    snapshot: chunt
 hosts:
   - mstratton
   - thess

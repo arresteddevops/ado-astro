@@ -10,8 +10,10 @@ episodeBanner: /episode/img/availability-banner.png
 images:
   - /img/social/fb/availability.png
 guests:
-  - cmajors
-  - pcheslock
+  - person: cmajors
+    snapshot: cmajors2
+  - person: pcheslock
+    snapshot: pcheslock2
 hosts:
   - mstratton
   - thess

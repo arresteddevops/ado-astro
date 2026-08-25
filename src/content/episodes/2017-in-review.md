@@ -10,10 +10,14 @@ episodeBanner: /episode/img/2017-in-review-banner.png
 images:
   - /img/social/fb/2017-in-review.png
 guests:
-  - mstratton
-  - thess
-  - bkromhout
-  - jlaha
+  - person: mstratton
+    snapshot: mstratton3
+  - person: thess
+    snapshot: thess2
+  - person: bkromhout
+    snapshot: bkromhout4
+  - person: jlaha
+    snapshot: jlaha
 hosts:
   - mstratton
   - thess

@@ -11,7 +11,8 @@ episodeBanner: episode/img/certifications-banner.png
 images:
   - img/social/fb/certifications.png
 guests:
-  - jgordon
+  - person: jgordon
+    snapshot: jgordon2
 hosts:
   - mstratton
 sponsors:

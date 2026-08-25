@@ -12,7 +12,8 @@ episodeBanner: episode/img/devops-with-better-marketing-banner.png
 images:
   - img/social/fb/devops-with-better-marketing.png
 guests:
-  - pcheslock
+  - person: pcheslock
+    snapshot: pcheslock4
 hosts:
   - mstratton
 sponsors:

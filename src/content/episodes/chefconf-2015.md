@@ -10,9 +10,12 @@ episodeBanner: /episode/img/chefconf-2015-banner.png
 images:
   - /img/social/fb/chefconf-2015.png
 guests:
-  - jdunn
-  - sfalcon
-  - aedwards
+  - person: jdunn
+    snapshot: jdunn
+  - person: sfalcon
+    snapshot: sfalcon
+  - person: aedwards
+    snapshot: aedwards
 hosts:
   - mstratton
   - thess

@@ -12,7 +12,8 @@ episodeBanner: episode/img/seasons-of-community-banner.png
 images:
   - img/social/fb/seasons-of-community.png
 guests:
-  - kfarmer
+  - person: kfarmer
+    snapshot: kfarmer
 hosts:
   - mstratton
 sponsors:

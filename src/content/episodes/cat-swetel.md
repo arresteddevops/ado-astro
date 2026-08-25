@@ -12,7 +12,8 @@ episodeBanner: /episode/img/cat-swetel-banner.jpg
 images:
   - img/social/fb/cat-swetel.png
 guests:
-  - cswetel
+  - person: cswetel
+    snapshot: cswetel
 hosts:
   - jkerr
 sponsors:

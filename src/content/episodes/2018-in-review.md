@@ -10,9 +10,12 @@ episodeImage: episode/img/2018-in-review.jpg
 images:
   - img/episode/default-social.jpg
 guests:
-  - bkromhout
-  - thess
-  - mstratton
+  - person: bkromhout
+    snapshot: bkromhout4
+  - person: thess
+    snapshot: thess2
+  - person: mstratton
+    snapshot: mstratton3
 hosts:
   - jlaha
 sponsors:

@@ -11,7 +11,8 @@ episodeBanner: episode/img/communities-are-made-of-people.jpg
 images:
   - img/social/fb/communities-are-made-of-people.png
 guests:
-  - jbacon
+  - person: jbacon
+    snapshot: jbacon
 hosts:
   - mstratton
 sponsors:

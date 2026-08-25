@@ -11,7 +11,8 @@ episodeBanner: /episode/img/kubernetes-security-banner.png
 images:
   - /img/social/fb/kubernetes-security.png
 guests:
-  - icoldwater
+  - person: icoldwater
+    snapshot: icoldwater
 hosts:
   - bkromhout
 sponsors:

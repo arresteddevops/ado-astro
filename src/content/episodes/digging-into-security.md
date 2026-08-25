@@ -12,7 +12,8 @@ episodeBanner: episode/img/digging-into-security-banner.png
 images:
   - img/social/fb/digging-into-security.png
 guests:
-  - kcosgrove
+  - person: kcosgrove
+    snapshot: kcosgrove2
 hosts:
   - mstratton
 sponsors:

@@ -10,8 +10,10 @@ episodeBanner: /episode/img/career-ops-banner.png
 images:
   - /img/social/fb/career-ops.png
 guests:
-  - jjubinski
-  - pburkholder
+  - person: jjubinski
+    snapshot: jjubinski2
+  - person: pburkholder
+    snapshot: pburkholder
 hosts:
   - mstratton
   - thess

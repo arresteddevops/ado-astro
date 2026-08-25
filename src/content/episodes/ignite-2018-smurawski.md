@@ -10,7 +10,8 @@ episodeBanner: /episode/img/ignite-2018-smurawski-banner.png
 images:
   - /img/social/fb/ignite-2018-smurawski.png
 guests:
-  - smurawski
+  - person: smurawski
+    snapshot: smurawski
 hosts:
   - thess
 sponsors:

@@ -10,8 +10,10 @@ episodeBanner: /episode/img/application-configuration-banner.png
 images:
   - /img/social/fb/application-configuration.png
 guests:
-  - tgross
-  - ajacob
+  - person: tgross
+    snapshot: tgross
+  - person: ajacob
+    snapshot: ajacob
 hosts:
   - mstratton
   - bkromhout

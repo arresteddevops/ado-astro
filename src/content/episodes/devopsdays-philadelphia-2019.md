@@ -11,9 +11,12 @@ episodeBanner: /episode/img/devopsdays-philadelphia-2019-banner.png
 images:
   - /img/social/fb/devopsdays-philadelphia-2019.png
 guests:
-  - pshannon
-  - jharper
-  - tgross
+  - person: pshannon
+    snapshot: pshannon
+  - person: jharper
+    snapshot: jharper
+  - person: tgross
+    snapshot: tgross2
 hosts:
   - bkromhout
 sponsors:

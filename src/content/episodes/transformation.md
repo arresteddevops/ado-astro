@@ -11,7 +11,8 @@ episodeBanner: episode/img/transformation-banner.png
 images:
   - img/social/fb/transformation.png
 guests:
-  - ashafer
+  - person: ashafer
+    snapshot: ashafer
 hosts:
   - jkerr
   - mstratton

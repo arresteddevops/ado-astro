@@ -12,7 +12,8 @@ episodeBanner: episode/img/data-data-data-banner.png
 images:
   - img/social/fb/data-data-data.png
 guests:
-  - ftisiot
+  - person: ftisiot
+    snapshot: ftisiot
 hosts:
   - mstratton
 sponsors:

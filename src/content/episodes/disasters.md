@@ -10,8 +10,10 @@ episodeBanner: /episode/img/disasters-banner.png
 images:
   - /img/social/fb/disasters.png
 guests:
-  - svandyk
-  - mimbriaco
+  - person: svandyk
+    snapshot: svandyk
+  - person: mimbriaco
+    snapshot: mimbriaco
 hosts:
   - mstratton
   - thess

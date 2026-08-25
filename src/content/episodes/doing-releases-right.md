@@ -11,7 +11,8 @@ episodeBanner: episode/img/doing-releases-right-banner.jpg
 images:
   - img/social/fb/doing-releases-right.jpg
 guests:
-  - shain
+  - person: shain
+    snapshot: shain
 hosts:
   - mstratton
 sponsors:

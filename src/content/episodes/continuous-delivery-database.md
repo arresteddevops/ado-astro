@@ -10,8 +10,10 @@ episodeBanner: /episode/img/continuous-delivery-database-banner.png
 images:
   - /img/social/fb/continuous-delivery-database.png
 guests:
-  - gfritchey
-  - jhickford
+  - person: gfritchey
+    snapshot: gfritchey
+  - person: jhickford
+    snapshot: jhickford
 hosts:
   - thess
   - mstratton

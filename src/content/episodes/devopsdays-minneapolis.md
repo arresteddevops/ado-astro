@@ -11,11 +11,16 @@ episodeBanner: /episode/img/devopsdays-minneapolis-banner.png
 images:
   - /img/social/fb/devopsdays-minneapolis.png
 guests:
-  - jdunn
-  - rdaniels
-  - jmorgenthal
-  - bkromhout
-  - pdebois
+  - person: jdunn
+    snapshot: jdunn
+  - person: rdaniels
+    snapshot: rdaniels
+  - person: jmorgenthal
+    snapshot: jmorgenthal
+  - person: bkromhout
+    snapshot: bkromhout
+  - person: pdebois
+    snapshot: pdebois
 hosts:
   - mstratton
 sponsors: []

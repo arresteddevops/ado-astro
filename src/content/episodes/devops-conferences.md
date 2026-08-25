@@ -11,9 +11,12 @@ episodeBanner: /episode/img/devops-conferences-banner.png
 images:
   - /img/social/fb/devops-conferences.png
 guests:
-  - bkromhout
-  - jdixon
-  - pcheslock
+  - person: bkromhout
+    snapshot: bkromhout
+  - person: jdixon
+    snapshot: jdixon
+  - person: pcheslock
+    snapshot: pcheslock
 hosts:
   - thess
   - mstratton

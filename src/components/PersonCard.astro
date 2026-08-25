@@ -1,0 +1,89 @@
+---
+import { plainTextSnippet } from "../lib/markdown";
+
+interface Props {
+  name: string;
+  bio: string;
+  href: string;
+  episodeCount?: number;
+  colorIndex?: number;
+}
+
+const { name, bio, href, episodeCount, colorIndex = 0 } = Astro.props;
+const snippet = plainTextSnippet(bio);
+
+const initials = name
+  .split(/\s+/)
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((part) => part[0]?.toUpperCase())
+  .join("");
+
+const palette = [
+  { bg: "var(--color-yellow)", fg: "var(--color-navy)" },
+  { bg: "var(--color-red)", fg: "var(--color-cream)" },
+  { bg: "var(--color-navy)", fg: "var(--color-yellow)" },
+];
+const { bg, fg } = palette[colorIndex % palette.length];
+---
+
+<a class="card" href={href}>
+  <div class="avatar" style={`background: ${bg}; color: ${fg};`}>{initials}</div>
+  <span class="name">{name}</span>
+  <p class="bio">{snippet}</p>
+  {episodeCount !== undefined && <span class="badge">{episodeCount} episode{episodeCount === 1 ? "" : "s"}</span>}
+</a>
+
+<style>
+  .card {
+    border: var(--border-width) solid var(--color-navy);
+    border-radius: var(--radius-card);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    color: var(--color-text);
+  }
+
+  .card:hover {
+    color: var(--color-text);
+  }
+
+  .card:hover .name {
+    color: var(--color-red-deep);
+  }
+
+  .avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 800;
+  }
+
+  .name {
+    font-size: 19px;
+    font-weight: 800;
+  }
+
+  .bio {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+
+  .badge {
+    background: var(--color-navy);
+    color: var(--color-cream);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+  }
+</style>

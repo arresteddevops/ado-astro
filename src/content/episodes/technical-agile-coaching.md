@@ -12,7 +12,8 @@ episodeBanner: episode/img/technical-agile-coaching-banner.jpg
 images:
   - img/social/fb/technical-agile-coaching.jpg
 guests:
-  - ebache
+  - person: ebache
+    snapshot: ebache
 hosts:
   - mstratton
 sponsors:

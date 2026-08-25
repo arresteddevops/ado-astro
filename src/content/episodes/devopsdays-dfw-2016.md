@@ -10,11 +10,16 @@ episodeBanner: /episode/img/devopsdays-dfw-2016-banner.png
 images:
   - /img/social/fb/devopsdays-dfw-2016.png
 guests:
-  - nharvey
-  - mhedgpeth
-  - ahedgpeth
-  - dculpepper
-  - mcote
+  - person: nharvey
+    snapshot: nharvey
+  - person: mhedgpeth
+    snapshot: mhedgpeth
+  - person: ahedgpeth
+    snapshot: ahedgpeth2
+  - person: dculpepper
+    snapshot: dculpepper
+  - person: mcote
+    snapshot: mcote
 hosts:
   - thess
 sponsors:

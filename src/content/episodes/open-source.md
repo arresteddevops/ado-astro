@@ -10,7 +10,8 @@ episodeBanner: /episode/img/open-source-banner.png
 images:
   - /img/social/fb/open-source.png
 guests:
-  - pdibowitz
+  - person: pdibowitz
+    snapshot: pdibowitz
 hosts:
   - mstratton
 sponsors:

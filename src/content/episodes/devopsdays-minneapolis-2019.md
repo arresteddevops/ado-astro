@@ -11,9 +11,12 @@ episodeBanner: /episode/img/devopsdays-minneapolis-2019-banner.png
 images:
   - /img/social/fb/devopsdays-minneapolis-2019.png
 guests:
-  - lfongjones
-  - agoldfuss
-  - rwilliams
+  - person: lfongjones
+    snapshot: lfongjones
+  - person: agoldfuss
+    snapshot: agoldfuss2
+  - person: rwilliams
+    snapshot: rwilliams
 hosts:
   - bkromhout
   - mstratton

@@ -10,7 +10,8 @@ episodeBanner: /episode/img/chatting-with-pauly-banner.png
 images:
   - /img/social/fb/chatting-with-pauly.png
 guests:
-  - pcomtois
+  - person: pcomtois
+    snapshot: pcomtois
 hosts:
   - mstratton
 sponsors:

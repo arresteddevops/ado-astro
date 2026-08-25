@@ -11,7 +11,8 @@ episodeBanner: /episode/img/managing-systems-in-the-cloud-banner.png
 images:
   - /img/social/fb/managing-systems-in-the-cloud.png
 guests:
-  - tlimoncelli
+  - person: tlimoncelli
+    snapshot: tlimoncelli
 hosts:
   - mstratton
   - thess

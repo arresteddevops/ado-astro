@@ -11,8 +11,10 @@ episodeBanner: /episode/img/continuous-integration-banner.png
 images:
   - /img/social/fb/continuous-integration.png
 guests:
-  - mmeyer
-  - jhirn
+  - person: mmeyer
+    snapshot: mmeyer
+  - person: jhirn
+    snapshot: jhirn
 hosts:
   - thess
   - mstratton

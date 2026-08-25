@@ -11,7 +11,8 @@ episodeBanner: episode/img/shouting-at-the-devops-banner.png
 images:
   - img/episode/default-social.jpg
 guests:
-  - cquinn
+  - person: cquinn
+    snapshot: cquinn
 hosts:
   - mstratton
 sponsors:

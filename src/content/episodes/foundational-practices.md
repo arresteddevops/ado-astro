@@ -12,7 +12,8 @@ episodeBanner: episode/img/foundational-practices-banner.jpg
 images:
   - img/social/fb/foundational-practices.jpg
 guests:
-  - jabildskov
+  - person: jabildskov
+    snapshot: jabildskov
 hosts:
   - mstratton
 sponsors:

@@ -12,8 +12,10 @@ episodeBanner: episode/img/ai-sdlc-banner.png
 images:
   - img/social/fb/ai-sdlc.png
 guests:
-  - hfoxwell
-  - rwerner
+  - person: hfoxwell
+    snapshot: hfoxwell
+  - person: rwerner
+    snapshot: rwerner
 hosts:
   - mstratton
 sponsors:

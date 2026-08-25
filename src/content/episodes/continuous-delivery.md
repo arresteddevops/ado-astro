@@ -11,7 +11,8 @@ episodeBanner: /episode/img/continuous-delivery-banner.png
 images:
   - /img/social/fb/continuous-delivery.png
 guests:
-  - jhumble
+  - person: jhumble
+    snapshot: jhumble
 hosts:
   - mstratton
   - thess

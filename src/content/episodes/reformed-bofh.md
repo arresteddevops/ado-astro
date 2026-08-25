@@ -10,9 +10,12 @@ episodeBanner: /episode/img/reformed-bofh-banner.png
 images:
   - /img/social/fb/reformed-bofh.png
 guests:
-  - yvandoorn
-  - cread
-  - khubbard
+  - person: yvandoorn
+    snapshot: yvandoorn
+  - person: cread
+    snapshot: cread
+  - person: khubbard
+    snapshot: khubbard
 hosts:
   - mstratton
   - bkromhout

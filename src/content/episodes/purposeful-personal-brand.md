@@ -12,7 +12,8 @@ episodeBanner: episode/img/purposeful-personal-brand-banner.png
 images:
   - img/social/fb/purposeful-personal-brand.png
 guests:
-  - cfaris
+  - person: cfaris
+    snapshot: cfaris
 hosts:
   - mstratton
 sponsors:

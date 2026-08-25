@@ -11,9 +11,12 @@ episodeBanner: /episode/img/secure-by-design-banner.png
 images:
   - /img/social/fb/secure-by-design.png
 guests:
-  - ddeogun
-  - djohnsson
-  - dsawano
+  - person: ddeogun
+    snapshot: ddeogun
+  - person: djohnsson
+    snapshot: djohnsson
+  - person: dsawano
+    snapshot: dsawano
 hosts:
   - jkerr
 sponsors:

@@ -10,9 +10,12 @@ episodeBanner: /episode/img/work-life-banner.png
 images:
   - /img/social/fb/work-life.png
 guests:
-  - srosenbaum
-  - bweiss
-  - kprizy
+  - person: srosenbaum
+    snapshot: srosenbaum2
+  - person: bweiss
+    snapshot: bweiss
+  - person: kprizy
+    snapshot: kprizy
 hosts:
   - mstratton
 sponsors:

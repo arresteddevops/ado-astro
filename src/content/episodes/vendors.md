@@ -10,7 +10,8 @@ episodeBanner: /episode/img/vendors-banner.png
 images:
   - /img/social/fb/vendors.png
 guests:
-  - mducy
+  - person: mducy
+    snapshot: mducy
 hosts:
   - mstratton
   - thess

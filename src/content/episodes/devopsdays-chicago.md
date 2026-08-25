@@ -11,9 +11,12 @@ episodeBanner: /episode/img/devopsdays-chicago-banner.png
 images:
   - /img/social/fb/devopsdays-chicago.png
 guests:
-  - jhand
-  - jreed
-  - mducy
+  - person: jhand
+    snapshot: jhand
+  - person: jreed
+    snapshot: preed
+  - person: mducy
+    snapshot: mducy
 hosts:
   - thess
   - mstratton

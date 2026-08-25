@@ -10,8 +10,10 @@ episodeBanner: /episode/img/tdi-banner.png
 images:
   - /img/social/fb/tdi.png
 guests:
-  - amaltson
-  - mgoetz
+  - person: amaltson
+    snapshot: amaltson
+  - person: mgoetz
+    snapshot: mgoetz
 hosts:
   - mstratton
 sponsors:

@@ -11,8 +11,10 @@ episodeBanner: /episode/img/team-topologies-banner.png
 images:
   - img/social/fb/team-topologies.png
 guests:
-  - mskelton
-  - mpais
+  - person: mskelton
+    snapshot: mskelton
+  - person: mpais
+    snapshot: mpais
 hosts:
   - jkerr
 sponsors: []

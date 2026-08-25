@@ -325,6 +325,25 @@ function resolveRefs(rawStems, { known, fixMap }, { kind, episodeStem }) {
   return out;
 }
 
+// Guests need BOTH the folded person id (for the reference()) and the
+// original stem the episode actually pointed at (for picking the
+// era-correct Bio Snapshot off that person — the point of ADR-0002). A
+// fixed-up typo/gap (e.g. "jturnbull2" -> "jturnbull") has no snapshot of
+// its own, so it falls back to the corrected stem as the snapshot key too.
+function resolveGuestRefs(rawStems, { known, fixMap }, { episodeStem }) {
+  const out = [];
+  for (const raw of rawStems) {
+    const snapshotKey = known.has(raw) ? raw : fixMap[raw];
+    const person = known.get(raw) ?? known.get(fixMap[raw]);
+    if (person) {
+      out.push({ person, snapshot: snapshotKey });
+    } else {
+      warn(`episode "${episodeStem}": unresolved guest reference "${raw}"`);
+    }
+  }
+  return out;
+}
+
 // Hugo's {{< figure >}} shortcode appears twice, in one episode body only.
 function convertFigureShortcode(body) {
   return body.replace(
@@ -365,8 +384,7 @@ function migrateEpisodes(guestIndex, hostIndex, sponsorIndex) {
       }
     }
 
-    const guests = resolveRefs(toArray(get(data, "guests", "Guests")), guestIndex, {
-      kind: "guest",
+    const guests = resolveGuestRefs(toArray(get(data, "guests", "Guests")), guestIndex, {
       episodeStem: s,
     });
     const hosts = resolveRefs(toArray(get(data, "hosts", "Hosts")), hostIndex, {

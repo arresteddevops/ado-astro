@@ -10,9 +10,12 @@ episodeBanner: /episode/img/devops-in-the-windy-city-jeff-smith-jerry-cattell-sa
 images:
   - /img/social/fb/devops-in-the-windy-city-jeff-smith-jerry-cattell-sameer-doshi.png
 guests:
-  - jsmith
-  - jcattell
-  - sdoshi
+  - person: jsmith
+    snapshot: jsmith
+  - person: jcattell
+    snapshot: jcattell
+  - person: sdoshi
+    snapshot: sdoshi
 hosts:
   - mstratton
 sponsors:

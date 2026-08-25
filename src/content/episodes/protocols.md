@@ -11,7 +11,8 @@ episodeBanner: episode/img/protocols-banner.png
 images:
   - img/social/fb/protocols.png
 guests:
-  - mthompson
+  - person: mthompson
+    snapshot: mthompson
 hosts:
   - jkerr
 sponsors:
