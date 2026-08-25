@@ -29,8 +29,8 @@ const bioHtml = renderMarkdown(latest.bio);
 ---
 
 <BaseLayout title={guest.data.name} description={latest.bio.slice(0, 160)}>
-  <section class="profile">
-    <div class="card">
+  <section class="profile" data-pagefind-body data-pagefind-filter="type:Guest">
+    <div class="card" data-pagefind-meta={`episodeCount:${episodes.length}`}>
       <div class="avatar">{initials}</div>
       <div class="badge">GUEST</div>
       <h1>{guest.data.name}</h1>

@@ -53,7 +53,7 @@ const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="intro">
+  <section class="intro" data-pagefind-body data-pagefind-filter="type:Episode">
     <a class="back" href="/">← All episodes</a>
     <div class="badges">
       <span class="badge episode-badge">EPISODE {episodeNumber}</span>
@@ -125,7 +125,7 @@ const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
     </section>
   )}
 
-  <article class="show-notes">
+  <article class="show-notes" data-pagefind-body>
     {description && <p class="description">{description}</p>}
     <Content />
   </article>

@@ -9,7 +9,7 @@
   "packageManager": "pnpm@11.21.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/generate-redirects.mjs && astro build",
+    "build": "node scripts/generate-redirects.mjs && astro build && pagefind --site dist",
     "generate:redirects": "node scripts/generate-redirects.mjs",
     "preview": "astro preview",
     "astro": "astro",
@@ -26,6 +26,7 @@
     "esbuild": true
   },
   "devDependencies": {
+    "pagefind": "^1.5.2",
     "smol-toml": "^1.8.0",
     "yaml": "^2.9.0"
   }

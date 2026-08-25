@@ -1,0 +1,435 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const episodeCount = (await getCollection("episodes")).length;
+const guestCount = (await getCollection("guests")).length;
+---
+
+<BaseLayout title="Search" description={`Search across all ${episodeCount} episodes and ${guestCount} guests.`}>
+  <section class="intro">
+    <h1>Find that one episode.</h1>
+    <p class="lede">Search across all {episodeCount} episodes and {guestCount} guests.</p>
+
+    <div class="search-box">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="2"></circle>
+        <path d="M14 14l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+      </svg>
+      <input
+        type="search"
+        id="search-input"
+        placeholder="Search episodes and guests..."
+        aria-label="Search episodes and guests"
+        autocomplete="off"
+      />
+    </div>
+
+    <div class="filter-row">
+      <span id="result-count" class="count" aria-live="polite"></span>
+      <div class="filters" role="group" aria-label="Filter results by type">
+        <button type="button" class="filter-pill active" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="filter-pill" data-filter="Episode" aria-pressed="false">Episodes</button>
+        <button type="button" class="filter-pill" data-filter="Guest" aria-pressed="false">Guests</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="results" id="results" aria-live="polite"></section>
+
+  <div class="load-more-row">
+    <button type="button" id="load-more" class="pill outline" hidden>Show more results</button>
+  </div>
+</BaseLayout>
+
+<script>
+  const PAGE_SIZE = 5;
+
+  type PagefindResultData = {
+    url: string;
+    excerpt: string;
+    meta: Record<string, string>;
+    filters: Record<string, string[]>;
+  };
+
+  type Pagefind = {
+    init: () => Promise<void>;
+    search: (
+      term: string,
+      options?: { filters?: Record<string, string[]> },
+    ) => Promise<{ results: { data: () => Promise<PagefindResultData> }[] }>;
+  };
+
+  let pagefind: Pagefind | null | undefined;
+  let allResults: PagefindResultData[] = [];
+  let shown = 0;
+  let activeFilter = "all";
+
+  async function loadPagefind(): Promise<Pagefind | null> {
+    if (pagefind !== undefined) return pagefind;
+    try {
+      // Emitted by the `pagefind` CLI into dist/pagefind/ after `astro build` —
+      // doesn't exist in `astro dev`, so this 404s there by design.
+      const mod = (await import(/* @vite-ignore */ "/pagefind/pagefind.js")) as Pagefind;
+      await mod.init();
+      pagefind = mod;
+    } catch {
+      pagefind = null;
+    }
+    return pagefind;
+  }
+
+  function initials(name: string): string {
+    return name
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((p) => p[0]?.toUpperCase())
+      .join("");
+  }
+
+  function escapeHtml(value: string): string {
+    return value
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function renderResult(result: PagefindResultData): string {
+    const isGuest = result.filters?.type?.includes("Guest") ?? false;
+    const title = result.meta?.title ?? "Untitled";
+    // Pagefind's excerpt is safe to insert directly — it's pre-escaped HTML
+    // built from our own indexed content, with <mark> around matched terms.
+    if (isGuest) {
+      const episodeCount = result.meta?.episodeCount;
+      const suffix = episodeCount ? ` · ${episodeCount} episode${episodeCount === "1" ? "" : "s"}` : "";
+      return `
+        <a class="result-card" href="${result.url}">
+          <div class="result-avatar">${escapeHtml(initials(title))}</div>
+          <div class="result-body">
+            <div class="result-title">${escapeHtml(title)}</div>
+            <div class="result-excerpt">${result.excerpt}${escapeHtml(suffix)}</div>
+          </div>
+          <span class="result-badge badge-guest">GUEST</span>
+        </a>`;
+    }
+    return `
+      <a class="result-card" href="${result.url}">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true" class="result-icon">
+          <circle cx="17" cy="17" r="15.5" stroke="currentColor" stroke-width="2.5"></circle>
+          <path d="M13 11v12l10-6-10-6z" fill="currentColor"></path>
+        </svg>
+        <div class="result-body">
+          <div class="result-title">${escapeHtml(title)}</div>
+          <div class="result-excerpt">${result.excerpt}</div>
+        </div>
+        <span class="result-badge badge-episode">EPISODE</span>
+      </a>`;
+  }
+
+  function renderMore() {
+    const resultsEl = document.getElementById("results")!;
+    const loadMoreBtn = document.getElementById("load-more") as HTMLButtonElement;
+    const next = allResults.slice(shown, shown + PAGE_SIZE);
+    resultsEl.insertAdjacentHTML("beforeend", next.map(renderResult).join(""));
+    shown += next.length;
+    loadMoreBtn.hidden = shown >= allResults.length;
+  }
+
+  async function runSearch(term: string) {
+    const resultsEl = document.getElementById("results")!;
+    const countEl = document.getElementById("result-count")!;
+    const loadMoreBtn = document.getElementById("load-more") as HTMLButtonElement;
+
+    if (!term.trim()) {
+      allResults = [];
+      shown = 0;
+      resultsEl.innerHTML = "";
+      countEl.textContent = "";
+      loadMoreBtn.hidden = true;
+      return;
+    }
+
+    const pf = await loadPagefind();
+    if (!pf) {
+      resultsEl.innerHTML = `<p class="empty">Search isn't available right now.</p>`;
+      countEl.textContent = "";
+      loadMoreBtn.hidden = true;
+      return;
+    }
+
+    const filters = activeFilter === "all" ? undefined : { type: [activeFilter] };
+    const search = await pf.search(term, filters ? { filters } : undefined);
+    allResults = await Promise.all(search.results.map((r) => r.data()));
+    shown = 0;
+    resultsEl.innerHTML = "";
+    countEl.textContent = allResults.length
+      ? `${allResults.length} RESULT${allResults.length === 1 ? "" : "S"}`
+      : "";
+    if (!allResults.length) {
+      resultsEl.innerHTML = `<p class="empty">No results for "${escapeHtml(term)}".</p>`;
+      return;
+    }
+    renderMore();
+  }
+
+  const input = document.getElementById("search-input") as HTMLInputElement;
+  let debounceTimer: ReturnType<typeof setTimeout>;
+  input.addEventListener("input", () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => runSearch(input.value), 200);
+  });
+
+  document.querySelectorAll<HTMLButtonElement>(".filter-pill").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll<HTMLButtonElement>(".filter-pill").forEach((b) => {
+        b.classList.remove("active");
+        b.setAttribute("aria-pressed", "false");
+      });
+      btn.classList.add("active");
+      btn.setAttribute("aria-pressed", "true");
+      activeFilter = btn.dataset.filter ?? "all";
+      runSearch(input.value);
+    });
+  });
+
+  document.getElementById("load-more")!.addEventListener("click", renderMore);
+
+  // Preload the index as soon as the page is interactive, so the first
+  // keystroke doesn't pay for it.
+  loadPagefind();
+</script>
+
+<style>
+  h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .intro {
+    padding: 64px var(--page-padding) 32px;
+    max-width: var(--content-max-width);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .lede {
+    margin: 0;
+    font-size: 17px;
+    color: var(--color-text-muted);
+  }
+
+  .search-box {
+    border: var(--border-width) solid var(--color-navy);
+    border-radius: var(--radius-pill);
+    padding: 16px 26px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--color-cream-card);
+    box-shadow: 6px 6px 0 var(--color-yellow);
+    color: var(--color-navy);
+  }
+
+  .search-box input {
+    flex: 1;
+    border: none;
+    background: none;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: inherit;
+    color: var(--color-navy);
+    min-height: var(--hit-target-min);
+  }
+
+  .search-box input:focus {
+    outline: none;
+  }
+
+  .search-box:focus-within {
+    outline: 3px solid var(--color-red-deep);
+    outline-offset: 2px;
+  }
+
+  .search-box input::placeholder {
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .filter-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .count {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    min-width: 70px;
+  }
+
+  .filters {
+    display: flex;
+    gap: 8px;
+  }
+
+  .filter-pill {
+    border: 2px solid var(--color-navy);
+    background: none;
+    color: var(--color-navy);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 9px 16px;
+    border-radius: var(--radius-pill);
+    min-height: var(--hit-target-min);
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .filter-pill.active {
+    background: var(--color-navy);
+    color: var(--color-cream);
+  }
+
+  .results {
+    padding: 8px var(--page-padding) 32px;
+    max-width: var(--content-max-width);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .load-more-row {
+    display: flex;
+    justify-content: center;
+    padding: 0 var(--page-padding) 64px;
+  }
+
+  .pill.outline {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--hit-target-min);
+    border: 2px solid var(--color-navy);
+    color: var(--color-navy);
+    background: none;
+    padding: 10px 24px;
+    border-radius: var(--radius-pill);
+    font-weight: 700;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  .pill.outline[hidden] {
+    display: none;
+  }
+
+  @media (max-width: 640px) {
+    h1 {
+      font-size: 36px;
+    }
+  }
+</style>
+
+<style is:global>
+  /* Result cards are rendered client-side via innerHTML (see the <script>
+     below), so Astro's scoped-CSS hash never attaches to them — these rules
+     must be global to reach them. */
+  .empty {
+    color: var(--color-text-muted);
+    font-size: 15px;
+    padding: 0 var(--page-padding);
+  }
+
+  .result-card {
+    border: var(--border-width) solid var(--color-navy);
+    border-radius: 16px;
+    padding: 22px 26px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: var(--color-text);
+  }
+
+  .result-card:hover .result-title {
+    color: var(--color-red-deep);
+  }
+
+  .result-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--color-navy);
+    color: var(--color-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .result-icon {
+    color: var(--color-navy);
+    flex-shrink: 0;
+  }
+
+  .result-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .result-title {
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+  .result-excerpt {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .result-excerpt mark {
+    background: none;
+    color: var(--color-red-deep);
+    font-weight: 700;
+  }
+
+  .result-badge {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 5px 12px;
+    border-radius: var(--radius-pill);
+    flex-shrink: 0;
+  }
+
+  .badge-guest {
+    background: var(--color-red-deep);
+    color: var(--color-cream);
+  }
+
+  .badge-episode {
+    background: var(--color-yellow);
+    color: var(--color-navy);
+  }
+
+  @media (max-width: 640px) {
+    .result-card {
+      flex-wrap: wrap;
+    }
+  }
+</style>
