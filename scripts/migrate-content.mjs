@@ -359,10 +359,28 @@ function convertFigureShortcode(body) {
   );
 }
 
+// Legacy transcript frontmatter points at `/static/transcripts/<slug>.<md|txt>`
+// (Hugo's `static/` maps to site root, so that literal path 404s on any real
+// server). The transcript becomes its own collection entry; this copies the
+// source file over and returns the slug to store as the reference id.
+function migrateTranscript(rawPath, transcriptsOutDir, episodeStem) {
+  if (!rawPath) return undefined;
+  const source = path.join(HUGO_ROOT, rawPath.replace(/^\//, ""));
+  if (!fs.existsSync(source)) {
+    warn(`episode "${episodeStem}": transcript "${rawPath}" not found at ${source}`);
+    return undefined;
+  }
+  const slug = path.basename(source, path.extname(source));
+  fs.copyFileSync(source, path.join(transcriptsOutDir, `${slug}.md`));
+  return slug;
+}
+
 function migrateEpisodes(guestIndex, hostIndex, sponsorIndex) {
   const dir = path.join(HUGO_ROOT, "content/episode");
   const outDir = path.join(OUT_ROOT, "episodes");
   ensureEmptyDir(outDir);
+  const transcriptsOutDir = path.join(OUT_ROOT, "transcripts");
+  ensureEmptyDir(transcriptsOutDir);
 
   // The 2 episodes missing an `episode` number entirely (survey-confirmed):
   // backfill from their alias.
@@ -370,6 +388,11 @@ function migrateEpisodes(guestIndex, hostIndex, sponsorIndex) {
     "2018-in-review": "116",
     "jessica-kerr": "159",
   };
+
+  // Aliases must be globally unique — a legacy authoring bug had two episodes
+  // each claim the same alias (see issue #5); catch a repeat instead of
+  // silently letting one episode's redirect shadow the other's.
+  const aliasOwners = new Map();
 
   let count = 0;
   for (const filePath of listMd(dir, { exclude: ["_index.md"] })) {
@@ -396,6 +419,16 @@ function migrateEpisodes(guestIndex, hostIndex, sponsorIndex) {
       episodeStem: s,
     });
 
+    const aliases = toArray(get(data, "aliases"));
+    for (const alias of aliases) {
+      const owner = aliasOwners.get(alias);
+      if (owner && owner !== s) {
+        warn(`alias "${alias}" claimed by both "${owner}" and "${s}" — keeping "${owner}"`);
+      } else {
+        aliasOwners.set(alias, s);
+      }
+    }
+
     writeMarkdown(
       path.join(outDir, `${s}.md`),
       {
@@ -417,9 +450,9 @@ function migrateEpisodes(guestIndex, hostIndex, sponsorIndex) {
         guests,
         hosts,
         sponsors,
-        aliases: toArray(get(data, "aliases")),
+        aliases: aliases.filter((a) => aliasOwners.get(a) === s),
         youtube: get(data, "youtube"),
-        transcript: get(data, "transcript"),
+        transcript: migrateTranscript(get(data, "transcript"), transcriptsOutDir, s),
         explicit: get(data, "explicit") === "yes" ? "yes" : "no",
       },
       convertFigureShortcode(body),

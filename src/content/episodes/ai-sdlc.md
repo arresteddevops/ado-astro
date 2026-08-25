@@ -24,7 +24,7 @@ sponsors:
 aliases:
   - /205
   - /aisdlc
-transcript: /static/transcripts/ai-sdlc.md
+transcript: ai-sdlc
 explicit: no
 ---
 

@@ -25,7 +25,7 @@ const episodes = defineCollection({
     sponsors: z.array(reference("sponsors")).default([]),
     aliases: z.array(z.string()).default([]),
     youtube: z.string().optional(),
-    transcript: z.string().optional(),
+    transcript: reference("transcripts").optional(),
     explicit: z.enum(["yes", "no"]).default("no"),
   }),
 });
@@ -99,4 +99,11 @@ const pages = defineCollection({
   }),
 });
 
-export const collections = { episodes, guests, hosts, sponsors, pages };
+// One file per episode that has one — the raw transcript body, no data of its
+// own. Only 10 of 205 episodes have a transcript.
+const transcripts = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/transcripts" }),
+  schema: z.object({}),
+});
+
+export const collections = { episodes, guests, hosts, sponsors, pages, transcripts };

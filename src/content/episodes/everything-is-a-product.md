@@ -21,7 +21,6 @@ sponsors:
   - sysdig
   - devopsworld
 aliases:
-  - /189
   - everythingisaproduct
 explicit: no
 ---
