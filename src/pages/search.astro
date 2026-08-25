@@ -104,9 +104,12 @@ const guestCount = (await getCollection("guests")).length;
     if (isGuest) {
       const episodeCount = result.meta?.episodeCount;
       const suffix = episodeCount ? ` · ${episodeCount} episode${episodeCount === "1" ? "" : "s"}` : "";
+      const avatar = result.meta?.image
+        ? `<img class="result-avatar" src="${result.meta.image}" alt="" aria-hidden="true" />`
+        : `<div class="result-avatar" aria-hidden="true">${escapeHtml(initials(title))}</div>`;
       return `
         <a class="result-card" href="${result.url}">
-          <div class="result-avatar" aria-hidden="true">${escapeHtml(initials(title))}</div>
+          ${avatar}
           <div class="result-body">
             <div class="result-title">${escapeHtml(title)}</div>
             <div class="result-excerpt">${result.excerpt}${escapeHtml(suffix)}</div>
@@ -369,16 +372,18 @@ const guestCount = (await getCollection("guests")).length;
   }
 
   .result-avatar {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     background: var(--color-navy);
     color: var(--color-yellow);
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    object-fit: cover;
     font-family: var(--font-display);
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 800;
     flex-shrink: 0;
   }

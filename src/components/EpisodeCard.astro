@@ -1,28 +1,38 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import { getEpisodeAsset } from "../lib/images";
 
 interface Props {
   episode: CollectionEntry<"episodes">;
   /** Cycles the header block through the three accent colors so a grid of
-      cards doesn't read as one flat repeated pattern. */
+      cards doesn't read as one flat repeated pattern. Also used as the
+      episode-number badge color when there's real cover art. */
   colorIndex?: number;
 }
 
 const { episode, colorIndex = 0 } = Astro.props;
-const { episodeNumber, title, date, podcastDuration } = episode.data;
+const { episodeNumber, title, date, podcastDuration, episodeImage } = episode.data;
 const dateLabel = date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+const image = getEpisodeAsset(episodeImage);
 
+// --color-red only clears WCAG AA at large text sizes (the 44px number
+// below) — the small badge overlay needs --color-red-deep instead. See
+// tokens.css.
 const palette = [
-  { bg: "var(--color-red)", fg: "var(--color-cream)" },
-  { bg: "var(--color-navy)", fg: "var(--color-yellow)" },
-  { bg: "var(--color-yellow)", fg: "var(--color-navy)" },
+  { bg: "var(--color-red)", fg: "var(--color-cream)", badgeBg: "var(--color-red-deep)" },
+  { bg: "var(--color-navy)", fg: "var(--color-yellow)", badgeBg: "var(--color-navy)" },
+  { bg: "var(--color-yellow)", fg: "var(--color-navy)", badgeBg: "var(--color-yellow)" },
 ];
-const { bg, fg } = palette[colorIndex % palette.length];
+const { bg, fg, badgeBg } = palette[colorIndex % palette.length];
 ---
 
 <a class="card" href={`/${episode.id}/`}>
-  <div class="header" style={`background: ${bg}; color: ${fg};`}>
-    <span class="number">{episodeNumber ?? "—"}</span>
+  <div class="header" style={!image ? `background: ${bg}; color: ${fg};` : undefined}>
+    {image && <Image src={image} alt="" width={400} height={300} />}
+    <span class={image ? "number badge" : "number"} style={image ? `background: ${badgeBg}; color: ${fg};` : undefined}>
+      {episodeNumber ?? "—"}
+    </span>
   </div>
   <div class="body">
     <span class="title">{title}</span>
@@ -51,15 +61,35 @@ const { bg, fg } = palette[colorIndex % palette.length];
 
   .header {
     height: 150px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+  }
+
+  .header :global(img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .number {
+    position: relative;
     font-family: var(--font-display);
     font-size: 44px;
     font-weight: 800;
+  }
+
+  .number.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
   }
 
   .body {

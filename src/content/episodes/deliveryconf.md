@@ -9,7 +9,7 @@ podcastDuration: 34:30
 episodeImage: episode/img/deliveryconf.png
 episodeBanner: /episode/img/deliveryconf-banner.png
 images:
-  - /img/static/social/fb/deliveryconf.png
+  - /img/social/fb/deliveryconf.png
 guests:
   - person: kmugrage
     snapshot: kmugrage

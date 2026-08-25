@@ -1,8 +1,10 @@
 ---
 import { getCollection, getEntry, getEntries, render } from "astro:content";
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PersonCard from "../components/PersonCard.astro";
 import { MEDIA_PREFIX } from "../consts";
+import { getEpisodeAsset, getEpisodeOgImage, getMiscAsset } from "../lib/images";
 
 export async function getStaticPaths() {
   const episodes = await getCollection("episodes");
@@ -25,7 +27,11 @@ const {
   sponsors,
   youtube,
   transcript,
+  episodeBanner,
+  images,
 } = episode.data;
+const banner = getEpisodeAsset(episodeBanner);
+const ogImage = getEpisodeOgImage(episode.id, images);
 
 const { Content } = await render(episode);
 
@@ -40,20 +46,26 @@ const guestCards = (
       const person = await getEntry(g.person);
       if (!person) return null;
       const snap = person.data.snapshots.find((s) => s.key === g.snapshot) ?? person.data.snapshots[0];
-      return { id: person.id, name: person.data.name, bio: snap.bio };
+      return { id: person.id, name: person.data.name, bio: snap.bio, thumbnail: snap.thumbnail };
     }),
   )
 ).filter((g) => g !== null);
 
 const hostEntries = await getEntries(hosts);
 const sponsorEntries = await getEntries(sponsors);
+const sponsorCards = sponsorEntries.map((s) => ({ ...s, adImage: getMiscAsset(s.data.ad) }));
 
 const dateLabel = date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} image={ogImage}>
   <section class="intro" data-pagefind-body data-pagefind-filter="type:Episode">
+    {banner && (
+      <div class="banner">
+        <Image src={banner} alt="" width={1200} height={400} />
+      </div>
+    )}
     <a class="back" href="/">← All episodes</a>
     <div class="badges">
       <span class="badge episode-badge">EPISODE {episodeNumber}</span>
@@ -116,12 +128,29 @@ const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
     </details>
   )}
 
-  {sponsorEntries.length > 0 && (
+  {sponsorCards.length > 0 && (
     <section class="sponsors">
       <span class="label">BROUGHT TO YOU BY</span>
-      {sponsorEntries.map((s) => (
-        s.data.url ? <a class="chip" href={s.data.url}>{s.data.name}</a> : <span class="chip">{s.data.name}</span>
-      ))}
+      {sponsorCards.some((s) => !s.adImage) && (
+        <div class="sponsor-row">
+          {sponsorCards
+            .filter((s) => !s.adImage)
+            .map((s) =>
+              s.data.url ? (
+                <a class="chip" href={s.data.url}>{s.data.name}</a>
+              ) : (
+                <span class="chip">{s.data.name}</span>
+              ),
+            )}
+        </div>
+      )}
+      {sponsorCards
+        .filter((s) => s.adImage)
+        .map((s) => (
+          <a class="sponsor-ad" href={s.data.url ?? "/sponsorship/"}>
+            <Image src={s.adImage} alt={s.data.name} width={1040} />
+          </a>
+        ))}
     </section>
   )}
 
@@ -135,7 +164,7 @@ const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
       <h2>This episode's guests</h2>
       <div class="grid">
         {guestCards.map((g, i) => (
-          <PersonCard name={g.name} bio={g.bio} href={`/guest/${g.id}/`} colorIndex={i} />
+          <PersonCard name={g.name} bio={g.bio} thumbnail={g.thumbnail} href={`/guest/${g.id}/`} colorIndex={i} />
         ))}
       </div>
     </section>
@@ -155,6 +184,20 @@ const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
     flex-direction: column;
     gap: 20px;
     max-width: var(--content-max-width);
+  }
+
+  .banner {
+    border: var(--border-width) solid var(--color-navy);
+    border-radius: var(--radius-card-lg);
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .banner :global(img) {
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    object-fit: cover;
   }
 
   .back {
@@ -286,7 +329,7 @@ const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
   }
 
   .transcript {
-    padding: 0 120px;
+    padding: 20px 120px 0;
     max-width: var(--content-max-width);
   }
 
@@ -334,9 +377,31 @@ const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
     padding: 24px 120px 0;
     max-width: var(--content-max-width);
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .sponsor-row {
+    display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
     flex-wrap: wrap;
+  }
+
+  .sponsor-ad {
+    display: block;
+    width: 100%;
+    border: var(--border-width) solid var(--color-navy);
+    border-radius: 12px;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .sponsor-ad :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   .label {

@@ -1,13 +1,16 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import EpisodeCard from "../components/EpisodeCard.astro";
 import { getEpisodesNewestFirst, EPISODES_PER_PAGE } from "../lib/episodes";
 import { SUBSCRIBE_LINKS } from "../consts";
+import { getEpisodeAsset } from "../lib/images";
 
 const episodes = await getEpisodesNewestFirst();
 const [latest, ...rest] = episodes;
 const gridEpisodes = rest.slice(0, EPISODES_PER_PAGE - 1);
 const totalPages = Math.ceil(episodes.length / EPISODES_PER_PAGE);
+const latestImage = getEpisodeAsset(latest.data.episodeImage);
 ---
 
 <BaseLayout title="Home">
@@ -33,14 +36,20 @@ const totalPages = Math.ceil(episodes.length / EPISODES_PER_PAGE);
         <a class="pill outline" href="#episodes">Browse episodes</a>
       </div>
     </div>
-    <div class="hero-card">
-      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="9" y="2" width="6" height="12" rx="3" fill="var(--color-navy)"></rect>
-        <path d="M5 10v1a7 7 0 0 0 14 0v-1M12 18v4M8 22h8" stroke="var(--color-navy)" stroke-width="2" stroke-linecap="round"></path>
-      </svg>
-      <span class="ep-number">EP. {latest.data.episodeNumber}</span>
+    <a class="hero-card" href={`/${latest.id}/`}>
+      <div class="hero-card-image">
+        {latestImage ? (
+          <Image src={latestImage} alt="" width={380} height={220} />
+        ) : (
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="9" y="2" width="6" height="12" rx="3" fill="var(--color-navy)"></rect>
+            <path d="M5 10v1a7 7 0 0 0 14 0v-1M12 18v4M8 22h8" stroke="var(--color-navy)" stroke-width="2" stroke-linecap="round"></path>
+          </svg>
+        )}
+        <span class="ep-number">EP. {latest.data.episodeNumber}</span>
+      </div>
       <span class="ep-title">{latest.data.title}</span>
-    </div>
+    </a>
   </section>
 
   <section class="subscribe-row">
@@ -193,34 +202,64 @@ const totalPages = Math.ceil(episodes.length / EPISODES_PER_PAGE);
 
   .hero-card {
     width: 380px;
-    height: 380px;
     background: var(--color-yellow);
     border-radius: var(--radius-card-lg);
     border: var(--border-width) solid var(--color-navy);
     box-shadow: 10px 10px 0 var(--color-navy);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 16px;
     flex-shrink: 0;
     transform: rotate(2deg);
     padding: 24px;
-    text-align: center;
+    color: var(--color-text);
+  }
+
+  .hero-card:hover {
+    color: var(--color-text);
+  }
+
+  .hero-card:hover .ep-title {
+    color: var(--color-red-deep);
+  }
+
+  .hero-card-image {
+    position: relative;
+    height: 220px;
+    margin: -24px -24px 0;
+    border-radius: var(--radius-card-lg) var(--radius-card-lg) 0 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-card-image :global(img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .ep-number {
+    position: relative;
+    align-self: flex-start;
+    margin: 12px 0 0 12px;
+    background: var(--color-navy);
+    color: var(--color-yellow);
     font-family: var(--font-display);
-    font-size: 28px;
+    font-size: 15px;
     font-weight: 800;
-    color: var(--color-navy);
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
   }
 
   .ep-title {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 800;
     color: var(--color-navy);
-    max-width: 260px;
+    text-align: center;
   }
 
   .subscribe-row {

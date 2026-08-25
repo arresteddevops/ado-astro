@@ -10,7 +10,7 @@ podcastBytes: 16000000
 episodeImage: episode/img/open-communities.jpg
 episodeBanner: episode/img/open-communities-banner.jpg
 images:
-  - img/social/fb/open-communities.png
+  - img/social/fb/open-communities.jpg
 guests:
   - person: azigler
     snapshot: azigler

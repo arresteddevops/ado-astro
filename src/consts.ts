@@ -11,3 +11,9 @@ export const SUBSCRIBE_LINKS = {
 // Audio is hosted on Blubrry, never by this site — see CONTEXT.md "Media Prefix".
 export const MEDIA_PREFIX =
   "https://media.blubrry.com/arresteddevops/content.blubrry.com/arresteddevops/";
+
+// From the legacy Hugo config's [services.googleAnalytics] block.
+export const GA_MEASUREMENT_ID = "G-45939822";
+
+// Default social-card image for pages that don't have a more specific one.
+export const DEFAULT_OG_IMAGE = "/img/ado-podcast-logo.png";
