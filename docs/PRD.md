@@ -74,6 +74,13 @@ own presentation.
   build must not be).
 - WCAG AA contrast throughout (mockup palette validated).
 - Lighthouse ≥95 performance/accessibility on homepage and episode page.
+- **Every page works on mobile, not just resizes.** The design canvas was drawn at
+  1280px desktop width only — none of it was mobile-checked. Each page needs a real
+  mobile pass (not just "does it not break"): the header/nav collapses to a proper
+  menu, cards restack instead of squeezing, tap targets stay ≥44px at small widths
+  too, and the episode player/search/forms are usable one-handed. Check phone width
+  (~390px) as a standard step before calling any page done, same as the golden-path
+  browser check.
 
 ## Migration phases (issue per phase)
 

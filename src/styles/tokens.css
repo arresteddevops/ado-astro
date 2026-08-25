@@ -27,3 +27,9 @@
   --page-padding: 56px;
   --hit-target-min: 44px;
 }
+
+@media (max-width: 640px) {
+  :root {
+    --page-padding: 20px;
+  }
+}
