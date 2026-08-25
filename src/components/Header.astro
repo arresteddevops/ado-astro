@@ -62,6 +62,11 @@ const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWit
 <style>
   .site-header {
     position: relative;
+    /* Page content can create its own stacking context too (e.g. any
+       transform: rotate(...) badge/pill), which would otherwise paint
+       above this header's dropdown nav-panel since neither had an
+       explicit z-index and the header comes first in the DOM. */
+    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: space-between;
