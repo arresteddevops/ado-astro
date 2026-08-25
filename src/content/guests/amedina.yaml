@@ -1,0 +1,18 @@
+name: Ana Margarita Medina
+snapshots:
+  - key: amedina
+    bio: Ana is currently working as a Chaos Engineer at Gremlin, helping companies avoid outages by running proactive chaos engineering experiments. She last worked at Uber where she was an engineer on the SRE and Infrastructure teams specifically focusing on chaos engineering and cloud computing. Catch her tweeting at @Ana_M_Medina mostly about traveling, diversity in tech, and mental health.
+    thumbnail: img/guests/amedina.png
+    website: http://AnaMMedina.com
+    twitter: Ana_M_Medina
+    linkedin: https://www.linkedin.com/in/anammedina/
+  - key: amedina2
+    bio: "Ana Margarita is currently working as a Senior Chaos Engineer at Gremlin, helping companies avoid outages by running proactive chaos engineering experiments. Before Gremlin, she has worked at various-sized companies including Google, Uber, SFEFCU, and Miami-based startup. Ana is an internationally recognized speaker and has spoken at: AWS re:Invent, KubeCon, DockerCon, DevOpDays, AllDayDevOps, Write/Speak/Code, and many others. Catch her tweeting at @Ana_M_Medina about traveling, diversity in tech, and mental health."
+    thumbnail: img/guests/amedina.png
+    website: http://anammedina.com
+    twitter: ana_m_medina
+    github: AnaMMedina21
+    linkedin: anammedina
+    instagram: ana_m_medina
+    pronouns: she/her
+placeholder: false

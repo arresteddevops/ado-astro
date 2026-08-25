@@ -1,0 +1,14 @@
+name: Emily Freeman
+snapshots:
+  - key: efreeman
+    bio: Emily Freeman grew up in the “swamp” as Trump lovingly refers to it. After many years of ghostwriting, she made the bold (insane?!) choice to switch careers into software engineering. She now works as a developer advocate for [Kickbox](https://kickbox.com) and lives in Denver, Colorado.
+    thumbnail: img/guests/efreeman.png
+    twitter: editingemily
+  - key: efreeman2
+    bio: |-
+      Emily Freeman is a technologist and a storyteller who helps engineering teams improve their velocity. As the author of _DevOps for Dummies_, she believes the biggest challenges facing developers aren’t technical, but human. Her mission in life is to transform technology organizations by creating company cultures in which diverse, collaborative teams can thrive.
+
+      Emily’s experience spans both cutting-edge startups and some of the largest technology providers in the world. Her work has been featured in outlets such as Bloomberg and she is widely recognized as a thoughtful, entertaining, and professional keynote speaker. Emily is best known for her creative approach to identifying and solving the human challenges of software engineering. It is rare in the technology industry to find individuals equally adept with code and words, but her career has been defined by precisely that combination.
+    thumbnail: img/guests/efreeman2.jpg
+    twitter: editingemily
+placeholder: false

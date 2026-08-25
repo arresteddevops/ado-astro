@@ -1,0 +1,9 @@
+name: Michelle Noorali
+snapshots:
+  - key: mnoorali
+    bio: Michelle Noorali is a Sr. Software Engineer at Microsoft and works on open source, cloud native technologies. She is a member of the CNCF Technical Oversight Committee and serves as a developer representative on the CNCF Governing Board. Michelle has served as core maintainer of several open source projects like Helm, Draft, CNAB. She now focuses on the service mesh space on projects like Service Mesh Interface (SMI) and Open Service Mesh (OSM). She is passionate about building modular and robust solutions, friendly developer experiences, and doughnuts.
+    thumbnail: img/guests/mnoorali.png
+    twitter: michellenoorali
+    github: michelleN
+    linkedin: https://www.linkedin.com/in/michelle-noorali/
+placeholder: false

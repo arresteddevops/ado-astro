@@ -15,9 +15,14 @@
     "postinstall": "git config core.hooksPath .githooks || true"
   },
   "dependencies": {
-    "astro": "^7.2.6"
+    "astro": "^7.2.6",
+    "zod": "^4.4.3"
   },
   "allowScripts": {
     "esbuild": true
+  },
+  "devDependencies": {
+    "smol-toml": "^1.8.0",
+    "yaml": "^2.9.0"
   }
 }

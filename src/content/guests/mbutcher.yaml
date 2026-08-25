@@ -1,0 +1,9 @@
+name: Matt Butcher
+snapshots:
+  - key: mbutcher
+    bio: Matt Butcher leads a team of open source developers at Microsoft. He is a core maintainer of Helm. Matt has authored a number of books, including "Go in Practice" with Matt Farina. With Karen Chu, Matt created the "Illustrated Children's Guide to Kubernetes" series. When Matt isn't hacking away on open source projects, he enjoys drinking specialty coffee and hiking in the Colorado Rockies.
+    thumbnail: img/guests/mbutcher.png
+    website: http://technosophos.com
+    twitter: technosophos
+    github: technosophos
+placeholder: false

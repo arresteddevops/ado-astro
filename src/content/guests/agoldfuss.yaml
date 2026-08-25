@@ -1,0 +1,24 @@
+name: Alice Goldfuss
+snapshots:
+  - key: agoldfuss
+    bio: "Alice Goldfuss is a systems sorceress. She’s consulted on some books (Docker: Up & Running, Effective DevOps), presented at some conferences (SREcon, Velocity, Container Summit), and runs some others (LISA17, DevOps Days Portland). You can follow her on Twitter (@alicegoldfuss), but you’ll probably regret it."
+    thumbnail: img/guests/agoldfuss.png
+    website: http://blog.alicegoldfuss.com/
+    twitter: alicegoldfuss
+  - key: agoldfuss2
+    bio: |-
+      Alice Goldfuss is a systems punk currently helping GitHub run their cutting-edge container platform. She loves kernel crashes, memory design, and performance hacks. 🌈 💾 
+
+      Alice has consulted on some books (Docker: Up & Running, Effective DevOps, Site Reliability Engineering vol 2), presented at some conferences (SREcon, Velocity, Container Summit), and run some others (LISA17, DevOps Days Portland). You can follow her on Twitter 🐦 (@alicegoldfuss), but you’ll probably regret it.
+    thumbnail: img/guests/agoldfuss2.jpg
+    website: https://blog.alicegoldfuss.com/
+    twitter: alicegoldfuss
+  - key: agoldfuss3
+    bio: |-
+      Alice Goldfuss is a systems punk with years of experience working on cutting-edge container platforms. She’s an international speaker who enjoys digging deep into computer catacombs with the help of her trusty whiteboard.
+
+      Alice has written articles, consulted on publications, built communities, and sipped many cups of tea. She hasn’t written a book, but you’ve probably read her tweets (@alicegoldfuss).
+    thumbnail: img/guests/agoldfuss3.jpg
+    website: https://blog.alicegoldfuss.com/
+    twitter: alicegoldfuss
+placeholder: false

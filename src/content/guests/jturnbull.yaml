@@ -1,0 +1,8 @@
+name: James Turnbull
+snapshots:
+  - key: jturnbull
+    bio: "James Turnbull is the CTO of Empatico. A long-time member of the open source community, James is the author of nine technical books about open source software: The Terraform Book, The Art of Monitoring, The Logstash Book, The Docker Book, Pro Puppet, Pulling Strings with Puppet, Pro Linux System Administration, Pro Nagios 2.0, and Hardening Linux. He was formerly CTO at Kickstarter and an advisor at Docker. James likes food, wine, books, photography, and cats. He is not overly keen on long walks on the beach or holding hands."
+    thumbnail: img/guests/jturnbull.png
+    website: http://www.kartar.net/
+    twitter: kartar
+placeholder: false

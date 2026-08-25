@@ -1,0 +1,11 @@
+name: Chelsea Troy
+snapshots:
+  - key: ctroy
+    bio: |-
+      Chelsea works as a Staff Engineer at Mozilla. She work mainly on three things:
+
+      How to gather search insights to improve the browser without keeping users’ personal search data, how to reduce the workload of operationalizing machine learning models for machine learning engineers and data scientists across the org, and how to measure and mitigate the climate impact of Mozilla's technical work.
+    thumbnail: img/guests/ctroy.png
+    website: https://chelseatroy.com/
+    twitter: HeyChelseaTroy
+placeholder: false

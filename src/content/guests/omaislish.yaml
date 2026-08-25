@@ -1,0 +1,9 @@
+name: Ohad Maislish
+snapshots:
+  - key: omaislish
+    bio: Ohad Maislish is the CEO and co-founder of env0 - the best way to manage your IaC in scale. Before env0, Ohad was the CEO and founder of Arno Software, a cloud infrastructure services company, and Capester, a startup that empowered citizens in smart cities worldwide. Ohad is also the host of TheIaCPodcast.com, a podcast to explore the benefits, challenges, and best practices of using IaC frameworks such as Terraform, CloudFormation, Pulumi, and more.
+    thumbnail: img/guests/omaislish.jpg
+    website: https://env0.com
+    twitter: DevOpsOhad
+    pronouns: he/him
+placeholder: false

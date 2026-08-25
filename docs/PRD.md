@@ -54,10 +54,14 @@ own presentation.
   `media_prefix + podcast_file` with `podcast_bytes` length and `podcast_duration`.
   GUID = enclosure URL. All 205 items. Explicit flag honored per episode.
 - **URLs**: flat permalinks `/:filename/`; Aliases like `/205`; Redirect Stubs like
-  `/bananastand`; `/host/<slug>/`; `/guest/<person>/` (new canonical, old versions 301).
-- **Content model**: episodes (205), guests (332 versions → ~250-ish persons after
-  folding), hosts (6), sponsors, pages (8). Zod schemas enforce referential integrity
-  (episode → snapshot keys, hosts, sponsors must resolve).
+  `/bananastand` (sourced from `static/_redirects`, 49 rules — `content/redirect/*.md`
+  is dead content, see CONTEXT.md); `/host/<slug>/`; `/guest/<person>/` (new canonical,
+  old versions 301).
+- **Content model**: episodes (205), guests (332 versions → ~273 persons after folding,
+  plus a handful of placeholder stubs for broken episode references), hosts (6), sponsors
+  (33, from `data/sponsors/*.yml` — `content/sponsor/*.md` and `data/hosts/*.yml` are
+  both dead/stale, see CONTEXT.md), pages (8). Zod schemas enforce referential integrity
+  via `reference()` (episode → guest/host/sponsor stems must resolve).
 - **Shortcodes**: `bloglink`, `booklink`, `podcast`, `staticsearch` used in a handful of
   episodes + pages — inventory and map to components/plain markdown during conversion.
 - **Transcripts**: `transcript` frontmatter → toggleable transcript on episode pages.

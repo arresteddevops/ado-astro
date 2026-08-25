@@ -1,0 +1,8 @@
+name: Gareth Rushgrove
+snapshots:
+  - key: grushgrove
+    bio: Gareth Rushgrove is a product manager at Docker. He works remotely from Cambridge, UK, helping to build interesting tools for people to better manage infrastructure and applications. Previously he worked for the UK Government Digital Service focused on infrastructure, operations and information security. When not working he can be found writing the Devops Weekly newsletter or hacking on software in new-fangled programming languages.
+    thumbnail: img/guests/grushgrove.png
+    website: https://www.morethanseven.net/
+    twitter: garethr
+placeholder: false

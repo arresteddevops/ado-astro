@@ -1,0 +1,10 @@
+name: Kevin Reedy
+snapshots:
+  - key: kreedy
+    bio: Kevin Reedy is an infrastructure developer from Chicago that currently works for Kong (not the dog toy company) as a Senior Technical Account Manager. In his free time, he enjoys playing shuffleboard (the kind you'd find on the deck of cruise ship), brewing beer, snowboarding, and promising that he’ll update his blog more often.
+    thumbnail: img/guests/kreedy.jpg
+    website: https://kevinreedy.net
+    twitter: "@kevinreedy"
+    github: kevinreedy
+    linkedin: https://linkedin.com/in/KevinReedy
+placeholder: false

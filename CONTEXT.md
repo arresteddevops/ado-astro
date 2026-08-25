@@ -23,7 +23,14 @@ reference a Bio Snapshot by that key, so episode pages show the era-correct bio.
 _Avoid_: guest profile, Aka
 
 **Host**:
-A recurring presenter with a page under `/host/`. Same file shape as a Guest Version.
+A recurring presenter with a page under `/host/`. A fully separate entity from Guest —
+the same human can be both (a host who also appears as a guest on a different episode,
+e.g. a year-end wrap-up). Host entities are never folded into or out of Guest entities;
+"host" and "guest" are roles an episode assigns, not an identity the site unifies.
+
+**Sponsor**:
+An advertiser attached to episodes by stem. Sourced from `data/sponsors/*.yml` in the
+legacy repo — `content/sponsor/*.md` is dead content, see Redirect Stub.
 
 **The Feed**:
 The iTunes-compatible podcast RSS feed at `/episode/index.xml`. Every podcast app
@@ -39,5 +46,7 @@ A short vanity path carried in an episode's frontmatter (`/205`, `/aisdlc`) that
 redirect to the episode's canonical URL.
 
 **Redirect Stub**:
-A standalone vanity redirect defined under `content/redirect/` in the legacy repo
-(`/bananastand`, `/itunes`). Same obligation as an Alias, different source.
+A vanity redirect rule. Lives in the legacy repo's `static/_redirects` (hand-maintained,
+already Netlify-format, 49 rules) — **not** `content/redirect/*.md`, which is dead
+content that Hugo renders as ordinary (useless) pages. Same obligation as an Alias,
+different source.

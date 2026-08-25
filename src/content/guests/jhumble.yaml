@@ -1,0 +1,18 @@
+name: Jez Humble
+snapshots:
+  - key: jhumble
+    bio: Jez Humble is a principal consultant with ThoughtWorks, and co-author of the Jolt Award winning _Continuous Delivery_, published in Martin Fowler’s Signature Series (Addison Wesley, 2010), and the forthcoming _Lean Enterprise_, in Eric Ries’ Lean series. He has been fascinated by computers and electronics since getting his first ZX Spectrum aged 11, and spent several years hacking on Acorn machines in 6502 and ARM assembler and BASIC until he was old enough to get a proper job. He got into IT in 2000, just in time for the dot com bust. Since then he has worked as a developer, system administrator, trainer, consultant, manager, and speaker. He has worked with a variety of platforms and technologies, consulting for non-profits, telecoms, financial services and on-line retail companies. Since 2004 he has worked for ThoughtWorks and ThoughtWorks Studios in Beijing, Bangalore, London and San Francisco. He holds a BA in Physics and Philosophy from Oxford University and an MMus in Ethnomusicology from the School of Oriental and African Studies, University of London. He is presently living in the San Francisco Bay Area with his wife and daughters.
+    thumbnail: img/guests/jhumble.png
+    website: http://continuousdelivery.com/
+    twitter: jezhumble
+  - key: jhumble2
+    bio: Jez Humble is co-author of The DevOps Handbook, Lean Enterprise, and the Jolt Award winning Continuous Delivery. He has spent his career tinkering with code, infrastructure, and product development in companies of varying sizes across three continents, most recently working for the US Federal Government at 18F. He is currently researching how to build high performing teams at his startup, DevOps Research and Assessment LLC, and teaching at UC Berkeley.
+    thumbnail: img/guests/jhumble2.png
+    website: http://continuousdelivery.com/
+    twitter: jezhumble
+  - key: jhumble3
+    bio: Jez Humble is co-author of several books on software including Shingo Publication Award winner [Accelerate](https://bit.ly/accelerate-jez) and Jolt Award winner [Continuous Delivery](http://www.amazon.com/dp/0321601912?tag=contindelive-20). He has spent his career tinkering with code, infrastructure, and product development in companies of varying sizes across three continents. He works for [Google Cloud](https://cloud.google.com/) as a technology advocate, and [teaches at UC Berkeley](http://www.ischool.berkeley.edu/people/faculty/jezhumble).
+    thumbnail: img/guests/jhumble3.png
+    website: http://continuousdelivery.com/
+    twitter: jezhumble
+placeholder: false

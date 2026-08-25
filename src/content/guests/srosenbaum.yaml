@@ -1,0 +1,45 @@
+name: Sasha Rosenbaum
+snapshots:
+  - key: srosenbaum
+    bio: Sasha Rosenbaum is a fighter. Not because she was in the Israeli army, which she was; not because she immigrated to Israel without her family, which she did; and not because she willingly moved to Chicago’s winter from Israel’s warmth; but because she’s always pushing forward to solve problems. As a Senior Consultant at [10th Magnitude](http://10thmagnitude.com), Sasha turns her powerful problem solving approach to helping clients as well as to learning new technology and figuring out how apply it to projects. Before moving to Chicago, she served two years in the Israeli Air Force’s IT department (we could tell you exactly what she was doing, but then we would have to kill you), was a software engineer for Elbit Systems, Ltd, in Israel, and holds a B.Sc. in Computer Science with a Focus on Bioinformatics from Technion, Israeli Institute of Technology.
+    thumbnail: img/guests/srosenbaum.png
+    twitter: divineops
+  - key: srosenbaum2
+    bio: Azure Global Black Belt at Microsoft<br /><br />Sasha Rosenbaum helps Microsoft clients migrate their infrastructure and applications to the cloud, working as a technology solutions professional on the global black belt team. She covers a broad range of products and services available on the Azure platform, and helps clients envision, design, and deploy cloud-based applications. Sasha has a computer science degree from Technion, Israel’s Institute of Technology. Sasha is passionate about the DevOps movement, helping companies adopt a culture of collaboration. Sasha is a co-organizer of the [DevOps Days Chicago conference](https://www.devopsdayschi.org). She recently published a [book on Serverless computing in Azure with .NET](https://www.amazon.com/Serverless-computing-Azure-NET-deployment/dp/1787288390).
+    thumbnail: img/guests/srosenbaum2.png
+    website: http://divineops.net
+    twitter: divineops
+    github: DivineOps
+    linkedin: https://www.linkedin.com/in/sasha-rosenbaum/
+  - key: srosenbaum3
+    bio: |-
+      Sasha is a Program Manager on the Azure DevOps engineering team, focused on improving the alignment of the product with open source software.
+
+      Sasha is a co-organizer of the [DevOps Days Chicago conference](https://www.devopsdayschi.org), and recently published a [book on Serverless computing in Azure with .NET](https://www.amazon.com/Serverless-computing-Azure-NET-deployment/dp/1787288390).
+    thumbnail: img/guests/srosenbaum3.png
+    website: https://www.sasharosenbaum.com/
+    twitter: DivineOps
+    github: DivineOps
+    linkedin: https://www.linkedin.com/in/sasha-rosenbaum/
+  - key: srosenbaum4
+    bio: |-
+      Sasha is a Product Manager at GitHub, focused on helping engineers be successful with using GitHub for work as well as for open source. 
+
+      In her career, Sasha has worked in development, operations, consulting, and cloud architecture. Sasha is an organizer of DevOpsDays Chicago, a chair of DeliveryConf, and a published author.
+    thumbnail: img/guests/srosenbaum3.png
+    website: sasharosenbaum.com
+    twitter: DivineOps
+    github: DivineOps
+    linkedin: https://www.linkedin.com/in/sasha-rosenbaum/
+  - key: srosenbaum5
+    bio: |-
+      Sasha is a Sr. Manager on the Managed OpenShift Black Belt (MOBB) team at Red Hat, where she is helping enterprise customers successfully migrate to managed OpenShift on customers’ favorite public cloud.
+
+      In her career, Sasha has worked in development, operations, consulting, and cloud architecture. Sasha is an organizer of DevOpsDays Chicago, a chair of DeliveryConf, and a published author.
+    thumbnail: img/guests/srosenbaum3.png
+    website: https://www.sasharosenbaum.com/
+    twitter: DivineOps
+    github: DivineOps
+    linkedin: sasha-rosenbaum
+    twitch: SashaRosenbaum
+placeholder: false

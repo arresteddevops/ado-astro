@@ -1,0 +1,10 @@
+name: Manuel Pais
+snapshots:
+  - key: mpais
+    bio: 'Manuel Pais is an independent IT consultant and trainer, focused on team interactions, delivery practices and accelerating flow. Manuel is co-author of the book "Team Topologies: Organizing Business and Technology Teams for Fast Flow" (IT Revolution Press, 2019). He helps organizations rethink their approach to software delivery, operations and support via strategic assessments, practical workshops, and coaching.'
+    thumbnail: img/guests/mpais.png
+    website: https://manuelpais.net
+    twitter: manupaisable
+    github: teamtopologies
+    linkedin: manuelpais
+placeholder: false

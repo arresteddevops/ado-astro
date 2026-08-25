@@ -1,0 +1,7 @@
+name: Thijs de Meester
+snapshots:
+  - key: tdemeester
+    bio: Automation Engineer | Educator | Infrastructure as code | DevOps
+    thumbnail: img/guests/tdemeester.png
+    twitter: thijsdemeester
+placeholder: false

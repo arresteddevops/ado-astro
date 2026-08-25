@@ -1,0 +1,8 @@
+name: Andy Burgin
+snapshots:
+  - key: aburgin
+    bio: Andy has worked in the "digital" industry in Leeds since 1994, he has a range of skills from development, infrastructure, operations and project management. Andy is the founder of the LeedsDevops group which been running for 2 years and is attracting large crowds and speakers from a range of local and national devops players. He's recently presented an ignite at DevopsDays Paris on running a Devops meetup group.
+    thumbnail: img/guests/aburgin.png
+    website: http://leedsdevops.org.uk/
+    twitter: andyburgin
+placeholder: false

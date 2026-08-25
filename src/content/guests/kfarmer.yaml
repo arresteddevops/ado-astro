@@ -1,0 +1,9 @@
+name: Katy Farmer
+snapshots:
+  - key: kfarmer
+    bio: Katy is a developer, writer, and storyteller who is always learning something new. She has worked in Developer Relations for three years, and loves connecting with new communities. She has been described by both strangers and loved ones as "chaotic" and "a little much".
+    thumbnail: img/guests/kfarmer.png
+    website: thekatertot.com
+    twitter: thekatertot
+    linkedin: https://www.linkedin.com/in/katyfarmer/
+placeholder: false

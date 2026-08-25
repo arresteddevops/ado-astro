@@ -1,0 +1,8 @@
+name: Amy Tobey
+snapshots:
+  - key: atobey
+    bio: Amy has worked in web operations for more than 20 years at companies of every size, touching everything from kernel code to user interfaces. When she's not working she can usually be found around her home in San Jose, caring for her family, making music, or running slowly in the sun.
+    thumbnail: img/guests/atobey.jpg
+    website: https://blameless.com
+    twitter: "@MissAmyTobey"
+placeholder: false

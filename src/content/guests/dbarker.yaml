@@ -1,0 +1,10 @@
+name: Dan Barker
+snapshots:
+  - key: dbarker
+    bio: Dan spent 12 years in the military as a fighter jet mechanic before transitioning to a career in technology as a Software/DevOps Engineer/Manager. He's now the Chief Architect at the National Association of Insurance Commissioners. He's leading the technical and cultural transformation for the NAIC, a non-profit focused on consumer protection in the insurance industry. Dan is also an organizer of the DevOps KC Meetup and the DevOpsDays KC conference.
+    thumbnail: img/guests/dbarker.png
+    website: http://danbarker.codes
+    twitter: barkerd427
+    github: barkerd427
+    linkedin: https://www.linkedin.com/in/dan-barker
+placeholder: false

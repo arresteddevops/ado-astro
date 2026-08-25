@@ -1,0 +1,11 @@
+name: Cobus Bernard
+snapshots:
+  - key: cbernard
+    bio: Cobus is the AWS Senior Technical Evangelist for Sub-Saharan Africa. He started the Cape Town DevOps meetups in 2015 and tries to spread the DevOps gospel after spending years in both dev and ops.
+    thumbnail: img/guests/cbernard.png
+    website: http://cobus.io/
+    twitter: cobusbernard
+    github: cobusbernard
+    linkedin: cobusbernard
+    facebook: cobusbernard
+placeholder: false

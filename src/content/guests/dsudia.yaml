@@ -1,0 +1,10 @@
+name: Dave Sudia
+snapshots:
+  - key: dsudia
+    bio: Dave Sudia is a Senior DevOps Engineer at GoSpotCheck. His favorite quarantine activities include learning Rust and trying to keep his 4 year old from chopping down all his fruit trees in Animal Crossing.
+    thumbnail: img/guests/dsudia.png
+    website: https://www.thedevelopnik.com
+    twitter: "@thedevelopnik"
+    github: thedevelopnik
+    linkedin: https://www.linkedin.com/in/davidsudia
+placeholder: false

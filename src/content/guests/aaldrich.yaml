@@ -1,0 +1,22 @@
+name: Aaron Aldrich
+snapshots:
+  - key: aaldrich
+    bio: Aaron Aldrich is the Director of Support Services and DevOps Evangelist at Cage Data and a founding organizer of the DevOps CT meetup. Following a career that’s been user-facing and operationally focused has given him an empathetic view of technology’s role in our lives. His writing can occasionally be found on [http://cagedata.com/blog](http://cagedata.com/blog) if it’s greater than 140 characters or on twitter @crayzeigh if fewer.
+    thumbnail: img/guests/aaldrich.png
+    twitter: crayzeigh
+  - key: aaldrich2
+    bio: Aaron Aldrich is a Developer Advocate at LaunchDarkly, Founding organizer of DevOpsDays Hartford, and frequent DevOpsDays organizer and participant all over. When not talking about DevOps and Resilience Engineering, you can find him talking about Mental Health with [osmi-help.org](http://osmi-help.org) or running Emotional Intelligence workshops with [EmotionalAPI.com](http://EmotionalAPI.com). Find him on twitter [@crayzeigh](https://www.twitter.com/crayzeigh) for general nonsense and tomfoolery.
+    thumbnail: img/guests/aaldrich2.png
+    website: https://crayzeigh.com
+    twitter: crayzeigh
+    github: CrayZeigh
+    linkedin: https://linkedin.com/in/aaronaldrich
+  - key: aaldrich3
+    bio: Aaron Aldrich is a Managed OpenShift Black Belt at Red Hat, creator of [Tabletop DevOps](https://crayzeigh.com/tabletop-devops/), founding organizer of DevOpsDays Hartford, and frequent DevOpsDays organizer and participant all over. When not talking about DevOps and Resilience Engineering, you can find him talking about Mental Health with osmihelp.org or running Emotional Intelligence workshops with [EmotionalAPI.com](https://emotionalapi.com/). Find him on twitter @crayzeigh for general nonsense and tomfoolery.
+    thumbnail: img/guests/aaldrich3.jpg
+    website: https://crayzeigh.com
+    twitter: "@crayzeigh"
+    github: "@crayzeigh"
+    linkedin: aaronaldrich
+    twitch: crayzeigh
+placeholder: false

@@ -1,0 +1,12 @@
+name: Robert Werner
+snapshots:
+  - key: rwerner
+    bio: |-
+      Robert is the CTO of Leapter, where he is focused on solving a critical paradox in modern software development: while AI coding tools promise acceleration, they often amplify the cognitive load on developers through a sprawl of untrusted, hard-to-verify code.
+
+      His career has been defined by leading high-stakes technical initiatives: from designing critical systems as a Lead Architect at DHL, to heading product development for a Bosch FinTech spin-off, to driving cloud-native adoption for enterprise customers at Pivotal (later VMware/Broadcom).
+    thumbnail: img/guests/rwerner.png
+    website: http://www.leapter.com
+    linkedin: https://www.linkedin.com/in/robert-werner-de/
+    youtube: https://youtube.com/@leapter-corp
+placeholder: false

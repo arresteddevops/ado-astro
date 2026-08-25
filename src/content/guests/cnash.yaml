@@ -1,0 +1,14 @@
+name: Courtney Nash
+snapshots:
+  - key: cnash
+    bio: Velocity Conference Co-chair; Director of Strategic Content at O'Reilly Media
+    thumbnail: img/guests/cnash.png
+    twitter: courtneynash
+  - key: cnash2
+    bio: Courtney Nash is a researcher focused on system safety and failures in complex sociotechnical systems. An erstwhile cognitive neuroscientist, she has always been fascinated by how people learn, and the ways memory influences how they solve problems. Over the past two decades, she’s held a variety of editorial, program management, research, and management roles at Holloway, Fastly, O’Reilly Media, Microsoft, and Amazon. She lives in the mountains where she skis, rides bikes, and herds dogs and kids.
+    thumbnail: img/guests/cnash2.jpeg
+    website: https://www.thevoid.community/
+    twitter: courtneynash
+    linkedin: nashcourtney
+    pronouns: She/her
+placeholder: false

@@ -1,0 +1,9 @@
+name: Austin Parker
+snapshots:
+  - key: aparker
+    bio: Austin makes problems with computers, and sometimes solves them. He’s an open source maintainer, observability nerd, devops junkie, and poster. You can find him ignoring HN threads and making dumb jokes on Twitter. He wrote a book about distributed tracing, taught some college courses, streams on Twitch, and also ran a DevOps conference in Animal Crossing.
+    thumbnail: img/guests/aparker.png
+    website: https://aparker.io
+    twitter: austinlparker
+    twitch: oncallmemaybe
+placeholder: false

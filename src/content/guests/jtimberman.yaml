@@ -1,0 +1,9 @@
+name: Joshua Timberman
+snapshots:
+  - key: jtimberman
+    bio: Joshua Timberman is a code cleric at Chef, where he Cures Technical Debt Wounds 1d8 lines of code at a time.
+    thumbnail: img/guests/jtimberman.png
+    website: http://jtimberman.housepub.org
+    twitter: jtimberman
+    github: jtimberman
+placeholder: false

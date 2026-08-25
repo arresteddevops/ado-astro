@@ -1,0 +1,14 @@
+name: Grant Fritchey
+snapshots:
+  - key: gfritchey
+    bio: Grant Fritchey is a SQL Server MVP with over 20 years’ experience in IT including time spent in support and development. Grant has worked with SQL Server since version 6.0 back in 1995. He has developed in VB, VB.Net, C# and Java. He has authored books for Apress and [Simple-Talk](http://www.simple-talk.com/author/grant-fritchey/), and joined Red Gate as a Product Evangelist in January 2011.
+    thumbnail: img/guests/gfritchey.png
+    twitter: twittername
+  - key: gfritchey2
+    bio: "Grant Fritchey has worked for more than 30 years in IT as a developer and a DBA. He has built systems from the major enterprise to distributed systems to small boutique companies. Grant writes articles on various data-related topics for the #1 SQL Server education and community site, SQLServerCentral and Redgate’s technical journal, Simple Talk. He is the author of multiple books including SQL Server Execution Plans and SQL Server Query Performance Tuning. He develops and presents complete structured learning plans to teach Azure, AWS, and other data-related topics to developers and other IS personnel. Grant is a Microsoft Data Platform MVP and an AWS Community Builder."
+    thumbnail: img/guests/gfritchey2.jpg
+    website: https://www.red-gate.com
+    twitter: GFritchey
+    linkedin: https://www.linkedin.com/in/grant-fritchey/
+    pronouns: He/Him
+placeholder: false

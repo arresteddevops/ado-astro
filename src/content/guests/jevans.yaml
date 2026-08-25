@@ -1,0 +1,9 @@
+name: Julia Evans
+snapshots:
+  - key: jevans
+    bio: Julia Evans is a developer who works on infrastructure at Stripe. She likes making programs go fast and learning how to debug weird problems. She thinks you can be a wizard programmer.
+    thumbnail: img/guests/jevans.png
+    website: http://jvns.ca/
+    twitter: b0rk
+    github: jvns
+placeholder: false

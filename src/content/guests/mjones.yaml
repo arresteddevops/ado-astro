@@ -1,0 +1,8 @@
+name: Matthew Jones
+snapshots:
+  - key: mjones
+    bio: Matthew Jones is an operations engineer at Red Guava. He is a global core organiser of Devopsdays, serves as president of Devops Australia, helped establish Infracoders, and helps run the Melbourne Infracoders meetup. His pseudonym is Geekle.
+    thumbnail: img/guests/mjones.png
+    website: http://www.geekle.id.au/
+    twitter: geekle
+placeholder: false

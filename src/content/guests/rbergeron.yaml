@@ -1,0 +1,8 @@
+name: Robyn Bergeron
+snapshots:
+  - key: rbergeron
+    bio: Robyn Bergeron is a Community Architect at Ansible, building community bridges and inspiring contributors to do great things. She’s been a sysadmin, program manager, business analyst, and developer advocate in past lives, and started her career in open source at Red Hat, where she was the Fedora Project Leader.
+    thumbnail: img/guests/rbergeron.png
+    website: http://robyn.io
+    twitter: robynbergeron
+placeholder: false

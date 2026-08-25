@@ -1,0 +1,8 @@
+name: Joe Hirn
+snapshots:
+  - key: jhirn
+    bio: No bio provided
+    thumbnail: img/guests/jhirn.png
+    website: http://www.devmynd.com/blog/author/joe-hirn
+    twitter: jhirn
+placeholder: false
