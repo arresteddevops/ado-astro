@@ -29,7 +29,13 @@ const image = getMiscAsset(host.data.thumbnail);
 const description = plainTextSnippet(host.body ?? "", 160);
 ---
 
-<BaseLayout title={host.data.name} description={description} image={image?.src}>
+<BaseLayout
+  title={host.data.name}
+  description={description}
+  image={image?.src}
+  imageWidth={image?.width}
+  imageHeight={image?.height}
+>
   <section class="profile">
     <div class="card">
       <div class="avatar" aria-hidden="true">

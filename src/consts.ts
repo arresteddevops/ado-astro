@@ -16,4 +16,7 @@ export const MEDIA_PREFIX =
 export const GA_MEASUREMENT_ID = "G-45939822";
 
 // Default social-card image for pages that don't have a more specific one.
-export const DEFAULT_OG_IMAGE = "/img/ado-podcast-logo.png";
+// Not the same file as the podcast's square RSS artwork (ado-podcast-logo.png) -
+// that one has to stay square for podcast-app requirements, this one is
+// the usual 1200x630 link-preview shape. See scripts/generate-og-images.mjs.
+export const DEFAULT_OG_IMAGE = "/img/social/og/default.jpg";

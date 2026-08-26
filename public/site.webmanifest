@@ -1,0 +1,13 @@
+{
+  "name": "Arrested DevOps",
+  "short_name": "Arrested DevOps",
+  "description": "Arrested DevOps is the podcast that helps you achieve understanding, develop good practices, and operate your team and organization for maximum DevOps awesomeness.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fdf3e0",
+  "theme_color": "#1e2a52",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
