@@ -1,18 +1,20 @@
 # Arrested DevOps — Astro site
 
-Astro rebuild of https://www.arresteddevops.com (a podcast website), deployed on Netlify.
-Port of the Hugo site in `../ado-hugo` (github.com/arresteddevops/ado-hugo, castanet theme).
+This repo **is** https://www.arresteddevops.com (a podcast website), deployed on Netlify.
+Migrated from Hugo (castanet theme); the legacy site's repo, `ado-hugo`
+(github.com/arresteddevops/ado-hugo), is now archived and frozen per ADR-0003, read-only
+and kept around for reference only.
 
 ## Current state
 
-Migration in progress — see `gh issue list` for phase status (issues 1–8). Read before
-writing code:
+Migration complete — all 8 phases (see `gh issue list --state all`) shipped and cut over.
+Read before writing code:
 - `docs/PRD.md` — 13 locked decisions, phases (= GitHub issues 1–8), success criteria
 - `docs/adr/` — feed rebuild, person-centric guest model, content source of truth
 - `CONTEXT.md` — the glossary; use its terms (Guest, Bio Snapshot, Alias, The Feed)
 - Design: Broadcast Pop canvas, linked in the PRD (About page copy is draft)
 
-## Reference: the legacy site (`../ado-hugo`)
+## Reference: the legacy site (`../ado-hugo`, archived)
 
 - `content/episode/` — 205 episodes, TOML frontmatter: `podcast_file`, `podcast_duration`,
   `podcast_bytes`, `episode` (number), `guests`/`hosts`/`sponsors` (refs by filename),
@@ -34,7 +36,7 @@ writing code:
 
 ## Conventions
 
-- Package manager: pnpm (assumed; confirm with Matty before scaffolding)
+- Package manager: pnpm
 - Content modeled as Astro content collections (episodes, guests, hosts, sponsors, pages)
 - **Scoped `<style>` never reaches client-injected HTML.** Astro's scoped-CSS hash only
   attaches to elements present in the template at build time — markup inserted at runtime
