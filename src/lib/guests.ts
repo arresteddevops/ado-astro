@@ -1,5 +1,12 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 
+export const GUESTS_PER_PAGE = 24;
+
+export async function getGuestsSorted(): Promise<CollectionEntry<"guests">[]> {
+  const guests = await getCollection("guests");
+  return guests.sort((a, b) => a.data.name.localeCompare(b.data.name));
+}
+
 // Keyed by guest person id -> every episode whose guests[] points at them,
 // so both the guest list (needs a count) and guest detail pages (need the
 // list) share one pass over the episodes collection.
