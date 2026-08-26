@@ -1,6 +1,6 @@
 ---
 title: Industrial DevOps with Doug Pagnutti
-description: Doug Pagnutti spent fifteen years as an automation engineer caught between the IT and OT worlds inside manufacturing plants. The friction sounds a lot like the DevOps wars of a decade ago. Matty and Doug dig into why industrial operations never got the memo, and what OT and IT could still learn from each other now that the wall between them is collapsing.
+description: Doug Pagnutti spent fifteen years as an automation engineer caught between the IT and OT worlds inside manufacturing plants. The friction sounds a lot like what's been happening in DevOps for over a decade. Matty and Doug dig into why industrial operations never got the memo, and what OT and IT could still learn from each other now that the wall between them is collapsing.
 date: 2026-08-17T11:38:00.000Z
 publishDate: 2026-08-17T11:38:00.000Z
 episodeNumber: "206"
