@@ -13,7 +13,7 @@ const totalPages = Math.ceil(episodes.length / EPISODES_PER_PAGE);
 const latestImage = getEpisodeAsset(latest.data.episodeImage);
 ---
 
-<BaseLayout title="Home">
+<BaseLayout title="Home" image={latestImage?.src}>
   <section class="hero">
     <div class="hero-copy">
       <div class="badge">
