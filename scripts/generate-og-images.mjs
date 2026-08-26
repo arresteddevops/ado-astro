@@ -16,8 +16,8 @@ import fs from "node:fs";
 import path from "node:path";
 import satori from "satori";
 import { Resvg } from "@resvg/resvg-js";
-import sharp from "sharp";
 import YAML from "yaml";
+import { toCompressedJpeg } from "./lib/encode.mjs";
 
 const scriptDir = path.dirname(new URL(import.meta.url).pathname);
 const REPO_ROOT = path.resolve(scriptDir, "..");
@@ -225,14 +225,6 @@ async function renderCard({ episodeNumber, title, guestLine, photoDataUri }) {
   });
   const resvg = new Resvg(svg);
   return resvg.render().asPng();
-}
-
-// Recompress to JPEG regardless of source (mozjpeg at q85 is the sweet
-// spot: comfortably under WhatsApp's 500KB cap with no visible quality
-// loss, verified against the largest legacy bespoke images). Flatten
-// first since these source PNGs can carry an alpha channel JPEG can't.
-async function toCompressedJpeg(pngBuffer) {
-  return sharp(pngBuffer).flatten({ background: CREAM }).jpeg({ quality: 85, mozjpeg: true }).toBuffer();
 }
 
 async function generate(episodeData, slug) {

@@ -5,7 +5,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import SocialLinks from "../../components/SocialLinks.astro";
 import { getEpisodesByGuestId } from "../../lib/guests";
 import { renderMarkdown } from "../../lib/markdown";
-import { getMiscAsset } from "../../lib/images";
+import { getMiscAsset, getPersonOgImage } from "../../lib/images";
+import { resolveSocialLinks } from "../../lib/social";
+import { plainTextSnippet } from "../../lib/markdown";
 
 export async function getStaticPaths() {
   const guests = await getCollection("guests");
@@ -29,14 +31,25 @@ const sortedEpisodes = [...episodes].sort((a, b) => a.data.date.valueOf() - b.da
 const firstAppeared = sortedEpisodes[0]?.data.date.getFullYear();
 const bioHtml = renderMarkdown(latest.bio);
 const image = getMiscAsset(latest.thumbnail);
+const ogImage = getPersonOgImage("guest", guest.id);
+
+const socialLinks = resolveSocialLinks(latest);
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: guest.data.name,
+  description: plainTextSnippet(latest.bio, 300),
+  url: new URL(Astro.url.pathname, Astro.site).toString(),
+  image: new URL(ogImage ?? "/img/social/og/default.jpg", Astro.site).toString(),
+  sameAs: Object.values(socialLinks).filter((v) => v !== undefined),
+};
 ---
 
 <BaseLayout
   title={guest.data.name}
   description={latest.bio}
-  image={image?.src}
-  imageWidth={image?.width}
-  imageHeight={image?.height}
+  image={ogImage}
+  structuredData={structuredData}
 >
   <section class="profile" data-pagefind-body data-pagefind-filter="type:Guest">
     <div class="card" data-pagefind-meta={`episodeCount:${episodes.length}`}>
