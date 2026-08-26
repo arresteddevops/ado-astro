@@ -8,15 +8,22 @@ interface Props {
 
 const { website, twitter, github, linkedin } = Astro.props;
 
+const isUrl = (value: string) => /^https?:\/\//.test(value);
+
 // Most guest data stores a bare username, but some legacy entries carry a
 // full profile URL (including old linkedin.com/pub/... links); use it
 // as-is rather than re-wrapping it into a broken double URL.
-const linkedinHref = linkedin && (/^https?:\/\//.test(linkedin) ? linkedin : `https://linkedin.com/in/${linkedin}`);
+const linkedinHref = linkedin && (isUrl(linkedin) ? linkedin : `https://linkedin.com/in/${linkedin}`);
+const twitterHref = twitter && (isUrl(twitter) ? twitter : `https://twitter.com/${twitter}`);
+const githubHref = github && (isUrl(github) ? github : `https://github.com/${github}`);
+// A bare domain with no scheme (e.g. "verica.io") renders as a broken
+// relative link, not an external one, so give it one.
+const websiteHref = website && (isUrl(website) ? website : `https://${website}`);
 
 const links = [
-  website && { href: website, label: "Website" },
-  twitter && { href: `https://twitter.com/${twitter}`, label: "Twitter" },
-  github && { href: `https://github.com/${github}`, label: "GitHub" },
+  websiteHref && { href: websiteHref, label: "Website" },
+  twitterHref && { href: twitterHref, label: "Twitter" },
+  githubHref && { href: githubHref, label: "GitHub" },
   linkedinHref && { href: linkedinHref, label: "LinkedIn" },
 ].filter((l) => l !== undefined && l !== false);
 ---
