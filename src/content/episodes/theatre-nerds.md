@@ -23,6 +23,7 @@ sponsors:
   - chef
 aliases:
   - /108
+  - /theatrenerds
 youtube: pm7wG4x--Tg
 explicit: yes
 ---

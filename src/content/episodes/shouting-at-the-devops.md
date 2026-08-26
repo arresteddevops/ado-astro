@@ -21,6 +21,7 @@ sponsors:
   - chef
 aliases:
   - /121
+  - /shoutingatthedevops
 explicit: no
 ---
 

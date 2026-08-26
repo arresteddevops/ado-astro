@@ -19,7 +19,8 @@ sponsors:
   - datadog
 aliases:
   - /116
-  - smurawski-ignite18
+  - /smurawski-ignite18
+  - /ignite2018smurawski
 explicit: yes
 ---
 

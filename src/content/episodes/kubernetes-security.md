@@ -19,6 +19,7 @@ sponsors:
   - sdt
 aliases:
   - /141
+  - /kubernetessecurity
 youtube: Tbzy7FCWnGw
 explicit: no
 ---

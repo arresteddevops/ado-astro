@@ -22,6 +22,7 @@ sponsors:
   - sdt
 aliases:
   - /167
+  - /learningtolearn
 transcript: learning-to-learn
 explicit: yes
 ---

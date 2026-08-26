@@ -23,6 +23,7 @@ hosts:
 sponsors: []
 aliases:
   - /112
+  - /devopsdayssaltlakecity
 explicit: yes
 ---
 

@@ -21,7 +21,7 @@ sponsors:
   - gliffy
 aliases:
   - /194
-  - flavortown
+  - /flavortown
 explicit: yes
 ---
 

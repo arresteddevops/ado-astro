@@ -22,6 +22,7 @@ sponsors:
   - cloudsmith
 aliases:
   - /177
+  - /technicalagilecoaching
 explicit: no
 ---
 

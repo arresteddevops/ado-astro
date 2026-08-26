@@ -19,6 +19,7 @@ hosts:
 sponsors: []
 aliases:
   - /8
+  - /managingyourmentalstack
 youtube: oE-9shO_-1o
 explicit: yes
 ---

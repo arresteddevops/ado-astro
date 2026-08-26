@@ -23,7 +23,9 @@ sponsors:
   - circleci
   - logzio
   - sdt
-aliases: []
+aliases:
+  - /150
+  - /securebydesign
 explicit: no
 ---
 

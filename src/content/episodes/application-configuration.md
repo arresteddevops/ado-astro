@@ -22,6 +22,7 @@ sponsors:
   - datadog
 aliases:
   - /69
+  - /applicationconfiguration
 youtube: Nbu8bqJFM1E
 explicit: yes
 ---

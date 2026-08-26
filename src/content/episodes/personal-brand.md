@@ -21,6 +21,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /60
+  - /personalbrand
 youtube: TO8xiV2pXdw
 explicit: yes
 ---

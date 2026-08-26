@@ -21,6 +21,7 @@ sponsors:
   - datadog
 aliases:
   - /63
+  - /containerssecurity
 youtube: qPs5U5hdciM
 explicit: yes
 ---

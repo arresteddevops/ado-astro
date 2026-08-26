@@ -20,6 +20,7 @@ sponsors:
   - rootly
 aliases:
   - /183
+  - /continuousfeedback
 explicit: no
 ---
 

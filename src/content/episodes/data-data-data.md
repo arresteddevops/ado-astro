@@ -21,7 +21,7 @@ sponsors:
   - sysdig
 aliases:
   - /186
-  - datadatadata
+  - /datadatadata
 explicit: no
 ---
 

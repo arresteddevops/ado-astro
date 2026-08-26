@@ -21,6 +21,7 @@ sponsors:
   - sysdig
 aliases:
   - /185
+  - /platformengineering
 explicit: no
 ---
 

@@ -25,6 +25,7 @@ sponsors:
   - sdt
 aliases:
   - /144
+  - /2019inreview
 explicit: yes
 ---
 

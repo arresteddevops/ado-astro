@@ -25,7 +25,8 @@ sponsors:
 aliases:
   - /75
   - /windycity
-  - windy-city
+  - /windy-city
+  - /devopsinthewindycityjeffsmithjerrycattellsameerdoshi
 youtube: lBDFfC-wGls
 explicit: yes
 ---

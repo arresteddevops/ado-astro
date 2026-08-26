@@ -20,7 +20,8 @@ sponsors:
   - devopsworld
   - uffizzi
 aliases:
-  - thenewdevops
+  - /192
+  - /thenewdevops
 explicit: yes
 ---
 

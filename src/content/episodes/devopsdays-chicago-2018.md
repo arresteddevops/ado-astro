@@ -26,6 +26,7 @@ sponsors:
   - pagerduty
 aliases:
   - /120
+  - /devopsdayschicago2018
 explicit: yes
 ---
 

@@ -21,6 +21,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /20
+  - /devopssecurity
 youtube: EJeccu3Lcis
 explicit: yes
 ---

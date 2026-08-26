@@ -23,6 +23,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /17
+  - /gethelp
 youtube: AGpQd_ub36Q
 explicit: yes
 ---

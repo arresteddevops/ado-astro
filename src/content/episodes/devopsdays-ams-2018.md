@@ -25,6 +25,7 @@ sponsors:
   - datadog
 aliases:
   - /109
+  - /devopsdaysams2018
 explicit: yes
 ---
 

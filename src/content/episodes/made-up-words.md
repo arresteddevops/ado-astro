@@ -23,6 +23,7 @@ sponsors:
   - datadog
 aliases:
   - /85
+  - /madeupwords
 youtube: RFY_8Q3pk20
 explicit: yes
 ---

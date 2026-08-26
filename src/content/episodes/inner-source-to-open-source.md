@@ -21,6 +21,7 @@ sponsors:
   - thoughtworks
 aliases:
   - /98
+  - /innersourcetoopensource
 explicit: yes
 ---
 

@@ -20,6 +20,7 @@ hosts:
 sponsors: []
 aliases:
   - /146
+  - /teamtopologies
 explicit: no
 ---
 

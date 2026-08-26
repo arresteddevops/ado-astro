@@ -25,6 +25,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /22
+  - /devopsdayschicago
 explicit: yes
 ---
 

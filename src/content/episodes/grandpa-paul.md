@@ -20,6 +20,7 @@ sponsors:
   - datadog
 aliases:
   - /97
+  - /grandpapaul
 explicit: yes
 ---
 

@@ -25,6 +25,7 @@ sponsors:
   - agiledevopswest
 aliases:
   - /125
+  - /shinyobjects
 youtube: hSRmUIgwbxY
 explicit: yes
 ---

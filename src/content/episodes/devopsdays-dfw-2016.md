@@ -27,7 +27,7 @@ sponsors:
   - victorops
 aliases:
   - /73
-  - devopsdaysdfw2016
+  - /devopsdaysdfw2016
 explicit: yes
 ---
 

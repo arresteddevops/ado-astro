@@ -20,6 +20,7 @@ sponsors:
   - datadog
 aliases:
   - /96
+  - /alicefiresidechat
 youtube: 2rO8iGRyIGQ
 explicit: yes
 ---

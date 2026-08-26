@@ -24,6 +24,7 @@ sponsors:
   - atomist
 aliases:
   - /133
+  - /devopsdaysminneapolis2019
 youtube: FJInO69mBIo
 explicit: yes
 ---

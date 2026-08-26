@@ -21,6 +21,7 @@ sponsors:
   - drata
 aliases:
   - /184
+  - /intothevoid
 explicit: yes
 ---
 

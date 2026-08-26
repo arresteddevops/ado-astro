@@ -23,6 +23,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /30
+  - /microsoftdevops
 youtube: 9qfX_K-5gTk
 explicit: yes
 ---

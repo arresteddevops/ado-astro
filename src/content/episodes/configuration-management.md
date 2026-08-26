@@ -23,6 +23,7 @@ hosts:
 sponsors: []
 aliases:
   - /9
+  - /configurationmanagement
 youtube: btr9WWi8hsc
 explicit: yes
 ---

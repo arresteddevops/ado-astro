@@ -23,6 +23,7 @@ sponsors:
   - sdt
 aliases:
   - /124
+  - /devopsdatabase
 explicit: no
 ---
 

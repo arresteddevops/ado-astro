@@ -23,6 +23,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /12
+  - /implementingdevops
 youtube: QjKbSPCyKUk
 explicit: yes
 ---

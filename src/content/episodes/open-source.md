@@ -19,6 +19,7 @@ sponsors:
   - datadog
 aliases:
   - /55
+  - /opensource
 explicit: yes
 ---
 

@@ -22,6 +22,7 @@ sponsors:
   - macstadium
 aliases:
   - /171
+  - /drawingdevops
 explicit: yes
 ---
 

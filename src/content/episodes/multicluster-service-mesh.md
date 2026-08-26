@@ -22,6 +22,7 @@ sponsors:
   - macstadium
 aliases:
   - /173
+  - /multiclusterservicemesh
 youtube: 5LIXNtcGiWk
 explicit: no
 ---

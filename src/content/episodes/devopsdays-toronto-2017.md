@@ -26,6 +26,7 @@ sponsors:
   - datadog
 aliases:
   - /87
+  - /devopsdaystoronto2017
 explicit: yes
 ---
 

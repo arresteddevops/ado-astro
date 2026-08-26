@@ -24,6 +24,7 @@ sponsors:
   - sdt
 aliases:
   - /139
+  - /devopsdaysphiladelphia2019
 youtube: lZNgNVxu-cM
 explicit: yes
 ---

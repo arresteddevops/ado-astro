@@ -19,6 +19,7 @@ sponsors:
   - sdt
 aliases:
   - /145
+  - /communitiesaremadeofpeople
 explicit: no
 ---
 

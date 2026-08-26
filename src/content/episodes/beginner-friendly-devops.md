@@ -21,6 +21,7 @@ sponsors:
   - sdt
 aliases:
   - /148
+  - /beginnerfriendlydevops
 explicit: no
 ---
 

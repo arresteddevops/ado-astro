@@ -16,6 +16,7 @@ hosts:
 sponsors: []
 aliases:
   - /1
+  - /whatisdevops
 youtube: 88iUXN5cCas
 explicit: no
 ---

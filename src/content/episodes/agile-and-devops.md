@@ -21,6 +21,7 @@ hosts:
 sponsors: []
 aliases:
   - /4
+  - /agileanddevops
 youtube: dYzbqgACh4g
 explicit: yes
 ---

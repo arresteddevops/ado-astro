@@ -20,6 +20,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /33
+  - /devopsculturechange
 explicit: yes
 ---
 

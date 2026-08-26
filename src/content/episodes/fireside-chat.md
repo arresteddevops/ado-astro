@@ -19,6 +19,7 @@ sponsors:
   - victorops
 aliases:
   - /72
+  - /firesidechat
 youtube: lybeocYXujU
 explicit: yes
 ---

@@ -19,6 +19,7 @@ sponsors:
   - sdt
 aliases:
   - /156
+  - /developerexperience
 transcript: developer-experience
 explicit: no
 ---

@@ -21,6 +21,7 @@ hosts:
 sponsors: []
 aliases:
   - /10
+  - /cloudscaling
 youtube: Ae2usrwum2E
 explicit: yes
 ---

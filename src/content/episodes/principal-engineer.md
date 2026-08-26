@@ -22,6 +22,7 @@ sponsors:
   - sdt
 aliases:
   - /129
+  - /principalengineer
 explicit: no
 ---
 

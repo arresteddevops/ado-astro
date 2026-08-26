@@ -25,6 +25,7 @@ sponsors:
   - pagerduty
 aliases:
   - /111
+  - /devopsdaysminneapolis2018
 youtube: SOe29S_q9jM
 explicit: yes
 ---

@@ -19,6 +19,7 @@ sponsors:
   - sdt
 aliases:
   - /142
+  - /kubernetesfuture
 youtube: PKcXccvE5Fo
 explicit: no
 ---

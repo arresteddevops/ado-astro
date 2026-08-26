@@ -23,7 +23,9 @@ sponsors:
   - circleci
   - sdt
 aliases:
+  - /152
   - /cloud-costs
+  - /cloudcosts
 explicit: yes
 ---
 

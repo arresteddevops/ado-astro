@@ -22,6 +22,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /47
+  - /seasonalscaling
 youtube: c4uiiSj2SPU
 explicit: yes
 ---

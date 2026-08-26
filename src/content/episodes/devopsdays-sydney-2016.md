@@ -28,6 +28,7 @@ sponsors:
   - victorops
 aliases:
   - /78
+  - /devopsdayssydney2016
 explicit: yes
 ---
 

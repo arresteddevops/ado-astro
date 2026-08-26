@@ -23,9 +23,9 @@ sponsors:
   - uffizzi
 aliases:
   - /193
-  - openterraform
-  - opentofu
-  - open-terraform
+  - /openterraform
+  - /opentofu
+  - /open-terraform
 explicit: yes
 ---
 

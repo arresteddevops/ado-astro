@@ -21,8 +21,10 @@ sponsors:
   - container-solutions
   - macstadium
 aliases:
+  - /170
   - /edge-of-now
   - /feminism
+  - /catswetel
 explicit: no
 ---
 

@@ -25,6 +25,7 @@ sponsors:
   - datadog
 aliases:
   - /95
+  - /devopsdaysmadison
 explicit: yes
 ---
 

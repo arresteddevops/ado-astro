@@ -22,6 +22,7 @@ sponsors:
   - gitbook
 aliases:
   - /197
+  - /runtimeanalysis
 explicit: no
 ---
 

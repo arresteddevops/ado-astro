@@ -25,6 +25,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /14
+  - /howtoeffupdevops
 youtube: 3Z-_aeby-3g
 explicit: yes
 ---

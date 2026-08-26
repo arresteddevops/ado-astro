@@ -25,6 +25,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /91
+  - /devopsdaysminneapolis2017
 youtube: nlOIxfLBok4
 explicit: yes
 ---

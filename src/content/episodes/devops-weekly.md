@@ -19,6 +19,7 @@ sponsors:
   - datadog
 aliases:
   - /105
+  - /devopsweekly
 youtube: C82Mumc5ShE
 explicit: yes
 ---

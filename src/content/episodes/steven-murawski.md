@@ -20,6 +20,7 @@ sponsors:
   - agiledevopswest
 aliases:
   - /130
+  - /stevenmurawski
 explicit: no
 ---
 

@@ -25,6 +25,7 @@ sponsors:
   - sdt
 aliases:
   - /153
+  - /helmcommunity
 youtube: WQ7_oCpP7CU
 explicit: yes
 ---

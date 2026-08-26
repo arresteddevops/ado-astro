@@ -26,6 +26,7 @@ sponsors:
   - sdt
 aliases:
   - /134
+  - /devopsdayschicago2019
 youtube: vJNxGCtmMfs
 explicit: yes
 ---

@@ -19,6 +19,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /50
+  - /osswitching
 explicit: yes
 ---
 

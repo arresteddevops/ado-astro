@@ -22,6 +22,7 @@ sponsors:
   - gitbook
 aliases:
   - /202
+  - /opencommunities
 explicit: no
 ---
 

@@ -19,6 +19,7 @@ sponsors:
   - sdt
 aliases:
   - /143
+  - /learningstuff
 explicit: yes
 ---
 

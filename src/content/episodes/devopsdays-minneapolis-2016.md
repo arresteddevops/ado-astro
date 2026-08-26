@@ -23,6 +23,7 @@ hosts:
 sponsors: []
 aliases:
   - /68
+  - /devopsdaysminneapolis2016
 youtube: 5CM5_JkrRa4
 explicit: yes
 ---

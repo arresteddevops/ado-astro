@@ -19,7 +19,8 @@ sponsors:
   - datadog
 aliases:
   - /113
-  - spang
+  - /spang
+  - /christinespang
 explicit: no
 ---
 

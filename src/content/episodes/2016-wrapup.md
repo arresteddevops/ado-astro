@@ -26,6 +26,7 @@ sponsors:
   - datadog
 aliases:
   - /79
+  - /2016wrapup
 explicit: yes
 ---
 

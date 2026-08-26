@@ -21,6 +21,7 @@ hosts:
 sponsors: []
 aliases:
   - /3
+  - /thedevshow
 youtube: 25235P0tOJo
 explicit: yes
 ---

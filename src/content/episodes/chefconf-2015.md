@@ -25,6 +25,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /34
+  - /chefconf2015
 explicit: yes
 ---
 

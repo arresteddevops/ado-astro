@@ -21,6 +21,7 @@ sponsors:
 aliases:
   - /76
   - /pauly
+  - /chattingwithpauly
 explicit: yes
 ---
 

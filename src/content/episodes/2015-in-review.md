@@ -25,6 +25,7 @@ sponsors:
   - datadog
 aliases:
   - /53
+  - /2015inreview
 youtube: X56Bt2zDNyA
 explicit: yes
 ---

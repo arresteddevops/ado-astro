@@ -20,6 +20,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /92
+  - /cicd
 youtube: qKQ7pqQwRmM
 explicit: yes
 ---

@@ -22,6 +22,7 @@ hosts:
 sponsors: []
 aliases:
   - /67
+  - /chefconf2016
 youtube: U7i4JE4Zk7w
 explicit: yes
 ---

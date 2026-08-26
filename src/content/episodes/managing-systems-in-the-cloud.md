@@ -21,6 +21,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /23
+  - /managingsystemsinthecloud
 youtube: _SddIa6iej0
 explicit: yes
 ---

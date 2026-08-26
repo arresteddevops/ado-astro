@@ -24,6 +24,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /36
+  - /reformedbofh
 youtube: zMd8H7lDBcU
 explicit: yes
 ---

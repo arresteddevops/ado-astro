@@ -25,6 +25,7 @@ sponsors:
   - sdt
 aliases:
   - /140
+  - /kubernetesbestpractices
 explicit: no
 ---
 

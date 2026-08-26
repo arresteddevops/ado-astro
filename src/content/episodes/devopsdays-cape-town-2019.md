@@ -27,6 +27,7 @@ sponsors:
   - sdt
 aliases:
   - /136
+  - /devopsdayscapetown2019
 explicit: no
 ---
 

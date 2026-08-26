@@ -17,7 +17,9 @@ hosts:
   - jkerr
 sponsors:
   - sdt
-aliases: []
+aliases:
+  - /158
+  - /dontworrydocare
 transcript: dont-worry-do-care
 explicit: yes
 ---
