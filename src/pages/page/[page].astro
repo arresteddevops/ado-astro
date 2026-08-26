@@ -26,7 +26,10 @@ export async function getStaticPaths() {
 const { episodes, pageNumber, totalPages } = Astro.props;
 ---
 
-<BaseLayout title={`Episodes — page ${pageNumber}`}>
+<BaseLayout
+  title={`Episodes — page ${pageNumber}`}
+  description={`Browse Arrested DevOps episodes — page ${pageNumber} of ${totalPages}.`}
+>
   <section class="episodes">
     <h1>All episodes</h1>
     <div class="grid">

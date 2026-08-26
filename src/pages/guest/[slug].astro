@@ -31,7 +31,7 @@ const bioHtml = renderMarkdown(latest.bio);
 const image = getMiscAsset(latest.thumbnail);
 ---
 
-<BaseLayout title={guest.data.name} description={latest.bio.slice(0, 160)}>
+<BaseLayout title={guest.data.name} description={latest.bio.slice(0, 160)} image={image?.src}>
   <section class="profile" data-pagefind-body data-pagefind-filter="type:Guest">
     <div class="card" data-pagefind-meta={`episodeCount:${episodes.length}`}>
       <div class="avatar" aria-hidden="true">
