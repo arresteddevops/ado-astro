@@ -8,11 +8,16 @@ interface Props {
 
 const { website, twitter, github, linkedin } = Astro.props;
 
+// Most guest data stores a bare username, but some legacy entries carry a
+// full profile URL (including old linkedin.com/pub/... links); use it
+// as-is rather than re-wrapping it into a broken double URL.
+const linkedinHref = linkedin && (/^https?:\/\//.test(linkedin) ? linkedin : `https://linkedin.com/in/${linkedin}`);
+
 const links = [
   website && { href: website, label: "Website" },
   twitter && { href: `https://twitter.com/${twitter}`, label: "Twitter" },
   github && { href: `https://github.com/${github}`, label: "GitHub" },
-  linkedin && { href: `https://linkedin.com/in/${linkedin}`, label: "LinkedIn" },
+  linkedinHref && { href: linkedinHref, label: "LinkedIn" },
 ].filter((l) => l !== undefined && l !== false);
 ---
 
