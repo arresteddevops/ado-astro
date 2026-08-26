@@ -5,6 +5,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import PersonCard from "../components/PersonCard.astro";
 import { MEDIA_PREFIX } from "../consts";
 import { getEpisodeAsset, getEpisodeOgImage, getMiscAsset } from "../lib/images";
+import { plainTextSnippet } from "../lib/markdown";
+
+// podcastDuration is "HH:MM:SS" or, for some legacy episodes, "MM:SS" with
+// minutes over 59 (e.g. "71:31") - schema.org wants ISO 8601 either way.
+function toIsoDuration(value: string | undefined): string | undefined {
+  if (!value) return undefined;
+  const parts = value.split(":").map(Number);
+  const [h, m, s] = parts.length === 3 ? parts : [0, parts[0], parts[1]];
+  if (Number.isNaN(h) || Number.isNaN(m) || Number.isNaN(s)) return undefined;
+  return `PT${h ? `${h}H` : ""}${m ? `${m}M` : ""}${s ? `${s}S` : ""}` || "PT0S";
+}
 
 export async function getStaticPaths() {
   const episodes = await getCollection("episodes");
@@ -28,10 +39,9 @@ const {
   youtube,
   transcript,
   episodeBanner,
-  images,
 } = episode.data;
 const banner = getEpisodeAsset(episodeBanner);
-const ogImage = getEpisodeOgImage(episode.id, images);
+const ogImage = getEpisodeOgImage(episode.id);
 
 const { Content } = await render(episode);
 
@@ -57,9 +67,26 @@ const sponsorCards = sponsorEntries.map((s) => ({ ...s, adImage: getMiscAsset(s.
 
 const dateLabel = date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 const audioSrc = `${MEDIA_PREFIX}${podcastFile}`;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "PodcastEpisode",
+  name: title,
+  description: plainTextSnippet(description, 300),
+  datePublished: date.toISOString(),
+  url: new URL(Astro.url.pathname, Astro.site).toString(),
+  episodeNumber,
+  duration: toIsoDuration(podcastDuration),
+  associatedMedia: { "@type": "MediaObject", contentUrl: audioSrc },
+  partOfSeries: {
+    "@type": "PodcastSeries",
+    name: "Arrested DevOps",
+    url: new URL("/", Astro.site).toString(),
+  },
+};
 ---
 
-<BaseLayout title={title} description={description} image={ogImage}>
+<BaseLayout title={title} description={description} image={ogImage} structuredData={structuredData}>
   <section class="intro" data-pagefind-body data-pagefind-filter="type:Episode">
     {banner && (
       <div class="banner">

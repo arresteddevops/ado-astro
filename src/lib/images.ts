@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import sharp from "sharp";
 import type { ImageMetadata } from "astro";
 
 // Content-collection frontmatter stores plain legacy path strings (not
@@ -30,16 +31,25 @@ export function getMiscAsset(value: string | undefined): ImageMetadata | undefin
   return miscImages[`/src/assets/img/${relative}`]?.default;
 }
 
-// The pre-made per-episode social card (if the frontmatter reference
-// actually resolves to a real file — a few legacy entries are stale), or
-// else the build-time-generated fallback card (see
-// scripts/generate-og-images.mjs) — either way this needs to be a stable
-// site-relative public/ path, not an optimized astro:assets import.
-export function getEpisodeOgImage(episodeId: string, images: string[]): string {
-  const first = images[0];
-  if (first) {
-    const target = path.resolve(process.cwd(), "public", first.replace(/^\//, ""));
-    if (fs.existsSync(target)) return first.startsWith("/") ? first : `/${first}`;
-  }
-  return `/img/social/og/${episodeId}.png`;
+// scripts/generate-og-images.mjs writes exactly this path for every
+// episode at build time, whether the source was a bespoke frontmatter
+// image or a generated fallback card — so the site-relative public/ path
+// below is always the right one, no existence check needed here.
+export function getEpisodeOgImage(episodeId: string): string {
+  return `/img/social/og/${episodeId}.jpg`;
+}
+
+// Real pixel dimensions of a public/-relative image, for accurate
+// og:image:width/height (see issue #44; these varied a lot across
+// legacy bespoke social images, so a hardcoded 1200x630 would lie for
+// some episodes). Only works for plain public/ files, not optimized
+// astro:assets output (those pass their own known ImageMetadata width/
+// height through instead).
+export async function getPublicImageDimensions(
+  publicPath: string,
+): Promise<{ width: number; height: number } | undefined> {
+  const target = path.resolve(process.cwd(), "public", publicPath.replace(/^\//, ""));
+  if (!fs.existsSync(target)) return undefined;
+  const { width, height } = await sharp(target).metadata();
+  return width && height ? { width, height } : undefined;
 }

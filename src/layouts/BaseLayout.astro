@@ -3,22 +3,57 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import { GA_MEASUREMENT_ID, DEFAULT_OG_IMAGE } from "../consts";
+import { getPublicImageDimensions } from "../lib/images";
+import { plainTextSnippet } from "../lib/markdown";
 
 interface Props {
   title: string;
   description?: string;
-  /** Site-relative path to a social-card image, e.g. "/img/social/fb/x.png". */
+  /** Site-relative path to a social-card image, e.g. "/img/social/og/x.jpg". */
   image?: string;
+  /** Alt text for the social-card image. Defaults to the page title. */
+  imageAlt?: string;
+  /**
+   * Real pixel dimensions of `image`. Required when `image` is an
+   * optimized astro:assets path (e.g. a guest/host photo's `.src`) - those
+   * live under dist/_astro/ and can't be read from public/ at render
+   * time, so the caller passes the already-known ImageMetadata width/
+   * height through instead. Left unset, this auto-detects from public/.
+   */
+  imageWidth?: number;
+  imageHeight?: number;
+  /** JSON-LD object for this page. Defaults to a generic WebPage schema. */
+  structuredData?: Record<string, unknown>;
 }
 
 const {
   title,
   description = "Arrested DevOps is the podcast that helps you achieve understanding, develop good practices, and operate your team and organization for maximum DevOps awesomeness.",
   image = DEFAULT_OG_IMAGE,
+  imageAlt = title,
+  imageWidth,
+  imageHeight,
+  structuredData,
 } = Astro.props;
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const imageUrl = new URL(image, Astro.site).toString();
+
+// Google/Facebook truncate meta descriptions past ~155-160 chars anyway;
+// truncate here so the tag itself is honest about what'll actually show,
+// rather than shipping a much longer string (see issue #44).
+const metaDescription = plainTextSnippet(description, 160);
+
+const imageDimensions =
+  imageWidth && imageHeight ? { width: imageWidth, height: imageHeight } : await getPublicImageDimensions(image);
+
+const jsonLd = structuredData ?? {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: title,
+  description: metaDescription,
+  url: pageUrl,
+};
 ---
 
 <html lang="en">
@@ -26,8 +61,11 @@ const imageUrl = new URL(image, Astro.site).toString();
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
+    <meta name="description" content={metaDescription} />
+    <meta name="theme-color" content="#1e2a52" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="canonical" href={pageUrl} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -55,15 +93,26 @@ const imageUrl = new URL(image, Astro.site).toString();
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Arrested DevOps" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={metaDescription} />
     <meta property="og:url" content={pageUrl} />
     <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content={imageAlt} />
+    {imageDimensions && (
+      <>
+        <meta property="og:image:width" content={String(imageDimensions.width)} />
+        <meta property="og:image:height" content={String(imageDimensions.height)} />
+      </>
+    )}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@arresteddevops" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={metaDescription} />
     <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
     <script define:vars={{ GA_MEASUREMENT_ID }}>
