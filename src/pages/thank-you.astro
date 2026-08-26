@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Message Sent" description="Thanks for reaching out to Arrested DevOps.">
+  <section class="intro">
+    <div class="badge">MESSAGE SENT</div>
+    <h1>Got it. That's one for the banana stand.</h1>
+    <p class="lede">
+      Thanks for reaching out. A real person reads every message, so it might take a
+      minute, but we'll get back to you.
+    </p>
+    <div class="actions">
+      <a class="pill" href="/">Back to the show</a>
+      <a class="pill outline" href="/search">Browse episodes</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+  }
+
+  .intro {
+    padding: 96px var(--page-padding) 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+  }
+
+  .badge {
+    display: inline-flex;
+    background: var(--color-red-deep);
+    color: var(--color-cream);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    transform: rotate(-2deg);
+    align-self: flex-start;
+  }
+
+  h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-wrap: pretty;
+  }
+
+  .lede {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  .actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--hit-target-min);
+    padding: 12px 24px;
+    border-radius: var(--radius-pill);
+    font-weight: 800;
+    font-size: 15px;
+  }
+
+  .pill:not(.outline) {
+    background: var(--color-yellow);
+    color: var(--color-navy);
+  }
+
+  .pill.outline {
+    border: 2px solid var(--color-navy);
+    color: var(--color-text);
+  }
+
+  .pill:hover {
+    color: var(--color-navy);
+  }
+
+  @media (max-width: 640px) {
+    h1 {
+      font-size: 34px;
+    }
+
+    .actions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
