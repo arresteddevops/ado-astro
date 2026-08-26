@@ -73,6 +73,7 @@ const hosts = (await getCollection("hosts")).sort(
           name={host.data.name}
           bio={hostBlurbs[host.id] ?? ""}
           href={`/host/${host.id}/`}
+          thumbnail={host.data.thumbnail}
           colorIndex={i}
         />
       ))}
