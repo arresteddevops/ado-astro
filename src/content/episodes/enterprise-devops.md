@@ -26,6 +26,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /25
+  - /enterprisedevops
 youtube: NbtTG3K0YrM
 explicit: yes
 ---

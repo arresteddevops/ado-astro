@@ -29,7 +29,7 @@ sponsors:
 aliases:
   - /119
   - /devopsdayskansascity2018
-  - devopsdays-kansascity-2018
+  - /devopsdays-kansascity-2018
 explicit: yes
 ---
 

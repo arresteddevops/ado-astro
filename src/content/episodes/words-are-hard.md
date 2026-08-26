@@ -22,6 +22,7 @@ sponsors:
   - cloudsmith
 aliases:
   - /174
+  - /wordsarehard
 explicit: yes
 ---
 

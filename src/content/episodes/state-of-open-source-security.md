@@ -20,6 +20,7 @@ sponsors:
   - sdt
 aliases:
   - /160
+  - /stateofopensourcesecurity
 explicit: no
 ---
 

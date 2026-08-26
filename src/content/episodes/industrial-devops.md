@@ -18,7 +18,8 @@ hosts:
 sponsors:
   - attribute
 aliases:
-  - industrialdevops
+  - /206
+  - /industrialdevops
 transcript: industrial-devops
 explicit: "yes"
 ---

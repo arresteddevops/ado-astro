@@ -20,6 +20,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /38
+  - /careerdevops
 youtube: FeKZIsrj4EM
 explicit: yes
 ---

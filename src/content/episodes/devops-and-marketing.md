@@ -24,6 +24,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /35
+  - /devopsandmarketing
 youtube: wwt03VMosIA
 explicit: yes
 ---

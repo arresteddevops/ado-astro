@@ -22,6 +22,7 @@ sponsors:
   - datadog
 aliases:
   - /65
+  - /findingsignalinthenoise
 youtube: 6YYVayCRfgI
 explicit: yes
 ---

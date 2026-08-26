@@ -28,6 +28,7 @@ sponsors:
   - thoughtworks
 aliases:
   - /100
+  - /2017inreview
 youtube: zvwoJtsJuzo
 explicit: yes
 ---

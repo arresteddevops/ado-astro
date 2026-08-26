@@ -20,6 +20,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /39
+  - /eatingsushiwithandrewclayshafer
 explicit: yes
 ---
 

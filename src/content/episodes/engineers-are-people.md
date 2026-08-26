@@ -21,6 +21,7 @@ sponsors:
   - honeycomb
 aliases:
   - /182
+  - /engineersarepeople
 explicit: yes
 ---
 

@@ -26,6 +26,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /19
+  - /devtoops
 youtube: weF8jrcSU7s
 explicit: yes
 ---

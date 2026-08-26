@@ -19,7 +19,8 @@ sponsors:
   - datadog
 aliases:
   - /117
-  - edward-ignite18
+  - /edward-ignite18
+  - /ignite2018ethomson
 explicit: yes
 ---
 

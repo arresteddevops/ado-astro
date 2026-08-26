@@ -28,6 +28,7 @@ sponsors:
   - sdt
 aliases:
   - /164
+  - /2020inreview
 explicit: yes
 ---
 

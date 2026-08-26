@@ -26,6 +26,7 @@ hosts:
 sponsors: []
 aliases:
   - /16
+  - /devopsdaysminneapolis
 explicit: yes
 ---
 

@@ -30,6 +30,7 @@ sponsors:
   - circleci
 aliases:
   - /162
+  - /devopsdayschicago2020
 explicit: yes
 ---
 

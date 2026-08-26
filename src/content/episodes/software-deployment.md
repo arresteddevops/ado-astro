@@ -21,6 +21,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /13
+  - /softwaredeployment
 youtube: qFLkBEGnOfk
 explicit: yes
 ---

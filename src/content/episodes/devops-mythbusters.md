@@ -21,6 +21,7 @@ hosts:
 sponsors: []
 aliases:
   - /6
+  - /devopsmythbusters
 youtube: haufNRriE70
 explicit: no
 ---

@@ -3,7 +3,7 @@ title: 2018 Year-End Wrap-Up
 description: It's that time of year again! Matty, Trevor, Bridget, and Joe wrap up the year with a discussion of favorite episodes, tech trends and predictions, and, of course, airline status.
 date: 2018-12-21T16:50:14.000Z
 publishDate: 2018-12-21T16:50:14.000Z
-episodeNumber: "116"
+episodeNumber: "123"
 podcastFile: arrested-devops-podcast-episode123.mp3
 podcastDuration: 71:31
 episodeImage: episode/img/2018-in-review.jpg
@@ -25,6 +25,7 @@ sponsors:
   - sdt
 aliases:
   - /123
+  - /2018inreview
 explicit: yes
 ---
 

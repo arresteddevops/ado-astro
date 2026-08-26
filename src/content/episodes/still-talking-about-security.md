@@ -19,6 +19,7 @@ sponsors:
   - honeycomb
 aliases:
   - /180
+  - /stilltalkingaboutsecurity
 explicit: yes
 ---
 

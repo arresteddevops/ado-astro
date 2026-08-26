@@ -23,6 +23,7 @@ sponsors:
   - hired
 aliases:
   - /70
+  - /opensourceops
 youtube: UGUg6F4gCuM
 explicit: yes
 ---

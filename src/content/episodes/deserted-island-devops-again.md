@@ -38,6 +38,7 @@ sponsors:
   - bridgecrew
 aliases:
   - /179
+  - /desertedislanddevopsagain
 explicit: yes
 ---
 

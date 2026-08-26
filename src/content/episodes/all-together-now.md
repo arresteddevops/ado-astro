@@ -21,6 +21,7 @@ hosts:
 sponsors: []
 aliases:
   - /7
+  - /alltogethernow
 youtube: lDf2s44f7W0
 explicit: yes
 ---

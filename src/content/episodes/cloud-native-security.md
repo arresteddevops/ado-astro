@@ -22,6 +22,7 @@ sponsors:
   - devopsworld
 aliases:
   - /189
+  - /cloudnativesecurity
 explicit: no
 ---
 

@@ -29,9 +29,10 @@ sponsors:
   - hired
 aliases:
   - /81
-  - microsoft2
-  - windows-redux
-  - microsoft-redux
+  - /microsoft2
+  - /windows-redux
+  - /microsoft-redux
+  - /microsoftagain
 youtube: rsnxc1l3Fz8
 explicit: yes
 ---

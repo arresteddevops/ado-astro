@@ -23,6 +23,7 @@ sponsors:
   - victorops
 aliases:
   - /99
+  - /worklife
 explicit: yes
 ---
 

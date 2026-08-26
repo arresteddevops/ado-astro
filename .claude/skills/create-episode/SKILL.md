@@ -122,11 +122,36 @@ explicit: "yes" | "no"
 that person (see `create-guest` step 5) — not always the same as the
 person's own id once they've had multiple eras.
 
-Leave `images` and `aliases` empty — those are for pre-made social cards
-and short-URL redirects respectively, neither of which exists yet for a
-brand-new episode. The build-time OG generator
+Leave `images` empty — that's for a pre-made social card, which doesn't
+exist yet for a brand-new episode. The build-time OG generator
 (`scripts/generate-og-images.mjs`) will produce a branded fallback card
 automatically since there's no `images[0]` yet.
+
+`aliases` is NOT empty, though — every episode gets two short-URL
+redirects by convention, both derived, no separate mapping to invent:
+
+```yaml
+aliases:
+  - /<episode number, e.g. /206>
+  - /<slug with hyphens stripped, e.g. /industrialdevops>
+```
+
+Both matter: podcast apps and old show notes reference episodes by
+number, and the no-hyphen form is the easy-to-say-out-loud URL Matty
+gives on-air ("go to arresteddevops.com/industrialdevops"). Every alias
+**must start with `/`** — a bare slug like `industrialdevops` (no
+leading slash) silently produces a broken redirect rule in
+`generate-redirects.mjs`'s output (Netlify's `_redirects` format
+requires the `from` path to start with `/`; this bit ~20 legacy episodes
+before it was caught). Before finalizing, grep the whole episode collection for the episode
+number you're about to use — a duplicate `episodeNumber` across two
+episodes is a real bug (`pnpm run build` runs `generate-redirects.mjs`,
+which will print a "defined 2x" warning for the colliding alias, but
+it's easy to miss in the build log — check for it explicitly in step 6):
+
+```
+grep -rl 'episodeNumber: "<N>"' src/content/episodes/*.md
+```
 
 ## 6. Verify
 
@@ -134,5 +159,10 @@ Run `pnpm run build`. Check the new episode page renders sensibly — the
 schema will catch structural problems, but only you can catch "the show
 notes don't actually match what was said" or "the wrong snapshot got
 referenced."
+
+Check the `generate-redirects.mjs` output near the top of the build log
+(`Generated public/_redirects: N rules.` / `No warnings.`) — a "defined
+2x" warning means the new episode's aliases collide with an existing
+one somewhere; don't ignore it.
 
 Don't commit or open a PR unless asked.

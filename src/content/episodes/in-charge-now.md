@@ -22,6 +22,7 @@ sponsors:
   - gitbook
 aliases:
   - /199
+  - /inchargenow
 explicit: yes
 ---
 

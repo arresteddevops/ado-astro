@@ -20,6 +20,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /27
+  - /ayearofado
 youtube: 8ClZXJsgpHY
 explicit: yes
 ---

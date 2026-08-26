@@ -21,6 +21,7 @@ sponsors:
   - sysdig
 aliases:
   - /187
+  - /itsroughoutthere
 explicit: yes
 ---
 

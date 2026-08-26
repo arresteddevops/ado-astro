@@ -21,6 +21,7 @@ sponsors:
   - gliffy
 aliases:
   - /195
+  - /databasecallsinsidethehouse
 explicit: yes
 ---
 

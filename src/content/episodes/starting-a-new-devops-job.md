@@ -24,6 +24,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /32
+  - /startinganewdevopsjob
 youtube: 5OSJ_X3FeAA
 explicit: yes
 ---

@@ -20,6 +20,7 @@ sponsors:
   - flyio
 aliases:
   - /203
+  - /usingai
 transcript: using-ai
 explicit: no
 ---

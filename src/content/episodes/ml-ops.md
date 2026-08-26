@@ -21,6 +21,7 @@ sponsors:
   - gitbook
 aliases:
   - /201
+  - /mlops
 explicit: no
 ---
 

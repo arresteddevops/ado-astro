@@ -28,6 +28,7 @@ sponsors:
   - cloudsmith
 aliases:
   - /178
+  - /2021inreview
 explicit: yes
 ---
 

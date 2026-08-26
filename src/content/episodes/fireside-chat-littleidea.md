@@ -19,6 +19,7 @@ sponsors:
   - datadog
 aliases:
   - /103
+  - /firesidechatlittleidea
 youtube: 8Cvd8sae00Q
 explicit: yes
 ---

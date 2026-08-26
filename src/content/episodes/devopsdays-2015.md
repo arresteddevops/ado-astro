@@ -21,7 +21,7 @@ sponsors:
   - datadog
 aliases:
   - /51
-  - devopsdays2015
+  - /devopsdays2015
 youtube: TJrqh6Z9ghw
 explicit: yes
 ---

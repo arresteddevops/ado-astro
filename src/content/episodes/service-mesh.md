@@ -21,6 +21,7 @@ sponsors:
   - sdt
 aliases:
   - /157
+  - /servicemesh
 youtube: 4Xy2aBWjwk0
 transcript: service-mesh
 explicit: no

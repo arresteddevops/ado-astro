@@ -22,6 +22,7 @@ sponsors:
   - macstadium
 aliases:
   - /172
+  - /foundationalpractices
 explicit: no
 ---
 

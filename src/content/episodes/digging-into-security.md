@@ -20,6 +20,7 @@ sponsors:
   - flyio
 aliases:
   - /204
+  - /diggingintosecurity
 explicit: yes
 ---
 

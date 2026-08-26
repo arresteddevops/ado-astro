@@ -30,6 +30,7 @@ sponsors:
   - sdt
 aliases:
   - /166
+  - /techtwitter
 explicit: yes
 ---
 

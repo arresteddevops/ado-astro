@@ -23,6 +23,7 @@ sponsors:
   - datadog
 aliases:
   - /86
+  - /disastercommunication
 youtube: dorCcK8dklQ
 explicit: yes
 ---

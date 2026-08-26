@@ -16,6 +16,7 @@ hosts:
 sponsors: []
 aliases:
   - /80
+  - /devopsdayscuba2016
 explicit: no
 ---
 

@@ -19,6 +19,7 @@ sponsors:
   - datadog
 aliases:
   - /52
+  - /measurementandsharing
 explicit: yes
 ---
 

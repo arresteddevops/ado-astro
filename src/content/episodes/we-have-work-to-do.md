@@ -21,6 +21,7 @@ sponsors:
   - honeycomb
 aliases:
   - /181
+  - /wehaveworktodo
 explicit: yes
 ---
 

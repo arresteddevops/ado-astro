@@ -24,6 +24,7 @@ sponsors:
   - sdt
 aliases:
   - /135
+  - /stateofdevops
 explicit: yes
 ---
 

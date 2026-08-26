@@ -22,6 +22,7 @@ sponsors:
   - sdt
 aliases:
   - /128
+  - /devopsmagic
 explicit: yes
 ---
 

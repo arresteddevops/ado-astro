@@ -21,6 +21,7 @@ hosts:
 sponsors: []
 aliases:
   - /5
+  - /continuousintegration
 youtube: v7iS906NPOw
 explicit: yes
 ---

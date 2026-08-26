@@ -21,7 +21,8 @@ sponsors:
   - datadog
 aliases:
   - /115
-  - donovan-ignite18
+  - /donovan-ignite18
+  - /ignite2018dbrown
 explicit: yes
 ---
 

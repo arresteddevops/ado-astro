@@ -23,6 +23,7 @@ sponsors:
   - datadog
 aliases:
   - /104
+  - /hottakes
 explicit: yes
 ---
 

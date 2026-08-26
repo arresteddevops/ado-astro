@@ -68,4 +68,14 @@ Run `pnpm run build` to confirm the schema in `content.config.ts` accepts
 it, and that any episode referencing this sponsor id resolves (zod's
 `reference()` will fail the build loudly if it doesn't).
 
+Then confirm the vanity redirect actually took: check the build output
+for `generate-redirects.mjs`'s own summary line (`Generated public/_redirects:
+N rules.`, plus any collision warnings — a duplicate slug shadows the
+existing rule silently in Netlify otherwise) and grep the new slug in
+`public/_redirects` to make sure it points at the right URL:
+
+```
+grep "^/<slug> " public/_redirects
+```
+
 Don't commit or open a PR unless asked.

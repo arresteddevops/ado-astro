@@ -26,6 +26,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /21
+  - /devopsconferences
 youtube: dSU0j8ORafw
 explicit: yes
 ---

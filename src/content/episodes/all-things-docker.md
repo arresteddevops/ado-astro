@@ -23,6 +23,7 @@ sponsors:
   - macstadium
 aliases:
   - /168
+  - /allthingsdocker
 explicit: no
 ---
 

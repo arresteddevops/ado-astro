@@ -20,6 +20,7 @@ sponsors:
   - circleci
 aliases:
   - /163
+  - /breakingdowngates
 transcript: breaking-down-gates
 explicit: yes
 ---

@@ -19,6 +19,7 @@ sponsors:
   - datadog
 aliases:
   - /106
+  - /punkrock
 explicit: yes
 ---
 

@@ -19,7 +19,8 @@ sponsors:
   - datadog
 aliases:
   - /118
-  - jdeen-ignite18
+  - /jdeen-ignite18
+  - /ignite2018jdeen
 explicit: yes
 ---
 

@@ -24,6 +24,7 @@ sponsors:
   - datadog
 aliases:
   - /71
+  - /devopsdayschicago2016
 explicit: yes
 ---
 

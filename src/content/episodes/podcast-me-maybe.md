@@ -19,7 +19,9 @@ hosts:
 sponsors:
   - pagerduty
   - 10thmagnitude
-aliases: []
+aliases:
+  - /41
+  - /podcastmemaybe
 youtube: cSUd0sQEWNU
 explicit: yes
 ---

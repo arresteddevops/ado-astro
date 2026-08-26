@@ -22,7 +22,9 @@ hosts:
 sponsors:
   - victorops
   - 10thmagnitude
-aliases: []
+aliases:
+  - /40
+  - /buildinganopsteam
 youtube: ujBDaN1xIsE
 explicit: yes
 ---

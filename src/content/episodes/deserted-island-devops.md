@@ -35,6 +35,7 @@ sponsors:
   - sdt
 aliases:
   - /155
+  - /desertedislanddevops
 transcript: deserted-island-devops
 explicit: no
 ---

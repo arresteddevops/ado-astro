@@ -23,6 +23,7 @@ sponsors:
   - hired
 aliases:
   - /66
+  - /careerops
 youtube: iZe01eSgba8
 explicit: yes
 ---

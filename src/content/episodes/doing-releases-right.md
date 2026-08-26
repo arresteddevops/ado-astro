@@ -20,6 +20,7 @@ sponsors:
   - circleci
 aliases:
   - /165
+  - /doingreleasesright
 explicit: yes
 ---
 

@@ -19,6 +19,7 @@ hosts:
 sponsors: []
 aliases:
   - /147
+  - /godfatherofdevops
 explicit: yes
 ---
 

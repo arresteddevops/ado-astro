@@ -23,6 +23,7 @@ sponsors:
   - datadog
 aliases:
   - /84
+  - /yellingatcloud
 youtube: bNfAAQUQ_54
 explicit: yes
 ---

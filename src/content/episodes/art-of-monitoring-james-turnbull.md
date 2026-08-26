@@ -22,6 +22,7 @@ sponsors:
 aliases:
   - /74
   - /artofmonitoring
+  - /artofmonitoringjamesturnbull
 youtube: IRGMztl1Qs8
 explicit: yes
 ---

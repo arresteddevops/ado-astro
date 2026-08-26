@@ -22,6 +22,7 @@ sponsors:
   - cloudsmith
 aliases:
   - /176
+  - /devsecopsreality
 explicit: no
 ---
 

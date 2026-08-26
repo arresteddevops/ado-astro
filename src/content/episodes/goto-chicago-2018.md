@@ -27,6 +27,7 @@ sponsors:
   - datadog
 aliases:
   - /107
+  - /gotochicago2018
 youtube: rT_cPdMqg5A
 explicit: yes
 ---

@@ -22,6 +22,7 @@ sponsors:
   - macstadium
 aliases:
   - /169
+  - /seasonsofcommunity
 explicit: yes
 ---
 

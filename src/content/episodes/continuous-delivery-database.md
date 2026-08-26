@@ -23,6 +23,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /26
+  - /continuousdeliverydatabase
 youtube: QLKx3M06Tm8
 explicit: yes
 ---

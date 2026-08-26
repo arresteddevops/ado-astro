@@ -24,6 +24,7 @@ sponsors:
   - chef
 aliases:
   - /102
+  - /careerchangeintodevops
 explicit: yes
 ---
 

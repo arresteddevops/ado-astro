@@ -27,6 +27,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /11
+  - /devopsatetsy
 youtube: IDmqD-xuzOI
 explicit: yes
 ---

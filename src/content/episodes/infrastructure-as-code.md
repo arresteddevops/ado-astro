@@ -25,6 +25,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /44
+  - /infrastructureascode
 youtube: 7voRnzzUZb4
 explicit: yes
 ---

@@ -3,7 +3,7 @@ title: Fireside Chat with Jessica Kerr
 description: Matty is joined  by Jessica Kerr, software engineer extraordinaire and co-host of the amazing Greater Than Code podcast.
 date: 2018-12-18T22:48:58.000Z
 publishDate: 2018-12-18T22:48:58.000Z
-episodeNumber: "159"
+episodeNumber: "122"
 podcastFile: arrested-devops-podcast-episode122.mp3
 podcastDuration: 41:28
 episodeImage: img/episode/default.jpg
@@ -21,6 +21,7 @@ sponsors:
   - sdt
 aliases:
   - /122
+  - /jessicakerr
 explicit: no
 ---
 

@@ -25,6 +25,7 @@ sponsors:
   - 10thmagnitude
 aliases:
   - /29
+  - /hiringfordevops
 youtube: 3AqNTU93gME
 explicit: yes
 ---

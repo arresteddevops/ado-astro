@@ -25,6 +25,7 @@ sponsors:
   - datadog
 aliases:
   - /88
+  - /devopsrisk
 youtube: jgXB4b-B_ic
 explicit: yes
 ---
