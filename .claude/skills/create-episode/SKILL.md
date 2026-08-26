@@ -73,6 +73,10 @@ Draft a 1-2 sentence `description` field the same way you'd write episode
 show-notes copy elsewhere on the site — this is what search excerpts and
 social cards pull from.
 
+**No em dashes in the show notes body or description.** Use a period,
+comma, colon, semicolon, or parentheses instead. Matty doesn't want the
+"—" character showing up in published episode copy.
+
 ## 4. Write the transcript content file
 
 Copy the transcript to `src/content/transcripts/<slug>.md` as-is (see
