@@ -2,7 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
-import { GA_MEASUREMENT_ID, DEFAULT_OG_IMAGE } from "../consts";
+import { DEFAULT_OG_IMAGE } from "../consts";
 import { getPublicImageDimensions } from "../lib/images";
 import { plainTextSnippet } from "../lib/markdown";
 
@@ -123,14 +123,10 @@ const jsonLd = structuredData ?? {
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
-    <script define:vars={{ GA_MEASUREMENT_ID }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", GA_MEASUREMENT_ID);
+    <script>
+      import { init } from "@plausible-analytics/tracker";
+      import { PLAUSIBLE_DOMAIN } from "../consts";
+      init({ domain: PLAUSIBLE_DOMAIN });
     </script>
   </head>
   <body>
