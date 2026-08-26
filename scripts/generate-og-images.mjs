@@ -45,7 +45,31 @@ function hasWorkingImage(episodeData) {
   return fs.existsSync(target);
 }
 
-function card({ episodeNumber, title, guestLine }) {
+// Prefer the banner (wide, close to the 1200x630 OG aspect) over the
+// square/portrait episodeImage. Either way, this is real episode art, so
+// once Matty adds it the next build upgrades the card automatically — no
+// separate "make a bespoke OG image" step needed.
+function findBackgroundPhoto(episodeData) {
+  for (const field of [episodeData.episodeBanner, episodeData.episodeImage]) {
+    if (!field) continue;
+    const target = path.join(REPO_ROOT, "src/assets/episode-img", path.basename(field));
+    if (fs.existsSync(target)) return target;
+  }
+  return null;
+}
+
+function toDataUri(filePath) {
+  const ext = path.extname(filePath).slice(1).toLowerCase();
+  const mime = ext === "jpg" ? "jpeg" : ext;
+  return `data:image/${mime};base64,${fs.readFileSync(filePath).toString("base64")}`;
+}
+
+function card({ episodeNumber, title, guestLine, photoDataUri }) {
+  // With a photo backing the card, dark scrim + light text; without one,
+  // the original flat cream card with navy text.
+  const textColor = photoDataUri ? CREAM : NAVY;
+  const mutedColor = photoDataUri ? "#d8dcec" : TEXT_MUTED;
+
   return {
     type: "div",
     props: {
@@ -55,16 +79,36 @@ function card({ episodeNumber, title, guestLine }) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        background: CREAM,
+        position: "relative",
+        background: photoDataUri ? NAVY : CREAM,
         border: `16px solid ${NAVY}`,
         padding: "64px",
         fontFamily: "Archivo",
+        overflow: "hidden",
       },
       children: [
+        photoDataUri && {
+          type: "img",
+          props: {
+            src: photoDataUri,
+            style: { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" },
+          },
+        },
+        photoDataUri && {
+          type: "div",
+          props: {
+            style: {
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              background: "linear-gradient(180deg, rgba(20,28,56,0.55) 0%, rgba(20,28,56,0.8) 35%, rgba(20,28,56,0.94) 100%)",
+            },
+          },
+        },
         {
           type: "div",
           props: {
-            style: { display: "flex", alignItems: "center", gap: "16px" },
+            style: { position: "relative", display: "flex", alignItems: "center", gap: "16px" },
             children: [
               {
                 type: "div",
@@ -81,7 +125,7 @@ function card({ episodeNumber, title, guestLine }) {
               {
                 type: "div",
                 props: {
-                  style: { fontSize: "28px", fontWeight: 800, color: NAVY, fontFamily: "Bricolage Grotesque" },
+                  style: { fontSize: "28px", fontWeight: 800, color: textColor, fontFamily: "Bricolage Grotesque" },
                   children: "ARRESTED DEVOPS",
                 },
               },
@@ -91,7 +135,7 @@ function card({ episodeNumber, title, guestLine }) {
         {
           type: "div",
           props: {
-            style: { display: "flex", flexDirection: "column", gap: "24px" },
+            style: { position: "relative", display: "flex", flexDirection: "column", gap: "24px" },
             children: [
               {
                 type: "div",
@@ -116,7 +160,7 @@ function card({ episodeNumber, title, guestLine }) {
                   style: {
                     fontSize: "56px",
                     fontWeight: 800,
-                    color: NAVY,
+                    color: textColor,
                     fontFamily: "Bricolage Grotesque",
                     lineHeight: 1.1,
                     display: "flex",
@@ -128,7 +172,7 @@ function card({ episodeNumber, title, guestLine }) {
                 ? {
                     type: "div",
                     props: {
-                      style: { fontSize: "28px", fontWeight: 500, color: TEXT_MUTED, display: "flex" },
+                      style: { fontSize: "28px", fontWeight: 500, color: mutedColor, display: "flex" },
                       children: guestLine,
                     },
                   }
@@ -139,22 +183,26 @@ function card({ episodeNumber, title, guestLine }) {
         {
           type: "div",
           props: {
-            style: { display: "flex", height: "8px", background: RED_DEEP, borderRadius: "4px" },
+            style: { position: "relative", display: "flex", height: "8px", background: RED_DEEP, borderRadius: "4px" },
           },
         },
-      ],
+      ].filter(Boolean),
     },
   };
 }
 
 async function generate(episodeData, slug) {
+  // Skip it when the title already says "with <guest>" (a common title
+  // pattern) — repeating it right below just as clutter, not new info.
   const guestLine =
-    (episodeData.guests ?? []).length > 0
+    (episodeData.guests ?? []).length > 0 && !/\bwith\b/i.test(episodeData.title)
       ? `with ${episodeData.guests.map((g) => guestNames.get(g.person) ?? g.person).join(" and ")}`
       : "";
+  const photo = findBackgroundPhoto(episodeData);
+  const photoDataUri = photo ? toDataUri(photo) : null;
 
   const svg = await satori(
-    card({ episodeNumber: episodeData.episodeNumber, title: episodeData.title, guestLine }),
+    card({ episodeNumber: episodeData.episodeNumber, title: episodeData.title, guestLine, photoDataUri }),
     {
       width: 1200,
       height: 630,
