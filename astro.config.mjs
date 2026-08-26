@@ -9,8 +9,8 @@ export default defineConfig({
   site: "https://www.arresteddevops.com/",
   integrations: [
     sitemap({
-      // Not a real content page — shouldn't show up as a crawlable URL.
-      filter: (page) => !page.endsWith("/404/"),
+      // Not real content pages — nobody should land on these from search.
+      filter: (page) => !page.endsWith("/404/") && !page.endsWith("/thank-you/"),
     }),
   ],
 });
