@@ -4,7 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import EpisodeCard from "../components/EpisodeCard.astro";
 import { getEpisodesNewestFirst, EPISODES_PER_PAGE } from "../lib/episodes";
 import { SUBSCRIBE_LINKS } from "../consts";
-import { getEpisodeAsset } from "../lib/images";
+import { getEpisodeAsset, getEpisodeOgImage } from "../lib/images";
 
 const episodes = await getEpisodesNewestFirst();
 const [latest, ...rest] = episodes;
@@ -14,10 +14,10 @@ const latestImage = getEpisodeAsset(latest.data.episodeImage);
 ---
 
 <BaseLayout
-  title="Home"
-  image={latestImage?.src}
-  imageWidth={latestImage?.width}
-  imageHeight={latestImage?.height}
+  title="Arrested DevOps: DevOps Conversations, Interviews & Real Talk"
+  suffixTitle={false}
+  image={getEpisodeOgImage(latest.id)}
+  imageAlt={`${latest.data.title}, the latest episode`}
 >
   <section class="hero">
     <div class="hero-copy">
