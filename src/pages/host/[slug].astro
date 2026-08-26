@@ -4,8 +4,9 @@ import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SocialLinks from "../../components/SocialLinks.astro";
 import { getEpisodesByHostId } from "../../lib/hosts";
-import { getMiscAsset } from "../../lib/images";
+import { getMiscAsset, getPersonOgImage } from "../../lib/images";
 import { plainTextSnippet } from "../../lib/markdown";
+import { resolveSocialLinks } from "../../lib/social";
 
 export async function getStaticPaths() {
   const hosts = await getCollection("hosts");
@@ -27,14 +28,26 @@ const initials = host.data.name
 const sortedEpisodes = [...episodes].sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const image = getMiscAsset(host.data.thumbnail);
 const description = plainTextSnippet(host.body ?? "", 160);
+const ogImage = getPersonOgImage("host", host.id);
+
+const socialLinks = resolveSocialLinks(host.data);
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: host.data.name,
+  description,
+  url: new URL(Astro.url.pathname, Astro.site).toString(),
+  image: new URL(ogImage ?? "/img/social/og/default.jpg", Astro.site).toString(),
+  jobTitle: "Host",
+  sameAs: Object.values(socialLinks).filter((v) => v !== undefined),
+};
 ---
 
 <BaseLayout
   title={host.data.name}
   description={description}
-  image={image?.src}
-  imageWidth={image?.width}
-  imageHeight={image?.height}
+  image={ogImage}
+  structuredData={structuredData}
 >
   <section class="profile">
     <div class="card">

@@ -24,6 +24,12 @@ interface Props {
   imageHeight?: number;
   /** JSON-LD object for this page. Defaults to a generic WebPage schema. */
   structuredData?: Record<string, unknown>;
+  /**
+   * Append " · Arrested DevOps" to `title`. Defaults to true; set false when
+   * `title` is already a complete, standalone title (e.g. the homepage,
+   * where the suffix would just repeat the brand name).
+   */
+  suffixTitle?: boolean;
 }
 
 const {
@@ -34,7 +40,10 @@ const {
   imageWidth,
   imageHeight,
   structuredData,
+  suffixTitle = true,
 } = Astro.props;
+
+const fullTitle = suffixTitle ? `${title} · Arrested DevOps` : title;
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const imageUrl = new URL(image, Astro.site).toString();
@@ -89,7 +98,7 @@ const jsonLd = structuredData ?? {
         href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Archivo:wght@400;500;600;700&display=swap"
       />
     </noscript>
-    <title>{title} · Arrested DevOps</title>
+    <title>{fullTitle}</title>
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Arrested DevOps" />

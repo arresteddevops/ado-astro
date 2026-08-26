@@ -33,10 +33,20 @@ export function getMiscAsset(value: string | undefined): ImageMetadata | undefin
 
 // scripts/generate-og-images.mjs writes exactly this path for every
 // episode at build time, whether the source was a bespoke frontmatter
-// image or a generated fallback card — so the site-relative public/ path
+// image or a generated fallback card, so the site-relative public/ path
 // below is always the right one, no existence check needed here.
 export function getEpisodeOgImage(episodeId: string): string {
   return `/img/social/og/${episodeId}.jpg`;
+}
+
+// scripts/generate-social-cards.mjs writes one of these per guest/host,
+// EXCEPT for placeholder guests (no real name/bio to put on a card) -
+// those fall through to undefined so the caller uses BaseLayout's
+// generic default instead of a card with a fake name on it.
+export function getPersonOgImage(kind: "guest" | "host", id: string): string | undefined {
+  const relative = `img/social/og/${kind}-${id}.jpg`;
+  const target = path.resolve(process.cwd(), "public", relative);
+  return fs.existsSync(target) ? `/${relative}` : undefined;
 }
 
 // Real pixel dimensions of a public/-relative image, for accurate

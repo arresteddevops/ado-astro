@@ -2,9 +2,10 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PersonCard from "../components/PersonCard.astro";
+import { getGuestsSorted } from "../lib/guests";
 
 const episodes = await getCollection("episodes");
-const guests = await getCollection("guests");
+const guests = await getGuestsSorted();
 const yearsOnAir = new Date().getFullYear() - 2013;
 
 // Short editorial blurbs for the About page's host cards — distinct from
@@ -23,7 +24,11 @@ const hosts = (await getCollection("hosts")).sort(
 );
 ---
 
-<BaseLayout title="About" description="It's a podcast about DevOps. And also about people.">
+<BaseLayout
+  title="About"
+  description="It's a podcast about DevOps. And also about people."
+  image="/img/social/og/about.jpg"
+>
   <section class="intro">
     <div class="badge">THE SHOW</div>
     <h1>It's a podcast about DevOps. And also about people.</h1>

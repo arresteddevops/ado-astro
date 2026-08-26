@@ -9,9 +9,9 @@
   "packageManager": "pnpm@11.21.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/generate-redirects.mjs && node scripts/generate-og-images.mjs && astro build && pagefind --site dist",
+    "build": "node scripts/generate-redirects.mjs && node scripts/generate-og-images.mjs && node scripts/generate-social-cards.mjs && astro build && pagefind --site dist",
     "generate:redirects": "node scripts/generate-redirects.mjs",
-    "generate:og": "node scripts/generate-og-images.mjs",
+    "generate:og": "node scripts/generate-og-images.mjs && node scripts/generate-social-cards.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "postinstall": "git config core.hooksPath .githooks || true"
