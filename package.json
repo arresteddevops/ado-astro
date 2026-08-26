@@ -14,8 +14,6 @@
     "generate:og": "node scripts/generate-og-images.mjs",
     "preview": "astro preview",
     "astro": "astro",
-    "validate:feed": "node scripts/validate-feed.mjs",
-    "check:links": "node scripts/check-links.mjs",
     "postinstall": "git config core.hooksPath .githooks || true"
   },
   "dependencies": {
