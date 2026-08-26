@@ -10,3 +10,22 @@
 
 [context.branch-deploy]
   command = "pnpm run build"
+
+# Continuous regression guard for the PRD's Lighthouse bar (>=95
+# performance/accessibility on homepage + an episode page, verified
+# manually pre-cutover; this makes it automatic going forward).
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  [plugins.inputs]
+    fail_deploy_on_score_thresholds = "true"
+
+  [plugins.inputs.thresholds]
+    performance = 0.95
+    accessibility = 0.95
+
+  [[plugins.inputs.audits]]
+    path = "/"
+
+  [[plugins.inputs.audits]]
+    path = "/industrial-devops/"
