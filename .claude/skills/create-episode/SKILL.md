@@ -26,11 +26,20 @@ Ask for (whatever isn't already given):
   `episodeNumber` across `src/content/episodes/*.md` (episodes aren't
   necessarily filed in number order by filename, actually check the data).
 - **Podcast hosting details**: `podcastFile` (the filename on Blubrry —
-  ask Matty, this repo never generates it), `podcastDuration`
-  (`HH:MM:SS`), `podcastBytes`. If Matty doesn't have these yet (e.g. the
-  episode hasn't been uploaded to the host), draft everything else and
-  leave these for him to fill in before publishing — don't block the
-  whole draft on them.
+  ask Matty; the established naming convention is
+  `arrested-devops-podcast-episode<N>.mp3`, which is worth trying as a
+  guess since it matches what's actually been uploaded before, but
+  confirm it resolves — don't assume). Once you have a candidate
+  filename, check `https://media.blubrry.com/arresteddevops/content.blubrry.com/arresteddevops/<podcastFile>`
+  with `curl -sIL` — if it 200s, derive the rest yourself instead of
+  asking Matty for them: `content-length` from the headers is
+  `podcastBytes` directly, and downloading the file and running
+  `ffprobe -v error -show_entries format=duration -of
+  default=noprint_wrappers=1:nokey=1 <file>` gives the duration in
+  seconds — convert to `HH:MM:SS` for `podcastDuration`. If the file
+  isn't up yet (404/no response), draft everything else and leave these
+  three fields as placeholders for Matty to fill in before publishing —
+  don't block the whole draft on them.
 - **Artwork**: `episodeImage` and `episodeBanner`. Ask Matty for local
   file paths; copy them into `src/assets/episode-img/<slug>.<ext>` and
   `src/assets/episode-img/<slug>-banner.<ext>` (see `getEpisodeAsset()` in

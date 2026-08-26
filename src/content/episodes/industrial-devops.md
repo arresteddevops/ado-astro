@@ -5,6 +5,8 @@ date: 2026-08-17T11:38:00.000Z
 publishDate: 2026-08-17T11:38:00.000Z
 episodeNumber: "206"
 podcastFile: arrested-devops-podcast-episode206.mp3
+podcastDuration: "00:41:55"
+podcastBytes: 20122262
 episodeImage: episode-img/industrial-devops.png
 episodeBanner: episode-img/industrial-devops-banner.png
 images: []
