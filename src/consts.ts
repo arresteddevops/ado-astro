@@ -12,8 +12,9 @@ export const SUBSCRIBE_LINKS = {
 export const MEDIA_PREFIX =
   "https://media.blubrry.com/arresteddevops/content.blubrry.com/arresteddevops/";
 
-// From the legacy Hugo config's [services.googleAnalytics] block.
-export const GA_MEASUREMENT_ID = "G-45939822";
+// Plausible Analytics — see https://plausible.io. Must match the domain
+// registered in the Plausible dashboard exactly, or events silently go nowhere.
+export const PLAUSIBLE_DOMAIN = "arresteddevops.com";
 
 // Default social-card image for pages that don't have a more specific one.
 // Not the same file as the podcast's square RSS artwork (ado-podcast-logo.png) -
