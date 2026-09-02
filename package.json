@@ -19,7 +19,7 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
     "@plausible-analytics/tracker": "^0.4.6",
-    "astro": "^7.2.6",
+    "astro": "^7.2.9",
     "marked": "^18.0.11",
     "zod": "^4.4.3"
   },
