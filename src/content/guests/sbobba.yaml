@@ -1,0 +1,23 @@
+name: Sundeep Bobba
+snapshots:
+  - key: sbobba
+    bio: >-
+      Sundeep Bobba is a Cloud and DevOps engineering leader with more than 16
+      years of experience designing and operating large-scale enterprise
+      delivery platforms. His work spans cloud architecture, CI/CD, DevSecOps,
+      platform engineering, observability, and increasingly, AI-assisted and
+      autonomous software delivery.
+
+      He is the co-author of CI/CD as a Control System: Designing Cloud,
+      DevOps, and DevSecOps Platforms for Scale, Stability, and Autonomous
+      Delivery, published by Apress/Springer. Sundeep is also a frequent
+      speaker, panelist, and community contributor, sharing practical lessons
+      on building secure, scalable delivery systems and applying AI
+      responsibly in enterprise engineering.
+
+      He currently works as a Tech Lead Cloud DevOps Engineer at Southwest
+      Airlines and is an organizer of DevOpsDays Dallas.
+    thumbnail: img/guests/sbobba.jpg
+    linkedin: sundeepbobba
+    pronouns: he/him
+placeholder: false
