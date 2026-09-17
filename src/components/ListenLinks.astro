@@ -1,0 +1,114 @@
+---
+import { SUBSCRIBE_LINKS, FEED_PATH } from "../consts";
+
+interface Props {
+  /** "full" is the subscribe page's card grid; "compact" is the inline pill row. */
+  variant?: "full" | "compact";
+  /** Heading label above the row. Set null to omit it. */
+  label?: string | null;
+}
+
+const { variant = "compact", label = "LISTEN ON" } = Astro.props;
+const platforms = variant === "full" ? SUBSCRIBE_LINKS : SUBSCRIBE_LINKS.filter((p) => p.featured);
+---
+
+{variant === "full" ? (
+  <div class="grid">
+    {platforms.map((p) => (
+      <a class="card" href={p.url}>{p.name}</a>
+    ))}
+  </div>
+) : (
+  <div class="row">
+    {label && <span class="label">{label}</span>}
+    {platforms.map((p) => (
+      <a class="pill outline small" href={p.url}>{p.name}</a>
+    ))}
+    <a class="pill rss" href={FEED_PATH}>RSS</a>
+    <a class="more" href="/subscribe/">All platforms</a>
+  </div>
+)}
+
+<style>
+  .row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .label {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+  }
+
+  .pill.outline {
+    border: 2px solid var(--color-navy);
+  }
+
+  .pill.small {
+    padding: 9px 18px;
+    font-size: 13px;
+  }
+
+  .pill.rss {
+    background: var(--color-red-deep);
+    color: var(--color-cream);
+    border: 2px solid var(--color-red-deep);
+    padding: 9px 18px;
+    font-size: 13px;
+  }
+
+  .pill.rss:hover {
+    color: var(--color-cream);
+  }
+
+  .more {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--hit-target-min);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--color-red-deep);
+    border-bottom: 2px solid var(--color-red-deep);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    display: flex;
+    align-items: center;
+    min-height: 88px;
+    padding: 22px;
+    border: var(--border-width) solid var(--color-navy);
+    border-radius: var(--radius-card);
+    background: var(--color-cream-card);
+    box-shadow: var(--shadow-offset) var(--color-navy);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 19px;
+    line-height: 1.15;
+  }
+
+  .card:hover {
+    color: var(--color-red-deep);
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 480px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
