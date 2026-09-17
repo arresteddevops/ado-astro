@@ -60,6 +60,13 @@ const year = new Date().getFullYear();
     border-bottom-color: var(--color-yellow);
   }
 
+  /* The RSS pill's red-deep fill is only 2.36:1 against navy, so its shape
+     vanishes into the footer. A cream ring gives it a 12.65:1 boundary
+     without touching the fill or the label. */
+  .listen :global(.pill.rss) {
+    border-color: var(--color-cream);
+  }
+
   .legal {
     display: flex;
     justify-content: space-between;
