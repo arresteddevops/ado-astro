@@ -17,7 +17,7 @@
     "postinstall": "git config core.hooksPath .githooks || true"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/sitemap": "^3.7.4",
     "@plausible-analytics/tracker": "^0.4.6",
     "astro": "^7.2.6",
     "marked": "^18.0.11",
