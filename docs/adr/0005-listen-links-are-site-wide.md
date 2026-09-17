@@ -64,8 +64,14 @@ a deliberate order and the current object gives no way to express either.
 is deleted. A new `ListenLinks.astro` renders the platform set in a `full` variant (the
 subscribe page's card grid) and a `compact` variant (footer and episode pages), and the
 homepage's hand-rolled `subscribe-row` is refactored onto it so there is one definition
-of "where to listen" rather than the current two. A new `Footer.astro` is added to
-`BaseLayout.astro` — the site has never had a footer.
+of "where to listen" rather than the current two.
+
+`Footer.astro` already exists and is already wired into `BaseLayout.astro` — it carries
+the brand name, the copyright line, and the Privacy / Copyright / email links. It is
+**extended** with the compact listen block, not replaced: those existing links stay
+exactly as they are. The design canvas drew an expanded footer with nav columns
+duplicating the header; that is not part of this decision, because the header already
+covers that navigation and nothing in issue #62 asks for it.
 
 The feed block gets a real copy button rather than the current
 `onclick="this.focus();this.select();"` text input, which is poor for keyboard and
