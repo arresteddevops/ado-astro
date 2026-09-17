@@ -44,7 +44,7 @@ Brendan:
 
 Eddie:
 - <a href="https://medium.com/@evillgenius">Medium Blog</a>
-- <a href="Kubernetes on Azure Best Practices Series">Kubernetes on Azure Best Practices Series</a>
+- <a href="https://learn.microsoft.com/en-us/azure/aks/best-practices">Kubernetes on Azure Best Practices Series</a>
 - <a href="https://kubecon.io">KubeCon NA and Contributors Summit in November</a>
 - <a href="https://www.meetup.com/Kubernetes-Austin/">Austin Kubernetes Meetup</a>
 

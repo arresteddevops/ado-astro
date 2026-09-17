@@ -30,7 +30,7 @@ explicit: yes
 * [Bryan Berry’s blog post](https://devopsanywhere.blogspot.com/2014/01/you-should-start-technical-podcast.html)
 * [Live DevOps Call In Show with Dr. Nicole Forsgren](https://www.arresteddevops.com/callinshow/)
 * [@theitskeptic](https://twitter.com/theitskeptic) on Twitter
-* [Wardley mapping introduction](http://blog.gardeviance.org/2015/02/an-introduction-to-wardley-value-chain.html) and [https://twitter.com/swardley](Simon Wardley's) free [Wardley Mapping book](https://medium.com/wardleymaps)
+* [Wardley mapping introduction](http://blog.gardeviance.org/2015/02/an-introduction-to-wardley-value-chain.html) and [Simon Wardley's](https://twitter.com/swardley) free [Wardley Mapping book](https://medium.com/wardleymaps)
 * [New York Times article on life at Etsy today](https://www.nytimes.com/2017/11/25/business/etsy-josh-silverman.html)
 * [This American Life episode about NUMMI](https://www.thisamericanlife.org/radio-archives/episode/561/nummi-2015)
 * [DOES17 San Francisco - How Your Systems Keep Running Day After Day - John Allspaw](https://www.youtube.com/watch?v=xA5U85LSk0M)
