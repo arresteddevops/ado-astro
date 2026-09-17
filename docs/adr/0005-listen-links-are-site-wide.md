@@ -11,7 +11,7 @@ listen" lives, not about one page's markup.
 
 ## Decision
 
-Listen-links appear **inline, site-wide** — in a new site footer and on every episode
+Listen-links appear **inline, site-wide** — in the site footer and on every episode
 page — rather than living only on a subscribe page people have to find. `/subscribe/`
 survives as the one rich, canonical destination: it owns the speakable URL
 (`arresteddevops.com/subscribe`), lists every platform, and carries the feed URL. It is
