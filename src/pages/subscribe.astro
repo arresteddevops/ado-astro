@@ -1,0 +1,174 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ListenLinks from "../components/ListenLinks.astro";
+import { FEED_PATH } from "../consts";
+---
+
+<BaseLayout
+  title="Subscribe"
+  description="Subscribe to Arrested DevOps on Apple Podcasts, Spotify, Pocket Casts, Overcast, iHeartRadio, Amazon Music, Audible, or any app that takes an RSS feed."
+>
+  <section class="intro">
+    <div class="heading">
+      <h1>Subscribe</h1>
+      <span class="badge">EVERY OTHER WEEK</span>
+    </div>
+    <p class="lede">
+      Pick your app and new episodes land automatically. Already have a podcast
+      player you like? Grab the feed below and paste it in.
+    </p>
+  </section>
+
+  <section class="platforms">
+    <ListenLinks variant="full" />
+  </section>
+
+  <section class="feed">
+    <div class="feed-card">
+      <h2>The feed</h2>
+      <p>Every podcast app takes a feed URL. Copy this one and paste it into whatever you already use.</p>
+      <div class="feed-row">
+        <code id="feed-url">https://www.arresteddevops.com{FEED_PATH}</code>
+        <button type="button" id="copy-feed" data-url={`https://www.arresteddevops.com${FEED_PATH}`}>
+          Copy
+        </button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const button = document.getElementById("copy-feed");
+  button?.addEventListener("click", async () => {
+    const url = button.dataset.url;
+    if (!url) return;
+    try {
+      await navigator.clipboard.writeText(url);
+      button.textContent = "Copied";
+    } catch {
+      // Clipboard API rejects on insecure contexts and when permission is
+      // denied. The URL is visible and selectable either way, so say so
+      // rather than failing silently.
+      button.textContent = "Select and copy";
+    }
+    setTimeout(() => { button.textContent = "Copy"; }, 2000);
+  });
+</script>
+
+<style>
+  .intro {
+    padding: 56px var(--page-padding) 0;
+    max-width: var(--content-max-width);
+  }
+
+  .heading {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 1;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 16px;
+    border-radius: var(--radius-pill);
+    background: var(--color-yellow);
+    color: var(--color-navy);
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    transform: rotate(-2deg);
+  }
+
+  .lede {
+    margin: 0 0 40px;
+    font-size: 19px;
+    line-height: 1.6;
+    max-width: 620px;
+    color: var(--color-text-muted);
+    text-wrap: pretty;
+  }
+
+  .platforms,
+  .feed {
+    padding: 0 var(--page-padding) 40px;
+    max-width: var(--content-max-width);
+  }
+
+  .feed-card {
+    border: var(--border-width) solid var(--color-navy);
+    border-radius: var(--radius-card-lg);
+    padding: 32px;
+    background: var(--color-navy);
+    color: var(--color-text-on-navy);
+    box-shadow: var(--shadow-offset) var(--color-yellow);
+  }
+
+  .feed-card h2 {
+    margin: 0 0 8px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 26px;
+  }
+
+  .feed-card p {
+    margin: 0 0 22px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text-on-navy-muted);
+    max-width: 540px;
+  }
+
+  .feed-row {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+
+  #feed-url {
+    flex-grow: 1;
+    min-width: 280px;
+    display: flex;
+    align-items: center;
+    min-height: 52px;
+    padding: 12px 20px;
+    border-radius: var(--radius-pill);
+    background: var(--color-cream);
+    color: var(--color-navy);
+    font-size: 15px;
+    overflow-x: auto;
+  }
+
+  #copy-feed {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: var(--radius-pill);
+    background: var(--color-yellow);
+    color: var(--color-navy);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 640px) {
+    h1 {
+      font-size: 38px;
+    }
+  }
+</style>
