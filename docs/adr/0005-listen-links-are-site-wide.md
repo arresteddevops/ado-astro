@@ -96,13 +96,14 @@ CSS, so anything client-rendered needs `<style is:global>`.
 
 ## Open items
 
-Two URLs are unconfirmed and must not ship guessed:
+One URL is still unconfirmed and must not ship guessed:
 
 - **YouTube Music** — Matty is sorting out distribution. Note that YouTube Music serves
   its SPA shell with HTTP 200 for arbitrary paths, so a guessed URL cannot be validated
-  by fetching it.
-- **Overcast** — `overcast.fm/itunes773888088` follows Overcast's documented Apple-ID
-  convention, but `overcast.fm` returns a login wall (HTTP 200, no show content), so it
-  could not be verified from outside. Needs a logged-in check before launch.
+  by fetching it. Add it as a `featured: false` entry once there is a real URL.
+
+Overcast was the other one. `overcast.fm/itunes773888088` could not be verified from
+outside — overcast.fm answers with a login wall — but Matty confirmed it resolves to the
+show while logged in, so it ships as a normal entry.
 
 Ship with whatever is verified; add the rest when confirmed.

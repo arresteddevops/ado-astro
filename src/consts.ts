@@ -13,8 +13,9 @@ export const SUBSCRIBE_LINKS: Platform[] = [
   { id: "apple", name: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/arrested-devops/id773888088", featured: true },
   { id: "spotify", name: "Spotify", url: "https://open.spotify.com/show/7hHA2ZlfOmbwv96wEBaMR2", featured: true },
   { id: "pocketcasts", name: "Pocket Casts", url: "https://pca.st/VqEP", featured: true },
-  // Overcast derives show URLs from the Apple ID. Unverified — overcast.fm
-  // serves a login wall, so this could not be confirmed from outside.
+  // Overcast derives show URLs from the Apple ID. overcast.fm answers
+  // logged-out requests with a login wall, so this one was confirmed by
+  // hand in a signed-in browser rather than by fetching it.
   { id: "overcast", name: "Overcast", url: "https://overcast.fm/itunes773888088", featured: false },
   { id: "iheart", name: "iHeartRadio", url: "https://www.iheart.com/podcast/256-arrested-devops-43075205", featured: false },
   { id: "amazon", name: "Amazon Music", url: "https://www.amazon.com/dp/B08K5862TB", featured: false },
