@@ -24,3 +24,6 @@ pnpm-debug.log*
 
 # netlify
 .netlify/
+
+# Subagent-driven-development scratch (ledger, briefs, review packages)
+.superpowers/
