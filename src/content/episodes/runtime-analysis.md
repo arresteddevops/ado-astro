@@ -31,4 +31,4 @@ explicit: no
 - Facebook: [FAUSTA: Scaling Dynamic Analysis with Traffic Generation](https://research.facebook.com/publications/fausta-scaling-dynamic-analysis-with-traffic-generation-at-whatsapp/) (how runtime analysis was used at WhatsApp to catch design flaws before they reached production)
 - Dragan Stepanović - [Async code reviews are choking your company’s throughput](https://vimeo.com/774651621) (from LAS 2022, a talk which highlights the systemic problems with developers trying to do manual code reviews of large PRs)
 - [AppMap](https://appmap.io/), the runtime analysis company which Brian works for
-- [Cloud Native Security with Michael Isbitski](cloud-native-security/) ADO Episode
+- [Cloud Native Security with Michael Isbitski](/cloud-native-security/) ADO Episode

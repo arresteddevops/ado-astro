@@ -37,8 +37,8 @@ function listFiles(dir, ext) {
 }
 
 const rules = [];
-function addRule(from, to, source) {
-  rules.push({ from, to, code: "301!", source });
+function addRule(from, to, source, code = "301!") {
+  rules.push({ from, to, code, source });
 }
 
 // 1. Legacy vanity-URL stubs (already "<from> <to> <code>" lines).
@@ -72,6 +72,12 @@ for (const file of listFiles(path.join(REPO_ROOT, "src/content/guests"), ".yaml"
 
 // 4. The root feed alias.
 addRule("/index.xml", "/episode/index.xml", "feed");
+
+// 5. Guest pagination overflow. Hugo paginated guests into 37 pages; this
+// site's GUESTS_PER_PAGE yields far fewer, so Google still has /guest/page/13
+// upward in its index. Unforced (no !) on purpose — Netlify only applies these
+// when no file matches, so the real /guest/page/2../N keep serving themselves.
+addRule("/guest/page/*", "/guest/", "guest-pagination", "301");
 
 // Duplicate "from" paths would silently shadow each other in Netlify's
 // _redirects (first match wins) — surface that instead of guessing.

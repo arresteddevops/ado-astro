@@ -33,7 +33,7 @@ explicit: yes
 
 Chris is back on the podcast again, this time talking about his expereince as a SysAdmin in past lives.
 
-Kevin is currently the DevOps Engineer for BCycle at [Trek Bicycle Corporation](), and was a SysAdmin for 15+ years.
+Kevin is currently the DevOps Engineer for BCycle at [Trek Bicycle Corporation](https://www.trekbikes.com/), and was a SysAdmin for 15+ years.
 
 Yvo previously worked at classmates.com and McGraw Hill Corporation as a SysAdmin, and is now at Chef Software.
 

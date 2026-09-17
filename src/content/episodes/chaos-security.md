@@ -27,4 +27,4 @@ explicit: yes
 
 - [Last time Aaron was on ADO](https://www.arresteddevops.com/inner-source-to-open-source/)
 - [ChaoSlinger](https://github.com/Optum/ChaoSlinger)
-- [Enter to win](cutt.ly/verica-book) a free copy of the upcoming *Security Chaos Engineering* O'Reilly book
+- Enter to win a free copy of the upcoming *Security Chaos Engineering* O'Reilly book
