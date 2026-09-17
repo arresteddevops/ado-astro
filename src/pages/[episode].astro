@@ -3,6 +3,7 @@ import { getCollection, getEntry, getEntries, render } from "astro:content";
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PersonCard from "../components/PersonCard.astro";
+import ListenLinks from "../components/ListenLinks.astro";
 import { MEDIA_PREFIX } from "../consts";
 import { getEpisodeAsset, getEpisodeOgImage, getMiscAsset } from "../lib/images";
 import { plainTextSnippet } from "../lib/markdown";
@@ -180,6 +181,10 @@ const structuredData = {
         ))}
     </section>
   )}
+
+  <section class="subscribe-cta">
+    <ListenLinks variant="compact" label="SUBSCRIBE" />
+  </section>
 
   <article class="show-notes" data-pagefind-body>
     {description && <p class="description">{description}</p>}
@@ -448,6 +453,11 @@ const structuredData = {
     max-width: var(--content-max-width);
     line-height: 1.65;
     color: var(--color-text);
+  }
+
+  .subscribe-cta {
+    padding: 0 var(--page-padding) 32px;
+    max-width: var(--content-max-width);
   }
 
   .description {
