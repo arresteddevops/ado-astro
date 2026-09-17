@@ -43,15 +43,17 @@ both stale and incomplete. Corrected and extended:
 | Apple Podcasts | `https://podcasts.apple.com/us/podcast/arrested-devops/id773888088` | was `http://itunes.apple.com/...` with `at=11lsCi`, a dead Apple affiliate tag |
 | Spotify | `https://open.spotify.com/show/7hHA2ZlfOmbwv96wEBaMR2` | unchanged |
 | Pocket Casts | `https://pca.st/VqEP` | unchanged |
-| Overcast | `https://overcast.fm/itunes773888088` | **unverified** — see open items |
+| Overcast | `https://overcast.fm/itunes773888088` | confirmed signed-in; overcast.fm walls logged-out requests |
 | iHeartRadio | `https://www.iheart.com/podcast/256-arrested-devops-43075205` | new |
 | Amazon Music | `https://www.amazon.com/dp/B08K5862TB` | new; tracking params stripped from the supplied URL |
 | Audible | `https://www.audible.com/podcast/Arrested-DevOps/B08K56VQJ1` | new |
+| YouTube Music | `https://music.youtube.com/playlist?list=PLYy4jQKzH1dA` | new |
 | RSS | `/episode/index.xml` | unchanged |
 
 Two removals. The generic `android` entry (a `subscribeonandroid.com` wrapper) is a
-2015-era pattern made redundant by listing real platforms. YouTube is dropped because
-the show no longer publishes video episodes.
+2015-era pattern made redundant by listing real platforms. Plain YouTube is dropped
+because the show no longer publishes video episodes — YouTube Music is a separate
+entry and stays.
 
 The shape changes from a flat object to an ordered array of
 `{ id, name, url, featured }`, because the inline placements need to render a subset in
@@ -96,14 +98,15 @@ CSS, so anything client-rendered needs `<style is:global>`.
 
 ## Open items
 
-One URL is still unconfirmed and must not ship guessed:
+None. Both of the URLs this ADR originally left open are now confirmed.
 
-- **YouTube Music** — Matty is sorting out distribution. Note that YouTube Music serves
-  its SPA shell with HTTP 200 for arbitrary paths, so a guessed URL cannot be validated
-  by fetching it. Add it as a `featured: false` entry once there is a real URL.
+**YouTube Music** ships as a `featured: false` entry pointing at
+`music.youtube.com/playlist?list=PLYy4jQKzH1dA`. The concern recorded here was that
+YouTube Music answers arbitrary paths with its SPA shell at HTTP 200, so a status code
+proves nothing — that was checked properly with a control: a bogus list id returns the
+generic "YouTube Music" title, while this one returns "Arrested DevOps" on both
+`music.youtube.com` and `www.youtube.com`. The `music.` host is used deliberately so the
+card opens in YouTube Music, matching its label; the same id works on either.
 
-Overcast was the other one. `overcast.fm/itunes773888088` could not be verified from
-outside — overcast.fm answers with a login wall — but Matty confirmed it resolves to the
-show while logged in, so it ships as a normal entry.
-
-Ship with whatever is verified; add the rest when confirmed.
+**Overcast** could not be verified from outside — overcast.fm answers logged-out requests
+with a login wall — but Matty confirmed it resolves to the show while signed in.

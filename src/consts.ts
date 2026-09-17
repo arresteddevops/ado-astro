@@ -13,6 +13,9 @@ export const SUBSCRIBE_LINKS: Platform[] = [
   { id: "apple", name: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/arrested-devops/id773888088", featured: true },
   { id: "spotify", name: "Spotify", url: "https://open.spotify.com/show/7hHA2ZlfOmbwv96wEBaMR2", featured: true },
   { id: "pocketcasts", name: "Pocket Casts", url: "https://pca.st/VqEP", featured: true },
+  // music.youtube.com rather than www.youtube.com so it opens in YouTube
+  // Music, which is what the card says. Both hosts serve this playlist id.
+  { id: "ytmusic", name: "YouTube Music", url: "https://music.youtube.com/playlist?list=PLYy4jQKzH1dA", featured: false },
   // Overcast derives show URLs from the Apple ID. overcast.fm answers
   // logged-out requests with a login wall, so this one was confirmed by
   // hand in a signed-in browser rather than by fetching it.
