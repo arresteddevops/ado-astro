@@ -3,6 +3,7 @@ const navItems = [
   { label: "Episodes", href: "/" },
   { label: "Guests", href: "/guest" },
   { label: "About", href: "/about" },
+  { label: "Subscribe", href: "/subscribe" },
   { label: "Search", href: "/search" },
   { label: "Contact", href: "/contact" },
 ];
@@ -156,7 +157,7 @@ const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWit
     background: color-mix(in srgb, var(--color-red-deep) 85%, black);
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 980px) {
     .nav-toggle {
       display: flex;
     }

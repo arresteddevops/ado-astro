@@ -7,7 +7,7 @@ export async function getStaticPaths() {
   // pages (sponsorship.astro, contact.astro) — excluded here to avoid two
   // routes claiming the same path. (Astro's static-path extraction runs this
   // function in isolation, so the set lives inside it, not at module scope.)
-  const dedicatedPages = new Set(["sponsorship", "contact"]);
+  const dedicatedPages = new Set(["sponsorship", "contact", "subscribe"]);
   const pages = await getCollection("pages", (p) => !dedicatedPages.has(p.id));
   return pages.map((page) => ({
     params: { page: page.id },

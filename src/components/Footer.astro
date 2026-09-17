@@ -1,14 +1,22 @@
 ---
+import ListenLinks from "./ListenLinks.astro";
+
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  <span class="brand-name">ARRESTED DEVOPS</span>
-  <p>
-    &copy; 2013&ndash;{year} &middot; <a href="/privacy">Privacy</a> &middot;
-    <a href="/copyright">Copyright</a> &middot;
-    <a href="mailto:shows@arresteddevops.com">shows@arresteddevops.com</a>
-  </p>
+  <div class="listen">
+    <span class="listen-title">Get every episode</span>
+    <ListenLinks variant="compact" label={null} />
+  </div>
+  <div class="legal">
+    <span class="brand-name">ARRESTED DEVOPS</span>
+    <p>
+      &copy; 2013&ndash;{year} &middot; <a href="/privacy">Privacy</a> &middot;
+      <a href="/copyright">Copyright</a> &middot;
+      <a href="mailto:shows@arresteddevops.com">shows@arresteddevops.com</a>
+    </p>
+  </div>
 </footer>
 
 <style>
@@ -16,6 +24,50 @@ const year = new Date().getFullYear();
     background: var(--color-navy);
     color: var(--color-text-on-navy);
     padding: 36px var(--page-padding);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .listen {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .listen-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--color-yellow);
+  }
+
+  /* ListenLinks is built for the cream page background; on navy its outline
+     pills and more-link need the inverted palette. Deep global selectors
+     because the component's own styles are scoped to it. */
+  .listen :global(.pill.outline) {
+    border-color: var(--color-cream);
+    color: var(--color-cream);
+  }
+
+  .listen :global(.pill.outline:hover) {
+    background: var(--color-cream);
+    color: var(--color-navy);
+  }
+
+  .listen :global(.more) {
+    color: var(--color-yellow);
+    border-bottom-color: var(--color-yellow);
+  }
+
+  /* The RSS pill's red-deep fill is only 2.36:1 against navy, so its shape
+     vanishes into the footer. A cream ring gives it a 12.65:1 boundary
+     without touching the fill or the label. */
+  .listen :global(.pill.rss) {
+    border-color: var(--color-cream);
+  }
+
+  .legal {
     display: flex;
     justify-content: space-between;
     align-items: center;
