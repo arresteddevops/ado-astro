@@ -2,6 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ListenLinks from "../components/ListenLinks.astro";
 import { FEED_PATH } from "../consts";
+
+const feedUrl = new URL(FEED_PATH, Astro.site).href;
 ---
 
 <BaseLayout
@@ -28,8 +30,8 @@ import { FEED_PATH } from "../consts";
       <h2>The feed</h2>
       <p>Every podcast app takes a feed URL. Copy this one and paste it into whatever you already use.</p>
       <div class="feed-row">
-        <code id="feed-url">https://www.arresteddevops.com{FEED_PATH}</code>
-        <button type="button" id="copy-feed" data-url={`https://www.arresteddevops.com${FEED_PATH}`}>
+        <code id="feed-url">{feedUrl}</code>
+        <button type="button" id="copy-feed" data-url={feedUrl}>
           Copy
         </button>
       </div>

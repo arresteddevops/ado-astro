@@ -144,6 +144,10 @@ const structuredData = {
     </section>
   )}
 
+  <section class="subscribe-cta">
+    <ListenLinks variant="compact" label="SUBSCRIBE" />
+  </section>
+
   {TranscriptContent && (
     <details class="transcript">
       <summary>
@@ -181,10 +185,6 @@ const structuredData = {
         ))}
     </section>
   )}
-
-  <section class="subscribe-cta">
-    <ListenLinks variant="compact" label="SUBSCRIBE" />
-  </section>
 
   <article class="show-notes" data-pagefind-body>
     {description && <p class="description">{description}</p>}
