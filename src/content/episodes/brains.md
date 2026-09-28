@@ -25,6 +25,7 @@ aliases:
   - /43
 youtube: cTN62ERlHNY
 explicit: yes
+transcript: brains
 ---
 
 

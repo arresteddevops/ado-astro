@@ -23,6 +23,7 @@ aliases:
   - /41
   - /podcastmemaybe
 youtube: cSUd0sQEWNU
+transcript: podcast-me-maybe
 explicit: yes
 ---
 
