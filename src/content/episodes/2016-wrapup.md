@@ -28,6 +28,7 @@ aliases:
   - /79
   - /2016wrapup
 explicit: yes
+transcript: 2016-wrapup
 ---
 
 Matt, Trevor, and Bridget chat (at length) about podcasts, podcast recording, and podcast recording software. Oh, and the highlights of 2016 if they get around to it. (Don't miss the supercut of all 2016's cold opens, which was edited by Joe, even though Matt takes credit for it!)

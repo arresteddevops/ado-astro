@@ -28,6 +28,7 @@ aliases:
   - /devopsrisk
 youtube: jgXB4b-B_ic
 explicit: yes
+transcript: devops-risk
 ---
 
 Bridget and Matt chat with Nicole Johnson (Chef), Matt Curry (Allstate), and Anthony Lee (Allstate).

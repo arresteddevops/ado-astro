@@ -28,6 +28,7 @@ aliases:
   - /87
   - /devopsdaystoronto2017
 explicit: yes
+transcript: devopsdays-toronto-2017
 ---
 
 Bridget chats with devopsdays Toronto local organizer Amy Mansell & speakers Roderick Randolph, Arthur Maltson, and Aaron Aldrich.
