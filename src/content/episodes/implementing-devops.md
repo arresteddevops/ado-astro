@@ -25,6 +25,7 @@ aliases:
   - /12
   - /implementingdevops
 youtube: QjKbSPCyKUk
+transcript: implementing-devops
 explicit: yes
 ---
 

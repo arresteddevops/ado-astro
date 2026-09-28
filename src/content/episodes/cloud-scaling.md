@@ -23,6 +23,7 @@ aliases:
   - /10
   - /cloudscaling
 youtube: Ae2usrwum2E
+transcript: cloud-scaling
 explicit: yes
 ---
 

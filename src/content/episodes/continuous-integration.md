@@ -23,6 +23,7 @@ aliases:
   - /5
   - /continuousintegration
 youtube: v7iS906NPOw
+transcript: continuous-integration
 explicit: yes
 ---
 

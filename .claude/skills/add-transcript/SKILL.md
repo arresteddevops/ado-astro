@@ -34,30 +34,28 @@ If the number of distinct speaker letters doesn't reconcile with the known
 host/guest count for the episode (someone got split into two letters
 mid-call, or two people got merged into one), **don't guess** — flag it
 when you report back and make your best-effort mapping explicit about
-which letters were ambiguous.
+which letters were ambiguous. If an extra letter turns out to be a
+pre-recorded sponsor-ad voiceover or a clear mid-call split of a real
+participant, map it to that same person's name in the map below —
+`format-transcript.mjs` merges by resolved name, so this automatically
+folds it into the surrounding speaker's block with no separate label.
 
 ## 4. Format the transcript markdown
 
-Match the convention in `src/content/transcripts/ai-sdlc.md` exactly:
+Don't hand-format this — run `node scripts/format-transcript.mjs <slug>
+'{"A":"Matty","B":"Trevor",...}'` with the speaker map from step 3. It
+mechanically produces `src/content/transcripts/<slug>.md` matching the
+convention in `src/content/transcripts/ai-sdlc.md` exactly: bold real-name
+label only when the speaker changes, consecutive same-speaker utterances
+merged into one paragraph block, inline `[HH:MM:SS]` timestamps dropped in
+roughly every 60s. No frontmatter (the `transcripts` collection schema is
+`z.object({})`).
 
-- Each speaker turn starts with a bold real-name label: `**Matty:**`.
-- The label appears only when the speaker changes — consecutive utterances
-  from the same speaker merge into one block under a single label, with
-  blank-line paragraph breaks inside that block wherever a natural reading
-  break falls.
-- Inline timestamps in `[HH:MM:SS]` (converted from the utterance `start`
-  ms) are dropped in wherever roughly a minute has passed since the last
-  one — not necessarily at the start of every utterance or paragraph, just
-  often enough to let someone jump around. The first timestamp in the file
-  is `[00:00:00]`.
-- No frontmatter in the file (the `transcripts` collection schema is
-  `z.object({})`).
-- Keep content as-is, light cleanup only — fix obvious ASR garbage
-  (mis-transcribed words you're confident about, stray filler if it makes
-  a sentence unreadable) but don't rewrite or summarize. Sponsor reads stay
-  in, same as `create-episode` step 4's rule for transcript copies.
-
-Write the result to `src/content/transcripts/<slug>.md`.
+After it writes the file, do light cleanup only as a follow-up edit pass —
+fix obvious ASR garbage (mis-transcribed names/words you're confident
+about) with targeted find/replace, don't rewrite or summarize. Sponsor
+reads stay in, same as `create-episode` step 4's rule for transcript
+copies.
 
 ## 5. Wire up the episode
 
@@ -74,8 +72,13 @@ line now — same file, same edit pass.
 Per episode: confirm the file was written, the frontmatter updated, and
 call out anything from step 3 that was ambiguous or any name/jargon
 spelling you weren't confident about — this is what Matty spot-checks.
-Don't maintain a persistent notes file for a small pilot batch; only worth
-adding once running the full ~190-episode batch.
+
+Also append a line to `.cache/transcripts/review-notes.md` (gitignored,
+create it with a `# Flagged for review` header if it doesn't exist yet) for
+each episode that had anything worth flagging — `- <slug>: <what's
+uncertain>`. This accumulates across batches so a full-batch spot-check
+pass doesn't depend on re-reading every agent's chat output. Skip the file
+entirely for a clean episode with nothing to flag.
 
 ## 7. Verify
 

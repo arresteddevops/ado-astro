@@ -23,6 +23,7 @@ aliases:
   - /7
   - /alltogethernow
 youtube: lDf2s44f7W0
+transcript: all-together-now
 explicit: yes
 ---
 

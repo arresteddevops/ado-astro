@@ -23,6 +23,7 @@ aliases:
   - /13
   - /softwaredeployment
 youtube: qFLkBEGnOfk
+transcript: software-deployment
 explicit: yes
 ---
 

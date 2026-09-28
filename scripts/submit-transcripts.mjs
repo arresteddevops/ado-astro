@@ -9,9 +9,11 @@
 //   node scripts/submit-transcripts.mjs --limit 20
 //   node scripts/submit-transcripts.mjs --slugs slug-a --force   # re-submit even if cached
 //
-// ponytail: no concurrency cap / 429 backoff — fine for a handful of jobs at a
-// time (free tier allows 5 concurrent), add before running the full ~190-episode
-// batch.
+// Without --slugs, candidates are every episode missing a `transcript` field,
+// sorted by episodeNumber ascending — --limit then takes the next N in that order.
+//
+// CONCURRENCY stays under AssemblyAI's free-tier cap of 5 simultaneous jobs.
+// 429s get retried with exponential backoff rather than failing the batch.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -25,6 +27,7 @@ if (!API_KEY) {
 
 const MEDIA_PREFIX =
   "https://media.blubrry.com/arresteddevops/content.blubrry.com/arresteddevops/";
+const CONCURRENCY = 4;
 
 const scriptDir = path.dirname(new URL(import.meta.url).pathname);
 const REPO_ROOT = path.resolve(scriptDir, "..");
@@ -47,21 +50,36 @@ function parseArgs(argv) {
   return args;
 }
 
+async function withBackoff(fn) {
+  for (let attempt = 0; ; attempt++) {
+    const res = await fn();
+    if (res.status !== 429) return res;
+    if (attempt >= 5) throw new Error("gave up after 5 retries on 429");
+    const wait = 2 ** attempt * 1000;
+    console.log(`429, backing off ${wait}ms`);
+    await new Promise((r) => setTimeout(r, wait));
+  }
+}
+
 async function submit(audioUrl) {
-  const res = await fetch("https://api.assemblyai.com/v2/transcript", {
-    method: "POST",
-    headers: { authorization: API_KEY, "content-type": "application/json" },
-    body: JSON.stringify({ audio_url: audioUrl, speaker_labels: true }),
-  });
+  const res = await withBackoff(() =>
+    fetch("https://api.assemblyai.com/v2/transcript", {
+      method: "POST",
+      headers: { authorization: API_KEY, "content-type": "application/json" },
+      body: JSON.stringify({ audio_url: audioUrl, speaker_labels: true }),
+    }),
+  );
   if (!res.ok) throw new Error(`submit failed: ${res.status} ${await res.text()}`);
   return res.json();
 }
 
 async function poll(id) {
   for (;;) {
-    const res = await fetch(`https://api.assemblyai.com/v2/transcript/${id}`, {
-      headers: { authorization: API_KEY },
-    });
+    const res = await withBackoff(() =>
+      fetch(`https://api.assemblyai.com/v2/transcript/${id}`, {
+        headers: { authorization: API_KEY },
+      }),
+    );
     if (!res.ok) throw new Error(`poll failed: ${res.status} ${await res.text()}`);
     const data = await res.json();
     if (data.status === "completed" || data.status === "error") return data;
@@ -95,6 +113,21 @@ async function processSlug(slug, force) {
   }
 }
 
+async function runPool(slugs, force, concurrency) {
+  const queue = [...slugs];
+  const workers = Array.from({ length: concurrency }, async () => {
+    let slug;
+    while ((slug = queue.shift()) !== undefined) {
+      try {
+        await processSlug(slug, force);
+      } catch (err) {
+        console.error(`failed ${slug}: ${err.message}`);
+      }
+    }
+  });
+  await Promise.all(workers);
+}
+
 const args = parseArgs(process.argv.slice(2));
 
 let slugs = args.slugs;
@@ -103,10 +136,11 @@ if (!slugs) {
     .readdirSync(EPISODES_DIR)
     .filter((f) => f.endsWith(".md"))
     .map((f) => path.basename(f, ".md"))
-    .filter((slug) => !readFrontmatter(path.join(EPISODES_DIR, `${slug}.md`)).transcript);
+    .map((slug) => ({ slug, data: readFrontmatter(path.join(EPISODES_DIR, `${slug}.md`)) }))
+    .filter(({ data }) => !data.transcript)
+    .sort((a, b) => Number(a.data.episodeNumber) - Number(b.data.episodeNumber))
+    .map(({ slug }) => slug);
   if (args.limit) slugs = slugs.slice(0, args.limit);
 }
 
-for (const slug of slugs) {
-  await processSlug(slug, args.force);
-}
+await runPool(slugs, args.force, CONCURRENCY);

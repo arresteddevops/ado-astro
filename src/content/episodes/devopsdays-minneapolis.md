@@ -27,6 +27,7 @@ sponsors: []
 aliases:
   - /16
   - /devopsdaysminneapolis
+transcript: devopsdays-minneapolis
 explicit: yes
 ---
 
