@@ -1,2 +1,9 @@
 allowBuilds:
   esbuild: true
+
+# js-yaml is a transitive dep of astro's own @astrojs/internal-helpers
+# (declared range ^4.3.0 already allows this) — force the patched version
+# directly since Dependabot can't open a PR for a nested transitive dep.
+# See GHSA-2883-xcg3-v3hh / CVE-2026-84375 (high, CPU DoS via maxTotalMergeKeys).
+overrides:
+  js-yaml: ^4.3.2
