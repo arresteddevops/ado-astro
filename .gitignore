@@ -27,3 +27,6 @@ pnpm-debug.log*
 
 # Subagent-driven-development scratch (ledger, briefs, review packages)
 .superpowers/
+
+# disposable transcript-submission cache — see scripts/submit-transcripts.mjs, issue #19
+.cache/
