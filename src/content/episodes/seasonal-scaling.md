@@ -25,6 +25,7 @@ aliases:
   - /seasonalscaling
 youtube: c4uiiSj2SPU
 explicit: yes
+transcript: seasonal-scaling
 ---
 
 ## Checkouts

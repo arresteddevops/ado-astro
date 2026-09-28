@@ -63,9 +63,10 @@ Add `transcript: <slug>` to `src/content/episodes/<slug>.md` frontmatter
 (the schema already has `transcript: reference("transcripts").optional()`
 in `content.config.ts` — no schema change needed).
 
-If this episode's body has a dead legacy transcript link (e.g. an inline
-`transcripts.castingwords.com` URL from the old Hugo site), remove that
-line now — same file, same edit pass.
+**Always check** this episode's body for a dead legacy transcript link
+(`transcripts.castingwords.com`, from the old Hugo site) and remove it if
+present — same file, same edit pass. This is easy to skip since most
+episodes don't have one; check every time anyway, not just when told to.
 
 ## 6. Report back
 

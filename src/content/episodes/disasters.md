@@ -24,6 +24,7 @@ sponsors:
 aliases:
   - /37
 youtube: E_DdM-pGHb8
+transcript: disasters
 explicit: yes
 ---
 

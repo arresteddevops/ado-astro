@@ -22,6 +22,7 @@ sponsors:
 aliases:
   - /48
 explicit: yes
+transcript: tdi
 ---
 
 - Arthur's DevOpsDays Toronto [talk on TDI](https://youtu.be/IEQUfo0eUiI?t=248)

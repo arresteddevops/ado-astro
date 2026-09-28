@@ -19,6 +19,7 @@ guests:
 hosts:
   - mstratton
   - bkromhout
+transcript: reformed-bofh
 sponsors:
   - pagerduty
   - 10thmagnitude

@@ -27,6 +27,7 @@ aliases:
   - /34
   - /chefconf2015
 explicit: yes
+transcript: chefconf-2015
 ---
 
 [Seth Falcon](https://twitter.com/sfalcon) is the Engineering General Manager for Chef Delivery.

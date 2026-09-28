@@ -23,6 +23,7 @@ aliases:
   - /46
 youtube: SuaZcx4BuVA
 explicit: yes
+transcript: itil
 ---
 
 * [Agile Change and Release Management at the #1 Online Rental Site in the US](http://www.slideshare.net/mattstratton/agile-change-and-release-management-at-the-1-online-rental-site-in-the-us) - Matt's talk about ITIL and Agile

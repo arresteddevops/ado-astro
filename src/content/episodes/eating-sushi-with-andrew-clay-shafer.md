@@ -22,9 +22,8 @@ aliases:
   - /39
   - /eatingsushiwithandrewclayshafer
 explicit: yes
+transcript: eating-sushi-with-andrew-clay-shafer
 ---
-
-[Transcript](http://transcripts.castingwords.com/zvzu/211640.html)
 
 **Andrew Clay Shafer** ([@littleidea](http://twitter.com/littleidea)).
 

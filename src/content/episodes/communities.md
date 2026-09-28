@@ -27,6 +27,7 @@ aliases:
   - /45
 youtube: rQlZaCiLvSc
 explicit: yes
+transcript: communities
 ---
 
 Matt spends the entire episode claiming that Nathen was famous for being on ADO11, when in fact it was [ADO14](http://www.arresteddevops.com/how-to-eff-up-devops/).
