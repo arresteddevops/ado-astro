@@ -27,14 +27,13 @@ aliases:
   - /44
   - /infrastructureascode
 youtube: 7voRnzzUZb4
+transcript: infrastructure-as-code
 explicit: yes
 ---
 
 The Reddit post referenced in the episode:
 
 [Having a difficult time wrapping my head around test driven infrastructure](https://www.reddit.com/r/devops/comments/2xsq5d/having_a_difficult_time_wrapping_my_head_around/)
-
-[Transcript](http://transcripts.castingwords.com/zvtP/212126.html)
 
 ## Check Outs
 
