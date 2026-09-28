@@ -23,6 +23,7 @@ aliases:
   - /pauly
   - /chattingwithpauly
 explicit: yes
+transcript: chatting-with-pauly
 ---
 
 - *[Switch: How to Change Things When Change Is Hard](https://www.amazon.com/Switch-Change-Things-When-Hard/dp/0385528752)*

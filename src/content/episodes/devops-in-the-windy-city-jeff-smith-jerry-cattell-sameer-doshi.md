@@ -29,6 +29,7 @@ aliases:
   - /devopsinthewindycityjeffsmithjerrycattellsameerdoshi
 youtube: lBDFfC-wGls
 explicit: yes
+transcript: devops-in-the-windy-city-jeff-smith-jerry-cattell-sameer-doshi
 ---
 
 * [ADO episode at devopsdays Chicago 2014](https://www.arresteddevops.com/devopsdays-chicago/) with J. Paul Reed

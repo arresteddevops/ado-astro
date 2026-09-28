@@ -30,6 +30,7 @@ aliases:
   - /78
   - /devopsdayssydney2016
 explicit: yes
+transcript: devopsdays-sydney-2016
 ---
 
 Bridget and special guest host Matt Ray of [Software Defined Talk](http://www.softwaredefinedtalk.com/) chat with Matthew Jones, Lindsay Holmwood, Mick Pollard, and Katie McLaughlin at [devopsdays Sydney 2016](https://www.devopsdays.org/events/2016-sydney/welcome/).

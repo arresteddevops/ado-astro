@@ -26,6 +26,7 @@ aliases:
   - /devopsdaysminneapolis2016
 youtube: 5CM5_JkrRa4
 explicit: yes
+transcript: devopsdays-minneapolis-2016
 ---
 
 How do large enterprises transform the way they do IT? What does it mean for every company to become a software company? Our panel of experts at devopsdays Minneapolis 2016 has worked in some of the largest orgs out there and has seen a lot of transformation first-hand.
