@@ -26,6 +26,7 @@ aliases:
   - /disastercommunication
 youtube: dorCcK8dklQ
 explicit: yes
+transcript: disaster-communication
 ---
 
 Bridget and Matt chat with Jeff Smith (Centro) and Mark Imbriaco (Pivotal).

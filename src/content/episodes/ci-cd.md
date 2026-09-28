@@ -23,6 +23,7 @@ aliases:
   - /cicd
 youtube: qKQ7pqQwRmM
 explicit: yes
+transcript: ci-cd
 ---
 
 Bridget chats with Jez Humble (DORA) about continuous... everything!

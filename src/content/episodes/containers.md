@@ -27,6 +27,7 @@ aliases:
   - /89
 youtube: p7WizGqjM5A
 explicit: yes
+transcript: containers
 ---
 
 Bridget and Matt chat with Jérôme Petazzoni (Docker), Mark Heckler (Pivotal), and Jennifer Heckler (Edward Jones).

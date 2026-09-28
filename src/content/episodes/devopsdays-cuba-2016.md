@@ -18,6 +18,7 @@ aliases:
   - /80
   - /devopsdayscuba2016
 explicit: no
+transcript: devopsdays-cuba-2016
 ---
 
 Bridget and [Joe](https://twitter.com/joelaha) discuss their experiences at devopsdays Cuba and share audio from the closing session. 
