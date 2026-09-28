@@ -25,6 +25,7 @@ aliases:
   - /26
   - /continuousdeliverydatabase
 youtube: QLKx3M06Tm8
+transcript: continuous-delivery-database
 explicit: yes
 ---
 

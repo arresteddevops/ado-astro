@@ -29,6 +29,7 @@ aliases:
   - /devopsconferences
 youtube: dSU0j8ORafw
 explicit: yes
+transcript: devops-conferences
 ---
 
 <ul>

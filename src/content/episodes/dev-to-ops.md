@@ -28,6 +28,7 @@ aliases:
   - /19
   - /devtoops
 youtube: weF8jrcSU7s
+transcript: dev-to-ops
 explicit: yes
 ---
 

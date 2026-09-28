@@ -24,6 +24,7 @@ aliases:
   - /devopssecurity
 youtube: EJeccu3Lcis
 explicit: yes
+transcript: devops-security
 ---
 
 <ul>

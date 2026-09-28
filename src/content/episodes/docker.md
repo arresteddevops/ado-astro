@@ -22,6 +22,7 @@ sponsors:
 aliases:
   - /31
 youtube: 2AqE6KMCAK4
+transcript: docker
 explicit: yes
 ---
 
