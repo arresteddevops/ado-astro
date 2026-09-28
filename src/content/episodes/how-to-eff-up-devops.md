@@ -31,8 +31,6 @@ transcript: how-to-eff-up-devops
 explicit: yes
 ---
 
-[Transcript](http://transcripts.castingwords.com/zvzw/211665.html)
-
 <ul>
 	<li>What are some common misconceptions about what DevOps is?</li>
 	<li>What are some symptoms of "DevOps Smell"[1]?</li>

@@ -31,7 +31,6 @@ transcript: hiring-for-devops
 explicit: yes
 ---
 
-<a href="http://transcripts.castingwords.com/zzTm/195771.html" target="_blank">Transcript</a>
 <h2>Check-Outs</h2>
 <h3>Jill</h3>
 <ul>
