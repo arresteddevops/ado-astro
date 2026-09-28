@@ -21,6 +21,7 @@ aliases:
   - /50
   - /osswitching
 explicit: yes
+transcript: os-switching
 ---
 
 ## Checkouts

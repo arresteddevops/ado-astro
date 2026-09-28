@@ -25,6 +25,7 @@ aliases:
   - /61
 youtube: fZsYnGpIgIU
 explicit: yes
+transcript: availability
 ---
 
 * [kik, left-pad, and npm](http://blog.npmjs.org/post/141577284765/kik-left-pad-and-npm)

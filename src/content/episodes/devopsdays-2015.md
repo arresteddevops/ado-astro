@@ -24,6 +24,7 @@ aliases:
   - /devopsdays2015
 youtube: TJrqh6Z9ghw
 explicit: yes
+transcript: devopsdays-2015
 ---
 
 - [Hipster DevOps Happens To The Best Of Us](http://www.mattstratton.com/devops/hipster-devops-happens-to-the-best-of-us)

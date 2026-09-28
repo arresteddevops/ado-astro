@@ -28,6 +28,7 @@ aliases:
   - /2015inreview
 youtube: X56Bt2zDNyA
 explicit: yes
+transcript: 2015-in-review
 ---
 
 ## Events

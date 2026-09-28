@@ -23,6 +23,7 @@ aliases:
   - /57
 youtube: 3NBD0NQucv0
 explicit: yes
+transcript: vendors
 ---
 
 This was a special co-production with [The Goat Farm](http:///goatcan.com). Don't forget to subscribe to their Enterprise DevOps podcast on [iTunes](https://itunes.apple.com/us/podcast/the-goat-farm/id963113606) or [Stitcher](http://www.stitcher.com/podcast/the-goat-farm/the-goat-farm?refid=stpr)!

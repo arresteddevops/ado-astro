@@ -21,6 +21,7 @@ aliases:
   - /62
 youtube: R4Cy86jcoSw
 explicit: yes
+transcript: speaking
 ---
 
 * <a href="http://shop.oreilly.com/product/0636920039846.do">Effective DevOps</a> by Ryn Daniels & Jennifer Davis

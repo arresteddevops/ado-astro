@@ -21,6 +21,7 @@ aliases:
   - /52
   - /measurementandsharing
 explicit: yes
+transcript: measurement-and-sharing
 ---
 
 - [Metrics For DevOps Initiatives](http://devopsenterprise.io/media/DOES_forum_metrics_102015.pdf) from the DevOps Enterprise Summit 2015

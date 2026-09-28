@@ -20,6 +20,7 @@ sponsors:
 aliases:
   - /59
 explicit: yes
+transcript: gitlab
 ---
 
 ## Relevant Links
