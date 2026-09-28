@@ -25,6 +25,7 @@ aliases:
   - /applicationconfiguration
 youtube: Nbu8bqJFM1E
 explicit: yes
+transcript: application-configuration
 ---
 
 Tim Gross (Joyent) and Adam Jacob (Chef) independently started solving the problem of how to put applications in control of their own configuration. They discuss Habitat and ContainerPilot, to the edification of Matt and Bridget.

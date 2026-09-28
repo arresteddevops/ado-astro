@@ -22,6 +22,7 @@ aliases:
   - /firesidechat
 youtube: lybeocYXujU
 explicit: yes
+transcript: fireside-chat
 ---
 
 Bridget sits down for a classic fireside chat with Bryan Cantrill (Joyent), ranging from containers to social justice to lawn care.

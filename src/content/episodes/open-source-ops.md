@@ -26,6 +26,7 @@ aliases:
   - /opensourceops
 youtube: UGUg6F4gCuM
 explicit: yes
+transcript: open-source-ops
 ---
 
 Matt and Bridget chat with Michael Hedgpeth (NCR) and Doug Ireton (1Strategy) about organizations adopting open source.
