@@ -21,6 +21,7 @@ aliases:
   - /55
   - /opensource
 explicit: yes
+transcript: open-source
 ---
 
 * [Panel Discussion from ChefConf 2015: Have Your Bets on Open Paid Off?](https://www.youtube.com/watch?v=HZnbGNtcyMc)

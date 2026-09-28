@@ -21,6 +21,7 @@ sponsors:
 aliases:
   - /49
 explicit: yes
+transcript: puppet
 ---
 
 Various links referenced in the episode!

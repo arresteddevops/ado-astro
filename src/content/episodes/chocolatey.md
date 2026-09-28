@@ -20,6 +20,7 @@ sponsors:
 aliases:
   - /56
 explicit: yes
+transcript: chocolatey
 ---
 
 * [Chocolatey.org](https://chocolatey.org)
