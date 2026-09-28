@@ -23,6 +23,7 @@ aliases:
   - /3
   - /thedevshow
 youtube: 25235P0tOJo
+transcript: the-dev-show
 explicit: yes
 ---
 

@@ -27,6 +27,7 @@ aliases:
   - /14
   - /howtoeffupdevops
 youtube: 3Z-_aeby-3g
+transcript: how-to-eff-up-devops
 explicit: yes
 ---
 

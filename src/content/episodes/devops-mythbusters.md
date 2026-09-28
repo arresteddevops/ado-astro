@@ -23,6 +23,7 @@ aliases:
   - /6
   - /devopsmythbusters
 youtube: haufNRriE70
+transcript: devops-mythbusters
 explicit: no
 ---
 
