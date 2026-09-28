@@ -67,7 +67,6 @@ explicit: yes
 #### Why can’t I copy a file to a server using WinRM?
 - Jeff: Come talk to me at ‘Build and Ignite’.
 
-<a href="http://transcripts.castingwords.com/zz3N/196587.html" target="_blank">Transcript</a>
 <h2>Checkouts</h2>
 <h3>Jessica</h3>
 <ul>
