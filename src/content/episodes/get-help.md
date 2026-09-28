@@ -25,6 +25,7 @@ aliases:
   - /17
   - /gethelp
 youtube: AGpQd_ub36Q
+transcript: get-help
 explicit: yes
 ---
 

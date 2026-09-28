@@ -25,6 +25,7 @@ sponsors:
 aliases:
   - /28
 youtube: mD6zBfAvC-A
+transcript: blameless
 explicit: yes
 ---
 

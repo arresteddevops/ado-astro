@@ -26,6 +26,7 @@ sponsors:
 aliases:
   - /22
   - /devopsdayschicago
+transcript: devopsdays-chicago
 explicit: yes
 ---
 

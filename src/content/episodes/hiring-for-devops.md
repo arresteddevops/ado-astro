@@ -27,6 +27,7 @@ aliases:
   - /29
   - /hiringfordevops
 youtube: 3AqNTU93gME
+transcript: hiring-for-devops
 explicit: yes
 ---
 

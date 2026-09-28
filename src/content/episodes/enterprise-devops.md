@@ -28,6 +28,7 @@ aliases:
   - /25
   - /enterprisedevops
 youtube: NbtTG3K0YrM
+transcript: enterprise-devops
 explicit: yes
 ---
 

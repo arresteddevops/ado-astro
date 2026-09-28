@@ -25,6 +25,7 @@ aliases:
   - /30
   - /microsoftdevops
 youtube: 9qfX_K-5gTk
+transcript: microsoft-devops
 explicit: yes
 ---
 

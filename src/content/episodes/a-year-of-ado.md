@@ -22,6 +22,7 @@ aliases:
   - /27
   - /ayearofado
 youtube: 8ClZXJsgpHY
+transcript: a-year-of-ado
 explicit: yes
 ---
 
