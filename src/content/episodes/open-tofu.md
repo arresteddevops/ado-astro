@@ -27,6 +27,7 @@ aliases:
   - /opentofu
   - /open-terraform
 explicit: yes
+transcript: open-tofu
 ---
 
 - [https://www.instagram.com/ziggy.odoodle/?hl=en](https://www.instagram.com/ziggy.odoodle/?hl=en)

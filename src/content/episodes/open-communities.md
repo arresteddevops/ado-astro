@@ -24,6 +24,7 @@ aliases:
   - /202
   - /opencommunities
 explicit: no
+transcript: open-communities
 ---
 
 Openness plays a significant role in propelling DevOps and organizational processes forward. This is not to imply that everything must be open, but the default should be openness unless a valid reason indicates otherwise.

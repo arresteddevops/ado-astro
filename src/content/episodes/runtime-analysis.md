@@ -24,6 +24,7 @@ aliases:
   - /197
   - /runtimeanalysis
 explicit: no
+transcript: runtime-analysis
 ---
 
 - [OWASP Top 10](https://owasp.org/Top10/)
