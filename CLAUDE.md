@@ -13,6 +13,9 @@ Read before writing code:
 - `docs/adr/` — feed rebuild, person-centric guest model, content source of truth
 - `CONTEXT.md` — the glossary; use its terms (Guest, Bio Snapshot, Alias, The Feed)
 - Design: Broadcast Pop canvas, linked in the PRD (About page copy is draft)
+- `docs/SHOW_NOTES_VOICE.md` — voice/format guide for episode show notes, read before
+  drafting or rewriting any episode body (optional context; skills that write show notes
+  reference it, nothing in the build depends on it)
 
 ## Reference: the legacy site (`../ado-hugo`, archived)
 
