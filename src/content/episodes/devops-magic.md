@@ -24,6 +24,7 @@ aliases:
   - /128
   - /devopsmagic
 explicit: yes
+transcript: devops-magic
 ---
 
 <!-- show notes -->

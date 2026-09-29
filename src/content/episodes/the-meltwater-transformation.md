@@ -25,6 +25,7 @@ aliases:
   - /138
   - /themeltwatertransformation
 explicit: no
+transcript: the-meltwater-transformation
 ---
 
 In this episode, host Jessica Kerr is joined by guests Gene Connolly and Joan Freed to discuss DevOpsiCon and their DevOps transformation at Meltwater.

@@ -24,6 +24,7 @@ sponsors:
 aliases:
   - /126
 explicit: yes
+transcript: certifications
 ---
 
 <!-- show notes -->

@@ -29,6 +29,7 @@ aliases:
   - /devopsdayschicago2019
 youtube: vJNxGCtmMfs
 explicit: yes
+transcript: devopsdays-chicago-2019
 ---
 
 Matty and Trevor chat with guests Jessie Frazelle, Veronica Hanus, and Jeff Smith in front of a live studio audience at [devopsdays Chicago 2019](https://www.devopsdays.org/events/2019-chicago/welcome/).

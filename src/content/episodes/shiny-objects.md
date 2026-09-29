@@ -28,6 +28,7 @@ aliases:
   - /shinyobjects
 youtube: hSRmUIgwbxY
 explicit: yes
+transcript: shiny-objects
 ---
 
 <!-- show notes -->

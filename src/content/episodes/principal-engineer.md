@@ -24,6 +24,7 @@ aliases:
   - /129
   - /principalengineer
 explicit: no
+transcript: principal-engineer
 ---
 
 <!-- show notes -->

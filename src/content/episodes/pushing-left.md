@@ -20,6 +20,7 @@ aliases:
   - /131
   - /pushingleft
 explicit: no
+transcript: pushing-left
 ---
 
 * [Pushing Left, Like a Boss: Part 1](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95)
