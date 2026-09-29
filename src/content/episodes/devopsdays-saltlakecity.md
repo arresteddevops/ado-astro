@@ -25,6 +25,7 @@ aliases:
   - /112
   - /devopsdayssaltlakecity
 explicit: yes
+transcript: devopsdays-saltlakecity
 ---
 
 Matty chats with Nicole Forsgren, Wes Novack, a shadowy figure known only as Chris from Qualtics, Jason Vance, and Matthew Barlocker in front of a live studio audience at [devopsdays Salt Lake City 2018](http://www.devopsdays.org/events/2018-salt-lake-city/welcome/).

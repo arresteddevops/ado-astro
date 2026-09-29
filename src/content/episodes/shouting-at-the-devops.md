@@ -23,6 +23,7 @@ aliases:
   - /121
   - /shoutingatthedevops
 explicit: no
+transcript: shouting-at-the-devops
 ---
 
 

@@ -25,6 +25,7 @@ aliases:
   - /124
   - /devopsdatabase
 explicit: no
+transcript: devops-database
 ---
 
 <!-- show notes -->

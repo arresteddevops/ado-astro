@@ -23,6 +23,7 @@ aliases:
   - /122
   - /jessicakerr
 explicit: no
+transcript: jessica-kerr
 ---
 
 [Greater Than Code](http://www.greaterthancode.com/) podcast
