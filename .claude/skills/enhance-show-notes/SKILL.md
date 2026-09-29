@@ -53,6 +53,14 @@ existing links/resources content below it, preserved.**
 - Thin transcript (very short episode, mostly music, garbled ASR)? Write a
   proportionally short body rather than padding. One or two sections is fine.
 
+Assemble with `python3 scripts/show-notes/assemble.py <slug> <prose.md>` (repo
+root, untouched episode file; `git checkout` the file first to redo one). It puts
+your prose above the existing body and converts raw-HTML lists to markdown via
+`scripts/show-notes/html2md.py`, changing markup only. Pass `--description "..."`
+where step 4 applies, and `--body <file>` with a hand-converted body when an
+episode's HTML is too messy for the converter. Keep short quoted phrases (under
+8 characters) out of the prose, since `check-quotes.mjs` mis-pairs quotes after them.
+
 ## 4. Description
 
 Only touch `description` where it is missing or a thin stub (a fragment, a
