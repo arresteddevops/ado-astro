@@ -27,6 +27,7 @@ aliases:
   - /144
   - /2019inreview
 explicit: yes
+transcript: 2019-in-review
 ---
 
 ### Favorite Episodes

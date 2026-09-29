@@ -22,6 +22,7 @@ aliases:
   - /146
   - /teamtopologies
 explicit: no
+transcript: team-topologies
 ---
 
 ### Historical Context

@@ -27,6 +27,7 @@ aliases:
   - /140
   - /kubernetesbestpractices
 explicit: no
+transcript: kubernetes-best-practices
 ---
 
 Bridget chats with the authors of [Kubernetes Best Practices](https://shop.oreilly.com/product/0636920273219.do): Brendan Burns, Eddie Villalba, Dave Strebel, and Lachlan Evenson. ([Kindle version](https://www.amazon.com/Kubernetes-Best-Practices-Blueprints-Applications-ebook-dp-B081J62KLW/dp/B081J62KLW/) available now!)

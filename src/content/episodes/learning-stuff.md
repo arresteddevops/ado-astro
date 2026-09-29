@@ -21,6 +21,7 @@ aliases:
   - /143
   - /learningstuff
 explicit: yes
+transcript: learning-stuff
 ---
 
 

@@ -21,6 +21,7 @@ aliases:
   - /147
   - /godfatherofdevops
 explicit: yes
+transcript: godfather-of-devops
 ---
 
 ### Referenced in the show
