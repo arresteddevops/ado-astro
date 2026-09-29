@@ -23,6 +23,7 @@ aliases:
   - /195
   - /databasecallsinsidethehouse
 explicit: yes
+transcript: database-calls-inside-the-house
 ---
 
 - [Arrested DevOps - The Database: The Elephant in the Room](https://www.arresteddevops.com/continuous-delivery-database/)

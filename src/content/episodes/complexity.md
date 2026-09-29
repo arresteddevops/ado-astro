@@ -22,6 +22,7 @@ sponsors:
 aliases:
   - /196
 explicit: yes
+transcript: complexity
 ---
 
 

@@ -24,6 +24,7 @@ aliases:
   - /198
   - /devopsisnotadepartment
 explicit: yes
+transcript: devops-is-not-a-department
 ---
 
 - [John Willis’s talk at DevOpsDays Atlanta 2016 on Burnout](https://www.youtube.com/watch?v=E84vWVJyi30)

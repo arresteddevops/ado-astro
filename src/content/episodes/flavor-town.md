@@ -23,6 +23,7 @@ aliases:
   - /194
   - /flavortown
 explicit: yes
+transcript: flavor-town
 ---
 
 - [Arrested DevOps - DevOps With Better Marketing with Pete Cheslock](https://www.arresteddevops.com/devops-with-better-marketing/)
