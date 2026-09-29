@@ -60,22 +60,14 @@ changing it later means updating aliases too.
 
 ## 3. Draft the show notes from the transcript
 
-Read the transcript file. Write the episode body the way existing episodes
-read (skim 2-3 recent ones in `src/content/episodes/` for tone) — H2
-section headings pulling out the actual discussion threads, not a
-chronological recap; direct quotes where they land well; skip the
-sponsor-read segments and small talk unless they're substantive. This is a
-real writing task, not a mechanical transform — read the whole transcript
-first, figure out what the episode is actually about, then write the
-version a listener who didn't hear it would want to read.
+Read the transcript file, then read `docs/SHOW_NOTES_VOICE.md` for the full
+voice/format guide (worked good and bad examples from this repo, the
+no-em-dash rule, the de-slop checklist). This is a real writing task, not a
+mechanical transform: read the whole transcript first, figure out what the
+episode is actually about, then write the version a listener who didn't
+hear it would want to read, in the voice that doc describes.
 
-Draft a 1-2 sentence `description` field the same way you'd write episode
-show-notes copy elsewhere on the site — this is what search excerpts and
-social cards pull from.
-
-**No em dashes in the show notes body or description.** Use a period,
-comma, colon, semicolon, or parentheses instead. Matty doesn't want the
-"—" character showing up in published episode copy.
+Draft the `description` field the same way, per the same voice guide.
 
 ## 4. Write the transcript content file
 
