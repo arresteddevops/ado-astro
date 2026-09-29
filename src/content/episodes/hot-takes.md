@@ -25,6 +25,7 @@ aliases:
   - /104
   - /hottakes
 explicit: yes
+transcript: hot-takes
 ---
 
 Definition of a hot take - “a piece of commentary, typically produced quickly in response to a recent event, whose primary purpose is to attract attention.”

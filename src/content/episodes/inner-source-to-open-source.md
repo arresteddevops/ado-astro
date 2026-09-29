@@ -23,6 +23,7 @@ aliases:
   - /98
   - /innersourcetoopensource
 explicit: yes
+transcript: inner-source-to-open-source
 ---
 
 Open source projects have a lot of benefits, as we all know. But sometimes it can be a real challenge to take tools and projects developed internally and open-source them, especially from a traditional enterprise. Guest Aaron Rinehart shares his journey and story with open sourcing his internal security chaos engineering tool, Chaoslingr.

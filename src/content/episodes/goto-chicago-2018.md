@@ -30,6 +30,7 @@ aliases:
   - /gotochicago2018
 youtube: rT_cPdMqg5A
 explicit: yes
+transcript: goto-chicago-2018
 ---
 
 Bridget curated the [distributed systems track at GOTO Chicago 2018](https://gotochgo.com/2018/tracks/65). In the last timeslot of the day, she gathered all the speakers from the track to discuss their topics.

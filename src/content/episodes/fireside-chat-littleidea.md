@@ -22,6 +22,7 @@ aliases:
   - /firesidechatlittleidea
 youtube: 8Cvd8sae00Q
 explicit: yes
+transcript: fireside-chat-littleidea
 ---
 
 Bridget and Matt discuss the past and future of tech with Andrew Clay Shafer.

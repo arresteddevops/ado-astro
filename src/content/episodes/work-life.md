@@ -25,6 +25,7 @@ aliases:
   - /99
   - /worklife
 explicit: yes
+transcript: work-life
 ---
 
 - [Devaluing Hard Work](https://www.devopsdays.org/events/2017-chicago/program/katie-prizy/) - Katie Prizy, DevOpsDays Chicago 2017

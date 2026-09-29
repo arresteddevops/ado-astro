@@ -23,6 +23,7 @@ aliases:
   - /alicefiresidechat
 youtube: 2rO8iGRyIGQ
 explicit: yes
+transcript: alice-fireside-chat
 ---
 
 Bridget sat down for a fireside chat with Alice Goldfuss (GitHub). No actual fires were harmed in the making of this episode.

@@ -27,6 +27,7 @@ aliases:
   - /109
   - /devopsdaysams2018
 explicit: yes
+transcript: devopsdays-ams-2018
 ---
 
 On this episode of Arrested DevOps, Matty and Bridget discuss conference speaking with participants at [devopsdays Amsterdam 2018](https://www.devopsdays.org/events/2018-amsterdam/welcome/).

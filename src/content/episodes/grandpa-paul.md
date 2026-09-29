@@ -22,6 +22,7 @@ aliases:
   - /97
   - /grandpapaul
 explicit: yes
+transcript: grandpa-paul
 ---
 
 * https://en.wikipedia.org/wiki/Cynefin_framework

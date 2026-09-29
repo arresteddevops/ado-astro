@@ -27,6 +27,7 @@ aliases:
   - /95
   - /devopsdaysmadison
 explicit: yes
+transcript: devopsdays-madison
 ---
 
 [Devopsdays Madison 2017](https://www.devopsdays.org/events/2017-madison/) was the second year for this event. With great speakers, workshops, open spaces, and sponsors, this event brought the community together to learn and share. 
