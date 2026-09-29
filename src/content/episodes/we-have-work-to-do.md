@@ -23,6 +23,7 @@ aliases:
   - /181
   - /wehaveworktodo
 explicit: yes
+transcript: we-have-work-to-do
 ---
 
 [Breaking Down Gates with Tim Banks](https://www.arresteddevops.com/breaking-down-gates/) (previous episode with Tim)

@@ -30,6 +30,7 @@ aliases:
   - /178
   - /2021inreview
 explicit: yes
+transcript: 2021-in-review
 ---
 
 ### Favorite Episodes

@@ -24,6 +24,7 @@ aliases:
   - /189
   - /cloudnativesecurity
 explicit: no
+transcript: cloud-native-security
 ---
 
 - [Sysdig 2023 Cloud-Native Security and Usage Report](https://sysdig.com/2023-cloud-native-security-and-usage-report/)

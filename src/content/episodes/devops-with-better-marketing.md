@@ -23,6 +23,7 @@ aliases:
   - /188
   - /devopswithbettermarketing
 explicit: yes
+transcript: devops-with-better-marketing
 ---
 
 - [Pete's Video Project](https://www.youtube.com/@appmap/shorts)

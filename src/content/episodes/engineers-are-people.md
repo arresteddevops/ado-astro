@@ -23,6 +23,7 @@ aliases:
   - /182
   - /engineersarepeople
 explicit: yes
+transcript: engineers-are-people
 ---
 
 - [linkedin.com/in/dagnabieda](https://www.linkedin.com/in/dagnabieda/)

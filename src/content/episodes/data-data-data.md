@@ -23,6 +23,7 @@ aliases:
   - /186
   - /datadatadata
 explicit: no
+transcript: data-data-data
 ---
 
 - [Kafka Connect tool](https://aiven.io/kafka-connect)

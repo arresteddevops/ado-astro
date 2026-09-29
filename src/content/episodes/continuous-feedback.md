@@ -22,6 +22,7 @@ aliases:
   - /183
   - /continuousfeedback
 explicit: no
+transcript: continuous-feedback
 ---
 
 Jess and Roni talk about what continous feedback: where it came from, what it looks like in the context of a dev proces, and the benefits it can bring to engineers and developers. They also discuss Roni's observability project, [Digma.ai](https://digma.ai)... and his other passion, [complicated board games.](https://boardgamegeek.com/boardgame/205716/new-angeles)
