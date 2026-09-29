@@ -26,6 +26,7 @@ aliases:
   - /feminism
   - /catswetel
 explicit: no
+transcript: cat-swetel
 ---
 
 In this episode, Jess talks with guest Cat Swetel about her career, writings, and thoughts on DevOps.

@@ -24,6 +24,7 @@ aliases:
   - /176
   - /devsecopsreality
 explicit: no
+transcript: devsecops-reality
 ---
 
 - [Matty's dog on Twitter](https://twitter.com/moxieaussie)

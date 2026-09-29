@@ -24,6 +24,7 @@ aliases:
   - /174
   - /wordsarehard
 explicit: yes
+transcript: words-are-hard
 ---
 
 - [The Best DevOps Blogs](https://draft.dev/learn/devops-blogs) (the review giving ADO 5 out of 5)

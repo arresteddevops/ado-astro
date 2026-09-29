@@ -24,6 +24,7 @@ aliases:
   - /169
   - /seasonsofcommunity
 explicit: yes
+transcript: seasons-of-community
 ---
 
 
