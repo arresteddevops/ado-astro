@@ -22,6 +22,7 @@ aliases:
   - /devopsweekly
 youtube: C82Mumc5ShE
 explicit: yes
+transcript: devops-weekly
 ---
 
 Bridget discusses Devops Weekly with Gareth Rushgrove.

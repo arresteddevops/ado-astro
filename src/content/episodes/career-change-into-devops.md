@@ -26,6 +26,7 @@ aliases:
   - /102
   - /careerchangeintodevops
 explicit: yes
+transcript: career-change-into-devops
 ---
 
 What is it like to change careers and get into tech later in life? Annie Hedgpeth and Megan Bohl tell their stories.

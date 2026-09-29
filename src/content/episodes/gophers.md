@@ -23,6 +23,7 @@ aliases:
   - /101
 youtube: SOMbbTM6PWs
 explicit: yes
+transcript: gophers
 ---
 
 Bridget discusses all things Go with Brian Ketelsen and Erik St. Martin.
