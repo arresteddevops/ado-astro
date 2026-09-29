@@ -19,6 +19,7 @@ aliases:
   - /whatisdevops
 youtube: 88iUXN5cCas
 explicit: no
+transcript: what-is-devops
 ---
 
 [DevOps – the Title Match](http://blog.lusis.org/blog/2013/06/04/devops-the-title-match/) – John Vincent’ blog post about what DevOps is and isn’t, that Matt totally read from and referred to.

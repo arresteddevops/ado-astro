@@ -23,6 +23,7 @@ aliases:
   - /23
   - /managingsystemsinthecloud
 youtube: _SddIa6iej0
+transcript: managing-systems-in-the-cloud
 explicit: yes
 ---
 

@@ -25,6 +25,7 @@ aliases:
   - /2
   - /doestestingkeepyoufrommakingahugemistake
 youtube: uVge4fkjF8w
+transcript: does-testing-keep-you-from-making-a-huge-mistake
 explicit: yes
 ---
 

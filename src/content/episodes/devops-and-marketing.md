@@ -26,6 +26,7 @@ aliases:
   - /35
   - /devopsandmarketing
 youtube: wwt03VMosIA
+transcript: devops-and-marketing
 explicit: yes
 ---
 

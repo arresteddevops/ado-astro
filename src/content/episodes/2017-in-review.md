@@ -31,6 +31,7 @@ aliases:
   - /2017inreview
 youtube: zvwoJtsJuzo
 explicit: yes
+transcript: 2017-in-review
 ---
 
 Matt, Trevor, Bridget, and Joe discuss 2017.

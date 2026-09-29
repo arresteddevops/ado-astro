@@ -29,6 +29,7 @@ aliases:
   - /73
   - /devopsdaysdfw2016
 explicit: yes
+transcript: devopsdays-dfw-2016
 ---
 
 

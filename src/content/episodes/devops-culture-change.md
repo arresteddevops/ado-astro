@@ -22,6 +22,7 @@ aliases:
   - /33
   - /devopsculturechange
 explicit: yes
+transcript: devops-culture-change
 ---
 
 <h1><strong>How to Change the Culture of an Organization</strong></h1>

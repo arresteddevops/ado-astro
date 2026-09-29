@@ -24,6 +24,7 @@ aliases:
   - /177
   - /technicalagilecoaching
 explicit: no
+transcript: technical-agile-coaching
 ---
 
 - [Emily's book](https://leanpub.com/techagilecoach)

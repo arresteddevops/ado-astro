@@ -25,6 +25,7 @@ aliases:
   - /66
   - /careerops
 youtube: iZe01eSgba8
+transcript: career-ops
 explicit: yes
 ---
 

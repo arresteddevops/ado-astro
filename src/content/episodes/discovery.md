@@ -22,6 +22,7 @@ aliases:
   - /77
 youtube: d1P7HGo4fg4
 explicit: yes
+transcript: discovery
 ---
 
 Distributed systems, service discovery, load balancing: [Service Discovery at Stripe](https://stripe.com/blog/service-discovery-at-stripe)

@@ -24,6 +24,7 @@ sponsors:
 aliases:
   - /137
 explicit: yes
+transcript: deliveryconf
 ---
 
 Matty Stratton talks with guests Ken Mugrage and Sasha Rosenbaum about their new event [DeliveryConf](https://www.deliveryconf.com/).

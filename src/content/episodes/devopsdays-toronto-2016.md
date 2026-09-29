@@ -29,6 +29,7 @@ aliases:
   - /64
   - /devopsdaystoronto2016
 explicit: yes
+transcript: devopsdays-toronto-2016
 ---
 
 [devopsdays Toronto](http://www.devopsdays.org/events/2016-toronto/)

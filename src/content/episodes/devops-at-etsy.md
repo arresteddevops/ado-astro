@@ -29,6 +29,7 @@ aliases:
   - /11
   - /devopsatetsy
 youtube: IDmqD-xuzOI
+transcript: devops-at-etsy
 explicit: yes
 ---
 

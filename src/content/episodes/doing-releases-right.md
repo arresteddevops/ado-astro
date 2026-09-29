@@ -22,6 +22,7 @@ aliases:
   - /165
   - /doingreleasesright
 explicit: yes
+transcript: doing-releases-right
 ---
 
 - [Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — System and software quality models](https://pdfs.semanticscholar.org/57a5/b99eceff9da205e244337c9f4678b5b23d25.pdf)

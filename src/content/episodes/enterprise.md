@@ -23,6 +23,7 @@ aliases:
   - /83
 youtube: 9V0bfPLeYvo
 explicit: yes
+transcript: enterprise
 ---
 
 Bridget and Matt chat about devops in a large enterprise with Bryan Liles (Capital One).

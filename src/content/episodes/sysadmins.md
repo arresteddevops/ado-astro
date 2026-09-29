@@ -26,6 +26,7 @@ sponsors:
 aliases:
   - /18
 youtube: KwdRZOcSEWk
+transcript: sysadmins
 explicit: yes
 ---
 

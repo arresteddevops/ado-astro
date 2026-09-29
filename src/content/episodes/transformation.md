@@ -23,6 +23,7 @@ sponsors:
 aliases:
   - /149
 explicit: no
+transcript: transformation
 ---
 
 - [Pareto Inefﬁcient Nash Equilibrium](https://www.slideshare.net/littleidea/devops-whats-missing-whats-next/61-Pareto_Inefcient_Nash_Equilibriumpossible_to)

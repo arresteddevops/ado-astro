@@ -22,6 +22,7 @@ aliases:
   - /kubernetessecurity
 youtube: Tbzy7FCWnGw
 explicit: no
+transcript: kubernetes-security
 ---
 
 Bridget chats with Ian Coldwater at the devops Minneapolis meetup about their KubeCon North America 2019 [keynote](https://sched.co/UdIL).

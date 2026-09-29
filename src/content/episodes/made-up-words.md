@@ -26,6 +26,7 @@ aliases:
   - /madeupwords
 youtube: RFY_8Q3pk20
 explicit: yes
+transcript: made-up-words
 ---
 
 Bridget and Matt chat with Nicole Forsgren (DORA) and Tim Gross (Joyent).

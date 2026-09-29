@@ -25,6 +25,7 @@ aliases:
   - /findingsignalinthenoise
 youtube: 6YYVayCRfgI
 explicit: yes
+transcript: finding-signal-in-the-noise
 ---
 
 * Jason's Graphite book: [Monitoring with Graphite: Tracking Dynamic Host and Application Metrics at Scale](http://shop.oreilly.com/product/0636920035794.do)

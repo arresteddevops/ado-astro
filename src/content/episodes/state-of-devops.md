@@ -26,6 +26,7 @@ aliases:
   - /135
   - /stateofdevops
 explicit: yes
+transcript: state-of-devops
 ---
 
 In this episode, hosts Jessica Kerr and Matty Stratton are joined by guests Dr. Nicole Forsgren  and Mr. Jez Humble, two of the authors of the [2019 Accelerate State of DevOps report.](https://cloud.google.com/blog/products/devops-sre/the-2019-accelerate-state-of-devops-elite-performance-productivity-and-scaling)

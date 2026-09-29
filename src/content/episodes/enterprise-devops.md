@@ -28,10 +28,9 @@ aliases:
   - /25
   - /enterprisedevops
 youtube: NbtTG3K0YrM
+transcript: enterprise-devops
 explicit: yes
 ---
-
-[Transcript](http://transcripts.castingwords.com/zvzw/211654.html)
 
 <h2>Checkouts</h2>
 <h3>Ducy</h3>

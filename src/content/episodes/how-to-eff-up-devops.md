@@ -27,10 +27,9 @@ aliases:
   - /14
   - /howtoeffupdevops
 youtube: 3Z-_aeby-3g
+transcript: how-to-eff-up-devops
 explicit: yes
 ---
-
-[Transcript](http://transcripts.castingwords.com/zvzw/211665.html)
 
 <ul>
 	<li>What are some common misconceptions about what DevOps is?</li>

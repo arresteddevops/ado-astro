@@ -23,6 +23,7 @@ aliases:
   - /148
   - /beginnerfriendlydevops
 explicit: no
+transcript: beginner-friendly-devops
 ---
 
 Check out [A Minute on the Mic](https://aminuteonthemic.com/) for bite-sized videos from experts on various topics!

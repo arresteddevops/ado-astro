@@ -26,6 +26,7 @@ aliases:
   - /yellingatcloud
 youtube: bNfAAQUQ_54
 explicit: yes
+transcript: yelling-at-cloud
 ---
 
 Bridget and Matt chat with Andrew Clay Shafer (Pivotal) and Bryan Cantrill (Joyent).

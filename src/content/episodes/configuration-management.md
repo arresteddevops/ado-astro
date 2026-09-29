@@ -25,6 +25,7 @@ aliases:
   - /9
   - /configurationmanagement
 youtube: btr9WWi8hsc
+transcript: configuration-management
 explicit: yes
 ---
 

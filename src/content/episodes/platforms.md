@@ -23,6 +23,7 @@ aliases:
   - /54
 youtube: -1qhT4hcofY
 explicit: yes
+transcript: platforms
 ---
 
 

@@ -20,6 +20,7 @@ sponsors:
 aliases:
   - /58
 explicit: yes
+transcript: openstack
 ---
 
 * [OpenStack OSOps](https://wiki.openstack.org/wiki/Osops)

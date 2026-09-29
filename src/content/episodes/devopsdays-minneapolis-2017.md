@@ -28,6 +28,7 @@ aliases:
   - /devopsdaysminneapolis2017
 youtube: nlOIxfLBok4
 explicit: yes
+transcript: devopsdays-minneapolis-2017
 ---
 
 Bridget and Matt chat about enterprise transformation and open source with guests Bryan Liles, Jessie Frazelle, and Andrew Clay Shafer, in front of a live studio audience at devopsdays Minneapolis 2017.

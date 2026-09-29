@@ -23,6 +23,7 @@ aliases:
   - /4
   - /agileanddevops
 youtube: dYzbqgACh4g
+transcript: agile-and-devops
 explicit: yes
 ---
 

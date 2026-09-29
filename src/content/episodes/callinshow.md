@@ -24,6 +24,7 @@ aliases:
   - /93
 youtube: fkCZXI8SNfk
 explicit: yes
+transcript: callinshow
 ---
 
 [Food Fight Show](http://foodfightshow.org/) and Arrested DevOps joined forces to host our first live devops call in show! We featured Dr. Nicole Forsgren to answer your DevOps questions about measuring effectiveness, ROI of DevOps initiatives, and more!

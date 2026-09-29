@@ -24,6 +24,7 @@ aliases:
   - /67
   - /chefconf2016
 youtube: U7i4JE4Zk7w
+transcript: chefconf-2016
 explicit: yes
 ---
 

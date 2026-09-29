@@ -24,6 +24,7 @@ aliases:
   - /82
 youtube: fZ4SvRqPrq0
 explicit: yes
+transcript: startups
 ---
 
 Bridget chats about startups with Charity Majors ([Honeycomb](https://honeycomb.io)) and Nicole Forsgren ([DORA](https://devops-research.com/)).

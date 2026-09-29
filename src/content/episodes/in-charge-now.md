@@ -24,6 +24,7 @@ aliases:
   - /199
   - /inchargenow
 explicit: yes
+transcript: in-charge-now
 ---
 
 - *[The First 90 Days](https://www.amazon.com/First-90-Days-Strategies-Expanded/dp/1422188612)*

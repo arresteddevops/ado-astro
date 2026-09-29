@@ -22,6 +22,7 @@ aliases:
   - /130
   - /stevenmurawski
 explicit: no
+transcript: steven-murawski
 ---
 
 Trevor chats with Steven Murawski of Microsoft about Azure DevOps, Windows Terminal and all the cool things from Microsoft Build 2019.

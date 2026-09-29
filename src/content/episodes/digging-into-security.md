@@ -22,6 +22,7 @@ aliases:
   - /204
   - /diggingintosecurity
 explicit: yes
+transcript: digging-into-security
 ---
 
 Security: the one topic that’s guaranteed to turn any DevOps conversation into a mix of fear, eye rolls, and nervous laughter. In this episode of Arrested DevOps, Matty welcomes back Kat Cosgrove to talk about the “never not hot” world of security and why it’s always lurking just over your shoulder (like that one compliance auditor who swears they’re just “observing”).

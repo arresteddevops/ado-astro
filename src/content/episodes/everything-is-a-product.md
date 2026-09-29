@@ -24,6 +24,7 @@ aliases:
   - /190
   - /everythingisaproduct
 explicit: no
+transcript: everything-is-a-product
 ---
 
 - ["Everything is a Product"](https://speaking.mattstratton.com/QVCKIX/everything-is-a-product-how-to-apply-product-management-practices-to-technology-services) - Matty’s talk

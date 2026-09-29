@@ -23,6 +23,7 @@ aliases:
   - /185
   - /platformengineering
 explicit: no
+transcript: platform-engineering
 ---
 
 - [ADO Episode - Platforms with Kelsey Hightower and Andrew Clay Shafer](https://www.arresteddevops.com/platforms/)

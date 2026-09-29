@@ -40,6 +40,7 @@ aliases:
   - /179
   - /desertedislanddevopsagain
 explicit: yes
+transcript: deserted-island-devops-again
 ---
 
 Melody: [melody.dev](https://melody.dev/)

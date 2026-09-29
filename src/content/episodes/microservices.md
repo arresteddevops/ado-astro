@@ -25,6 +25,7 @@ aliases:
   - /90
 youtube: Q0wKMKI61Lk
 explicit: yes
+transcript: microservices
 ---
 
 Bridget and Matt chat with Daphne Chong (Amazon) and Kenny Bastani (Pivotal).

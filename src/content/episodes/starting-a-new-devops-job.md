@@ -22,6 +22,7 @@ sponsors:
   - pagerduty
   - datadog
   - 10thmagnitude
+transcript: starting-a-new-devops-job
 aliases:
   - /32
   - /startinganewdevopsjob

@@ -25,6 +25,7 @@ aliases:
   - /artofmonitoringjamesturnbull
 youtube: IRGMztl1Qs8
 explicit: yes
+transcript: art-of-monitoring-james-turnbull
 ---
 
 Don't forget to check out the book itself! *[The Art of Monitoring](https://www.artofmonitoring.com/)*.

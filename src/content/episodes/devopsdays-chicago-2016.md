@@ -26,6 +26,7 @@ aliases:
   - /71
   - /devopsdayschicago2016
 explicit: yes
+transcript: devopsdays-chicago-2016
 ---
 
 

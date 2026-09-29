@@ -21,6 +21,7 @@ sponsors:
 aliases:
   - /132
 explicit: no
+transcript: protocols
 ---
 
 * Martin’s [talk on protocols](https://www.youtube.com/watch?v=A5ovSBt0-C0) from J on the Beach

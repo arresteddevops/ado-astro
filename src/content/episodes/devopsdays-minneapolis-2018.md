@@ -28,6 +28,7 @@ aliases:
   - /devopsdaysminneapolis2018
 youtube: SOe29S_q9jM
 explicit: yes
+transcript: devopsdays-minneapolis-2018
 ---
 
 Bridget and Matty chat about organizing conferences with guests Jam Leomi, Debbie Gillespie, and Christian Herro, in front of a live studio audience at [devopsdays Minneapolis 2018](http://www.devopsdays.org/events/2018-minneapolis/welcome/).

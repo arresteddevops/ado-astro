@@ -22,6 +22,7 @@ aliases:
   - /160
   - /stateofopensourcesecurity
 explicit: no
+transcript: state-of-open-source-security
 ---
 
 - Snyk's [State of Open Source Security report](https://info.snyk.io/sooss-report-2020)

@@ -27,6 +27,7 @@ aliases:
   - /150
   - /securebydesign
 explicit: no
+transcript: secure-by-design
 ---
 
 ## Secure By Design

@@ -17,6 +17,7 @@ hosts:
 sponsors:
   - chef
   - datadog
+transcript: punk-rock
 aliases:
   - /106
   - /punkrock

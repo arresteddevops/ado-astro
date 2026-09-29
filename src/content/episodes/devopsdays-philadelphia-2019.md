@@ -27,6 +27,7 @@ aliases:
   - /devopsdaysphiladelphia2019
 youtube: lZNgNVxu-cM
 explicit: yes
+transcript: devopsdays-philadelphia-2019
 ---
 
 Bridget chats with guests Peter Shannon, Jocelyn Harper, and Tim Gross in front of a live studio audience at [devopsdays Philadelphia 2019](https://www.devopsdays.org/events/2019-philadelphia/welcome/).

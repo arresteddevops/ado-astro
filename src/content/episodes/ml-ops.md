@@ -23,6 +23,7 @@ aliases:
   - /201
   - /mlops
 explicit: no
+transcript: ml-ops
 ---
 
 [Read more of Chelsea Troy's writing here!](https://chelseatroy.com/)

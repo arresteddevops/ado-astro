@@ -35,6 +35,7 @@ aliases:
   - /microsoftagain
 youtube: rsnxc1l3Fz8
 explicit: yes
+transcript: microsoft-again
 ---
 
 [DevOps Cafe w/ Jeffery Snover](http://devopscafe.org/show/2012/11/27/devops-cafe-episode-36.html) - Linux is docs based, Windows is API based

@@ -24,6 +24,7 @@ aliases:
   - /donovan-ignite18
   - /ignite2018dbrown
 explicit: yes
+transcript: ignite-2018-dbrown
 ---
 
 Trevor and Jason are joined by Donovan Brown at Microsoft Ignite 2018, and have a quick catch up on the event and the state of the DevOps world.

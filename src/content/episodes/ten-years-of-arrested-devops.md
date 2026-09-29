@@ -32,6 +32,7 @@ aliases:
   - /10yearsofarresteddevops
   - /tenyearsofarresteddevops
 explicit: yes
+transcript: ten-years-of-arrested-devops
 ---
 
 - [Every ADO Cold Open Ever](https://share.descript.com/view/WkLfG7BM9vF)

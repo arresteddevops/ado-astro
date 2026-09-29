@@ -21,6 +21,7 @@ aliases:
   - /180
   - /stilltalkingaboutsecurity
 explicit: yes
+transcript: still-talking-about-security
 ---
 
 

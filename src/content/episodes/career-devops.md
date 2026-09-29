@@ -22,6 +22,7 @@ aliases:
   - /38
   - /careerdevops
 youtube: FeKZIsrj4EM
+transcript: career-devops
 explicit: yes
 ---
 
