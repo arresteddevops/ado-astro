@@ -32,57 +32,85 @@ explicit: yes
 transcript: devops-conferences
 ---
 
-<ul>
-	<li>What was the first tech conference you attended?</li>
-	<li>What are things you get from a conference that you cannot learn other ways?</li>
-	<li>How can I maximize my value out of attending a conference?</li>
-	<li>If I’m going to a conference where I don’t know anyone, how can I still have a good time?</li>
-	<li>You both have planned conferences. What are some of the things that go into organizing that people might not be aware of?</li>
-	<li>What is your favorite conference story?</li>
-	<li>How do you learn about new events to attend?</li>
-	<li>How do you pick which events you know about to go to? There are a lot, and it can be hard to narrow down when you only have a 1-2 conference limit from an employer, or your own resources.</li>
-	<li>What was the coolest piece of “swag” you got from a conference?</li>
-	<li>Does the swag at a conference weigh in for you at all? I hear a lot of noise around the big Google events because everyone knows they are walking away with hardware.</li>
-	<li>Lets talk about conference etiquette, and discuss some of the points in <a href="http://bridgetkromhout.com/blog/2014/09/22/four-interactions-that-could-have-gone-better/" target="_blank">Bridget's article</a></li>
-</ul>
-<h2>Notes:</h2>
-<a href="http://speakerdeck.com/tduffield/introversion-and-tech-conferences" target="_blank">Introversion and Tech Conferences by Tom Duffield</a>
+## First Conferences and the Hallway Track
 
-<h2>Check Outs</h2>
-<h3>Jason</h3>
-<ul>
-	<li>Some of my favorite talks, first a couple from John Rauser:
-<ul>
-	<li><a href="http://www.youtube.com/watch?v=coNDCIMH8bk">Look at Your Data</a></li>
-	<li><a href="http://www.youtube.com/watch?v=-3dw09N5_Aw">Investigating Anomalies</a></li>
-</ul>
-</li>
-	<li>And another recent one from Kyle Kingsbury at Strangeloop:
-<ul>
-	<li><a href="http://www.youtube.com/watch?v=QdkS6ZjeR7Q">Jepsen II: Linearizable Boogaloo</a></li>
-</ul>
-</li>
-</ul>
-<h3>Bridget</h3>
-<ul>
-	<li>Local meetups on <a href="http://meetup.com">http://meetup.com</a> (and this is the Minneapolis startup I mentioned: <a href="http://congruence.io">http://congruence.io</a>)</li>
-	<li>MonkeyLectric Bike Lights: <a href="http://www.monkeylectric.com">http://www.monkeylectric.com</a></li>
-</ul>
-<h3>Pete</h3>
-<ul>
-	<li>FPM - <a href="http://github.com/jordansissel/fpm">http://github.com/jordansissel/fpm</a></li>
-	<li>Deb-S3 - <a href="http://github.com/krobertson/deb-s3">http://github.com/krobertson/deb-s3</a></li>
-	<li>STM Aero Backpacks - <a href="http://www.stmbags.com/catalog/laptop-backpacks/aero-small-laptop-backpack/">http://www.stmbags.com/catalog/laptop-backpacks/aero-small-laptop-backpack/</a></li>
-</ul>
-<h3>Trevor</h3>
-<ul>
-	<li>Borderlands the PreSequel: <a href="http://www.youtube.com/watch?v=wpgMBivKR-w">http://www.youtube.com/watch?v=wpgMBivKR-w</a> trailer video is hysterical. Whether you’re going to play or not.</li>
-	<li>Jetbrains free for students *(.edu)</li>
-	<li>Netflix spoilers <a href="http://spoilers.netflix.com/spoil-yourself" target="_blank">http://spoilers.netflix.com/spoil-yourself</a></li>
-</ul>
-<h3>Matt</h3>
-<ul>
-	<li>Tech Douchebags podcast - <a href="http://5by5.tv/tdb">http://5by5.tv/tdb</a></li>
-	<li>Spoonium (containers for Windows) - <a href="http://spoonium.net/">http://spoonium.net/</a></li>
-	<li>Columbia Treadlite 10L Backbpack - <a href="http://www.amazon.com/Columbia-Treadlite-Backpack-Black-Size/dp/B0058XJXZW">http://www.amazon.com/Columbia-Treadlite-Backpack-Black-Size/dp/B0058XJXZW</a> (hattip to Ryn Daniels <a href="http://twitter.com/beerops" target="_blank">@beerops</a>)</li>
-</ul>
+Jason Dixon of Librato, who started the Monitorama conference, Bridget Kromhout, an operations engineer at DramaFever who helps organize DevOpsDays Minneapolis, and Pete Cheslock of ThreatStack discuss why conferences are worth attending. Their first ones vary widely. Bridget's was LISA '95 as an undergraduate. Matty's was COMDEX in about 1996, which was really a trade show, and then he didn't go to another until TechEd 2008. Pete's was Surge in 2012, because earlier employers didn't see the value of sending people. Jason's was probably LinuxWorld in New York in the early 2000s.
+
+What you get that you can't get another way, Pete says, is the hallway track, the people chatting between sessions, which at many conferences "is actually the most interesting one." Jason isn't there to learn from the talks, since there's plenty of content online. He goes to meet the developers behind open source projects and have the conversation comments can't give you. Bridget's example is standing in a hallway at Velocity Santa Clara in 2013 and asking an AWS employee about her Hadoop and MongoDB problems. He turned out to have written the MongoDB on AWS white paper. She went home and re-architected everything, moved to SSDs and removed unnecessary sharding, and it cut enough off the Amazon bill that she's "pretty sure that paid for the conference plane ticket."
+
+## Networking Isn't a Dirty Word
+
+Engineers hear networking and, "if it's not dealing with routes and subnets," tune out, Pete says. But he can reach out to people he met years ago and ask if they've done something, or know someone who has. He pitches conferences to managers on recruiting: tech recruiters often receive 20 to 30% of a first-year salary, so instead of paying a recruiter $10,000 or $20,000, send engineers to conferences. He met Jason at one, they stayed in touch, and when Jason was looking, "you kind of jump the line." Trevor says meetups do the same job, and that's how he and Matty met, at an Azure meetup.
+
+## Start Your Own, or Sit at a New Table
+
+For people who don't know anyone, Jason's answer is admittedly useless: start your own conference, which is what he did to get the speakers and interactions he wanted, and he thinks the market is moving toward small, community-focused ones. Matty likes that as making the thing you want. Bridget went to Velocity Santa Clara knowing only one person, and "sat at a different table at lunch every day," looking for people with blue and pink hair, most of whom turned out to work for Etsy. Pete notes everyone at lunch is there to meet everyone else.
+
+Matty, who says he's very introverted, tweets to the conference hashtag a week or two before and follows it, so he's already met people virtually. Bridget says if you're not on Twitter, stop listening and make an account, since badges often show handles. Jason put avatars on Monitorama badges because people know his avatar and not his face, and admits he felt like an outsider at a front-end conference where everyone knew each other. Trevor mentions imposter syndrome, and Bridget's tip is that "pretty much everyone loves to talk about themselves," so ask polite questions and listen.
+
+## Leaving the Echo Chamber
+
+Bridget, Jason and Pete all find events through Twitter, and Pete worries that it's an echo chamber. At DevOpsDays Boston about 10% of the room had been to one before, and Bridget says over 80% in Minneapolis were first-timers, with a later poll at 75%. Pete found a language-specific event, Mountain West Ruby Conference, was a change of scene. He also spoke at an Agile conference where he polled the room on company size and found about 90% worked at companies of 10,000 or more, "a room full of Scrum Masters," attacking the same problems at a scale none of the panel can imagine. Bridget points to the Enterprise Scale DevOps conference for that audience.
+
+## Swag
+
+Pete has too many conference bags now that his back can't take messenger bags, and had to work hard to get a Monitorama hoodie from Jason. Jason isn't anti-swag but likes practical stuff, and as an organizer wants people to think about the landfill footprint: Monitorama's badges and lanyards are biodegradable, and he tries to talk sponsors out of excess swag. Bridget says DevOpsDays Minneapolis gave speakers small battery packs, and that DevOpsDays New York skipped t-shirts and used the money to build a well in Cambodia. Pete's suggestion is to offer donating instead of a free t-shirt at checkout, because "who needs more stuff really?"
+
+## Conference Etiquette
+
+Bridget describes a conference as a space where you're at work but not really at work, with bad Wi-Fi, alcohol, and people you don't know well, so professional boundaries get fuzzy. Her rule: have fun, but ask "would I like these people to try to recruit me for their next startup?" She also says being welcoming means not making assumptions about people, like assuming a woman must be a recruiter or an older person is trying to sell you something, and instead asking open-ended questions. Trevor has seen people ask a third party whether someone is a recruiter or an engineer, when the answer is "go talk to them."
+
+## Conference Stories
+
+Bridget got Patrick Debois to fly from Belgium for the closing keynote of DevOpsDays Minneapolis, and Andrew Clay Shafer, who couldn't attend, introduced him over a Google Hangout, so a "giant floating head" appeared on screen as a surprise. Matty spent an hour talking with Jeffrey Snover at ChefConf and told him he thought PowerShell was as readable as Perl.
+
+Jason tells of an OSCON booth demo of a failover firewall on OpenBSD, where he gave his whole spiel to someone who, as he tells it, turned out to be the creator of FreeBSD, which he only noticed when the people behind him started laughing. He also says Monitorama's diversity effort included inviting a speaker on the subject, and that the audience's reaction moved him. Pete's story is a sushi dinner in San Jose after Velocity where he realized the person across the table wrote a project he depends on, and Trevor's is being asked "are you that guy from the podcast?"
+
+- What was the first tech conference you attended?
+- What are things you get from a conference that you cannot learn other ways?
+- How can I maximize my value out of attending a conference?
+- If I’m going to a conference where I don’t know anyone, how can I still have a good time?
+- You both have planned conferences. What are some of the things that go into organizing that people might not be aware of?
+- What is your favorite conference story?
+- How do you learn about new events to attend?
+- How do you pick which events you know about to go to? There are a lot, and it can be hard to narrow down when you only have a 1-2 conference limit from an employer, or your own resources.
+- What was the coolest piece of “swag” you got from a conference?
+- Does the swag at a conference weigh in for you at all? I hear a lot of noise around the big Google events because everyone knows they are walking away with hardware.
+- Lets talk about conference etiquette, and discuss some of the points in [Bridget's article](http://bridgetkromhout.com/blog/2014/09/22/four-interactions-that-could-have-gone-better/)
+
+## Notes:
+
+- [Introversion and Tech Conferences by Tom Duffield](http://speakerdeck.com/tduffield/introversion-and-tech-conferences)
+
+## Check Outs
+
+### Jason
+
+- Some of my favorite talks, first a couple from John Rauser:
+  - [Look at Your Data](http://www.youtube.com/watch?v=coNDCIMH8bk)
+  - [Investigating Anomalies](http://www.youtube.com/watch?v=-3dw09N5_Aw)
+- And another recent one from Kyle Kingsbury at Strangeloop:
+  - [Jepsen II: Linearizable Boogaloo](http://www.youtube.com/watch?v=QdkS6ZjeR7Q)
+
+### Bridget
+
+- Local meetups on [http://meetup.com](http://meetup.com) (and this is the Minneapolis startup I mentioned: [http://congruence.io](http://congruence.io))
+- MonkeyLectric Bike Lights: [http://www.monkeylectric.com](http://www.monkeylectric.com)
+
+### Pete
+
+- FPM - [http://github.com/jordansissel/fpm](http://github.com/jordansissel/fpm)
+- Deb-S3 - [http://github.com/krobertson/deb-s3](http://github.com/krobertson/deb-s3)
+- STM Aero Backpacks - [http://www.stmbags.com/catalog/laptop-backpacks/aero-small-laptop-backpack/](http://www.stmbags.com/catalog/laptop-backpacks/aero-small-laptop-backpack/)
+
+### Trevor
+
+- Borderlands the PreSequel: [http://www.youtube.com/watch?v=wpgMBivKR-w](http://www.youtube.com/watch?v=wpgMBivKR-w) trailer video is hysterical. Whether you’re going to play or not.
+- Jetbrains free for students *(.edu)
+- Netflix spoilers [http://spoilers.netflix.com/spoil-yourself](http://spoilers.netflix.com/spoil-yourself)
+
+### Matt
+
+- Tech Douchebags podcast - [http://5by5.tv/tdb](http://5by5.tv/tdb)
+- Spoonium (containers for Windows) - [http://spoonium.net/](http://spoonium.net/)
+- Columbia Treadlite 10L Backbpack - [http://www.amazon.com/Columbia-Treadlite-Backpack-Black-Size/dp/B0058XJXZW](http://www.amazon.com/Columbia-Treadlite-Backpack-Black-Size/dp/B0058XJXZW) (hattip to Ryn Daniels [@beerops](http://twitter.com/beerops))
