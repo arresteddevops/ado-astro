@@ -25,6 +25,7 @@ aliases:
   - /151
 youtube: sygr4qZ-X8g
 explicit: no
+transcript: krustlet
 ---
 
 - [WebAssembly](https://webassembly.org/)

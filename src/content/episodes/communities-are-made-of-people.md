@@ -21,6 +21,7 @@ aliases:
   - /145
   - /communitiesaremadeofpeople
 explicit: no
+transcript: communities-are-made-of-people
 ---
 
 - "Solved" plugin for Discourse - https://meta.discourse.org/t/discourse-solved-accepted-answer-plugin/30155

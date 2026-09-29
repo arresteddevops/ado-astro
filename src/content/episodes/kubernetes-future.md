@@ -22,6 +22,7 @@ aliases:
   - /kubernetesfuture
 youtube: PKcXccvE5Fo
 explicit: no
+transcript: kubernetes-future
 ---
 
 Bridget chats with Kelsey Hightower about Kubernetes and the future.

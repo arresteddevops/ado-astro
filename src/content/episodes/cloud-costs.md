@@ -27,6 +27,7 @@ aliases:
   - /cloud-costs
   - /cloudcosts
 explicit: yes
+transcript: cloud-costs
 ---
 
 

@@ -24,6 +24,7 @@ sponsors:
 aliases:
   - /159
 explicit: yes
+transcript: retropsectives
 ---
 
 Alex's book - *[Implementing Service Level Objectives: A Practical Guide to SLIs, SLOs, and Error Budgets](https://www.amazon.com/Implementing-Service-Level-Objectives-Practical/dp/1492076813)*

@@ -28,6 +28,7 @@ aliases:
   - /helmcommunity
 youtube: WQ7_oCpP7CU
 explicit: yes
+transcript: helm-community
 ---
 
 - [Helm.sh](https://helm.sh)
