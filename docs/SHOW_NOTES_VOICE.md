@@ -56,11 +56,11 @@ What they have in common:
   a comma for a light aside, a period to split two clauses, a colon when
   the second half explains the first.
 
-## What to avoid (real examples from this repo)
+## What to avoid
 
-`digging-into-security.md` and `using-ai.md` are worked "don't do this"
-examples, not because they're broken, they build fine, but because they're
-the AI-slop version of a recap next to the two good examples above:
+These are real excerpts that were published on this site before a rewrite
+(issue #86), quoted here as frozen examples rather than links, since the
+whole point of that rewrite is that the live files stop looking like this:
 
 - **Forced triples.** "A mix of fear, eye rolls, and nervous laughter."
   "Heartfelt, funny, and sharply observant." If there are two things, say
@@ -75,6 +75,20 @@ the AI-slop version of a recap next to the two good examples above:
 - **CTA endings.** "If you've ever patched the same vulnerability three
   times in a week... this one's for you." Show notes describe the episode;
   they don't pitch it. End on content, not an audience-address hook.
+- **Generic corporate-blog voice.** "The multiplier effect." "Harmonious."
+  "Crucial," used twice in one piece. An actual `## Conclusion` header.
+  This isn't LLM-specific, it's just bad writing, but it fails the same
+  way: vague where it should be concrete.
+- **"In conclusion," and the Hallmark-card ending that follows it.** "In
+  conclusion, building a personal brand in tech is about more than just
+  showcasing your skills... you can create a personal brand that truly
+  stands out." Never signpost the ending, and never close on vague uplift.
+- **"Not just X, but Y," repeated.** One instance is a normal sentence.
+  Three in one piece is a tic. Say the thing directly instead.
+
+If a rewrite under this guide ever needs a fresh worked-bad example (this
+list going stale, or a new pattern showing up), grep recent episodes for
+the de-slop tells below before reusing an old one.
 
 ## De-slop checklist
 
