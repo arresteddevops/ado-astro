@@ -28,6 +28,7 @@ aliases:
   - /120
   - /devopsdayschicago2018
 explicit: yes
+transcript: devopsdays-chicago-2018
 ---
 
 

@@ -22,6 +22,7 @@ aliases:
   - /spang
   - /christinespang
 explicit: no
+transcript: christine-spang
 ---
 
 Matty has a chat with Christine Spang of Nylas about company culture and on-call techniques and war stories.

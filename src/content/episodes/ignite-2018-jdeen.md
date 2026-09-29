@@ -22,6 +22,7 @@ aliases:
   - /jdeen-ignite18
   - /ignite2018jdeen
 explicit: yes
+transcript: ignite-2018-jdeen
 ---
 
 Trevor is joined by Jessica Deen at Microsoft Ignite 2018, and have a quick catch up on the event and the state of the DevOps world.

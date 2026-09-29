@@ -27,6 +27,7 @@ aliases:
   - /123
   - /2018inreview
 explicit: yes
+transcript: 2018-in-review
 ---
 
 ### Favorite Episodes

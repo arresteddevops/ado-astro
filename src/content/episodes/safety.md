@@ -22,6 +22,7 @@ sponsors:
 aliases:
   - /110
 explicit: no
+transcript: safety
 ---
 
 Guests J. Paul Reed and Mary Thengvall talk about resiliency, safety, and a great new conference - [REdeploy](https://re-deploy.io)!

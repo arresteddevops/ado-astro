@@ -20,6 +20,7 @@ sponsors:
 aliases:
   - /114
 explicit: yes
+transcript: foss
 ---
 
 Matty is joined by VM (aka Vicky) Brasseur, Vice President of the Open Source Initiative, for a chat about contributing to open source software.

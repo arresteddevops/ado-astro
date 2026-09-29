@@ -31,6 +31,7 @@ aliases:
   - /devopsdayskansascity2018
   - /devopsdays-kansascity-2018
 explicit: yes
+transcript: devopsdays-kansas-city-2018
 ---
 
 Matty (with special guest host Jessica DeVita) is joined by Ana Medina, Dan Barker, Ben Clayton, and Monica Hart at DevOpsDays Kansas City 2018.
