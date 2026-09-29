@@ -23,6 +23,7 @@ aliases:
   - /191
   - /purposefulpersonalbrand
 explicit: no
+transcript: purposeful-personal-brand
 ---
 
 ## The Importance of Your Personal Brand

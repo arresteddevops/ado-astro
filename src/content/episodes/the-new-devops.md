@@ -23,6 +23,7 @@ aliases:
   - /192
   - /thenewdevops
 explicit: yes
+transcript: the-new-devops
 ---
 
 ## Links to Resources Mentioned

@@ -23,6 +23,7 @@ aliases:
   - /187
   - /itsroughoutthere
 explicit: yes
+transcript: its-rough-out-there
 ---
 
 - [Sonia Gupta and Corey Quinn - Embarrassingly Large Numbers: Salary Negotiation for Human](https://www.youtube.com/watch?v=jK6yrvsSaFs)

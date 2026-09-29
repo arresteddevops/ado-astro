@@ -23,6 +23,7 @@ aliases:
   - /184
   - /intothevoid
 explicit: yes
+transcript: into-the-void
 ---
 
 - [VOID](https://www.thevoid.community/)
