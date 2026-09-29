@@ -800,7 +800,7 @@
 
 **Bridget:** So, I mean, there's one way to find out. My favorite part of Software Defined Talk is when they're discussing Costco, okay? And I don't even go to Costco, it's just entertaining.
 
-**Matty:** So, I'm gonna put this in here. If you found the discussion of our sticker inventory interesting, please tweet us @arrestedevops and tell us so.
+**Matty:** So, I'm gonna put this in here. If you found the discussion of our sticker inventory interesting, please tweet us @ArrestedDevOps and tell us so.
 
 **Bridget:** Okay.
 
