@@ -27,6 +27,7 @@ aliases:
   - /devopsdaysminneapolis2019
 youtube: FJInO69mBIo
 explicit: yes
+transcript: devopsdays-minneapolis-2019
 ---
 
 Bridget and Matty chat with guests Liz Fong-Jones, Alice Goldfuss, and RJ Williams, in front of a live studio audience at [devopsdays Minneapolis 2019](https://www.devopsdays.org/events/2019-minneapolis/welcome/).

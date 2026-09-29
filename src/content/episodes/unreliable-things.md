@@ -25,6 +25,7 @@ aliases:
   - /127
   - /unreliablethings
 explicit: no
+transcript: unreliable-things
 ---
 
 * Mark's talk from YOW! Australia: [Principles of Reliable Systems](https://www.youtube.com/watch?v=3T2ttQjiP_o)

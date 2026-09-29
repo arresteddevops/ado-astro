@@ -29,6 +29,7 @@ aliases:
   - /136
   - /devopsdayscapetown2019
 explicit: no
+transcript: devopsdays-cape-town-2019
 ---
 
 Bridget chats with Devi Moodley, Daniel Maher, Adrian Moisey, and Cobus Bernard at [devopsdays Cape Town 2019](https://www.devopsdays.org/events/2019-cape-town/welcome/).
