@@ -13,7 +13,8 @@ images:
 guests:
   - person: tjanca
     snapshot: tjanca
-hosts: []
+hosts:
+  - mstratton
 sponsors:
   - sdt
 aliases:
