@@ -25,6 +25,7 @@ aliases:
   - /168
   - /allthingsdocker
 explicit: no
+transcript: all-things-docker
 ---
 
 - [Docker Public Roadmap](https://github.com/docker/roadmap/projects/1)

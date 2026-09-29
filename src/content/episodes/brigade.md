@@ -23,6 +23,7 @@ aliases:
   - /175
 youtube: pfMDwC6des8
 explicit: no
+transcript: brigade
 ---
 
 Bridget chats with Kent Rancourt about Brigade, a tool for running scriptable, automated tasks (in Kubernetes).

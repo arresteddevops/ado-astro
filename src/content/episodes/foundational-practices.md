@@ -24,6 +24,7 @@ aliases:
   - /172
   - /foundationalpractices
 explicit: no
+transcript: foundational-practices
 ---
 
 - *[The Art of Learning: An Inner Journey to Optimal Performance](https://smile.amazon.com/Art-Learning-Journey-Optimal-Performance/dp/0743277465)*

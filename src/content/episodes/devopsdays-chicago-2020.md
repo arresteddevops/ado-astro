@@ -32,6 +32,7 @@ aliases:
   - /162
   - /devopsdayschicago2020
 explicit: yes
+transcript: devopsdays-chicago-2020
 ---
 
 - [Matt's blog post about "howto"](https://dev.to/mattstratton/hosting-a-participant-first-conference-in-the-age-of-corona-how-to-do-it-3p2j)

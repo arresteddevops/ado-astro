@@ -32,6 +32,7 @@ aliases:
   - /166
   - /techtwitter
 explicit: yes
+transcript: tech-twitter
 ---
 
 - [The Six Main Arcs in Storytelling, as Identified by an A.I.](https://www.theatlantic.com/technology/archive/2016/07/the-six-main-arcs-in-storytelling-identified-by-a-computer/490733/)

@@ -24,6 +24,7 @@ aliases:
   - /teaandanarchy
 youtube: AGCTgs4Rd_4
 explicit: yes
+transcript: tea-and-anarchy
 ---
 
 Image credit: Tea and Anarchy, modified from [Anarchist Revolt](http://anarchistrevolt.com/?id=radicalgraphics---82)

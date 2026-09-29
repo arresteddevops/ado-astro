@@ -24,6 +24,7 @@ aliases:
   - /171
   - /drawingdevops
 explicit: yes
+transcript: drawing-devops
 ---
 
 **(episode art by [Ashton Rodenhiser](https://mindseyecreative.ca/))**

@@ -25,6 +25,7 @@ aliases:
   - /multiclusterservicemesh
 youtube: 5LIXNtcGiWk
 explicit: no
+transcript: multicluster-service-mesh
 ---
 
 - Previous ADO episode about [service mesh with Michelle Noorali and Delyan Raychev](https://www.arresteddevops.com/service-mesh/)

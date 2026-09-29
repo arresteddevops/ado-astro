@@ -30,6 +30,7 @@ aliases:
   - /164
   - /2020inreview
 explicit: yes
+transcript: 2020-in-review
 ---
 
 ### Favorite Episodes
