@@ -33,6 +33,45 @@ explicit: yes
 transcript: 2020-in-review
 ---
 
+Joe Lahey edits the year-end wrap-up and opens it with a promise of 100 percent Kubernetes-free conversation, which lasts a few minutes. Matty, Trevor, Bridget, Jessica and Jeff pick favorite episodes, look back at 2020, and then spend the last third of the episode on Babylon 5. The cold open is Bridget: "I will try to apocalypse less in the future."
+
+## Favorite Episodes and the Numbers
+
+Matty's two picks are Deserted Island DevOps, which Bridget had warned would have far too many people on one episode, and Breaking Down Gates with Tim Banks, which started as an ops conversation and "ended up talking about something else" that was better. Trevor and Jeff both pick the DevOpsDays Chicago 2020 episode, with Jeff calling the event "the best virtual event that I have attended." Jessica picks Don't Worry, Do Care with Aaron Blohowiak, about Netflix letting developers start as many services as they want: "don't worry about what it costs if this is worth it, but care how much it costs." Bridget picks Tea and Anarchy, for bringing together "overlapping, intersecting, yet disparate points of view."
+
+Matty's stats caveat is that there are "3 kinds of lies: lies, damn lies, and podcast listening statistics," so no numbers get shared. The most listened-to episode of 2020 by a wide margin was Deserted Island DevOps. Second was We're Always Learning with Patrick Debois, which was also the first episode with new co-host Jeff. Third was the communities episode with Jono Bacon. Matty's method for real listens is to cut downloads in half, and to treat downloads within 24 hours of publishing as a proxy for subscribers, since podcast apps download new episodes whether or not anyone listens. Both numbers keep growing.
+
+## Pre-Recorded Versus Live
+
+Bridget has come to like the pre-record format, which let Joe edit the KubeCon EU Helm talk as a pop-up video with commentary from the other project maintainers. For KubeCon North America, the talk was a podcast-style conversation with no slides, and about an hour and a half of footage was cut to a 35-minute slot. Jeff adds that pre-recording lowers a barrier for underrepresented and nervous speakers.
+
+Matty describes having changed position on pre-recorded versus live after a long talk with Jessica, who argued that live lets speakers reference each other's talks, and then changing back. Matty ties it to work as imagined versus work as done: in a virtual event, people tend to "pop in, do their talk, peace out," and the one exception Matty saw was Deserted Island DevOps, where all the speakers sat in Zoom together all day. Jessica says it's the only virtual conference actually attended this year. The larger point from Matty is not to copy the physical event: for DevOpsDays Chicago the rule was "I don't wanna hear a damn word about technology," and to start from outcomes. Matty predicts a virtual buffet line will appear within two months, and Jeff calls the skeuomorphic approach a failure to take advantage of new avenues. Matty says to look at small events for innovation, since "the risk profile is less" and nobody has hundreds of thousands of sponsor dollars on the line, and Deserted Island DevOps was "Austin fucking around."
+
+## What Happened in 2020
+
+
+- Trevor became a product manager, founded the Illinois Shuffleboard Association as its treasurer, learned green screening for the virtual DevOpsDays Chicago, and got a puppy on January 1st.
+- Jessica gave a keynote with Avdi at Codebeam on March 7th and 8th, closing the conference, and calls it the close of a conference speaking career, for now. Jessica now teaches workshops, including Invitation to Systems Thinking with Kent Beck.
+- At the end of 2019 Bridget announced a plan to travel less, and apologizes for "causing the apocalypse." Bridget also passed the global chair of DevOpsDays on to Matty after five years, saying it was time for the next generation of leaders.
+- Jeff finished the book Operations Anti-Patterns, DevOps Solutions, and describes the kids seeing their names in the dedication. Jeff's framing for 2020 is that "we're all in the same storm. We're not all in the same boat."
+- Matty's last in-person event was DevOpsDays New York, then a move from PagerDuty to Red Hat's transformation office, focused on state and local government, where the equivalent of "we're not Netflix" is "we're not the Department of Defense." Matty also started DevOps Party Games with Jeremy Meese, a monthly streamed game show built on custom Jackbox-style content, with a second league in a friendlier time zone planned for January.
+
+## Babylon 5
+
+Matty tweeted that listeners could ask the hosts anything for the year-end show and got one question, from Josh Zimmerman to Joe: what's the best episode of Babylon 5? The question traces back to an Ignite talk Joe gave at DevOpsDays Madison in 2016, on the most influential TV show no one had ever heard of. Joe's pitch is that it was one of the first shows with an overarching plot, running one story over five seasons. The short version, Joe says, is that it's Deep Space Nine "but good," which Trevor and Jeff push back on.
+
+Bridget tells of being asked in a job interview, "Star Wars or Star Trek? Show your work," and answering Babylon 5: Star Wars is fantasy, Star Trek is a utopian future, and Babylon 5 has a real future where dock workers strike and people are locked out of their offices for not paying rent. Joe's friend Christian Harrow replied on Twitter that the obvious answer is Severed Dreams, so Joe went with the best and worst episode of every season instead. The best picks:
+
+- Born to the Purple (season 1, episode 3)
+- The Long Twilight Struggle (season 2, episode 20)
+- And the Rock Cried Out, No Hiding Place (season 3, episode 20)
+- Moments of Transition (season 4, episode 14)
+- Day of the Dead (season 5, episode 8)
+
+The worst picks are Believers, Confessions and Lamentations, Walkabout, Racing Mars, and Phoenix Rising, the season 5 episode about the telegoths. Bridget explains that the show was rushed to wrap up its plot when cancellation looked likely, then rescued by TNT with a fifth season that had nothing left to do, and disagrees with Joe on Racing Mars. The telegoths also get flagged for lighting candles on a station where earlier episodes treated oxygen consumption as a serious concern.
+
+The episode drifts from there into vehicle-themed 90s TV (Airwolf, Knight Rider, Street Hawk), the Star Trek books Trevor keeps buying, including one on the transition to a post-scarcity society, and the planned segment on looking forward to 2021, which Matty calls "an empty dock." The wrap-up ends with Trevor's projects (a Battlestar Galactica model kit), Among Us, Bridget's Hunt a Killer boxes, online trivia and three Dungeons and Dragons campaigns.
+
 ### Favorite Episodes
 
 #### Matty
