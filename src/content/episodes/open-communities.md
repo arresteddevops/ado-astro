@@ -1,6 +1,6 @@
 ---
 title: Open Communities with Andrew Zigler
-description: Andrew Zigler (Mattermost) delves into the  world of open-source development and the unique challenges faced by an "open-first" developer community. Andrew shares his deep insights into fostering collaboration, building trust, and navigating the intricate dynamics of open-source projects.
+description: "Andrew Zigler of Mattermost and Matty talk about what makes an open-first developer community hard to run: the echo chamber, the pull of the paid staff, what can stay closed, and how to get more people advocating than just the ones with the title."
 date: 2024-02-01T17:18:43.000Z
 publishDate: 2024-02-01T17:18:43.000Z
 episodeNumber: "202"

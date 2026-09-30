@@ -1,6 +1,6 @@
 ---
 title: Digging Into Security with Kat Cosgrove
-description: "Kat Cosgrove is back to talk about everyone’s favorite party topic: security. From container vulnerabilities to the chaos of patching, Matty and Kat dig into why “never not hot” feels like security’s permanent brand. Tune in for equal parts practical insight and DevOps-flavored sarcasm."
+description: "Kat Cosgrove returns to talk with Matty about why security stays in the news, why most CVEs never get fixed, and which tools belong in every production environment. The conversation ends on burnout and the case for touching grass."
 date: 2025-08-25T17:22:54.000Z
 publishDate: 2025-08-25T17:22:54.000Z
 episodeNumber: "204"
