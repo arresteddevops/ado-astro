@@ -55,6 +55,8 @@ for (const file of listFiles(path.join(REPO_ROOT, "src/content/episodes"), ".md"
   const id = path.basename(file, ".md");
   const data = readFrontmatter(file);
   for (const alias of data.aliases ?? []) {
+    // An alias equal to the canonical path would 301 to itself (redirect loop).
+    if (alias.replace(/\/+$/, "") === `/${id}`) continue;
     addRule(alias, `/${id}/`, "alias");
   }
 }
