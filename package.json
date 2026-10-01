@@ -20,7 +20,7 @@
     "@astrojs/sitemap": "^3.7.4",
     "@plausible-analytics/tracker": "^0.4.6",
     "astro": "^7.3.5",
-    "marked": "^18.0.11",
+    "marked": "^18.0.14",
     "zod": "^4.6.5"
   },
   "allowScripts": {
