@@ -154,6 +154,7 @@ const structuredData = {
         <span class="chevron" aria-hidden="true">▸</span>
         Read the transcript
       </summary>
+      <p class="transcript-hint" hidden>Click a paragraph to jump to that point in the audio.</p>
       <button type="button" class="transcript-follow" hidden>Follow playback</button>
       <div class="transcript-body" tabindex="0">
         <TranscriptContent />
@@ -212,14 +213,16 @@ const structuredData = {
   const body = document.querySelector<HTMLElement>(".transcript-body");
   const audio = document.querySelector("audio");
   const followBtn = document.querySelector<HTMLButtonElement>(".transcript-follow");
+  const hint = document.querySelector<HTMLElement>(".transcript-hint");
 
-  if (body && audio && followBtn) {
+  if (body && audio && followBtn && hint) {
     const paras = [...body.querySelectorAll("p")].filter((p) => p.textContent?.trim());
     const marks = paras.map((p) => parseMarker(p.textContent!));
 
     if (marks.some((m) => m !== null)) {
       const times = fillTimes(marks, paras.map((p) => p.textContent!.length));
       paras.forEach((p, i) => (p.dataset.t = String(times[i])));
+      hint.hidden = false; // only advertise click-to-seek where it works
 
       const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
       let following = true;
@@ -263,7 +266,11 @@ const structuredData = {
       body.addEventListener("keydown", (e) => {
         if (["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(e.key)) pause();
       });
-      followBtn.addEventListener("click", () => setFollowing(true));
+      followBtn.addEventListener("click", () => {
+        // The button hides itself below; hand focus to the transcript so keyboard users aren't dropped to <body>.
+        body.focus({ preventScroll: true });
+        setFollowing(true);
+      });
 
       body.addEventListener("click", (e) => {
         const target = e.target as Element;
@@ -477,6 +484,13 @@ const structuredData = {
     color: var(--color-text);
     max-height: 480px;
     overflow-y: auto;
+  }
+
+  .transcript-hint {
+    margin: 12px 0 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-muted);
   }
 
   .transcript-follow {
