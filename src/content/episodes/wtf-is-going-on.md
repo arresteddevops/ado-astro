@@ -1,8 +1,8 @@
 ---
 title: WTF Is Going On with Marino Wijay
 description: "Marino Wijay joins Matty to ask the question everyone in tech is quietly panicking about: what the hell is actually going on right now. They dig into the pace of change since the zero interest rate era, the collapse of infrastructure roles into a human-plus-AI layer, and why most of what looks like a bubble is really just an accounting hack that goes back decades."
-date: 2026-10-06T06:00:00.000Z
-publishDate: 2026-10-06T06:00:00.000Z
+date: 2026-10-05T06:00:00.000Z
+publishDate: 2026-10-05T06:00:00.000Z
 episodeNumber: "208"
 podcastFile: arrested-devops-podcast-episode208.mp3
 podcastDuration: "00:36:09"
