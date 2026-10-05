@@ -20,6 +20,10 @@ aliases:
 transcript: meaningful-control
 explicit: "yes"
 ---
+Matty and Jacquie open with the caricature below, drawn at a vendor's caricature station at the first post-pandemic KubeCon. It's supposed to show the two of them fighting, since she was at Hashi and he was at Pulumi at the time. Neither of them works at those places now, so Matty figures they can be better friends.
+
+![Black marker caricature of Matty, with a big beard and long swept-back hair, and Jacquie, with long straight hair, both holding up their fists](/img/meaningful-control-caricature.jpg)
+
 ## The Holy Shit Moment and the Albatross
 
 Jacquie's definition of meaningful control has three parts: you understand the dependencies you've created and what they're tied to, you can verify that they meet your needs consistently, and you have a realistic way to change course. "How easily can we pivot if we need to, and how clear are we on what it does?" Her own first magic moment was configuration management, back when she was an intern and three people were SSHing into a few hundred VMs to run four to six commands on each, except sometimes it was seven. "I can just do this thing one place, and it happens everywhere."
