@@ -1,6 +1,6 @@
 ---
 name: draft-episode-promo
-description: Draft a staged promo campaign for an episode, in Matty's first-person voice for his personal accounts. A launch post plus three follow-ups spaced over about nine days, each written for LinkedIn, Twitter, and Bluesky. Reads the episode, its show notes, transcript, and guest data. Output stays in chat; nothing is posted or saved. See issue #117.
+description: Draft a staged promo campaign for an episode, in Matty's first-person voice for his personal accounts. A launch post plus three follow-ups spaced over about nine days, each written for LinkedIn, Twitter, and Bluesky. Reads the episode, its show notes, transcript, and guest data. Drafts are shown in chat for approval, then put on a private copy-paste page (or a file) so nothing is lost to terminal line endings. Nothing is ever posted. See issues #117 and #120.
 ---
 
 Run this when Matty wants promo posts for an episode. Argument: the episode's
@@ -150,5 +150,40 @@ whose LinkedIn or Bluesky tag has to be added manually) and a **Flags** list
 Matty said nothing so it has no reaction line, a post that amplifies a sweeping
 claim on his personal accounts).
 
-Don't post anything, don't save files, and don't schedule. If a post's hook
-doesn't land, rework it when asked.
+End by asking Matty to approve the drafts or say what to change. If a post's
+hook doesn't land, rework it when asked. Don't go to step 7 until he approves.
+
+## 7. After approval: make it copyable
+
+Copying out of the terminal mangles line endings and soft wraps, and the posts
+are gone when the session ends. Once Matty approves the drafts, and again after
+any rework, put them somewhere he can copy from:
+
+1. **Publish a private page** with the Artifact tool when it's available. One
+   HTML page per episode, one section per wave (name, date, "draws on", clip
+   cue), one card per post with the platform, a character count (against 280 for
+   Twitter and 300 for Bluesky), a **Copy** button, and a "Posted" checkbox
+   (remembered in `localStorage`, wrapped in try/catch, as a per-viewer
+   convenience only). Tag-by-hand and Flags go at the bottom.
+   - Copy must put the exact post text on the clipboard, line breaks included:
+     `navigator.clipboard.writeText` inside the click handler, falling back to
+     selecting the text if it rejects.
+   - Don't retype the posts into the page. Embed the approved text as JSON in a
+     `<script type="application/json">` block (escape `</`), render it with
+     `textContent`, and check once that the embedded text equals the approved
+     text.
+   - Use the site's look from `src/styles/tokens.css` (cream, navy, red, yellow;
+     Bricolage Grotesque and Archivo) and design light and dark. Follow the
+     Artifact tool's own quickstart guidance for the page contract.
+   - Title it `Episode <N> Promo`. Republish the same file path to keep the URL
+     when posts change. It's private, so give Matty the link.
+2. **Fallback**: if the Artifact tool isn't available, or Matty would rather
+   have a file, write `~/Downloads/ado/promo-<slug>.md` (his episode working
+   folder) with the same structure and each post in its own fenced block so
+   nothing re-wraps.
+3. **One post on request**: put the exact text on the clipboard with `pbcopy`
+   and a quoted here-doc.
+
+Never commit these to the repo; they're personal posts. Still don't post
+anything and don't schedule. Pushing drafts into a posting tool is a separate
+follow-up (see issue #120).
