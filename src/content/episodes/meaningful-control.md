@@ -1,8 +1,8 @@
 ---
 title: Meaningful Control with Jacquie Capur
 description: "Jacquie Capur, a senior developer advocate at Nebius, joins Matty to talk about keeping meaningful control over the tools you depend on: knowing what they're tied to, verifying they do the job, and having a realistic way out. The conversation runs from configuration management's first magic moment to data residency rules in healthcare, tools that change every two weeks, and the case for open models."
-date: 2026-10-12T06:00:00.000Z
-publishDate: 2026-10-12T06:00:00.000Z
+date: 2026-10-14T06:00:00.000Z
+publishDate: 2026-10-14T06:00:00.000Z
 episodeNumber: "209"
 podcastFile: arrested-devops-podcast-episode209.mp3
 podcastDuration: "00:41:18"
