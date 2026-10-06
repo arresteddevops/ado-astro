@@ -92,9 +92,14 @@ Twitter, and Bluesky post.
   - Put it in LinkedIn as its own short line. Use it on Twitter and Bluesky
     only if it fits.
 - Tag the guest on the launch wave and on any wave that quotes or credits them.
-- Show the real date for each wave as weekday plus date, computed from
-  `publishDate`'s date part, e.g.
-  `date -j -f '%Y-%m-%d' '2026-10-14' '+%a %b %d'`.
+- **Weekdays only.** Social posts go out Monday to Friday. Compute each wave's
+  date from `publishDate`'s date part plus its day offset. If that lands on a
+  Saturday or Sunday, roll it forward to the following Monday. If the move would
+  put a wave on or before the previous wave's date, push it to the next weekday
+  after that one so the waves stay in order and a day apart. Check each date's
+  weekday with `date -j -f '%Y-%m-%d' '2026-10-14' '+%a %b %d'` and show every
+  wave as weekday plus date. Say in the wave header when a date was moved, e.g.
+  `Mon Oct 12 (moved from Sat Oct 10)`.
 
 Per platform, written natively. Don't paste one post across all three, and keep
 Twitter and Bluesky different from each other:
@@ -148,7 +153,8 @@ Finish with a short **Tag by hand** list (name plus profile link for any guest
 whose LinkedIn or Bluesky tag has to be added manually) and a **Flags** list
 (profanity in a quote, a missing handle, a blank bio, a follow-up thread where
 Matty said nothing so it has no reaction line, a post that amplifies a sweeping
-claim on his personal accounts).
+claim on his personal accounts, a wave date moved off a weekend, a launch date
+that has already passed).
 
 End by asking Matty to approve the drafts or say what to change. If a post's
 hook doesn't land, rework it when asked. Don't go to step 7 until he approves.
