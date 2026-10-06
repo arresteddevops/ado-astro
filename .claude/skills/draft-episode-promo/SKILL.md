@@ -79,6 +79,18 @@ Twitter, and Bluesky post.
 - Each follow-up draws on a different show-notes thread. Don't reuse one.
 - Follow-ups never say "new episode." Say "from the episode" or "on the show,"
   since they run days later.
+- **Give each follow-up one line of Matty's own.** A reaction, a question, an
+  aside, or a related story he actually said in the episode on that thread.
+  Find it in his `**Matty:**` turns near the transcript marker. Quote him
+  verbatim (same stutter-trimming tolerance) or paraphrase closely, in first
+  person ("I asked...", "my reaction was..."). Without it the follow-ups read
+  like a neutral recap of the guest.
+  - Never invent an opinion for him. If he said nothing on that thread, leave
+    the line out and flag it.
+  - A reaction to an adjacent point is fine if what it responded to is stated
+    accurately. Don't let it read as agreement with something it wasn't about.
+  - Put it in LinkedIn as its own short line. Use it on Twitter and Bluesky
+    only if it fits.
 - Tag the guest on the launch wave and on any wave that quotes or credits them.
 - Show the real date for each wave as weekday plus date, computed from
   `publishDate`'s date part, e.g.
@@ -110,6 +122,8 @@ moment in Descript by hand when making an audiogram (issue #118).
    characters.
 3. No emoji, no hashtags, no engagement bait.
 4. Handles are normalized, and anyone without a handle is flagged.
+5. Each Matty reaction line traces to a real `**Matty:**` turn, and says only
+   what that turn was responding to.
 
 ## 6. Output
 
@@ -132,7 +146,9 @@ Clip cue: [00:23:00] start "<verbatim line>" ... end "<verbatim line>"
 
 Finish with a short **Tag by hand** list (name plus profile link for any guest
 whose LinkedIn or Bluesky tag has to be added manually) and a **Flags** list
-(profanity in a quote, a missing handle, a blank bio).
+(profanity in a quote, a missing handle, a blank bio, a follow-up thread where
+Matty said nothing so it has no reaction line, a post that amplifies a sweeping
+claim on his personal accounts).
 
 Don't post anything, don't save files, and don't schedule. If a post's hook
 doesn't land, rework it when asked.
