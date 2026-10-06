@@ -1,6 +1,6 @@
 ---
 name: draft-episode-promo
-description: Draft a staged promo campaign for an episode, in Matty's first-person voice for his personal accounts. A launch post plus three follow-ups spaced over about nine days, each written for LinkedIn, Twitter, and Bluesky. Reads the episode, its show notes, transcript, and guest data. Drafts are shown in chat for approval, then put on a private copy-paste page (or a file) so nothing is lost to terminal line endings. Nothing is ever posted. See issues #117 and #120.
+description: Draft a staged promo campaign for an episode, in Matty's first-person voice for his personal accounts. A launch post plus three follow-ups spaced over about nine days, each written for LinkedIn, Twitter, and Bluesky. Reads the episode, its show notes, transcript, and guest data. Drafts are shown in chat for approval, then put on a private copy-paste page (or a file) so nothing is lost to terminal line endings, and optionally sent to Typefully as inert planned drafts. Nothing is ever posted or scheduled for auto-publish. See issues #117 and #120.
 ---
 
 Run this when Matty wants promo posts for an episode. Argument: the episode's
@@ -190,6 +190,66 @@ any rework, put them somewhere he can copy from:
 3. **One post on request**: put the exact text on the clipboard with `pbcopy`
    and a quoted here-doc.
 
-Never commit these to the repo; they're personal posts. Still don't post
-anything and don't schedule. Pushing drafts into a posting tool is a separate
-follow-up (see issue #120).
+Never commit these to the repo; they're personal posts. This step never posts
+anything. Step 8 is the only place drafts leave the session, and it stays
+inert.
+
+## 8. Optional: send to Typefully as planned drafts
+
+Only when the `typefully` MCP tools are available (added project-only; see issue
+#120) and Matty wants the posts there. If they aren't available, skip this step
+and don't suggest workarounds.
+
+**Hard rules, from the #120 spike:**
+
+- Use `plan_at` only. A planned draft is dated but inert: it shows on the queue
+  and calendar but never publishes until Matty confirms it in Typefully.
+- **Never pass `publish_at`, with any value.** A future datetime there schedules
+  a real auto-publish, and the only guard (`confirm_publish`) covers just
+  `"now"`. Never set `confirm_publish`, `share`, `made_with_ai`, or
+  `paid_partnership`. Never call `queue_put_queue_schedule` or
+  `get_queue_schedule` (the latter creates a default row).
+- No write happens until Matty gives a **second, separate yes** to the exact list
+  below. Approving the drafts in step 6 is not approval to send them.
+
+**Procedure:**
+
+1. **Pick the account.** `list_social_sets`; if there is exactly one, use it.
+   `get_social_set_details` shows which of X, LinkedIn, and Bluesky are
+   connected. Enable only the connected ones and say so if one is missing.
+2. **Build one draft per wave**, not per post. Each `create_draft` call carries:
+   - `draft_title`: `<episode number> Wave <n>: <angle>`, e.g.
+     `208 Wave 2: Quote`.
+   - `plan_at`: the wave's date at 12:00 America/Chicago (Typefully's first
+     default queue slot), as an ISO datetime with offset. Compute it so the DST
+     switch is right:
+     `TZ=America/Chicago date -j -f '%Y-%m-%d %H:%M' '2026-10-07 12:00' '+%Y-%m-%dT%H:%M:00%z' | sed -E 's/([+-][0-9]{2})([0-9]{2})$/\1:\2/'`
+     gives `2026-10-07T12:00:00-05:00`. Show the time in the confirmation so
+     Matty can change it.
+   - `tags`: `["needs-review"]`.
+   - `scratchpad_text`: the wave's "draws on" thread, its clip cue, and any
+     flags for that wave, as plain text.
+   - `platforms`: `x`, `linkedin`, and `bluesky`, each `{"enabled": true,
+     "posts": [{"text": ...}]}` with the approved text exactly as approved
+     (single post, no thread, line breaks intact).
+3. **Skip any wave whose planned time has already passed.** `plan_at` must be in
+   the future, so compare to now and list the skipped waves instead of sending
+   them.
+4. **Don't duplicate.** `list_drafts` first, filtered to the `needs-review` tag
+   with `limit: 50` (the default is only 10), and compare titles. If a draft for
+   that wave already exists, `edit_draft` it (never with `publish_at`) instead of
+   creating a second copy.
+5. **Show the plan and stop.** A table of draft title, planned date and time,
+   platforms, and tag, plus any skipped waves. Ask Matty to say yes.
+6. **After the yes, create the drafts**, then check each response: `status` must
+   be `planned` and `publish_state` null, and the returned text must equal the
+   approved text. If any draft comes back with another status (`scheduled`,
+   `publishing`, `published`) or the text differs, stop at once and tell Matty;
+   don't try to fix it in the same breath.
+7. **Report** each draft's `private_url` so he can open and review it in
+   Typefully, and repeat the manual tags: Typefully's LinkedIn mention syntax only
+   works for company pages, so a guest's LinkedIn tag still has to be added by
+   hand. X handles are already in the text.
+
+Matty reviews and confirms each draft in Typefully himself. This skill never
+publishes anything, and never schedules anything for auto-publish.
