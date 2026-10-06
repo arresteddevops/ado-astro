@@ -1,8 +1,8 @@
 ---
 title: AI and Incidents with Sylvain Kalache
 description: "Sylvain Kalache, who runs the AI lab at Rootly, walks Matty through what AI SREs can and can't do during an incident. They get into why handing every small incident to a robot erodes the practice responders need for the big ones, and what to measure so the humans on call don't burn out."
-date: 2026-10-19T06:00:00.000Z
-publishDate: 2026-10-19T06:00:00.000Z
+date: 2026-11-03T06:00:00.000Z
+publishDate: 2026-11-03T06:00:00.000Z
 episodeNumber: "210"
 podcastFile: arrested-devops-podcast-episode210.mp3
 podcastDuration: "00:33:22"
