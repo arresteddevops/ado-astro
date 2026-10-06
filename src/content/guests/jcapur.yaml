@@ -1,0 +1,11 @@
+name: Jacquie Capur
+snapshots:
+  - key: jcapur
+    bio: ""
+    thumbnail: img/guests/jcapur.jpg
+    twitter: devopsjacquie
+    linkedin: jacquie-capur
+# TODO: stub until Jacquie returns the intake form. Fill in bio (and
+# anything else the form has) via create-guest, then set placeholder: false
+# so she shows up in the guest directory and gets a social card.
+placeholder: true

@@ -10,7 +10,9 @@ podcastBytes: 19823547
 episodeImage: episode-img/meaningful-control.jpg
 episodeBanner: episode-img/meaningful-control-banner.jpg
 images: []
-guests: [] # TODO: add { person: jcapur, snapshot: jcapur } once the guest form is back and create-guest has run
+guests:
+  - person: jcapur
+    snapshot: jcapur
 hosts:
   - mstratton
 sponsors: []
