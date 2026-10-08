@@ -154,6 +154,8 @@ const structuredData = {
         <span class="chevron" aria-hidden="true">▸</span>
         Read the transcript
       </summary>
+      <p class="transcript-hint" hidden>Click a paragraph to jump to that point in the audio.</p>
+      <button type="button" class="transcript-follow" hidden>Follow playback</button>
       <div class="transcript-body" tabindex="0">
         <TranscriptContent />
       </div>
@@ -202,6 +204,85 @@ const structuredData = {
     </section>
   )}
 </BaseLayout>
+
+<script>
+  import { parseMarker, fillTimes, findActive } from "../lib/transcript-sync";
+
+  // Issue #21: highlight the transcript paragraph being spoken, keep it in view,
+  // and click a paragraph to seek. Transcripts without [HH:MM:SS] markers are left alone.
+  const body = document.querySelector<HTMLElement>(".transcript-body");
+  const audio = document.querySelector("audio");
+  const followBtn = document.querySelector<HTMLButtonElement>(".transcript-follow");
+  const hint = document.querySelector<HTMLElement>(".transcript-hint");
+
+  if (body && audio && followBtn && hint) {
+    const paras = [...body.querySelectorAll("p")].filter((p) => p.textContent?.trim());
+    const marks = paras.map((p) => parseMarker(p.textContent!));
+
+    if (marks.some((m) => m !== null)) {
+      const times = fillTimes(marks, paras.map((p) => p.textContent!.length));
+      paras.forEach((p, i) => (p.dataset.t = String(times[i])));
+      hint.hidden = false; // only advertise click-to-seek where it works
+
+      const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+      let following = true;
+      let active = -1;
+
+      const scrollToActive = () => {
+        if (active < 0) return;
+        // .transcript-body is the scroll box, so scroll it directly (scrollIntoView would move the page).
+        const delta = paras[active].getBoundingClientRect().top - body.getBoundingClientRect().top;
+        body.scrollTo({
+          top: body.scrollTop + delta - body.clientHeight / 3,
+          behavior: reduceMotion.matches ? "auto" : "smooth",
+        });
+      };
+
+      const setFollowing = (on: boolean) => {
+        following = on;
+        followBtn.hidden = on;
+        if (on) scrollToActive();
+      };
+
+      const sync = () => {
+        const next = findActive(times, audio.currentTime);
+        if (next === active) return;
+        paras[active]?.classList.remove("is-active");
+        paras[next].classList.add("is-active");
+        active = next;
+        // A collapsed <details> has no layout to scroll; the highlight still tracks.
+        if (following && body.offsetParent) scrollToActive();
+      };
+
+      audio.addEventListener("timeupdate", sync);
+      audio.addEventListener("seeked", sync);
+
+      // Manual scrolling pauses following. These are user-intent events, so
+      // our own programmatic scrolls don't trip them.
+      const pause = () => following && setFollowing(false);
+      body.addEventListener("wheel", pause, { passive: true });
+      body.addEventListener("touchmove", pause, { passive: true });
+      body.addEventListener("pointerdown", (e) => e.target === body && pause()); // scrollbar drag
+      body.addEventListener("keydown", (e) => {
+        if (["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(e.key)) pause();
+      });
+      followBtn.addEventListener("click", () => {
+        // The button hides itself below; hand focus to the transcript so keyboard users aren't dropped to <body>.
+        body.focus({ preventScroll: true });
+        setFollowing(true);
+      });
+
+      body.addEventListener("click", (e) => {
+        const target = e.target as Element;
+        const p = target.closest<HTMLElement>("p[data-t]");
+        if (!p || target.closest("a") || window.getSelection()?.toString()) return; // links and text selection win
+        audio.currentTime = Number(p.dataset.t);
+        audio.play().catch(() => {}); // browsers can still refuse; the seek has happened either way
+        setFollowing(true);
+      });
+    }
+  }
+</script>
 
 <style>
   h1, h2 {
@@ -403,6 +484,53 @@ const structuredData = {
     color: var(--color-text);
     max-height: 480px;
     overflow-y: auto;
+  }
+
+  .transcript-hint {
+    margin: 12px 0 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .transcript-follow {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--hit-target-min);
+    margin: 12px 0 0 12px;
+    padding: 10px 18px;
+    border: 2px solid var(--color-navy);
+    border-radius: var(--radius-pill);
+    background: var(--color-yellow);
+    color: var(--color-navy);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .transcript-follow[hidden] {
+    display: none;
+  }
+
+  /* Paragraphs are rendered markdown, so scoped styles don't reach them. */
+  .transcript-body :global(p[data-t]) {
+    margin-inline: -10px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    border-left: 4px solid transparent;
+    cursor: pointer;
+  }
+
+  .transcript-body :global(p[data-t].is-active) {
+    background: color-mix(in srgb, var(--color-yellow) 35%, transparent);
+    border-left-color: var(--color-red-deep);
+  }
+
+  @media (hover: hover) {
+    .transcript-body :global(p[data-t]:hover:not(.is-active)) {
+      background: color-mix(in srgb, var(--color-navy) 6%, transparent);
+    }
   }
 
   .sponsors {
