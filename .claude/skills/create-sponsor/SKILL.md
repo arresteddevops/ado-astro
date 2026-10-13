@@ -1,6 +1,6 @@
 ---
 name: create-sponsor
-description: Add a new sponsor — src/content/sponsors/<id>.yaml plus their ad banner image, if they have one.
+description: Add a new sponsor — src/content/sponsors/<id>.yaml plus their ad banner image and logo, if they have them.
 ---
 
 The simplest of the three content-creation skills — sponsors have no
@@ -10,8 +10,9 @@ folding/snapshot model like guests do, just one file per sponsor.
 
 Ask for whatever isn't already given: sponsor name, their URL (the one to
 link out to — usually has UTM params, check a few existing files in
-`src/content/sponsors/` for the pattern), and an ad banner image if they
-have one.
+`src/content/sponsors/` for the pattern), an ad banner image if they
+have one, and **their logo** (see step 3b — without one they won't appear
+on the `/sponsorship/` wall).
 
 ## 2. Derive the id
 
@@ -31,6 +32,20 @@ If there's no ad image yet, leave the `ad` field out entirely — episode
 pages already fall back to a plain text chip for sponsors without one
 (see the sponsor-rendering logic in `src/pages/[episode].astro`).
 
+## 3b. Place the logo, if there is one
+
+The `/sponsorship/` wall shows logos only, never banner ads. A sponsor gets
+a tile on the wall only if its yaml has a `logo` that resolves to a file;
+without one it appears at all only if its id is listed in `MORE_SPONSORS`
+at the top of `src/pages/sponsorship.astro` (as a name pill). So a sponsor
+with no logo is invisible on that page by default — say so, and ask Matty
+for the logo, or whether to add them to `MORE_SPONSORS` instead.
+
+Prefer SVG, otherwise PNG. Use the dark or full-colour version — tiles are
+white, so white-on-transparent logos vanish. A horizontal wordmark lockup
+fits the 3:1 tiles best. Copy it to
+`src/assets/img/sponsors/logos/<id>.<ext>`.
+
 ## 4. Write the sponsor file
 
 `src/content/sponsors/<id>.yaml`:
@@ -39,8 +54,11 @@ pages already fall back to a plain text chip for sponsors without one
 name: <sponsor name>
 url: <their URL, omit if there isn't one yet>
 ad: img/sponsors/<id>.<ext>
+logo: /img/sponsors/logos/<id>.<ext>
 placeholder: false
 ```
+
+Omit `ad` and/or `logo` if the sponsor doesn't have that asset yet.
 
 ## 5. Add their vanity redirect
 

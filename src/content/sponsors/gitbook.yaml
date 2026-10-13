@@ -1,6 +1,5 @@
 name: gitbook
 url: https://www.gitbook.com/beta?utm_campaign=launch&utm_medium=podcast&utm_source=arrested_devops&utm_content=ad
 ad: /img/sponsors/gitbook.png
-# TEMP: Simple Icons placeholder for preview, swap for the official logo
-logo: /img/sponsors/logos/gitbook.svg
 placeholder: false
+logo: /img/sponsors/logos/gitbook.png
