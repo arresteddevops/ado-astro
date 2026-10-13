@@ -1,10 +1,35 @@
 ---
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getMiscAsset } from "../lib/images";
+
+// Prospects read this wall as "who's buying here lately", so it only shows sponsors
+// whose most recent episode is RECENT_SINCE or later (derived from episode frontmatter,
+// so new sponsors appear on their own). Older household names are listed by hand in
+// EARLIER_FEATURED; defunct/acquired ones are deliberately left off. Bump RECENT_SINCE
+// when the wall gets stale.
+const RECENT_SINCE = 2022;
+const EARLIER_FEATURED = ["datadog", "pagerduty", "chef", "circleci"];
+
+const lastSponsored = new Map<string, number>();
+for (const ep of await getCollection("episodes")) {
+  const year = ep.data.date.getUTCFullYear();
+  for (const s of ep.data.sponsors) {
+    lastSponsored.set(s.id, Math.max(year, lastSponsored.get(s.id) ?? 0));
+  }
+}
 
 const sponsors = (await getCollection("sponsors"))
   .filter((s) => !s.data.placeholder)
   .sort((a, b) => a.data.name.localeCompare(b.data.name));
+const recent = sponsors
+  .filter((s) => (lastSponsored.get(s.id) ?? 0) >= RECENT_SINCE)
+  .map((s) => {
+    const logo = getMiscAsset(s.data.logo);
+    return { ...s, logo, image: logo ?? getMiscAsset(s.data.ad) };
+  });
+const earlier = sponsors.filter((s) => EARLIER_FEATURED.includes(s.id));
 ---
 
 <BaseLayout
@@ -22,6 +47,10 @@ const sponsors = (await getCollection("sponsors"))
   </section>
 
   <section class="stats">
+    <div class="stat red">
+      <span class="number">SRE + ENG</span>
+      <span class="label">AN AUDIENCE OF SRES, SOFTWARE ENGINEERS, AND IT MANAGEMENT</span>
+    </div>
     <div class="stat yellow">
       <span class="number">8,000+</span>
       <span class="label">DOWNLOADS OVER TIME OF EACH EPISODE</span>
@@ -29,10 +58,6 @@ const sponsors = (await getCollection("sponsors"))
     <div class="stat navy">
       <span class="number">2,000+</span>
       <span class="label">SUBSCRIBERS IN THEIR PODCAST APP OF CHOICE</span>
-    </div>
-    <div class="stat red">
-      <span class="number">SRE + ENG</span>
-      <span class="label">AN AUDIENCE OF SRES, SOFTWARE ENGINEERS, AND IT MANAGEMENT</span>
     </div>
   </section>
 
@@ -87,14 +112,30 @@ const sponsors = (await getCollection("sponsors"))
     </div>
   </section>
 
-  {sponsors.length > 0 && (
+  {recent.length > 0 && (
     <section class="sponsor-list">
-      <span class="label">PREVIOUS &amp; CURRENT SPONSORS</span>
-      <div class="chips">
-        {sponsors.map((s) => (
-          s.data.url ? <a class="chip" href={s.data.url}>{s.data.name}</a> : <span class="chip">{s.data.name}</span>
-        ))}
+      <span class="label">RECENT SPONSORS</span>
+      <div class="logos">
+        {recent.map((s) => {
+          const inner = s.image
+            ? <Image src={s.image} alt={s.data.name} width={400} />
+            : s.data.name;
+          const cls = s.logo ? "logo is-logo" : "logo";
+          return s.data.url
+            ? <a class={cls} href={s.data.url}>{inner}</a>
+            : <span class={cls}>{inner}</span>;
+        })}
       </div>
+      {earlier.length > 0 && (
+        <div class="earlier">
+          <span class="label">EARLIER</span>
+          <div class="chips">
+            {earlier.map((s) => (
+              s.data.url ? <a class="chip" href={s.data.url}>{s.data.name}</a> : <span class="chip">{s.data.name}</span>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   )}
 
@@ -305,6 +346,44 @@ const sponsors = (await getCollection("sponsors"))
     font-weight: 800;
     letter-spacing: 0.1em;
     color: var(--color-text-muted);
+  }
+
+  .logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 3 / 1;
+    border: 2px solid var(--color-navy);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .logo :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* Real logos get breathing room on white; banner fallbacks stay edge to edge. */
+  .logo.is-logo {
+    background: #fff;
+    padding: 16px 24px;
+  }
+
+  .earlier {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
   }
 
   .chips {

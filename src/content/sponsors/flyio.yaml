@@ -1,4 +1,6 @@
 name: flyio
 url: https://fly.io/?utm_source=arresteddevops
 ad: /img/sponsors/flyio.png
+# TEMP: Simple Icons placeholder for preview, swap for the official logo
+logo: /img/sponsors/logos/flyio.svg
 placeholder: false

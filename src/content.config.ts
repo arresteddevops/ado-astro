@@ -88,6 +88,9 @@ const sponsors = defineCollection({
     name: z.string(),
     url: z.string().optional(),
     ad: z.string().optional(),
+    // Clean logo for the sponsorship page wall, e.g. "/img/sponsors/logos/flyio.svg"
+    // (file lives under src/assets/img/). Falls back to `ad` when absent.
+    logo: z.string().optional(),
   }),
 });
 
