@@ -83,6 +83,7 @@ Matty also points back to his recent episode with Marino Wijay, [WTF Is Going On
 ## Links to Resources Mentioned
 
 - [Ingress NGINX Retirement: What You Need to Know](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/), the Kubernetes blog announcement
+- [AI Coding Assistants](https://docs.kernel.org/process/coding-assistants.html), the Linux kernel's policy on AI-assisted contributions, the closest public document to the Linus Torvalds gatekeeping Jacquie mentions (she doesn't cite a specific source)
 - [How My Coworker Who Didn't Know 'cd' Shipped to Production](https://www.mattstratton.com/writing/how-my-coworker-who-didnt-know-cd-shipped-to-production/), Matty's post
 - *[Switch: How to Change Things When Change Is Hard](https://www.amazon.com/Switch-Dan-Heath-Chip-Heath-audiobook/dp/B0038NLX9S)*
 - [Nebius builder program](https://dev.nebius.com/builders), with credits and the online hackathon Jacquie mentions
