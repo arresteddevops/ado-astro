@@ -8,7 +8,7 @@ import { getMiscAsset } from "../lib/images";
 // no logo shows as a name pill only if it's listed in MORE_SPONSORS; anything else is
 // left off (that's how dead or defunct sponsors stay off the wall). New sponsors don't
 // appear until they get a logo or are added here.
-const MORE_SPONSORS = ["datadog", "pagerduty", "chef", "circleci", "bridgecrew", "kolide"];
+const MORE_SPONSORS = ["datadog", "pagerduty", "chef", "circleci", "bridgecrew", "kolide", "attribute", "zenhub"];
 
 const sponsors = (await getCollection("sponsors"))
   .filter((s) => !s.data.placeholder)

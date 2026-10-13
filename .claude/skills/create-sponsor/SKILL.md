@@ -51,7 +51,7 @@ fits the 3:1 tiles best. Copy it to
 `src/content/sponsors/<id>.yaml`:
 
 ```yaml
-name: <sponsor name>
+name: <sponsor name, as they write it: "PagerDuty", "Fly.io", not "pagerduty">
 url: <their URL, omit if there isn't one yet>
 ad: img/sponsors/<id>.<ext>
 logo: /img/sponsors/logos/<id>.<ext>
