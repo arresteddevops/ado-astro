@@ -1,0 +1,301 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { HANDLE_PATTERN, MAX_HEADSHOT_BYTES, MIN_HEADSHOT_SIDE } from "../lib/guestform-rules.mjs";
+
+const handleTitle = "Handle only: no @ and no link.";
+const handles = [
+  { name: "linkedin", label: "LinkedIn", placeholder: "pagnutti" },
+  { name: "github", label: "GitHub", placeholder: "mattstratton" },
+  { name: "twitter", label: "Twitter / X", placeholder: "mattstratton" },
+  { name: "bluesky", label: "Bluesky", placeholder: "name.bsky.social" },
+];
+const headshotHint = `JPG or PNG, up to ${MAX_HEADSHOT_BYTES / 1024 / 1024} MB, at least ${MIN_HEADSHOT_SIDE}px on the shorter side.`;
+---
+
+<BaseLayout title="Guest Info" description="Send us your bio, links, and headshot for your Arrested DevOps episode.">
+  <section class="intro">
+    <div class="badge">BE OUR GUEST</div>
+    <h1>Let's get your bio and face ready for the internet.</h1>
+    <p class="lede">
+      Your email is only for us. Your bio, links, and headshot get published on your guest page.
+    </p>
+  </section>
+
+  <section class="content">
+    <form
+      class="form"
+      name="guestform"
+      method="POST"
+      action="/guestform-thanks/"
+      enctype="multipart/form-data"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="guestform" />
+      <p class="honeypot" aria-hidden="true">
+        <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+      </p>
+
+      <div class="row">
+        <div class="field">
+          <label for="name">Name (required)</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email (required, never published)</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="pronouns">Pronouns</label>
+        <input id="pronouns" name="pronouns" type="text" placeholder="she/her, he/him, they/them…" />
+      </div>
+
+      <div class="field">
+        <label for="bio">Bio (required)</label>
+        <textarea id="bio" name="bio" rows="6" required aria-describedby="bio-hint"></textarea>
+        <p class="hint" id="bio-hint">Markdown links are fine, e.g. [Tiger Data](https://tigerdata.com).</p>
+      </div>
+
+      <div class="field">
+        <label for="website">Website</label>
+        <input id="website" name="website" type="url" autocomplete="url" placeholder="https://example.com" />
+      </div>
+
+      <p class="hint" id="handles-hint">
+        For these, just the handle: no @ and no link. For linkedin.com/in/pagnutti, that's pagnutti.
+      </p>
+      <div class="row wrap">
+        {
+          handles.map((h) => (
+            <div class="field">
+              <label for={h.name}>{h.label}</label>
+              <input
+                id={h.name}
+                name={h.name}
+                type="text"
+                pattern={HANDLE_PATTERN}
+                title={handleTitle}
+                aria-describedby="handles-hint"
+                placeholder={h.placeholder}
+                autocapitalize="off"
+                spellcheck="false"
+              />
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="field">
+        <label for="headshot">Headshot</label>
+        <input
+          id="headshot"
+          name="headshot"
+          type="file"
+          accept="image/jpeg,image/png"
+          aria-describedby="headshot-hint headshot-error"
+        />
+        <p class="hint" id="headshot-hint">{headshotHint}</p>
+        <p class="field-error" id="headshot-error" role="status"></p>
+      </div>
+
+      <button type="submit" class="pill submit">Send it</button>
+    </form>
+  </section>
+</BaseLayout>
+
+<script>
+  import { headshotFileProblem, headshotSizeProblem } from "../lib/guestform-rules.mjs";
+
+  const input = document.querySelector<HTMLInputElement>('input[name="headshot"]');
+  const note = document.getElementById("headshot-error");
+
+  // Native validity blocks submit; the text is for humans.
+  function show(message: string) {
+    input?.setCustomValidity(message);
+    input?.setAttribute("aria-invalid", String(message !== ""));
+    if (note) note.textContent = message;
+  }
+
+  input?.addEventListener("change", async () => {
+    // Block submit while we decode (without announcing a transient message to
+    // screen readers), then replace with the real verdict.
+    input.setCustomValidity("Checking your headshot…");
+    if (note) note.textContent = "";
+    const file = input.files?.[0];
+    if (!file) return show("");
+
+    const fileProblem = headshotFileProblem({ type: file.type, bytes: file.size });
+    if (fileProblem) return show(fileProblem);
+
+    try {
+      const bitmap = await createImageBitmap(file);
+      const { width, height } = bitmap;
+      bitmap.close();
+      // A newer pick may have replaced this one while we were decoding.
+      if (input.files?.[0] !== file) return;
+      show(headshotSizeProblem({ width, height }) ?? "");
+    } catch {
+      if (input.files?.[0] !== file) return;
+      show("We couldn't read that image. Try a JPG or PNG.");
+    }
+  });
+</script>
+
+<style>
+  h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+  }
+
+  .intro {
+    padding: 64px var(--page-padding) 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 800px;
+  }
+
+  .badge {
+    display: inline-flex;
+    background: var(--color-red-deep);
+    color: var(--color-cream);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    transform: rotate(-2deg);
+    align-self: flex-start;
+  }
+
+  h1 {
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-wrap: pretty;
+  }
+
+  .lede {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  .content {
+    padding: 24px var(--page-padding) 64px;
+    max-width: 800px;
+  }
+
+  .form {
+    border: var(--border-width) solid var(--color-navy);
+    border-radius: var(--radius-card-lg);
+    box-shadow: 8px 8px 0 var(--color-yellow);
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    background: var(--color-cream-card);
+  }
+
+  .honeypot {
+    position: absolute;
+    left: -9999px;
+  }
+
+  .row {
+    display: flex;
+    gap: 14px;
+  }
+
+  .row.wrap {
+    flex-wrap: wrap;
+  }
+
+  .row.wrap .field {
+    flex: 1 1 calc(50% - 7px);
+    min-width: 220px;
+  }
+
+  .field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  label {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: var(--color-text);
+  }
+
+  input,
+  textarea {
+    border: 2px solid var(--color-navy);
+    border-radius: 12px;
+    padding: 13px 16px;
+    /* 16px: anything smaller makes iOS Safari zoom the page on focus. */
+    font-size: 16px;
+    font-family: inherit;
+    background: var(--color-cream);
+    color: var(--color-text);
+    min-height: var(--hit-target-min);
+  }
+
+  /* The browser default placeholder grey is ~4.2:1 on cream; these carry real format guidance. */
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-text-muted);
+    opacity: 1;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 140px;
+  }
+
+  .hint {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .field-error {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--color-red-deep);
+  }
+
+  .submit {
+    align-self: flex-start;
+    background: var(--color-navy);
+    color: var(--color-cream);
+    padding: 13px 28px;
+    border: none;
+    border-radius: var(--radius-pill);
+    font-weight: 800;
+    font-size: 15px;
+    min-height: var(--hit-target-min);
+  }
+
+  @media (max-width: 900px) {
+    h1 {
+      font-size: 40px;
+    }
+
+    .row {
+      flex-direction: column;
+    }
+
+    .form {
+      padding: 24px;
+    }
+  }
+</style>

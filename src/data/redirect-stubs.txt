@@ -6,7 +6,6 @@
 /google-play-music                https://goo.gl/app/playmusic?ibi=com.google.PlayMusic&isi=691797987&ius=googleplaymusic&link=https://play.google.com/music/m/Ihj4yege3lfmp3vs5yoopgxijpi?t%3DArrested_DevOps            301!
 /playmusic                https://goo.gl/app/playmusic?ibi=com.google.PlayMusic&isi=691797987&ius=googleplaymusic&link=https://play.google.com/music/m/Ihj4yege3lfmp3vs5yoopgxijpi?t%3DArrested_DevOps            301!
 /google-play                https://goo.gl/app/playmusic?ibi=com.google.PlayMusic&isi=691797987&ius=googleplaymusic&link=https://play.google.com/music/m/Ihj4yege3lfmp3vs5yoopgxijpi?t%3DArrested_DevOps            301!
-/guestform  https://docs.google.com/forms/d/1zqG3fEyugSQLt-yKJNsPpgqDr0Akl8hD_z4DaGdzuOI/viewform?usp=send_form 301!
 /iphone	https://podcasts.apple.com/us/podcast/arrested-devops/id773888088	301!
 /itunes https://itunes.apple.com/us/podcast/arrested-devops/id773888088?mt=2&uo=4&at=11lsCi 301!
 /iTunes https://itunes.apple.com/us/podcast/arrested-devops/id773888088?mt=2&uo=4&at=11lsCi 301!

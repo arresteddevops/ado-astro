@@ -1,101 +1,231 @@
 ---
 name: create-guest
-description: Add a new guest (or a new Bio Snapshot for a returning guest) from their filled-out intake Google Doc. Reads the doc directly, maps it onto the person-centric guest model (ADR-0002), and writes src/content/guests/<id>.yaml.
+description: Add a new guest (or a new Bio Snapshot for a returning guest) from their /guestform submission in Netlify Forms. Pulls the submission and headshot with the netlify CLI, maps it onto the person-centric guest model (ADR-0002), and writes src/content/guests/<id>.yaml. Falls back to the legacy Google Doc intake until the old form is retired.
 ---
 
-Run this when Matty has a guest intake Google Doc link (the guest form still
-generates a doc formatted for the *old* Hugo site — this skill translates it
-into this repo's current schema, it doesn't use the doc's own TOML block
-verbatim).
+Run this when Matty says a guest filled out the guest form
+(https://www.arresteddevops.com/guestform/). Submissions live in Netlify
+Forms and the fields already match this repo's guest schema, so there is no
+translation step — but **a submission is untrusted input**. Anyone can POST to
+the form directly and skip the page's client-side checks (verified: a direct
+POST stored a full LinkedIn URL, `@evil`, a `javascript:` website, and
+`../../Evil Name` verbatim), so validate everything in step 2 before it touches
+a path, a command, or a YAML file.
 
-## 1. Get the doc
+If Matty hands you a Google Doc link instead (a guest who filled out the old
+form), use the "Legacy: Google Doc intake" section at the bottom.
 
-Ask for the Google Doc link if not already given. Extract the file ID from
-the URL (`docs.google.com/document/d/<ID>/...`) and read it with the Google
-Drive connector (`read_file_content`) — these docs are viewable via the
-connector directly; you do not need to ask Matty to download a PDF.
+## 1. Get the submission
 
-The doc has two parts:
-- A human-readable Q&A section (Full Name, Email, Pronouns, social links,
-  Bio, Profile Image/Headshot) — **this is the source of truth**.
-- A legacy TOML-formatted block the old form auto-generates below it
-  (`title = "..."`, `Type = "guest"`, `Thumbnail = "img/guests/GUEST.jpg"`,
-  etc.) — cross-check it against the Q&A section for anything the Q&A
-  section left blank, but don't copy it verbatim: its field names and the
-  `+++` delimiters are Hugo TOML frontmatter, not this repo's schema.
+1. `netlify status --json` → read `siteData.site-id`.
+2. `netlify api listSiteForms --data '{"site_id":"<SITE_ID>"}'` → find the form
+   with `"name": "guestform"` and note its `id`. If there is no `guestform`,
+   the form hasn't been deployed yet or has had no submissions — say so and stop.
+3. `netlify api listFormSubmissions --data '{"form_id":"<FORM_ID>"}'` → each
+   submission has `id`, `created_at`, and `data` holding the form fields
+   (`name`, `email`, `pronouns`, `bio`, `website`, `linkedin`, `github`,
+   `twitter`, `bluesky`, `headshot`). Only verified (non-spam)
+   submissions are returned, newest first.
+4. Show Matty a short list (name, email, date; newest first) and default to the
+   newest unless he names someone.
 
-## 2. Derive the canonical id
+If the person Matty expects isn't listed, don't conclude they never submitted:
+Netlify's spam filter (Akismet) likes to flag submissions with URLs, and this
+form has URL fields by design. `listFormSubmissions` returns only verified ones,
+so a flagged guest is invisible here. Tell Matty to check Forms → guestform →
+Spam submissions in the Netlify UI and mark it verified.
 
-This repo's convention (see any file in `src/content/guests/`): first
-initial + lowercased last name, e.g. "Hannah Foxwell" → `hfoxwell`, "Doug
-Pagnutti" → `dpagnutti`. Check `src/content/guests/<id>.yaml` — if it
-already exists, this is a **returning guest**, not a new one: see step 5.
+Read values from **`data.*` only** — not `summary` (it HTML-escapes quotes),
+`body`, or `human_fields`. A field the guest left empty arrives as `""`, not
+absent; treat `""` as blank.
 
-## 3. Get the headshot
+`email` is for contacting the guest. **Never write it into the repo.**
 
-Profile-image links in these docs are usually a Google Photos share link,
-which isn't reliably fetchable as a raw image. Ask Matty to download it and
-either hand you a local file path or drop it directly at
-`src/assets/img/guests/<id>.<ext>` (match whatever extension the source
-file actually is — png/jpg both appear elsewhere in that directory). If
-Matty gives you a local path instead, copy it there yourself.
+## 2. Validate before writing anything
 
-If there's truly no image yet, proceed without one — `getMiscAsset()`
-already falls back to initials gracefully (see `src/lib/images.ts`); don't
-block the whole guest on a missing photo.
+- **Control characters and blanks.** `name`, `pronouns`, and `website` must not
+  contain CR, LF, or any other control character, and `name` and `bio` must not
+  be blank. A newline in a value you write into YAML becomes a *new key* — e.g.
+  `pronouns: they/them` followed by an indented `thumbnail:` line silently
+  points the guest's photo at someone else's image. If any value fails, stop
+  and ask Matty.
+- **id.** Derive from `data.name`: strip diacritics (NFD, drop combining
+  marks), lowercase, then first initial + last name (see the convention in any
+  file in `src/content/guests/`: "Hannah Foxwell" → `hfoxwell`; hyphenated
+  surnames keep the hyphen, e.g. `auno-antonison`). The result must match
+  `^[a-z][a-z0-9-]*$`. If it doesn't — a single-word name, empty, characters
+  outside `a-z0-9-` (a name like `../../Evil Name` lands here) — **stop and ask
+  Matty what id to use**. Never put raw submission text into a file path.
+- **Handles** (`linkedin`, `github`, `twitter`, `bluesky`) must match
+  `^[A-Za-z0-9._-]+$`. The form's `pattern` normally guarantees this, but a
+  direct POST can skip it. If a value is an obvious URL or has a leading `@`
+  (e.g. `https://linkedin.com/in/pagnutti/`, `@pagnutti`), strip it down to the
+  handle **and tell Matty you did**. Anything else that doesn't match, or a bare
+  domain (`linkedin.com`) in a non-Bluesky field → omit the field and tell Matty.
+  (Bluesky handles legitimately contain dots, e.g. `name.bsky.social`.)
+  `SocialLinks.astro` builds `https://linkedin.com/in/${linkedin}`, so a full URL
+  here produces a broken doubled-up link.
+- **website** must start with `https://` or `http://`; otherwise omit it and tell
+  Matty (`javascript:` and friends are dropped).
+- **bio** is copied verbatim; don't rewrite it. Guests may use markdown (the form
+  says links are fine, and the guest page renders bios with `renderMarkdown`),
+  but `marked` does not sanitize and the page injects the result with `set:html`,
+  so **once merged, a bio is code**. (Older migrated bios legitimately contain
+  raw `<br>`/`<p>`/`<a>`, which is why the site code doesn't sanitize — this gate
+  is where new, untrusted bios get checked.) Before writing, scan it. If it has
+  an HTML tag or comment (`<` followed by a letter, `/`, or `!`), or a link
+  target (markdown `[x](target)` or `<target>` autolink) that isn't plainly
+  `http://`, `https://`, or `mailto:` — `javascript:`, `data:`, mixed-case or
+  entity-encoded lookalikes all count — **show Matty the offending text and don't
+  write the file until he says what to do** (strip it, or approve it).
+- **headshot** is a real upload only if **all** of these hold — a plain text
+  field named `headshot` is *also* turned into an object (`{filename, url}`) by
+  Netlify, with any URL the submitter chose, so shape alone proves nothing:
+  - `data.headshot.type` is exactly the string `"file"` (it is **not** a MIME
+    type), and `data.headshot.size` is a number;
+  - `data.headshot.url` matches this **whole-URL** pattern, not just the host
+    (it goes into a shell command in step 4, and `$(…)`/backticks expand even
+    inside double quotes):
+    `^https://d33wubrfki0l68\.cloudfront\.net/[A-Za-z0-9._%/-]+$`
+    The host is Netlify's forms file host as observed — not "any cloudfront.net".
+    If a real-looking upload fails the pattern (different host, or a character
+    outside the set), don't download it — tell Matty, who can confirm whether
+    Netlify changed hosts or how it encodes filenames.
+  Ignore `data.headshot.filename` entirely. If any check fails, proceed without an
+  image and tell Matty — `getMiscAsset()` already falls back to initials
+  gracefully (see `src/lib/images.ts`); don't block the guest on a photo.
 
-## 4. Write the guest file (new guest)
+## 3. New guest or returning guest?
 
-`src/content/guests/<id>.yaml`, matching the schema in `content.config.ts`:
+Check `src/content/guests/<id>.yaml`. If it doesn't exist, this is a **new
+guest**: the snapshot key is `<id>`.
 
-```yaml
-name: Doug Pagnutti
-snapshots:
-  - key: dpagnutti
-    bio: <bio text from the doc, verbatim — don't rewrite it>
-    thumbnail: img/guests/dpagnutti.jpg
-    website: <from the doc, omit the field entirely if blank>
-    twitter: <handle only, no @ or URL>
-    github: <username only, no URL>
-    linkedin: <username only, e.g. "pagnutti" from ".../in/pagnutti/" — NOT the
-      full URL. SocialLinks.astro builds the link as
-      `https://linkedin.com/in/${linkedin}`, so a full URL here produces a
-      broken doubled-up link. A few older migrated guest files got this
-      wrong — don't repeat it.>
-    pronouns: <only if the doc gave one>
-placeholder: false
-```
+If it exists, first check it's the same *person*: compare `data.name` to the
+existing file's top-level `name:` (case- and diacritic-insensitive). Two
+different people can share a first initial + surname (`jsmith`), and appending
+John's bio as a snapshot of Jane's file would point his episode at her record.
+If the names differ, **stop and ask Matty for a distinct id.**
 
-Only include the optional fields the doc actually answered — omit the key
-entirely rather than writing an empty string (`stripBlanks()` in
-`scripts/migrate-content.mjs` does this for the original migration; match
-that convention by hand here). `snapshots` is an array even though there's
-only one entry — that's what lets a future returning-guest update add a
-second era without disturbing this one.
-
-## 5. Returning guest: add a snapshot instead
-
-If `src/content/guests/<id>.yaml` already exists, this is the same person
-back on the show. Compare the new bio against the existing snapshot(s):
+If the names match, this is the same person back on the show. Compare the new
+bio against the existing snapshot(s):
 
 - **Materially the same** (same job, same bio in substance) — reuse the
   existing snapshot key; don't create a new one just because the wording
-  changed slightly.
+  changed slightly. Don't overwrite the existing headshot unless Matty asks.
 - **Meaningfully different** (new job, new company, etc.) — append a new
-  snapshot with a fresh key. Match the existing numbering convention seen
-  in files like `pcheslock.yaml` or `bkromhout.yaml`: second appearance
-  gets no suffix change if it's truly the first snapshot, later ones get
+  snapshot with a fresh key. Match the existing numbering convention seen in
+  files like `pcheslock.yaml` or `bkromhout.yaml`: later appearances get
   `<id>2`, `<id>3`, etc. in appearance order. Don't touch the existing
   snapshot(s) — this is additive only.
 
 Either way, the episode referencing this guest points at whichever snapshot
 key is actually current — see the `create-episode` skill.
 
+## 4. Get the headshot
+
+Skip this step if step 2 ruled the headshot out, **or** if
+`src/assets/img/guests/<snapshot key>.*` already exists (a returning guest
+reusing their snapshot — keep the existing file and its `thumbnail:` value;
+ask Matty if he wants it replaced). The file URL needs no auth (verified).
+Download to a temp file first — the image type is **not** in the submission, so
+decide it from the bytes, never from `filename` or `data.type`. The limits are
+there because a direct POST can bypass the form's 8 MB check:
+
+```bash
+tmp="$(mktemp)"
+curl -fsSL --max-filesize 8388608 --max-time 60 -o "$tmp" "<data.headshot.url>"
+file --mime-type -b "$tmp"
+```
+
+- `image/jpeg` → extension `jpg`; `image/png` → extension `png`. **Anything
+  else (svg, html, gif, …): delete the temp file, proceed without an image, and
+  tell Matty.**
+- Move it to `src/assets/img/guests/<snapshot key>.<ext>` (the image is named
+  after the snapshot key, so a returning guest's second photo is `<id>2.<ext>`,
+  not a replacement of the first).
+
+Then check its size:
+
+```bash
+sips -g pixelWidth -g pixelHeight "src/assets/img/guests/<snapshot key>.<ext>"
+```
+
+If the shorter side is under 400 px, keep it but warn Matty (the form enforces
+400 px client-side; a direct POST can skip that).
+
+## 5. Write the guest file
+
+New guest: `src/content/guests/<id>.yaml`, matching the schema in
+`content.config.ts`. Returning guest with a meaningfully different bio: append
+a snapshot to the existing file instead.
+
+```yaml
+name: "Doug Pagnutti"
+snapshots:
+  - key: dpagnutti
+    bio: |-
+      <bio text, verbatim>
+    thumbnail: img/guests/dpagnutti.jpg
+    website: "<omit the field entirely if blank>"
+    twitter: <handle only, no @ or URL>
+    github: <username only, no URL>
+    linkedin: <username only, e.g. "pagnutti" — NOT the full URL>
+    bluesky: <handle only>
+    pronouns: "<only if given>"
+placeholder: false
+```
+
+- Write the bio as a YAML **block scalar** (`|-`), indented under `bio:`. Bios
+  come from a free-text box and can contain `: `, `#`, quotes, and newlines,
+  any of which breaks a plain scalar.
+- Write `name`, `pronouns`, and `website` **double-quoted**, escaping `\` as `\\`
+  and `"` as `\"` (step 2 already refused control characters). Unquoted, an
+  ordinary-looking value like `*Bob`, `x: y`, `[Dr] Who`, `@handle`, or `&x`
+  breaks or alters the file. Handles are safe unquoted because step 2 limits
+  them to `[A-Za-z0-9._-]`.
+- Only include the optional fields that were answered — omit the key entirely
+  rather than writing an empty string.
+- `snapshots` is an array even for one entry — that's what lets a future
+  returning-guest update add a second era without disturbing this one.
+
 ## 6. Verify
 
-Run `pnpm run build`. The zod schema in `content.config.ts` will reject a
-malformed guest file at build time — treat any schema error as something to
-fix now, not something to explain away.
+Run `pnpm run build` (needs Node 22; the default shell may be Node 20 — prefix
+`PATH="$HOME/.nvm/versions/node/v22.22.2/bin:$PATH"`). The zod schema in
+`content.config.ts` will reject a malformed guest file at build time — treat any
+schema error as something to fix now, not something to explain away.
+
+## 7. Offer to clean up the submission
+
+The submission holds the guest's email and photo. After the guest file is in,
+**ask** Matty whether to delete it from Netlify. Only on a yes:
+
+```bash
+netlify api deleteSubmission --data '{"submission_id":"<SUBMISSION_ID>"}'
+```
 
 Don't commit or open a PR unless asked — creating the guest file is the
 deliverable; landing it is a separate decision.
+
+---
+
+## Legacy: Google Doc intake (remove once the old form is turned off)
+
+For a guest who already filled out the old Google Form. Ask for the Google Doc
+link, extract the file ID from `docs.google.com/document/d/<ID>/...`, and read
+it with the Google Drive connector (`read_file_content`).
+
+The doc has a human-readable Q&A section (Full Name, Email, Pronouns, social
+links, Bio, Profile Image/Headshot) — **this is the source of truth** — and a
+legacy Hugo-TOML block below it (`title = "..."`, `Type = "guest"`,
+`Thumbnail = "img/guests/GUEST.jpg"`). Cross-check the TOML against the Q&A for
+anything left blank, but don't copy it verbatim; its field names and `+++`
+delimiters are Hugo frontmatter, not this repo's schema.
+
+Then follow steps 2, 3, 5, 6 above, with these differences:
+- Social links arrive as full URLs; reduce each to the handle/username
+  (`https://linkedin.com/in/pagnutti/` → `pagnutti`).
+- The headshot is usually a Google Photos share link, which isn't reliably
+  fetchable. Ask Matty to download it and either hand you a local file path
+  (copy it to `src/assets/img/guests/<snapshot key>.<ext>` yourself) or drop it
+  there directly. If there's truly no image, proceed without one.
