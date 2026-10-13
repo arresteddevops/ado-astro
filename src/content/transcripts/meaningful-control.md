@@ -34,7 +34,7 @@ So y- you know, having that visibility into it and that control over like, [00:0
 
 **Jacquie:** I mean, I don't know if I wanna... It wasn't really a realization yet about control so much as, like, I think a magic moment. Like, right now, like, I think everyone had a similar feeling when they started playing with LLMs, and they started being able to help us generate some of that, like, toil, basically, getting rid of some of the toil that we don't wanna work with, which is pretty common in DevOps days conference talks.
 
-but, like, that kind of magic moment where you just plug and play, and suddenly it solved a problem. I think the very first one I had was when I was still-- I think I was an intern, actually. We were solving this [00:04:00] problem where we had, like, I, I think it was, like, between two and four hundred VMs in Zen Center, vSphere.
+but, like, that kind of magic moment where you just plug and play, and suddenly it solved a problem. I think the very first one I had was when I was still-- I think I was an intern, actually. We were solving this [00:04:00] problem where we had, like, I, I think it was, like, between two and four hundred VMs in XenCenter, vSphere.
 
 And we had to, like, manually SSH in, run four to six commands, and, it was three of us doing it, and it took us a long time to get through all the hundreds of servers and run all these commands. And, you know, of course, there's some con- inconsistencies, so sometimes it's four commands, sometimes it's seven.
 
@@ -126,7 +126,7 @@ And also, we don't have as many juniors. Like I miss them. They used to challeng
 
 So you're comparing like your own lack of knowledge at this thing that just came out, and there's so many of them that you can't do all of them the day of, right? You just can't. So you're looking at all these stories, and it looks like everyone learned Jev last night. Everyone learned, you know, the new model last night.
 
-Like I just built all these workflows with Astra that do my video editing, and suddenly Claude, 5.5 [00:16:00] Opus is better than Astra is what everyone's saying. And I just got that workflow done, right? So now everybody's like, "Okay, switch over to the new model," and I'm like, "Great." I mean, it's not that hard to switch over at least.
+Like I just built all these workflows with Astra that do my video editing, and suddenly Claude [00:16:00] Opus 5.5 is better than Astra is what everyone's saying. And I just got that workflow done, right? So now everybody's like, "Okay, switch over to the new model," and I'm like, "Great." I mean, it's not that hard to switch over at least.
 
 But it's always interesting 'cause you're kind of comparing your own friction points with everyone else's highlights.
 
