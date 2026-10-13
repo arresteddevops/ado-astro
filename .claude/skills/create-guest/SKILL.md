@@ -29,6 +29,12 @@ form), use the "Legacy: Google Doc intake" section at the bottom.
 4. Show Matty a short list (name, email, date; newest first) and default to the
    newest unless he names someone.
 
+If the person Matty expects isn't listed, don't conclude they never submitted:
+Netlify's spam filter (Akismet) likes to flag submissions with URLs, and this
+form has URL fields by design. `listFormSubmissions` returns only verified ones,
+so a flagged guest is invisible here. Tell Matty to check Forms → guestform →
+Spam submissions in the Netlify UI and mark it verified.
+
 Read values from **`data.*` only** — not `summary` (it HTML-escapes quotes),
 `body`, or `human_fields`. A field the guest left empty arrives as `""`, not
 absent; treat `""` as blank.
@@ -37,6 +43,12 @@ absent; treat `""` as blank.
 
 ## 2. Validate before writing anything
 
+- **Control characters and blanks.** `name`, `pronouns`, and `website` must not
+  contain CR, LF, or any other control character, and `name` and `bio` must not
+  be blank. A newline in a value you write into YAML becomes a *new key* — e.g.
+  `pronouns: they/them` followed by an indented `thumbnail:` line silently
+  points the guest's photo at someone else's image. If any value fails, stop
+  and ask Matty.
 - **id.** Derive from `data.name`: strip diacritics (NFD, drop combining
   marks), lowercase, then first initial + last name (see the convention in any
   file in `src/content/guests/`: "Hannah Foxwell" → `hfoxwell`; hyphenated
@@ -71,10 +83,14 @@ absent; treat `""` as blank.
   Netlify, with any URL the submitter chose, so shape alone proves nothing:
   - `data.headshot.type` is exactly the string `"file"` (it is **not** a MIME
     type), and `data.headshot.size` is a number;
-  - `data.headshot.url` is `https://` and its host is **exactly**
-    `d33wubrfki0l68.cloudfront.net` (Netlify's forms file host as observed; not
-    "any cloudfront.net"). If a real-looking upload comes from a different host,
-    don't download it — tell Matty, who can confirm Netlify changed hosts.
+  - `data.headshot.url` matches this **whole-URL** pattern, not just the host
+    (it goes into a shell command in step 4, and `$(…)`/backticks expand even
+    inside double quotes):
+    `^https://d33wubrfki0l68\.cloudfront\.net/[A-Za-z0-9._%/-]+$`
+    The host is Netlify's forms file host as observed — not "any cloudfront.net".
+    If a real-looking upload fails the pattern (different host, or a character
+    outside the set), don't download it — tell Matty, who can confirm whether
+    Netlify changed hosts or how it encodes filenames.
   Ignore `data.headshot.filename` entirely. If any check fails, proceed without an
   image and tell Matty — `getMiscAsset()` already falls back to initials
   gracefully (see `src/lib/images.ts`); don't block the guest on a photo.
@@ -84,8 +100,14 @@ absent; treat `""` as blank.
 Check `src/content/guests/<id>.yaml`. If it doesn't exist, this is a **new
 guest**: the snapshot key is `<id>`.
 
-If it exists, this is the same person back on the show. Compare the new bio
-against the existing snapshot(s):
+If it exists, first check it's the same *person*: compare `data.name` to the
+existing file's top-level `name:` (case- and diacritic-insensitive). Two
+different people can share a first initial + surname (`jsmith`), and appending
+John's bio as a snapshot of Jane's file would point his episode at her record.
+If the names differ, **stop and ask Matty for a distinct id.**
+
+If the names match, this is the same person back on the show. Compare the new
+bio against the existing snapshot(s):
 
 - **Materially the same** (same job, same bio in substance) — reuse the
   existing snapshot key; don't create a new one just because the wording
@@ -101,13 +123,17 @@ key is actually current — see the `create-episode` skill.
 
 ## 4. Get the headshot
 
-Skip this step if step 2 ruled the headshot out. The file URL needs no auth
-(verified). Download to a temp file first — the image type is **not** in the
-submission, so decide it from the bytes, never from `filename` or `data.type`:
+Skip this step if step 2 ruled the headshot out, **or** if
+`src/assets/img/guests/<snapshot key>.*` already exists (a returning guest
+reusing their snapshot — keep the existing file and its `thumbnail:` value;
+ask Matty if he wants it replaced). The file URL needs no auth (verified).
+Download to a temp file first — the image type is **not** in the submission, so
+decide it from the bytes, never from `filename` or `data.type`. The limits are
+there because a direct POST can bypass the form's 8 MB check:
 
 ```bash
 tmp="$(mktemp)"
-curl -fsSL -o "$tmp" "<data.headshot.url>"
+curl -fsSL --max-filesize 8388608 --max-time 60 -o "$tmp" "<data.headshot.url>"
 file --mime-type -b "$tmp"
 ```
 
@@ -134,24 +160,29 @@ New guest: `src/content/guests/<id>.yaml`, matching the schema in
 a snapshot to the existing file instead.
 
 ```yaml
-name: Doug Pagnutti
+name: "Doug Pagnutti"
 snapshots:
   - key: dpagnutti
     bio: |-
       <bio text, verbatim>
     thumbnail: img/guests/dpagnutti.jpg
-    website: <omit the field entirely if blank>
+    website: "<omit the field entirely if blank>"
     twitter: <handle only, no @ or URL>
     github: <username only, no URL>
     linkedin: <username only, e.g. "pagnutti" — NOT the full URL>
     bluesky: <handle only>
-    pronouns: <only if given>
+    pronouns: "<only if given>"
 placeholder: false
 ```
 
 - Write the bio as a YAML **block scalar** (`|-`), indented under `bio:`. Bios
   come from a free-text box and can contain `: `, `#`, quotes, and newlines,
   any of which breaks a plain scalar.
+- Write `name`, `pronouns`, and `website` **double-quoted**, escaping `\` as `\\`
+  and `"` as `\"` (step 2 already refused control characters). Unquoted, an
+  ordinary-looking value like `*Bob`, `x: y`, `[Dr] Who`, `@handle`, or `&x`
+  breaks or alters the file. Handles are safe unquoted because step 2 limits
+  them to `[A-Za-z0-9._-]`.
 - Only include the optional fields that were answered — omit the key entirely
   rather than writing an empty string.
 - `snapshots` is an array even for one entry — that's what lets a future
