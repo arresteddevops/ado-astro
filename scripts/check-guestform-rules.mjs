@@ -6,6 +6,7 @@ import {
   HANDLE_PATTERN,
   headshotFileProblem,
   headshotSizeProblem,
+  toHandle,
 } from "../src/lib/guestform-rules.mjs";
 
 const MB = 1024 * 1024;
@@ -34,5 +35,22 @@ for (const ok of ["mattstratton", "o.brien", "name.bsky.social", "my-handle_1", 
 for (const bad of ["@mattstratton", "https://github.com/x", "linkedin.com/in/x", "has space", "", "a/b", "x?y=1"]) {
   assert.ok(!handle.test(bad), `handle should be rejected: ${JSON.stringify(bad)}`);
 }
+
+// Pasted links and @handles are trimmed to the bare handle before the pattern runs.
+for (const [pasted, expected] of [
+  ["linkedin.com/in/jacquie-capur", "jacquie-capur"],
+  ["https://www.linkedin.com/in/jacquie-capur/", "jacquie-capur"],
+  ["https://www.linkedin.com/in/jacquie-capur?utm_source=share&utm_medium=member_ios", "jacquie-capur"],
+  ["https://github.com/gogococo", "gogococo"],
+  ["https://x.com/DevOpsJacquie#top", "DevOpsJacquie"],
+  ["https://bsky.app/profile/name.bsky.social", "name.bsky.social"],
+  ["  @mattstratton ", "mattstratton"],
+  ["mattstratton", "mattstratton"],
+  ["name.bsky.social", "name.bsky.social"],
+]) {
+  assert.equal(toHandle(pasted), expected, `toHandle(${JSON.stringify(pasted)})`);
+  assert.ok(handle.test(toHandle(pasted)), `trimmed value should pass the pattern: ${JSON.stringify(pasted)}`);
+}
+assert.ok(!handle.test(toHandle("https://")), "a bare scheme is still rejected");
 
 console.log("guestform rules: ok");

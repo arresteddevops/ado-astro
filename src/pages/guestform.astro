@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { HANDLE_PATTERN, MAX_HEADSHOT_BYTES, MIN_HEADSHOT_SIDE } from "../lib/guestform-rules.mjs";
 
-const handleTitle = "Handle only: no @ and no link.";
+const handleTitle = "Just the handle, e.g. pagnutti: letters, numbers, dots, dashes, underscores.";
 const handles = [
   { name: "linkedin", label: "LinkedIn", placeholder: "pagnutti" },
   { name: "github", label: "GitHub", placeholder: "mattstratton" },
@@ -64,7 +64,7 @@ const headshotHint = `JPG or PNG, up to ${MAX_HEADSHOT_BYTES / 1024 / 1024} MB, 
       </div>
 
       <p class="hint" id="handles-hint">
-        For these, just the handle: no @ and no link. For linkedin.com/in/pagnutti, that's pagnutti.
+        Paste your profile link or just your handle. We'll trim it down. For linkedin.com/in/pagnutti, that's pagnutti.
       </p>
       <div class="row wrap">
         {
@@ -106,7 +106,14 @@ const headshotHint = `JPG or PNG, up to ${MAX_HEADSHOT_BYTES / 1024 / 1024} MB, 
 </BaseLayout>
 
 <script>
-  import { headshotFileProblem, headshotSizeProblem } from "../lib/guestform-rules.mjs";
+  import { headshotFileProblem, headshotSizeProblem, toHandle } from "../lib/guestform-rules.mjs";
+
+  // Only the handle inputs carry a pattern. Trim on blur, before submit validates.
+  document.querySelectorAll<HTMLInputElement>("input[pattern]").forEach((el) => {
+    el.addEventListener("change", () => {
+      el.value = toHandle(el.value);
+    });
+  });
 
   const input = document.querySelector<HTMLInputElement>('input[name="headshot"]');
   const note = document.getElementById("headshot-error");

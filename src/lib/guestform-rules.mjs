@@ -12,6 +12,20 @@ export const HEADSHOT_TYPES = ["image/jpeg", "image/png"];
 export const HANDLE_PATTERN = "[A-Za-z0-9._\\-]+";
 
 /**
+ * Guests paste what they have: a profile link, an @handle. Reduce it to the
+ * bare handle so HANDLE_PATTERN only has to reject real junk.
+ * ponytail: takes the last path segment, so a deep link like
+ * linkedin.com/in/x/details/skills yields "skills"; fine for profile URLs.
+ * @param {string} value
+ * @returns {string}
+ */
+export function toHandle(value) {
+  let v = value.trim();
+  if (/[/?#]/.test(v)) v = v.split(/[?#]/)[0].split("/").filter(Boolean).pop() ?? "";
+  return v.replace(/^@/, "");
+}
+
+/**
  * Cheap checks that don't need the image decoded.
  * @param {{ type: string, bytes: number }} file
  * @returns {string | null} a message for the guest, or null if fine.
