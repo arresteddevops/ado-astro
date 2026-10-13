@@ -55,7 +55,17 @@ absent; treat `""` as blank.
   here produces a broken doubled-up link.
 - **website** must start with `https://` or `http://`; otherwise omit it and tell
   Matty (`javascript:` and friends are dropped).
-- **bio** is copied verbatim. Do not rewrite it.
+- **bio** is copied verbatim; don't rewrite it. Guests may use markdown (the form
+  says links are fine, and the guest page renders bios with `renderMarkdown`),
+  but `marked` does not sanitize and the page injects the result with `set:html`,
+  so **once merged, a bio is code**. (Older migrated bios legitimately contain
+  raw `<br>`/`<p>`/`<a>`, which is why the site code doesn't sanitize — this gate
+  is where new, untrusted bios get checked.) Before writing, scan it. If it has
+  an HTML tag or comment (`<` followed by a letter, `/`, or `!`), or a link
+  target (markdown `[x](target)` or `<target>` autolink) that isn't plainly
+  `http://`, `https://`, or `mailto:` — `javascript:`, `data:`, mixed-case or
+  entity-encoded lookalikes all count — **show Matty the offending text and don't
+  write the file until he says what to do** (strip it, or approve it).
 - **headshot** is a real upload only if **all** of these hold — a plain text
   field named `headshot` is *also* turned into an object (`{filename, url}`) by
   Netlify, with any URL the submitter chose, so shape alone proves nothing:

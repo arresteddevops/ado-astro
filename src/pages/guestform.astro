@@ -54,7 +54,8 @@ const headshotHint = `JPG or PNG, up to ${MAX_HEADSHOT_BYTES / 1024 / 1024} MB, 
 
       <div class="field">
         <label for="bio">Bio (required)</label>
-        <textarea id="bio" name="bio" rows="6" required></textarea>
+        <textarea id="bio" name="bio" rows="6" required aria-describedby="bio-hint"></textarea>
+        <p class="hint" id="bio-hint">Markdown links are fine, e.g. [Tiger Data](https://tigerdata.com).</p>
       </div>
 
       <div class="field">
