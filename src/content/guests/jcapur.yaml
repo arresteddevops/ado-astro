@@ -1,11 +1,11 @@
-name: Jacquie Capur
+name: "Jacquie Capur"
 snapshots:
   - key: jcapur
-    bio: ""
+    bio: |-
+      Jacquie Capur is a Senior Developer Advocate at Nebius, where she gets to build cool things with AI. Her work spans cloud and infrastructure, experiments with physical AI and robots, and all the models in between. She’s been building since 2015, working across multicloud platforms, Infrastructure as Code, and compliance-grade environments. A frequent speaker at AWS re:Invent, HashiConf, DevOpsDays, and the Grace Hopper Celebration, Jacquie shares practical, real-world lessons from building, experimenting, and shipping under pressure.
     thumbnail: img/guests/jcapur.jpg
-    twitter: devopsjacquie
+    twitter: DevOpsJacquie
+    github: gogococo
     linkedin: jacquie-capur
-# TODO: stub until Jacquie returns the intake form. Fill in bio (and
-# anything else the form has) via create-guest, then set placeholder: false
-# so she shows up in the guest directory and gets a social card.
-placeholder: true
+    pronouns: "She/her"
+placeholder: false
