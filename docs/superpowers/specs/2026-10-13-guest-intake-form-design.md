@@ -112,20 +112,37 @@ The Google-Doc steps are replaced. Keep a short **legacy doc fallback** in the
 skill until the old Google Form is turned off, so anyone who already filled it
 out isn't stranded; remove it as a follow-up then.
 
-## Unverified assumptions (verify before writing the skill steps)
+## Verified assumptions (2026-10-13, on deploy-preview-125, dummy submissions)
 
-Needs a real submission, so test on a deploy preview with a dummy one:
+Netlify registered the `guestform` form from the preview deploy, with all eleven
+fields (`headshot` as type `file`, honeypot on). It strips `data-netlify` from
+the served HTML after registering — expected, not a bug.
 
-1. The shape of the file object in a submission (expected
-   `{url, filename, size, type}`).
-2. Whether the file URL requires auth or expires — if it needs a token, skill
-   step 4 changes (fetch with credentials), the flow doesn't.
-3. Whether `/guestform/` serving as a static page behaves identically to the
-   forced redirect it replaces for anyone with the old link (it should; confirm
-   on the preview).
-4. Whether the form named in the issue (`1FAIpQLSe…`) and the one the stub
-   points to (`1zqG…`) are the same Google Form. Doesn't block the build; matters
-   only for knowing which form to turn off later.
+1. **File object shape — differs from what was expected.** A real upload is
+   `{filename, type: "file", size, url}`. `type` is the literal string `"file"`,
+   **not** a MIME type, so the image type cannot be read from the submission; it
+   must be determined from the downloaded bytes (`file --mime-type -b`).
+2. **URL host and auth.** The file URL is on `d33wubrfki0l68.cloudfront.net` (not
+   a netlify.com/netlify.app host) and downloads with a plain unauthenticated
+   `curl` (200, `image/png`, byte-identical to the original). Expiry was not
+   observed; the skill downloads immediately.
+3. **A forged `headshot` is also an object.** A plain text field named `headshot`
+   comes back as `{filename, url}` with no `type` and no `size`, and any URL the
+   submitter chose. The only reliable discriminators of a real upload are
+   `type === "file"`, a numeric `size`, and the exact Netlify forms host above —
+   an allowlist of the exact host, not all of `cloudfront.net`.
+4. **Nothing is validated server-side.** A direct POST stored a full LinkedIn URL,
+   `@evil`, a `javascript:` website, and `../../Evil Name` verbatim. The skill must
+   validate everything (as already planned). Blank fields arrive as `""`, not
+   absent. `summary` HTML-escapes quotes; read `data.*`, not `summary`/`body`.
+5. **`/guestform` (no slash)** 301s to `/guestform/` (Netlify's trailing-slash
+   normalization), not to Google; `/guestform/` serves the page (200).
+6. **The two Google Forms** (`1FAIpQLSe…` from the issue, `1zqG…` from the old
+   redirect) both have the title "Arrested DevOps Guest Form"; treated as the same
+   form. Doesn't block anything; tells us which form to turn off later.
+
+Not verified: the headshot script's behavior in a real browser (browser tooling
+failed during authoring; to be checked by a human on the preview).
 
 ## Manual steps (not code)
 
