@@ -4,7 +4,7 @@ import { HANDLE_PATTERN, MAX_HEADSHOT_BYTES, MIN_HEADSHOT_SIDE } from "../lib/gu
 
 const handleTitle = "Handle only: no @ and no link.";
 const handles = [
-  { name: "linkedin", label: "LinkedIn", placeholder: "pagnutti (from linkedin.com/in/pagnutti)" },
+  { name: "linkedin", label: "LinkedIn", placeholder: "pagnutti" },
   { name: "github", label: "GitHub", placeholder: "mattstratton" },
   { name: "twitter", label: "Twitter / X", placeholder: "mattstratton" },
   { name: "bluesky", label: "Bluesky", placeholder: "name.bsky.social" },
@@ -59,10 +59,12 @@ const headshotHint = `JPG or PNG, up to ${MAX_HEADSHOT_BYTES / 1024 / 1024} MB, 
 
       <div class="field">
         <label for="website">Website</label>
-        <input id="website" name="website" type="url" placeholder="https://example.com" />
+        <input id="website" name="website" type="url" autocomplete="url" placeholder="https://example.com" />
       </div>
 
-      <p class="hint">For these, just the handle: no @ and no link.</p>
+      <p class="hint" id="handles-hint">
+        For these, just the handle: no @ and no link. For linkedin.com/in/pagnutti, that's pagnutti.
+      </p>
       <div class="row wrap">
         {
           handles.map((h) => (
@@ -74,6 +76,7 @@ const headshotHint = `JPG or PNG, up to ${MAX_HEADSHOT_BYTES / 1024 / 1024} MB, 
                 type="text"
                 pattern={HANDLE_PATTERN}
                 title={handleTitle}
+                aria-describedby="handles-hint"
                 placeholder={h.placeholder}
                 autocapitalize="off"
                 spellcheck="false"
@@ -93,7 +96,7 @@ const headshotHint = `JPG or PNG, up to ${MAX_HEADSHOT_BYTES / 1024 / 1024} MB, 
           aria-describedby="headshot-hint headshot-error"
         />
         <p class="hint" id="headshot-hint">{headshotHint}</p>
-        <p class="field-error" id="headshot-error" role="alert"></p>
+        <p class="field-error" id="headshot-error" role="status"></p>
       </div>
 
       <button type="submit" class="pill submit">Send it</button>
@@ -110,12 +113,15 @@ const headshotHint = `JPG or PNG, up to ${MAX_HEADSHOT_BYTES / 1024 / 1024} MB, 
   // Native validity blocks submit; the text is for humans.
   function show(message: string) {
     input?.setCustomValidity(message);
+    input?.setAttribute("aria-invalid", String(message !== ""));
     if (note) note.textContent = message;
   }
 
   input?.addEventListener("change", async () => {
-    // Block submit while we decode, then replace with the real verdict.
-    show("Checking your headshot…");
+    // Block submit while we decode (without announcing a transient message to
+    // screen readers), then replace with the real verdict.
+    input.setCustomValidity("Checking your headshot…");
+    if (note) note.textContent = "";
     const file = input.files?.[0];
     if (!file) return show("");
 
@@ -232,11 +238,19 @@ const headshotHint = `JPG or PNG, up to ${MAX_HEADSHOT_BYTES / 1024 / 1024} MB, 
     border: 2px solid var(--color-navy);
     border-radius: 12px;
     padding: 13px 16px;
-    font-size: 15px;
+    /* 16px: anything smaller makes iOS Safari zoom the page on focus. */
+    font-size: 16px;
     font-family: inherit;
     background: var(--color-cream);
     color: var(--color-text);
     min-height: var(--hit-target-min);
+  }
+
+  /* The browser default placeholder grey is ~4.2:1 on cream; these carry real format guidance. */
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-text-muted);
+    opacity: 1;
   }
 
   textarea {
