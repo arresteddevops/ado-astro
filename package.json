@@ -21,7 +21,7 @@
     "@plausible-analytics/tracker": "^0.4.6",
     "astro": "^7.3.5",
     "marked": "^18.0.14",
-    "zod": "^4.6.5"
+    "zod": "^4.6.6"
   },
   "allowScripts": {
     "esbuild": true
