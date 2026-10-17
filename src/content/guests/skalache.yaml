@@ -1,0 +1,12 @@
+name: Sylvain Kalache
+snapshots:
+  - key: skalache
+    bio: "Sylvain Kalache leads AI Labs and Developer Relations at Rootly, exploring how AI is changing reliability engineering and incident response. Previously, he was a Senior SRE at LinkedIn and co-founded Holberton School, which trained thousands of software engineers across 25 countries. His work brings together two longtime interests: keeping systems running and helping engineers learn."
+    thumbnail: img/guests/skalache.jpg
+    website: https://www.sylvainkalache.com/
+    twitter: sylvainkalache
+    github: sylvainkalache
+    linkedin: sylvainkalache
+    youtube: https://www.youtube.com/@sylvainkalache
+    pronouns: he
+placeholder: false
