@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from "astro:content";
+import { getLiveEpisodes, getUnreleasedPersonIds } from "./episodes";
 
 export const GUESTS_PER_PAGE = 24;
 
@@ -7,17 +8,21 @@ export const GUESTS_PER_PAGE = 24;
 // (bio is literally "needs manual research"). They still need a working
 // /guest/<id>/ page so the episode's guest card links somewhere real, but
 // they don't belong in listings or the guest count until someone
-// actually researches who they are.
+// actually researches who they are. Also excludes guests whose only
+// episodes haven't gone live yet.
 export async function getGuestsSorted(): Promise<CollectionEntry<"guests">[]> {
   const guests = await getCollection("guests");
-  return guests.filter((g) => !g.data.placeholder).sort((a, b) => a.data.name.localeCompare(b.data.name));
+  const unreleased = (await getUnreleasedPersonIds()).guests;
+  return guests
+    .filter((g) => !g.data.placeholder && !unreleased.has(g.id))
+    .sort((a, b) => a.data.name.localeCompare(b.data.name));
 }
 
 // Keyed by guest person id -> every episode whose guests[] points at them,
 // so both the guest list (needs a count) and guest detail pages (need the
 // list) share one pass over the episodes collection.
 export async function getEpisodesByGuestId(): Promise<Map<string, CollectionEntry<"episodes">[]>> {
-  const episodes = await getCollection("episodes");
+  const episodes = await getLiveEpisodes();
   const map = new Map<string, CollectionEntry<"episodes">[]>();
   for (const episode of episodes) {
     for (const g of episode.data.guests) {

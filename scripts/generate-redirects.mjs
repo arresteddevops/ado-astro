@@ -17,6 +17,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import YAML from "yaml";
+import { readEpisodes } from "./lib/episode-files.mjs";
+import { isLive, unreleasedPersonIds } from "./lib/go-live.mjs";
 
 const scriptDir = path.dirname(new URL(import.meta.url).pathname);
 const REPO_ROOT = path.resolve(scriptDir, "..");
@@ -50,10 +52,13 @@ for (const line of fs.readFileSync(stubsPath, "utf8").split("\n")) {
   addRule(from, to, "stub");
 }
 
-// 2. Episode aliases.
+// 2. Episode aliases. Episodes that haven't gone live yet (issue #131) get none:
+// /211 must 404, not redirect to a page that doesn't exist.
+const unreleasedGuests = unreleasedPersonIds(readEpisodes(REPO_ROOT)).guests;
 for (const file of listFiles(path.join(REPO_ROOT, "src/content/episodes"), ".md")) {
   const id = path.basename(file, ".md");
   const data = readFrontmatter(file);
+  if (!isLive(new Date(data.date))) continue;
   for (const alias of data.aliases ?? []) {
     // An alias equal to the canonical path would 301 to itself (redirect loop).
     if (alias.replace(/\/+$/, "") === `/${id}`) continue;
@@ -64,6 +69,7 @@ for (const file of listFiles(path.join(REPO_ROOT, "src/content/episodes"), ".md"
 // 3. Guest version URLs.
 for (const file of listFiles(path.join(REPO_ROOT, "src/content/guests"), ".yaml")) {
   const id = path.basename(file, ".yaml");
+  if (unreleasedGuests.has(id)) continue;
   const data = readFrontmatter(file);
   for (const snapshot of data.snapshots ?? []) {
     if (snapshot.key !== id) {

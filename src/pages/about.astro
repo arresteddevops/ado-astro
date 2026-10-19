@@ -3,8 +3,9 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PersonCard from "../components/PersonCard.astro";
 import { getGuestsSorted } from "../lib/guests";
+import { getLiveEpisodes, getUnreleasedPersonIds } from "../lib/episodes";
 
-const episodes = await getCollection("episodes");
+const episodes = await getLiveEpisodes();
 const guests = await getGuestsSorted();
 const yearsOnAir = new Date().getFullYear() - 2013;
 
@@ -19,7 +20,10 @@ const hostBlurbs: Record<string, string> = {
   thess: "Senior Product Manager working on Chef. A .NET-consulting alum who helped large organizations kick-start their journeys to the cloud and DevOps practices.",
 };
 
-const hosts = (await getCollection("hosts")).sort(
+const unreleasedHosts = (await getUnreleasedPersonIds()).hosts;
+const hosts = (await getCollection("hosts"))
+  .filter((h) => !unreleasedHosts.has(h.id))
+  .sort(
   (a, b) => (a.id === "mstratton" ? -1 : b.id === "mstratton" ? 1 : a.data.name.localeCompare(b.data.name)),
 );
 ---

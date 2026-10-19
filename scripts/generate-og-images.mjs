@@ -18,6 +18,7 @@ import satori from "satori";
 import { Resvg } from "@resvg/resvg-js";
 import YAML from "yaml";
 import { toCompressedJpeg } from "./lib/encode.mjs";
+import { isLive } from "./lib/go-live.mjs";
 
 const scriptDir = path.dirname(new URL(import.meta.url).pathname);
 const REPO_ROOT = path.resolve(scriptDir, "..");
@@ -263,6 +264,7 @@ let generated = 0;
 for (const file of fs.readdirSync(path.join(REPO_ROOT, "src/content/episodes"))) {
   const slug = path.basename(file, ".md");
   const data = readFrontmatter(path.join(REPO_ROOT, "src/content/episodes", file), false);
+  if (!isLive(new Date(data.date))) continue; // not live yet, issue #131
   await generate(data, slug);
   generated += 1;
 }

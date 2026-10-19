@@ -1,7 +1,8 @@
-import { getCollection, type CollectionEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { getLiveEpisodes } from "./episodes";
 
 export async function getEpisodesByHostId(): Promise<Map<string, CollectionEntry<"episodes">[]>> {
-  const episodes = await getCollection("episodes");
+  const episodes = await getLiveEpisodes();
   const map = new Map<string, CollectionEntry<"episodes">[]>();
   for (const episode of episodes) {
     for (const hostRef of episode.data.hosts) {
