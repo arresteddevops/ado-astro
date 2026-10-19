@@ -86,7 +86,7 @@ speaker-label artifacts) — light cleanup is fine, rewriting it is not.
 ---
 title: <title>
 description: <drafted in step 3>
-date: <ISO datetime>
+date: <YYYY-MM-DD, the go-live date — may be in the future, see ADR-0006>
 publishDate: <same, unless told otherwise>
 episodeNumber: "<next number, as a string>"
 podcastFile: <filename Matty gave you, or leave for him>
