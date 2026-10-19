@@ -1,5 +1,5 @@
 import { getCollection, type CollectionEntry } from "astro:content";
-import { gateEnabled, isLive, unreleasedPersonIds } from "../../scripts/lib/go-live.mjs";
+import { gateEnabled, isLive, pinnedNow, unreleasedPersonIds } from "../../scripts/lib/go-live.mjs";
 
 export const EPISODES_PER_PAGE = 9;
 
@@ -7,9 +7,11 @@ export const EPISODES_PER_PAGE = 9;
 // here, so an episode that hasn't gone live yet (see scripts/lib/go-live.mjs,
 // issue #131) is invisible everywhere at once.
 const gate = () => gateEnabled(process.env, import.meta.env.DEV);
+// One "now" for the whole build, shared by pages, listings and the feed.
+const buildNow = pinnedNow();
 
 export async function getLiveEpisodes(): Promise<CollectionEntry<"episodes">[]> {
-  const opts = { now: new Date(), gate: gate() };
+  const opts = { now: buildNow(), gate: gate() };
   return getCollection("episodes", (episode) => isLive(episode.data.date, opts));
 }
 
@@ -23,7 +25,7 @@ export async function getUnreleasedPersonIds(): Promise<{ guests: Set<string>; h
       guestIds: e.data.guests.map((g) => g.person.id),
       hostIds: e.data.hosts.map((h) => h.id),
     })),
-    { now: new Date(), gate: gate() },
+    { now: buildNow(), gate: gate() },
   );
 }
 

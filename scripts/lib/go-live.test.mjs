@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { goLiveInstant, gateEnabled, isLive, unreleasedPersonIds } from "./go-live.mjs";
+import { goLiveInstant, gateEnabled, isLive, unreleasedPersonIds, pinnedNow } from "./go-live.mjs";
 
 const iso = (d) => d.toISOString();
 
@@ -72,6 +72,15 @@ test("unreleasedPersonIds skips a guest with one live and one future episode", (
 test("unreleasedPersonIds returns a host who only appears in future episodes", () => {
   const out = unreleasedPersonIds([{ date: future, guestIds: [], hostIds: ["newhost"] }], { now: NOW, gate: true });
   assert.deepEqual([...out.hosts], ["newhost"]);
+});
+
+test("pinnedNow samples the clock once, so every consumer in a build agrees on 'now'", () => {
+  const ticks = [new Date("2026-11-11T10:59:59Z"), new Date("2026-11-11T11:00:01Z")];
+  const now = pinnedNow(() => ticks.shift());
+  const first = now();
+  assert.equal(now().getTime(), first.getTime());
+  assert.equal(first.toISOString(), "2026-11-11T10:59:59.000Z");
+  assert.equal(ticks.length, 1);
 });
 
 test("unreleasedPersonIds is empty when the gate is off", () => {

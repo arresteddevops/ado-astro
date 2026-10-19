@@ -35,6 +35,19 @@ export function gateEnabled(env = process.env, dev = false) {
 }
 
 /**
+ * A clock that samples `source` once and then always returns that instant, so
+ * every consumer in one build agrees on "now" (a build that straddles a go-live
+ * instant must not give the feed an item that has no page).
+ * @param {() => Date} [source]
+ * @returns {() => Date}
+ */
+export function pinnedNow(source = () => new Date()) {
+  /** @type {Date | undefined} */
+  let pinned;
+  return () => (pinned ??= source());
+}
+
+/**
  * @param {Date} date
  * @param {{ now?: Date, gate?: boolean }} [opts]
  */
