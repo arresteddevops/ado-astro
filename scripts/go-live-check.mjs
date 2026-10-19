@@ -3,7 +3,8 @@
 //   due     prints due=true|false: is a live episode (per the repo) absent from
 //           the live feed? A failed fetch exits non-zero, never "due=false".
 //   verify  polls the live feed until nothing is missing; exits 1 on timeout.
-//           [--timeout-seconds 900] [--interval-seconds 30]
+//           [--timeout-seconds 1800] [--interval-seconds 30] (a Netlify build
+//           plus the Lighthouse plugin can run past 15 minutes)
 // GO_LIVE_FEED_URL overrides the feed URL (for local testing).
 
 import fs from "node:fs";
@@ -16,7 +17,13 @@ const REPO_ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), 
 
 function flag(name, fallback) {
   const i = process.argv.indexOf(`--${name}`);
-  return i === -1 ? fallback : Number(process.argv[i + 1]);
+  if (i === -1) return fallback;
+  const value = Number(process.argv[i + 1]);
+  if (!(value > 0)) {
+    console.error(`--${name} needs a positive number of seconds`);
+    process.exit(2);
+  }
+  return value;
 }
 
 const missingNow = async () =>
@@ -25,12 +32,19 @@ const missingNow = async () =>
 const mode = process.argv[2];
 
 if (mode === "due") {
-  const missing = await missingNow();
+  let missing;
+  try {
+    missing = await missingNow();
+  } catch (err) {
+    // Never "due=false": a feed we couldn't read must fail the run, loudly.
+    console.error(`due FAILED: could not read the live feed: ${err.message}`);
+    process.exit(1);
+  }
   const due = missing.length > 0;
   console.log(due ? `due=true (missing from live feed: ${missing.join(", ")})` : "due=false");
   if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `due=${due}\n`);
 } else if (mode === "verify") {
-  const deadline = Date.now() + flag("timeout-seconds", 900) * 1000;
+  const deadline = Date.now() + flag("timeout-seconds", 1800) * 1000;
   const intervalMs = flag("interval-seconds", 30) * 1000;
   for (;;) {
     let missing;

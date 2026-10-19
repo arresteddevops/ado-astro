@@ -25,6 +25,11 @@ gets no page or redirects either, or their page would leak the episode.
   ~200 existing items for no benefit. GUIDs, feed URL and channel metadata are unchanged.
 - **One rule, one implementation.** `scripts/lib/go-live.mjs` is plain JS so the Astro code
   and the pre-build scripts (which can't import `astro:content`) agree.
+- **One clock per build.** `pnpm build` exports a single `GO_LIVE_NOW` before anything
+  runs, so the pre-build scripts, `astro build` and the feed guard (separate processes)
+  all agree which side of a go-live instant they're on. A build that straddles 06:00 ET
+  can't ship a feed item without its page, alias or OG image. Setting `GO_LIVE_NOW`
+  yourself builds the site "as of" that moment, handy for previewing go-live locally.
 - **Preview deploys show everything.** The gate is off for Netlify `CONTEXT` of
   `deploy-preview` and `branch-deploy` and in `astro dev`, on everywhere else (so a local
   build with no `CONTEXT` hides future episodes).

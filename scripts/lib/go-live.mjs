@@ -35,13 +35,28 @@ export function gateEnabled(env = process.env, dev = false) {
 }
 
 /**
+ * "Now" for the gate. `pnpm build` exports GO_LIVE_NOW once so the pre-build
+ * scripts, `astro build` and the feed guard (separate processes) all agree on
+ * which side of a go-live instant they're on; it also lets you build "as of"
+ * a future moment locally. Unset means the real clock.
+ * @param {{ GO_LIVE_NOW?: string }} [env]
+ * @returns {Date}
+ */
+export function currentTime(env = process.env) {
+  if (!env.GO_LIVE_NOW) return new Date();
+  const now = new Date(env.GO_LIVE_NOW);
+  if (Number.isNaN(now.getTime())) throw new Error(`GO_LIVE_NOW is not a valid date: ${env.GO_LIVE_NOW}`);
+  return now;
+}
+
+/**
  * A clock that samples `source` once and then always returns that instant, so
- * every consumer in one build agrees on "now" (a build that straddles a go-live
- * instant must not give the feed an item that has no page).
+ * every consumer in one process agrees on "now" (a build that straddles a
+ * go-live instant must not give the feed an item that has no page).
  * @param {() => Date} [source]
  * @returns {() => Date}
  */
-export function pinnedNow(source = () => new Date()) {
+export function pinnedNow(source = () => currentTime()) {
   /** @type {Date | undefined} */
   let pinned;
   return () => (pinned ??= source());
@@ -51,7 +66,7 @@ export function pinnedNow(source = () => new Date()) {
  * @param {Date} date
  * @param {{ now?: Date, gate?: boolean }} [opts]
  */
-export function isLive(date, { now = new Date(), gate = gateEnabled() } = {}) {
+export function isLive(date, { now = currentTime(), gate = gateEnabled() } = {}) {
   return !gate || now >= goLiveInstant(date);
 }
 

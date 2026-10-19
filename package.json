@@ -9,7 +9,7 @@
   "packageManager": "pnpm@11.21.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/generate-redirects.mjs && node scripts/generate-og-images.mjs && node scripts/generate-social-cards.mjs && astro build && node scripts/check-feed.mjs && pagefind --site dist",
+    "build": "export GO_LIVE_NOW=${GO_LIVE_NOW:-$(date -u +%Y-%m-%dT%H:%M:%SZ)} && node scripts/generate-redirects.mjs && node scripts/generate-og-images.mjs && node scripts/generate-social-cards.mjs && astro build && node scripts/check-feed.mjs && pagefind --site dist",
     "generate:redirects": "node scripts/generate-redirects.mjs",
     "generate:og": "node scripts/generate-og-images.mjs && node scripts/generate-social-cards.mjs",
     "preview": "astro preview",

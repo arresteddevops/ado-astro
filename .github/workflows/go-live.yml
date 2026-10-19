@@ -21,13 +21,20 @@ on:
 permissions:
   contents: read
 
+# A delayed 10:05Z run can overlap the 11:05Z one; queue instead of double-POSTing the hook.
+concurrency:
+  group: go-live
+  cancel-in-progress: false
+
 jobs:
   go-live:
     runs-on: ubuntu-latest
+    # verify waits up to 30 min; leave headroom so its own failure message prints.
+    timeout-minutes: 40
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: pnpm
