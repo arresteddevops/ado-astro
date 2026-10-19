@@ -3,8 +3,9 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PersonCard from "../components/PersonCard.astro";
 import { getGuestsSorted } from "../lib/guests";
+import { getLiveEpisodes } from "../lib/episodes";
 
-const episodes = await getCollection("episodes");
+const episodes = await getLiveEpisodes();
 const guests = await getGuestsSorted();
 const yearsOnAir = new Date().getFullYear() - 2013;
 
