@@ -1,10 +1,21 @@
 ---
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getMiscAsset } from "../lib/images";
+
+// Curation is by hand: a sponsor with a `logo` in its yaml gets a tile; a sponsor with
+// no logo shows as a name pill only if it's listed in MORE_SPONSORS; anything else is
+// left off (that's how dead or defunct sponsors stay off the wall). New sponsors don't
+// appear until they get a logo or are added here.
+const MORE_SPONSORS = ["datadog", "pagerduty", "chef", "circleci", "bridgecrew", "kolide", "attribute", "zenhub"];
 
 const sponsors = (await getCollection("sponsors"))
   .filter((s) => !s.data.placeholder)
-  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+  .sort((a, b) => a.data.name.localeCompare(b.data.name))
+  .map((s) => ({ ...s, logo: getMiscAsset(s.data.logo) }));
+const withLogo = sponsors.filter((s) => s.logo);
+const more = sponsors.filter((s) => !s.logo && MORE_SPONSORS.includes(s.id));
 ---
 
 <BaseLayout
@@ -22,6 +33,10 @@ const sponsors = (await getCollection("sponsors"))
   </section>
 
   <section class="stats">
+    <div class="stat red">
+      <span class="number">SRE + ENG</span>
+      <span class="label">AN AUDIENCE OF SRES, SOFTWARE ENGINEERS, AND IT MANAGEMENT</span>
+    </div>
     <div class="stat yellow">
       <span class="number">8,000+</span>
       <span class="label">DOWNLOADS OVER TIME OF EACH EPISODE</span>
@@ -29,10 +44,6 @@ const sponsors = (await getCollection("sponsors"))
     <div class="stat navy">
       <span class="number">2,000+</span>
       <span class="label">SUBSCRIBERS IN THEIR PODCAST APP OF CHOICE</span>
-    </div>
-    <div class="stat red">
-      <span class="number">SRE + ENG</span>
-      <span class="label">AN AUDIENCE OF SRES, SOFTWARE ENGINEERS, AND IT MANAGEMENT</span>
     </div>
   </section>
 
@@ -87,14 +98,29 @@ const sponsors = (await getCollection("sponsors"))
     </div>
   </section>
 
-  {sponsors.length > 0 && (
+  {(withLogo.length > 0 || more.length > 0) && (
     <section class="sponsor-list">
-      <span class="label">PREVIOUS &amp; CURRENT SPONSORS</span>
-      <div class="chips">
-        {sponsors.map((s) => (
-          s.data.url ? <a class="chip" href={s.data.url}>{s.data.name}</a> : <span class="chip">{s.data.name}</span>
-        ))}
-      </div>
+      <span class="label">A FEW OF OUR SPONSORS</span>
+      {withLogo.length > 0 && (
+        <div class="logos">
+          {withLogo.map((s) => {
+            const img = <Image src={s.logo!} alt={s.data.name} width={400} />;
+            return s.data.url
+              ? <a class="logo" href={s.data.url}>{img}</a>
+              : <span class="logo">{img}</span>;
+          })}
+        </div>
+      )}
+      {more.length > 0 && (
+        <div class="more">
+          <span class="label">MORE SPONSORS</span>
+          <div class="chips">
+            {more.map((s) => (
+              s.data.url ? <a class="chip" href={s.data.url}>{s.data.name}</a> : <span class="chip">{s.data.name}</span>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   )}
 
@@ -305,6 +331,38 @@ const sponsors = (await getCollection("sponsors"))
     font-weight: 800;
     letter-spacing: 0.1em;
     color: var(--color-text-muted);
+  }
+
+  .logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 3 / 1;
+    border: 2px solid var(--color-navy);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    background: #fff;
+    padding: 16px 24px;
+  }
+
+  .logo :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .more {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
   }
 
   .chips {

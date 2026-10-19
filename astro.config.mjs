@@ -10,7 +10,8 @@ export default defineConfig({
   integrations: [
     sitemap({
       // Not real content pages — nobody should land on these from search.
-      filter: (page) => !page.endsWith("/404/") && !page.endsWith("/thank-you/"),
+      filter: (page) =>
+        !page.endsWith("/404/") && !page.endsWith("/thank-you/") && !page.endsWith("/guestform-thanks/"),
     }),
   ],
 });
