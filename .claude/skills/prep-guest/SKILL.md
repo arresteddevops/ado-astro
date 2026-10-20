@@ -12,8 +12,8 @@ write pins `if_version` from a fresh read of the row.
 
 ## 1. Gather
 
-Read the guest's row. You need `name`, `calendarId`, `calendarEventId`, and whether
-`workBlockEventId` is set. If the row has no booking, stop and ask. Do not guess an event.
+Read the guest's row. You need `name`, `calendarId` and `calendarEventId`. If the row has
+no booking, stop and ask. Do not guess an event.
 
 The episode title Matty gives you usually ends with "with <Guest Name>". The template
 adds that itself, so drop it from `{{EPISODE_TITLE}}`, or the heading reads "with" twice.
@@ -53,12 +53,11 @@ offered several topics.
   the SavvyCal text verbatim, with `\n` turned into `<br>`, so reschedule and cancel links
   survive.
 - `addedAttachments`: the agenda doc (`?usp=sharing` URL, titled with the doc name).
-- `addedAttendees`: `matty@tigerdata.com`, so the work calendar block stays in sync.
-  **Skip this if `workBlockEventId` is set.** That means Matty already copied the booking
-  to the work calendar by hand, and inviting would create a duplicate. Ask him whether to
-  delete the manual copy first.
+- `addedAttendees`: `matty@tigerdata.com`, so the work calendar block stays in sync. Matty
+  no longer copies bookings to the work calendar by hand. If you do find a hand-made copy
+  of this booking there, ask him to delete it first, or the invite leaves a duplicate.
 
-Do not touch the work-calendar block copies. They are Matty's.
+Do not edit or delete anything on the work calendar yourself.
 
 The invite can take a minute to show on the work calendar. Check with `list_events` on
 that calendar before you report it as missing.

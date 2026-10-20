@@ -26,7 +26,6 @@ Collection `guests`, one document per guest, document id is the name slug
 | `descriptLink` | Descript recording room. Matty creates it by hand (no tool can) |
 | `agendaDoc` | the guest's copy of the agenda template |
 | `calendarId`, `calendarEventId` | the SavvyCal booking on the Gmail calendar (source of truth) |
-| `workBlockCalendarId`, `workBlockEventId` | Matty's manual copy on the work calendar. Leave it alone |
 | `notes`, `updatedAt` | free text and last write |
 
 The page's Save does a full `set` that spreads the existing document, so fields added from
