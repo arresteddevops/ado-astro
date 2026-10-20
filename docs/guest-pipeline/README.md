@@ -22,6 +22,7 @@ Collection `guests`, one document per guest, document id is the name slug
 | `topic` | what they typed when booking, or what we settled on |
 | `recordingAt` | UTC ISO string. The calendar is Central, the page displays Central |
 | `linkSentAt`, `followUpAt` | `YYYY-MM-DD`. A booking link older than 14 days flags a nudge |
+| `episodeTitle` | episode title without the trailing "with <guest>" (the template adds that) |
 | `descriptLink` | Descript recording room. Matty creates it by hand (no tool can) |
 | `agendaDoc` | the guest's copy of the agenda template |
 | `calendarId`, `calendarEventId` | the SavvyCal booking on the Gmail calendar (source of truth) |
@@ -51,6 +52,6 @@ SavvyCal writes the booking to the Gmail calendar. The finished entry has:
 
 ## Not built yet
 
-Prep and calendar-sync procedures are written as skills after the first real run, so they
-describe what worked. Sponsors become a second collection once guests have survived a
-recording.
+`prep-guest` (`.claude/skills/prep-guest`) is written from the first real run, on Adriana
+Villela. A `guest-sync` skill that reads the calendars and fixes drift comes later. Sponsors
+become a second collection once guests have survived a recording.
