@@ -63,28 +63,30 @@ const headshotHint = `JPG or PNG, up to ${MAX_HEADSHOT_BYTES / 1024 / 1024} MB, 
         <input id="website" name="website" type="url" autocomplete="url" placeholder="https://example.com" />
       </div>
 
-      <p class="hint" id="handles-hint">
-        Paste your profile link or just your handle. We'll trim it down. For linkedin.com/in/pagnutti, that's pagnutti.
-      </p>
-      <div class="row wrap">
-        {
-          handles.map((h) => (
-            <div class="field">
-              <label for={h.name}>{h.label}</label>
-              <input
-                id={h.name}
-                name={h.name}
-                type="text"
-                pattern={HANDLE_PATTERN}
-                title={handleTitle}
-                aria-describedby="handles-hint"
-                placeholder={h.placeholder}
-                autocapitalize="off"
-                spellcheck="false"
-              />
-            </div>
-          ))
-        }
+      <div class="handles">
+        <p class="hint" id="handles-hint">
+          Paste your profile link or just your handle. We'll trim it down. For linkedin.com/in/pagnutti, that's pagnutti.
+        </p>
+        <div class="row wrap">
+          {
+            handles.map((h) => (
+              <div class="field">
+                <label for={h.name}>{h.label}</label>
+                <input
+                  id={h.name}
+                  name={h.name}
+                  type="text"
+                  pattern={HANDLE_PATTERN}
+                  title={handleTitle}
+                  aria-describedby="handles-hint"
+                  placeholder={h.placeholder}
+                  autocapitalize="off"
+                  spellcheck="false"
+                />
+              </div>
+            ))
+          }
+        </div>
       </div>
 
       <div class="field">
@@ -220,6 +222,14 @@ const headshotHint = `JPG or PNG, up to ${MAX_HEADSHOT_BYTES / 1024 / 1024} MB, 
 
   .row.wrap {
     flex-wrap: wrap;
+  }
+
+  /* Hint hugs the handle fields it describes; extra top margin keeps it from reading as Website's helper. */
+  .handles {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
   }
 
   .row.wrap .field {
