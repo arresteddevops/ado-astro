@@ -1,0 +1,12 @@
+name: "Gilles Chehade"
+snapshots:
+  - key: gchehade
+    bio: |-
+      Gilles Chehade is a long-time OpenBSD developer and the co-founder and CTO of PlakarKorp. He built Plakar as a personal tool in 2015, then turned it into an open backup platform that brings "resilience as code" to security and infrastructure teams.
+    thumbnail: img/guests/gchehade.jpg
+    website: "https://plakar.io"
+    twitter: PoolpOrg
+    github: poolpOrg
+    linkedin: gilleschehade
+    pronouns: "He / Him"
+placeholder: false
