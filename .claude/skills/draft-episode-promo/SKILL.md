@@ -18,7 +18,9 @@ guessing.
 
 No argument: take the episode with the latest `publishDate` that is on or before
 now (`grep -H '^publishDate:' src/content/episodes/*.md`, compare to `date -u`),
-and say which one you picked before drafting so Matty can correct it.
+and say which one you picked before drafting so Matty can correct it. That
+pick never chooses an episode that isn't live yet; an upcoming episode already
+in `main` works fine, but Matty has to name it by slug or number.
 
 ## 2. Gather
 
@@ -183,7 +185,8 @@ whose LinkedIn or Bluesky tag has to be added manually) and a **Flags** list
 (profanity in a quote, a missing handle, a blank bio, a follow-up thread where
 Matty said nothing so it has no reaction line, a post that amplifies a sweeping
 claim on his personal accounts, a wave date moved off a weekend, a launch date
-that has already passed).
+that has already passed, an episode that isn't live yet: its link 404s until
+`publishDate` (ADR-0006), so wave 1 can't go out before then).
 
 End by asking Matty to approve the drafts or say what to change. If a post's
 hook doesn't land, rework it when asked. Don't go to step 7 until he approves.
