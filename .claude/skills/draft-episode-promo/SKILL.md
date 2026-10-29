@@ -1,11 +1,11 @@
 ---
 name: draft-episode-promo
-description: Draft a staged promo campaign for an episode, in Matty's first-person voice for his personal accounts. A launch post plus three follow-ups spaced over about nine days, each written for LinkedIn, Twitter, and Bluesky. Reads the episode, its show notes, transcript, and guest data. Drafts are shown in chat for approval, then put on a private copy-paste page (or a file) so nothing is lost to terminal line endings, and optionally sent to Typefully as inert planned drafts. Nothing is ever posted or scheduled for auto-publish. See issues #117 and #120.
+description: Draft a staged promo campaign for an episode, in Matty's first-person voice for his personal accounts. A launch post plus three follow-ups spaced over about nine days, each written for LinkedIn, Twitter, and Bluesky. Reads the episode, its show notes, transcript, and guest data. Drafts are shown in chat for approval, then saved to a file in ~/Downloads/ado and put on a private copy-paste page so nothing is lost to terminal line endings, and optionally sent to Typefully as inert planned drafts. Nothing is ever posted or scheduled for auto-publish. See issues #117 and #120.
 ---
 
 Run this when Matty wants promo posts for an episode. Argument: the episode's
 slug or number (`/draft-episode-promo wtf-is-going-on`, `/draft-episode-promo
-208`). The posts are from **Matty's personal accounts, first person**, about a
+208`), or nothing for "the episode that just went live". The posts are from **Matty's personal accounts, first person**, about a
 conversation he had. They are not show-account copy.
 
 ## 1. Find the episode
@@ -15,6 +15,10 @@ Slug: `src/content/episodes/<slug>.md`. Number: grep
 stop and ask. If the episode only exists on an open PR branch, it won't be on
 the current branch; say so and ask which branch to read it from instead of
 guessing.
+
+No argument: take the episode with the latest `publishDate` that is on or before
+now (`grep -H '^publishDate:' src/content/episodes/*.md`, compare to `date -u`),
+and say which one you picked before drafting so Matty can correct it.
 
 ## 2. Gather
 
@@ -53,6 +57,23 @@ way:
   hollow reassurance, LinkedIn-guru voice (empty maxims, manufactured urgency),
   paragraphs starting "I mean,", forced triples, engagement bait ("Thoughts?",
   "Agree?", "Drop a comment").
+- **Also avoid the AI tells** (first drafts keep landing on these; the
+  de-slop checklist is inlined here so the skill doesn't depend on a plugin):
+  - colon reveals ("The best part: it learns.", "Sylvain's take on that: ..."
+    as a drumroll), and "X's point:" explainers that summarize the guest
+  - throat-clearing and setups: "The part I wanted to dig into", "Here's the
+    thing", "What most people get wrong"
+  - negative seesaws ("not just X, it's Y", "Not an outage, an attack")
+  - dramatic fragment runs ("Those are the reps. Then the big one hits.")
+  - copula dodging ("serves as", "stands as"), synonym rotation, fake ranges
+  - inflated words: pivotal, crucial, landscape, testament, underscore, delve
+  - the same closing footer on every post ("From the episode:")
+  A fragment is fine when it earns its place. Write what Matty would say to a
+  friend about the conversation, not a summary of what the guest argued.
+- **Vary the shape across waves.** The four waves must not share a skeleton
+  (summary, reaction line, footer). Change the opening move, the length, and
+  where the link sits from wave to wave, and keep Twitter and Bluesky from
+  mirroring each other.
 - Profanity only when it's inside a verbatim quote, and flag that post so Matty
   can decide.
 - Guest pronouns come from their yaml; if absent, they/them.
@@ -77,8 +98,9 @@ Twitter, and Bluesky post.
 | 4. Take | +9 | The sharpest opinion in the conversation. It may end as a question only if that question is actually asked in the episode. |
 
 - Each follow-up draws on a different show-notes thread. Don't reuse one.
-- Follow-ups never say "new episode." Say "from the episode" or "on the show,"
-  since they run days later.
+- Follow-ups never say "new episode." They run days later, and they post from
+  Matty's personal accounts, where "the show" and "the episode" mean nothing on
+  their own. Name it ("on Arrested DevOps") in every post, on every platform.
 - **Give each follow-up one line of Matty's own.** A reaction, a question, an
   aside, or a related story he actually said in the episode on that thread.
   Find it in his `**Matty:**` turns near the transcript marker. Quote him
@@ -121,10 +143,17 @@ moment in Descript by hand when making an audiogram (issue #118).
 
 ## 5. Check before presenting
 
-1. Every quoted string appears in the transcript. Grep a distinctive phrase from
-   each one.
+Do the mechanical checks with one small script over the drafts (keep them in a
+JSON file in the scratchpad so the same text feeds steps 6 and 7), not by eye:
+
+1. Every quoted string appears in the transcript. Normalize both sides
+   (lowercase, strip punctuation, drop `--`, collapse repeated words like "as,
+   as") and substring-match. Dropped fillers like "like" are the allowed
+   trimming, so match those against the filler-trimmed form.
 2. No em dashes: `grep -c '—'` on what you wrote. Count Twitter and Bluesky
-   characters.
+   characters with `len()` on the full text, link included (the canonical link
+   is 48 characters for a short slug; compute it, don't guess). Drafts usually
+   run over on the first pass, so expect to trim.
 3. No emoji, no hashtags, no engagement bait.
 4. Handles are normalized, and anyone without a handle is flagged.
 5. Each Matty reaction line traces to a real `**Matty:**` turn, and says only
@@ -163,9 +192,15 @@ hook doesn't land, rework it when asked. Don't go to step 7 until he approves.
 
 Copying out of the terminal mangles line endings and soft wraps, and the posts
 are gone when the session ends. Once Matty approves the drafts, and again after
-any rework, put them somewhere he can copy from:
+any rework, do **both** of these by default: the file survives the session, the
+page is nicer to copy from.
 
-1. **Publish a private page** with the Artifact tool when it's available. One
+1. **File**: write `~/Downloads/ado/promo-<slug>.md` (his episode working
+   folder; create it if missing) with the same structure as the page: waves,
+   "draws on", clip cues, each post in its own fenced block (use a four-backtick
+   fence so nothing re-wraps), then Tag by hand and Flags. Generate it from the
+   same JSON the page uses, not by retyping.
+2. **Publish a private page** with the Artifact tool when it's available. One
    HTML page per episode, one section per wave (name, date, "draws on", clip
    cue), one card per post with the platform, a character count (against 280 for
    Twitter and 300 for Bluesky), a **Copy** button, and a "Posted" checkbox
@@ -183,10 +218,7 @@ any rework, put them somewhere he can copy from:
      Artifact tool's own quickstart guidance for the page contract.
    - Title it `Episode <N> Promo`. Republish the same file path to keep the URL
      when posts change. It's private, so give Matty the link.
-2. **Fallback**: if the Artifact tool isn't available, or Matty would rather
-   have a file, write `~/Downloads/ado/promo-<slug>.md` (his episode working
-   folder) with the same structure and each post in its own fenced block so
-   nothing re-wraps.
+   If the Artifact tool isn't available, the file alone is fine; say so.
 3. **One post on request**: put the exact text on the clipboard with `pbcopy`
    and a quoted here-doc.
 
