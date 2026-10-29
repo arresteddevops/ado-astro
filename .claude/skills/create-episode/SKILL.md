@@ -86,7 +86,7 @@ speaker-label artifacts) — light cleanup is fine, rewriting it is not.
 ---
 title: <title>
 description: <drafted in step 3>
-date: <ISO datetime>
+date: <YYYY-MM-DD, the go-live date — may be in the future, see ADR-0006>
 publishDate: <same, unless told otherwise>
 episodeNumber: "<next number, as a string>"
 podcastFile: <filename Matty gave you, or leave for him>
@@ -147,7 +147,11 @@ grep -rl 'episodeNumber: "<N>"' src/content/episodes/*.md
 
 ## 6. Verify
 
-Run `pnpm run build`. Check the new episode page renders sensibly — the
+Run `pnpm run build`. **If the episode's `date` is in the future (ADR-0006),
+a plain build hides it entirely: no page, no alias rules, so the alias
+collision check below finds nothing. Run `CONTEXT=deploy-preview pnpm run
+build` instead, which turns the go-live gate off and builds the episode like
+a deploy preview would.** Check the new episode page renders sensibly — the
 schema will catch structural problems, but only you can catch "the show
 notes don't actually match what was said" or "the wrong snapshot got
 referenced."

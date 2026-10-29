@@ -7,3 +7,5 @@ allowBuilds:
 # See GHSA-2883-xcg3-v3hh / CVE-2026-84375 (high, CPU DoS via maxTotalMergeKeys).
 overrides:
   js-yaml: ^4.3.2
+  source-map-js: ^1.2.2
+  fflate: ^0.7.5

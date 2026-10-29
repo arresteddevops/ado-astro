@@ -1,0 +1,228 @@
+<title>ADO Guest Pipeline</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: one column. "Needs you" strip on top, then one lane per pipeline status, one card per guest.
+   Tokens follow the site's own system (cream, navy, red, yellow; Bricolage + Archivo). */
+:root{
+  --bg:#fdf3e0; --card:#fdf9ef; --ink:#1e2a52; --muted:#4a5378; --line:#1e2a52; --soft:#f1e3c3;
+  --btn:#b8341f; --btn-ink:#ffffff; --warn:#f5c518; --warn-ink:#1e2a52; --ok:#1d6b45; --miss:#b8341f;
+  --font-display:"Bricolage Grotesque","Arial Black",sans-serif;
+  --font-body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141c3a; --card:#1e2a52; --ink:#fdf3e0; --muted:#aab2cf; --line:#fdf3e0; --soft:#2a386e;
+    --btn:#ef6a55; --btn-ink:#141c3a; --ok:#5fd09a; --miss:#ff9a8a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141c3a; --card:#1e2a52; --ink:#fdf3e0; --muted:#aab2cf; --line:#fdf3e0; --soft:#2a386e;
+  --btn:#ef6a55; --btn-ink:#141c3a; --ok:#5fd09a; --miss:#ff9a8a; color-scheme:dark;
+}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--font-body); font-size:15px; line-height:1.45;
+  padding-block:28px;
+  padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+.wrap{max-width:1040px; margin:0 auto; display:flex; flex-direction:column; gap:24px}
+.top{display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:12px}
+.eyebrow{margin:0 0 4px; font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+h1{margin:0; font:800 clamp(30px,6vw,44px)/1 var(--font-display); letter-spacing:-.02em; text-wrap:balance}
+h2{margin:0 0 12px; font:700 14px/1 var(--font-display); letter-spacing:.08em; text-transform:uppercase; display:flex; align-items:center; gap:10px}
+h3{margin:0; font:700 20px/1.15 var(--font-display)}
+.count{font:500 12px var(--font-mono); background:var(--soft); border-radius:999px; padding:3px 9px}
+.btn{font:600 14px var(--font-body); min-height:44px; padding:0 18px; border-radius:999px; border:2px solid var(--line);
+  background:var(--btn); color:var(--btn-ink); cursor:pointer}
+.btn.ghost{background:transparent; color:var(--ink)}
+.btn.danger{background:transparent; color:var(--miss); border-color:var(--miss)}
+.btn.sm{min-height:40px; padding:0 14px}
+:is(.btn,input,select,textarea,.link,.chip):focus-visible{outline:3px solid var(--btn); outline-offset:2px}
+.note{margin:0; padding:10px 14px; border-radius:10px; background:var(--warn); color:var(--warn-ink); font-weight:600}
+.attn{list-style:none; margin:0; padding:14px 16px; background:var(--warn); color:var(--warn-ink); border:2px solid var(--line); border-radius:14px; display:flex; flex-direction:column; gap:8px}
+.attn-wrap h2{color:var(--ink)}
+.attn li{display:flex; flex-wrap:wrap; gap:4px 12px; align-items:baseline}
+.link{font:700 15px var(--font-body); background:none; border:0; padding:0; color:inherit; text-decoration:underline; cursor:pointer}
+.lanes{display:flex; flex-direction:column; gap:28px}
+.lane{display:flex; flex-direction:column; gap:12px}
+.lane h2{margin:0}
+.guest{background:var(--card); border:2px solid var(--line); border-radius:14px; box-shadow:4px 4px 0 var(--line);
+  padding:14px 16px; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:8px 16px; align-items:start}
+.gname{display:flex; flex-wrap:wrap; align-items:center; gap:6px 12px}
+.when{font:500 12.5px var(--font-mono); background:var(--soft); border-radius:999px; padding:3px 11px}
+.topic{margin:6px 0 0; color:var(--muted); max-width:65ch}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+.chip{font:600 12.5px var(--font-body); border-radius:999px; padding:3px 11px; border:2px solid currentColor; text-decoration:none}
+.chip.ok{color:var(--ok)}
+.chip.miss{color:var(--miss); border-style:dashed}
+.edit{grid-column:1/-1; border-top:2px dashed var(--line); padding-top:14px; margin-top:6px}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px}
+.edit label{display:grid; gap:4px; min-width:0; font-size:12px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--muted)}
+.edit .wide{grid-column:1/-1}
+input,select,textarea{font:400 15px var(--font-body); color:var(--ink); background:var(--bg); border:2px solid var(--line); border-radius:8px; padding:8px 10px; min-width:0; width:100%; box-sizing:border-box; text-transform:none; letter-spacing:0}
+.actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+.empty{margin:0; padding:28px 16px; text-align:center; color:var(--muted); border:2px dashed var(--line); border-radius:14px}
+.newg{display:block}
+.newg h3{margin-bottom:12px}
+@media (prefers-reduced-motion:no-preference){.btn{transition:transform .08s}.btn:active{transform:translate(1px,1px)}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <p class="eyebrow">Arrested DevOps · private</p>
+      <h1>Guest pipeline</h1>
+    </div>
+    <button class="btn" id="add" type="button" data-act="add">Add guest</button>
+  </header>
+  <p id="note" class="note" role="status" hidden></p>
+  <section id="attn" class="attn-wrap" aria-label="Needs attention"></section>
+  <div id="addslot"></div>
+  <main id="lanes" class="lanes"><p class="empty">Loading guests…</p></main>
+</div>
+
+<script>
+const STATUSES=[['scheduled','Scheduled'],['agreed','Agreed, not booked'],['link-sent','Booking link sent'],['idea','Ideas'],['recorded','Recorded'],['published','Published'],['passed','Passed']];
+const STALE_DAYS=14; // a booking link with no booking after this long gets flagged
+const TZ='America/Chicago'; // SavvyCal bookings come in as Central
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeUrl=u=>/^https?:\/\//i.test(u||'')?u:'#';
+const ctDate=d=>new Intl.DateTimeFormat('en-CA',{timeZone:TZ}).format(d); // YYYY-MM-DD in Central
+const dayDiff=(a,b)=>Math.round((Date.parse(a+'T00:00:00Z')-Date.parse(b+'T00:00:00Z'))/864e5);
+const fmtRec=iso=>new Intl.DateTimeFormat('en-US',{timeZone:TZ,weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}).format(new Date(iso))+' CT';
+const fmtDate=s=>new Intl.DateTimeFormat('en-US',{timeZone:'UTC',month:'short',day:'numeric'}).format(new Date(s+'T12:00:00Z'));
+// datetime-local works in naive wall time, so convert to and from Central
+const ctInput=iso=>new Intl.DateTimeFormat('sv-SE',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date(iso)).replace(' ','T');
+function ctToISO(str){
+  const guess=Date.parse(str+':00Z');
+  const off=Date.parse(ctInput(new Date(guess).toISOString())+':00Z')-guess;
+  return new Date(guess-off).toISOString();
+}
+let db=null,guests=[],editing=null,adding=false,pending=false;
+
+function issues(g,t){
+  const msgs=[];let n=999;
+  if(g.status==='scheduled'&&g.recordingAt){
+    n=dayDiff(ctDate(new Date(g.recordingAt)),t);
+    if(n<0)msgs.push('recording date has passed, mark it recorded?');
+    else{
+      if(!g.descriptLink)msgs.push('no Descript room');
+      if(!g.agendaDoc)msgs.push('no agenda doc');
+      if(msgs.length)msgs.push(n===0?'recording today':n===1?'recording tomorrow':`recording in ${n} days`);
+    }
+  }else if(g.status==='scheduled')msgs.push('scheduled but no recording time set');
+  if(g.status==='link-sent'&&g.linkSentAt){
+    const a=dayDiff(t,g.linkSentAt);
+    if(a>=STALE_DAYS)msgs.push(`booking link sent ${a} days ago, nudge?`);
+  }
+  if(g.status==='agreed'&&g.followUpAt&&g.followUpAt<=t)msgs.push('follow-up due '+fmtDate(g.followUpAt));
+  return{msgs,n};
+}
+
+function whenPill(g){
+  let s='';
+  if(g.recordingAt)s=fmtRec(g.recordingAt);
+  else if(g.status==='link-sent')s=g.linkSentAt?'link sent '+fmtDate(g.linkSentAt):'link sent, date unknown';
+  else if(g.status==='agreed'&&g.followUpAt)s='follow up '+fmtDate(g.followUpAt);
+  return s?`<span class="when">${esc(s)}</span>`:'';
+}
+function chip(label,url,needed){
+  if(url)return`<a class="chip ok" href="${esc(safeUrl(url))}" target="_blank" rel="noopener">${label} ✓</a>`;
+  return needed?`<span class="chip miss">No ${label}</span>`:'';
+}
+function form(g,id){
+  const v=k=>esc(g[k]??'');
+  return`<form class="edit" data-id="${esc(id)}" autocomplete="off"><div class="grid">
+    <label>Name<input id="f-${esc(id)}-name" name="name" required value="${v('name')}"></label>
+    <label>Email<input id="f-${esc(id)}-email" name="email" type="email" value="${v('email')}"></label>
+    <label>Status<select id="f-${esc(id)}-status" name="status">${STATUSES.map(([k,l])=>`<option value="${k}"${g.status===k?' selected':''}>${l}</option>`).join('')}</select></label>
+    <label>Recording (Central)<input id="f-${esc(id)}-rec" name="recording" type="datetime-local" value="${g.recordingAt?ctInput(g.recordingAt):''}"></label>
+    <label>Booking link sent<input id="f-${esc(id)}-sent" name="linkSentAt" type="date" value="${v('linkSentAt')}"></label>
+    <label>Follow up on<input id="f-${esc(id)}-fu" name="followUpAt" type="date" value="${v('followUpAt')}"></label>
+    <label>Descript room<input id="f-${esc(id)}-descript" name="descriptLink" type="url" value="${v('descriptLink')}"></label>
+    <label>Agenda doc<input id="f-${esc(id)}-agenda" name="agendaDoc" type="url" value="${v('agendaDoc')}"></label>
+    <label class="wide">Topic<textarea id="f-${esc(id)}-topic" name="topic" rows="2">${v('topic')}</textarea></label>
+    <label class="wide">Notes<textarea id="f-${esc(id)}-notes" name="notes" rows="2">${v('notes')}</textarea></label>
+  </div><div class="actions">
+    <button class="btn" type="submit">Save</button>
+    <button class="btn ghost" type="button" data-act="cancel">Cancel</button>
+    ${id==='new'?'':`<button class="btn danger" type="button" data-act="del" data-id="${esc(id)}">Delete</button>`}
+  </div></form>`;
+}
+function card(g){
+  const open=editing===g.id,prep=g.status==='scheduled';
+  return`<article class="guest" id="g-${esc(g.id)}">
+    <div><div class="gname"><h3>${esc(g.name)}</h3>${whenPill(g)}</div>
+    ${g.topic?`<p class="topic">${esc(g.topic)}</p>`:''}
+    <div class="chips">${chip('Descript',g.descriptLink,prep)}${chip('Agenda',g.agendaDoc,prep)}</div></div>
+    <button class="btn ghost sm" type="button" data-act="${open?'cancel':'edit'}" data-id="${esc(g.id)}" aria-expanded="${open}">${open?'Close':'Edit'}</button>
+    ${open?form(g,g.id):''}
+  </article>`;
+}
+function render(){
+  pending=false;
+  const t=ctDate(new Date());
+  const items=guests.map(g=>({g,...issues(g,t)})).filter(x=>x.msgs.length).sort((a,b)=>a.n-b.n);
+  $('#attn').innerHTML=items.length?`<h2>Needs you <span class="count">${items.length}</span></h2><ul class="attn">${items.map(x=>
+    `<li><button class="link" type="button" data-act="edit" data-id="${esc(x.g.id)}">${esc(x.g.name)}</button><span>${esc(x.msgs.join(' · '))}</span></li>`).join('')}</ul>`:'';
+  const known=new Set(STATUSES.map(s=>s[0]));
+  const lanes=[...STATUSES,['other','Other']].map(([k,l])=>{
+    const list=guests.filter(g=>k==='other'?!known.has(g.status):g.status===k)
+      .sort((a,b)=>(a.recordingAt||'~').localeCompare(b.recordingAt||'~')||a.name.localeCompare(b.name));
+    return list.length?`<section class="lane"><h2>${l} <span class="count">${list.length}</span></h2>${list.map(card).join('')}</section>`:'';
+  }).join('');
+  $('#lanes').innerHTML=lanes||'<p class="empty">No guests yet. Add one above, or tell Claude who is in flight.</p>';
+  $('#addslot').innerHTML=adding?`<div class="guest newg"><h3>New guest</h3>${form({status:'idea'},'new')}</div>`:'';
+}
+function uniqueId(name){
+  const base=name.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'guest';
+  let id=base,n=2;
+  while(guests.some(g=>g.id===id))id=base+'-'+n++;
+  return id;
+}
+const showNote=m=>{const n=$('#note');n.textContent=m;n.hidden=!m};
+
+document.addEventListener('click',async e=>{
+  const b=e.target.closest('[data-act]');if(!b)return;
+  const act=b.dataset.act,id=b.dataset.id;
+  if(act==='add'){adding=true;editing=null;render();$('#f-new-name')?.focus();}
+  else if(act==='edit'){editing=id;adding=false;render();document.getElementById('g-'+id)?.scrollIntoView({block:'center'});}
+  else if(act==='cancel'){editing=null;adding=false;render();}
+  else if(act==='del'){
+    if(!b.dataset.armed){b.dataset.armed='1';b.textContent='Really delete?';return;}
+    try{await db.collection('guests').doc(id).delete();editing=null;render();}
+    catch(err){showNote('Could not delete: '+(err.message||err.code));}
+  }
+});
+document.addEventListener('submit',async e=>{
+  const f=e.target.closest('form.edit');if(!f)return;
+  e.preventDefault();
+  const id=f.dataset.id,fd=Object.fromEntries(new FormData(f));
+  const prev=id==='new'?{}:(guests.find(g=>g.id===id)||{});
+  const data={...prev,name:fd.name.trim(),email:fd.email.trim(),status:fd.status,
+    recordingAt:fd.recording?ctToISO(fd.recording):null,linkSentAt:fd.linkSentAt||null,followUpAt:fd.followUpAt||null,
+    descriptLink:fd.descriptLink.trim(),agendaDoc:fd.agendaDoc.trim(),topic:fd.topic.trim(),notes:fd.notes.trim(),
+    updatedAt:new Date().toISOString()};
+  delete data.id; // id lives in the doc path; the page adds it back when reading
+  try{
+    await db.collection('guests').doc(id==='new'?uniqueId(data.name):id).set(data);
+    editing=null;adding=false;showNote('');render();
+  }catch(err){showNote('Could not save: '+(err.message||err.code));}
+});
+
+(async()=>{
+  db=window.claude?await window.claude.use('db'):null;
+  if(!db){
+    showNote('Saved guests are not available in this view. Open the artifact signed in to see and edit them.');
+    $('#add').hidden=true;$('#lanes').innerHTML='<p class="empty">No data in this view.</p>';return;
+  }
+  db.collection('guests').onSnapshot(snap=>{
+    guests=snap.docs.map(d=>({id:d.id,...d.data()}));
+    if(editing||adding)pending=true;else render(); // don't wipe a form someone is typing in
+  },err=>showNote('Lost the connection to saved guests ('+err.code+'). Reload the page.'));
+})();
+</script>

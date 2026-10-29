@@ -3,8 +3,12 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PersonCard from "../../components/PersonCard.astro";
 import { getEpisodesByHostId } from "../../lib/hosts";
+import { getUnreleasedPersonIds } from "../../lib/episodes";
 
-const hosts = (await getCollection("hosts")).sort((a, b) => a.data.name.localeCompare(b.data.name));
+const unreleasedHosts = (await getUnreleasedPersonIds()).hosts;
+const hosts = (await getCollection("hosts"))
+  .filter((h) => !unreleasedHosts.has(h.id))
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
 const episodesByHost = await getEpisodesByHostId();
 ---
 

@@ -21,10 +21,17 @@ import { Resvg } from "@resvg/resvg-js";
 import YAML from "yaml";
 import { toCompressedJpeg } from "./lib/encode.mjs";
 import { plainTextSnippet } from "./lib/text.mjs";
+import { readEpisodes } from "./lib/episode-files.mjs";
+import { isLive, unreleasedPersonIds } from "./lib/go-live.mjs";
 
 const scriptDir = path.dirname(new URL(import.meta.url).pathname);
 const REPO_ROOT = path.resolve(scriptDir, "..");
 const OUT_DIR = path.join(REPO_ROOT, "public/img/social/og");
+
+// Episodes not live yet (issue #131) don't count toward any card.
+const allEpisodes = readEpisodes(REPO_ROOT);
+const liveEpisodes = allEpisodes.filter((e) => isLive(e.date));
+const unreleased = unreleasedPersonIds(allEpisodes);
 
 const CREAM = "#fdf3e0";
 const NAVY = "#1e2a52";
@@ -311,13 +318,11 @@ async function renderToJpeg(node) {
 // EPISODES" badge instead of a generic "Guest on Arrested DevOps" tag.
 function buildEpisodeCountsByGuest() {
   const counts = new Map();
-  const episodesDir = path.join(REPO_ROOT, "src/content/episodes");
-  for (const file of fs.readdirSync(episodesDir)) {
-    const data = readFrontmatter(path.join(episodesDir, file), false);
-    for (const g of data.guests ?? []) {
-      const list = counts.get(g.person) ?? [];
-      list.push(Number(data.episodeNumber));
-      counts.set(g.person, list);
+  for (const episode of liveEpisodes) {
+    for (const id of episode.guestIds) {
+      const list = counts.get(id) ?? [];
+      list.push(Number(episode.episodeNumber));
+      counts.set(id, list);
     }
   }
   for (const list of counts.values()) list.sort((a, b) => a - b);
@@ -340,6 +345,7 @@ async function generateGuestCards() {
     // No real name/bio to put on a card - see src/lib/guests.ts, these
     // are excluded from listings too.
     if (data.placeholder) continue;
+    if (unreleased.guests.has(id)) continue; // only on episodes not live yet, issue #131
     const latest = data.snapshots[data.snapshots.length - 1];
     const jpeg = await renderToJpeg(
       personCard({
@@ -361,6 +367,7 @@ async function generateHostCards() {
   let count = 0;
   for (const file of fs.readdirSync(hostsDir)) {
     const id = path.basename(file, ".md");
+    if (unreleased.hosts.has(id)) continue;
     const raw = fs.readFileSync(path.join(hostsDir, file), "utf8");
     const data = readFrontmatter(path.join(hostsDir, file), false);
     const body = raw.replace(/^---\n[\s\S]*?\n---/, "").trim();
@@ -426,12 +433,16 @@ async function generateShowIdentityCards(episodeCount, guestCount) {
 
 fs.mkdirSync(OUT_DIR, { recursive: true });
 
-const episodeCount = fs.readdirSync(path.join(REPO_ROOT, "src/content/episodes")).length;
-// Excludes placeholder stubs, matching src/lib/guests.ts's getGuestsSorted()
-// so this stat agrees with what the guest list page actually shows.
+const episodeCount = liveEpisodes.length;
+// Excludes placeholder stubs and guests whose episodes aren't live yet,
+// matching src/lib/guests.ts's getGuestsSorted() so this stat agrees with
+// what the guest list page actually shows.
 const guestCount = fs
   .readdirSync(path.join(REPO_ROOT, "src/content/guests"))
-  .filter((file) => !readFrontmatter(path.join(REPO_ROOT, "src/content/guests", file), true).placeholder).length;
+  .filter((file) => {
+    if (unreleased.guests.has(path.basename(file, ".yaml"))) return false;
+    return !readFrontmatter(path.join(REPO_ROOT, "src/content/guests", file), true).placeholder;
+  }).length;
 
 const guestCards = await generateGuestCards();
 const hostCards = await generateHostCards();

@@ -1,9 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getLiveEpisodes, getUnreleasedPersonIds } from "../lib/episodes";
 
-const episodeCount = (await getCollection("episodes")).length;
-const guestCount = (await getCollection("guests")).length;
+const episodeCount = (await getLiveEpisodes()).length;
+const unreleasedGuests = (await getUnreleasedPersonIds()).guests;
+const guestCount = (await getCollection("guests")).filter((g) => !unreleasedGuests.has(g.id)).length;
 ---
 
 <BaseLayout title="Search" description={`Search across all ${episodeCount} episodes and ${guestCount} guests.`}>

@@ -1,0 +1,57 @@
+# Rebuilds the site when an episode's go-live time (06:00 US Eastern on its
+# `date`) has passed but the live feed doesn't have it yet. Netlify builds are
+# static, so a future-dated episode stays hidden until something triggers one.
+# See docs/adr/0006-future-dated-episodes-are-withheld-until-go-live.md.
+#
+# Two crons because 06:00 Eastern is 10:00Z in summer and 11:00Z in winter. The
+# check is idempotent (is a live episode missing from the live feed?), so the
+# run on the wrong side of DST, or any late run, is a no-op. If the episode
+# doesn't show up, the verify step fails and GitHub emails the failure.
+#
+# Needs the repo secret NETLIFY_BUILD_HOOK (Netlify: Site configuration ->
+# Build & deploy -> Build hooks, production branch).
+name: Go live
+
+on:
+  schedule:
+    - cron: "5 10 * * *"
+    - cron: "5 11 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# A delayed 10:05Z run can overlap the 11:05Z one; queue instead of double-POSTing the hook.
+concurrency:
+  group: go-live
+  cancel-in-progress: false
+
+jobs:
+  go-live:
+    runs-on: ubuntu-latest
+    # verify waits up to 30 min; leave headroom so its own failure message prints.
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      - name: Is a live episode missing from the live feed?
+        id: due
+        run: node scripts/go-live-check.mjs due
+
+      - name: Trigger a Netlify build
+        if: steps.due.outputs.due == 'true'
+        env:
+          NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+        run: |
+          test -n "$NETLIFY_BUILD_HOOK" || { echo "NETLIFY_BUILD_HOOK secret is not set"; exit 1; }
+          curl -fsS -X POST "$NETLIFY_BUILD_HOOK"
+
+      - name: Wait for the episode to appear in the live feed
+        if: steps.due.outputs.due == 'true'
+        run: node scripts/go-live-check.mjs verify
