@@ -91,8 +91,18 @@ Shape of the draft:
   turn into a pitch for the guest's idea.
 - No internal tool names or non-public details.
 
-Keep the sharper versions (the pointed questions, where Matty plans to push) out of the doc
-and give them in chat as private reminders.
+Keep the sharper versions (the pointed questions, where Matty plans to push) out of this
+doc. They go in Matty's private `Host Notes` doc, one tab per episode, after he approves them
+in chat too. Find the doc with `search_files` by that title. Don't commit its id; the doc is
+private. Check `get_file_permissions` and tell Matty who can see it. The co-hosts have edit
+through the `Episodes` folder, and he's fine with that.
+
+Add the tab with `update_doc` (`addDocumentTab`, titled `<Guest names> (<Mon D>)`). Fill it
+the same way as the agenda: `insertText` with `location.tabId`, read back, then style. Every
+range needs the `tabId`. What goes in it: the date and time, any calendar clash, the plan for
+keeping the episode from turning into a pitch, what the guest's published writing says, and
+the pointed questions, numbered. Mark anything you inferred from tool docs rather than from
+Matty (for example how an internal tool works) so he checks it first.
 
 To write it: `insertText` at the start of the empty bullet under the heading, with the last
 line left without a trailing newline so it merges into that bullet. Then read the doc back
@@ -102,7 +112,7 @@ would email the guest.
 
 ## 6. Report
 
-One short message: the doc link, what is still a placeholder, the agenda topics if you
-wrote them, and anything odd. Compare
+One short message: the doc link, what is still a placeholder, the agenda topics and
+Host Notes tab if you wrote them, and anything odd. Compare
 the recording time with the guest's other calendar items that day and mention a meeting
 that ends right when the recording starts.
