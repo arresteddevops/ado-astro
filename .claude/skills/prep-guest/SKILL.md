@@ -15,14 +15,22 @@ write pins `if_version` from a fresh read of the row.
 Read the guest's row. You need `name`, `calendarId` and `calendarEventId`. If the row has
 no booking, stop and ask. Do not guess an event.
 
+If the row has `coGuests`, the episode has several guests. Below, `<Guest Name>` is every
+name joined with "and" ("Stephan Schmidt and Tanya Higgins") and the first-name
+placeholders get the first names joined the same way ("Stephan and Tanya"), and the doc is
+named with every guest. Read the copied doc
+for singular wording ("your", "you're") that no longer fits, and tell Matty.
+
 The episode title Matty gives you usually ends with "with <Guest Name>". The template
 adds that itself, so drop it from `{{EPISODE_TITLE}}`, or the heading reads "with" twice.
 
 ## 2. Agenda doc
 
-1. Copy `ADO Episode - TEMPLATE` (id in the README) into the `Episodes` folder with
-   `copy_file`, titled `ADO Episode - <Guest Name>`. The copy is owned by whichever Google
-   account the connector runs as. That's expected.
+1. Ask Matty to copy `ADO Episode - TEMPLATE` (id in the README) into the `Episodes` folder
+   as `matt.stratton@gmail.com`, titled `ADO Episode - <Guest Name>`, and send you the link.
+   Don't use `copy_file`: the connector runs as the tigerdata account, and a doc that
+   account owns can't be shared with an external guest. The tigerdata account can still
+   edit the gmail-owned copy through the folder, so fill it with `update_doc`.
 2. One `update_doc` batch, in this order:
    - `replaceAllText` `{{DESCRIPT_LINK}}` with the room URL.
    - `updateTextStyle` to hyperlink it (`link`, underline, blue `0.0667/0.3333/0.8`). In the
@@ -53,7 +61,7 @@ offered several topics.
   the SavvyCal text verbatim, with `\n` turned into `<br>`, so reschedule and cancel links
   survive.
 - `addedAttachments`: the agenda doc (`?usp=sharing` URL, titled with the doc name).
-- `addedAttendees`: `matty@tigerdata.com`, so the work calendar block stays in sync. Matty
+- `addedAttendees`: `matty@tigerdata.com`, so the work calendar block stays in sync, plus each co-guest's email from `coGuests`. Matty
   no longer copies bookings to the work calendar by hand. If you do find a hand-made copy
   of this booking there, ask him to delete it first, or the invite leaves a duplicate.
 

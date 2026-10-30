@@ -157,6 +157,7 @@ function card(g){
   const open=editing===g.id,prep=g.status==='scheduled';
   return`<article class="guest" id="g-${esc(g.id)}">
     <div><div class="gname"><h3>${esc(g.name)}</h3>${whenPill(g)}</div>
+    ${g.coGuests?.length?`<p class="topic">with ${esc(g.coGuests.map(c=>c.name).join(', '))}</p>`:''}
     ${g.topic?`<p class="topic">${esc(g.topic)}</p>`:''}
     <div class="chips">${chip('Descript',g.descriptLink,prep)}${chip('Agenda',g.agendaDoc,prep)}</div></div>
     <button class="btn ghost sm" type="button" data-act="${open?'cancel':'edit'}" data-id="${esc(g.id)}" aria-expanded="${open}">${open?'Close':'Edit'}</button>
