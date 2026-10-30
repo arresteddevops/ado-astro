@@ -26,6 +26,7 @@ Collection `guests`, one document per guest, document id is the name slug
 | `descriptLink` | Descript recording room. Matty creates it by hand (no tool can) |
 | `agendaDoc` | the guest's copy of the agenda template |
 | `calendarId`, `calendarEventId` | the SavvyCal booking on the Gmail calendar (source of truth) |
+| `coGuests` | optional `[{name, email}]` for other guests on the same episode. They share this row, agenda doc and booking, so they get no row of their own |
 | `notes`, `updatedAt` | free text and last write |
 
 The page's Save does a full `set` that spreads the existing document, so fields added from
