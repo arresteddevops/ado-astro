@@ -1,6 +1,6 @@
 ---
 name: prep-guest
-description: Prep a scheduled guest for recording. Copies the agenda template for them, fills in the Descript room link and names, updates the guest pipeline tracker row, and retitles the booking on the calendar with the Descript and agenda links. Run when Matty hands over a guest's Descript room link and episode title.
+description: Prep a scheduled guest for recording. Copies the agenda template for them, fills in the Descript room link and names, updates the guest pipeline tracker row, retitles the booking on the calendar with the Descript and agenda links, and drafts agenda topics for the doc. Run when Matty hands over a guest's Descript room link and episode title.
 ---
 
 Run this when a guest has booked and Matty gives you their **Descript room link** and the
@@ -30,7 +30,8 @@ adds that itself, so drop it from `{{EPISODE_TITLE}}`, or the heading reads "wit
    as `matt.stratton@gmail.com`, titled `ADO Episode - <Guest Name>`, and send you the link.
    Don't use `copy_file`: the connector runs as the tigerdata account, and a doc that
    account owns can't be shared with an external guest. The tigerdata account can still
-   edit the gmail-owned copy through the folder, so fill it with `update_doc`.
+   edit the gmail-owned copy through the folder, so fill it with `update_doc` (confirmed on
+   Stephan Schmidt's doc).
 2. One `update_doc` batch, in this order:
    - `replaceAllText` `{{DESCRIPT_LINK}}` with the room URL.
    - `updateTextStyle` to hyperlink it (`link`, underline, blue `0.0667/0.3333/0.8`). In the
@@ -70,8 +71,48 @@ Do not edit or delete anything on the work calendar yourself.
 The invite can take a minute to show on the work calendar. Check with `list_events` on
 that calendar before you report it as missing.
 
-## 5. Report
+## 5. Agenda topics
 
-One short message: the doc link, what is still a placeholder, and anything odd. Compare
+Draft topics for the `Agenda/Topics` section. Show the draft in chat and write it to the doc
+only after Matty approves. The doc is attached to the invite, so the guest reads it. It is
+there so they know what Matty might ask and so Matty has reminders.
+
+Inputs: the row's `topic` and `notes`, the SavvyCal text on the booking, and any email
+thread Matty pastes (ask for it when the topic is thin). Why a co-guest is on the episode
+comes from Matty. Read the guest's published writing with `WebSearch` and `WebFetch`, and
+say plainly what you could not find. A brand-new idea often has no public trace.
+
+Shape of the draft:
+
+- An italic line first: "Not a script. Things I might ask about, so nobody's surprised."
+- Three to five bold group labels (one per guest, then themes), a few bullets each.
+- Neutral, open prompts ("where might this fall short?"), not gotchas. Give each guest a
+  story prompt ("a team you've seen") before any framework question, so the episode doesn't
+  turn into a pitch for the guest's idea.
+- No internal tool names or non-public details.
+
+Keep the sharper versions (the pointed questions, where Matty plans to push) out of this
+doc. They go in Matty's private `Host Notes` doc, one tab per episode, after he approves them
+in chat too. Find the doc with `search_files` by that title. Don't commit its id; the doc is
+private. Check `get_file_permissions` and tell Matty who can see it. The co-hosts have edit
+through the `Episodes` folder, and he's fine with that.
+
+Add the tab with `update_doc` (`addDocumentTab`, titled `<Guest names> (<Mon D>)`). Fill it
+the same way as the agenda: `insertText` with `location.tabId`, read back, then style. Every
+range needs the `tabId`. What goes in it: the date and time, any calendar clash, the plan for
+keeping the episode from turning into a pitch, what the guest's published writing says, and
+the pointed questions, numbered. Mark anything you inferred from tool docs rather than from
+Matty (for example how an internal tool works) so he checks it first.
+
+To write it: `insertText` at the start of the empty bullet under the heading, with the last
+line left without a trailing newline so it merges into that bullet. Then read the doc back
+for exact indexes and make the label lines bold and unbulleted (`deleteParagraphBullets`,
+then indent 0). Check with `read_file_content`. Do not touch the calendar event for this; it
+would email the guest.
+
+## 6. Report
+
+One short message: the doc link, what is still a placeholder, the agenda topics and
+Host Notes tab if you wrote them, and anything odd. Compare
 the recording time with the guest's other calendar items that day and mention a meeting
 that ends right when the recording starts.
