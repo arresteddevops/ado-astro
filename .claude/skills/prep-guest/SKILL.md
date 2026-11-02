@@ -32,16 +32,20 @@ adds that itself, so drop it from `{{EPISODE_TITLE}}`, or the heading reads "wit
    account owns can't be shared with an external guest. The tigerdata account can still
    edit the gmail-owned copy through the folder, so fill it with `update_doc` (confirmed on
    Stephan Schmidt's doc).
-2. One `update_doc` batch, in this order:
+2. Read the doc first. Matty sometimes pastes the Descript link into the copy himself
+   (Ali Diamond's came that way). If `{{DESCRIPT_LINK}}` is gone, check that the link in the
+   doc matches the one he gave you, skip the first two bullets of the batch below, and use the pasted link
+   everywhere else.
+3. One `update_doc` batch, in this order:
    - `replaceAllText` `{{DESCRIPT_LINK}}` with the room URL.
    - `updateTextStyle` to hyperlink it (`link`, underline, blue `0.0667/0.3333/0.8`). In the
      current template the link text starts at index 82. The end is 82 plus the URL's
      length. If the template's header changes, read the doc and recompute.
    - `replaceAllText` for `{{EPISODE_TITLE}}`, `{{GUEST_NAME}}`, `{{GUEST_FIRST_CAPS}}`
      (first name in capitals), then `{{GUEST_FIRST}}`.
-3. Leave `{{EPISODE_BLURB}}`, `{{SLUG}}` and `{{PLUG}}` alone. Matty writes the blurb and
+4. Leave `{{EPISODE_BLURB}}`, `{{SLUG}}` and `{{PLUG}}` alone. Matty writes the blurb and
    the plug, and the slug doesn't exist until the episode does. Say so in your report.
-4. Read the doc back with `read_file_content` and confirm no placeholders remain except
+5. Read the doc back with `read_file_content` and confirm no placeholders remain except
    those three.
 
 ## 3. Tracker row
