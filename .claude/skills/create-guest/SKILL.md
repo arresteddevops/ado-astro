@@ -191,7 +191,7 @@ placeholder: false
 ## 6. Verify
 
 Run `pnpm run build` (needs Node 22; the default shell may be Node 20 — prefix
-`PATH="$HOME/.nvm/versions/node/v22.22.2/bin:$PATH"`). The zod schema in
+`PATH="$HOME/.nvm/versions/node/v22.23.4/bin:$PATH"`). The zod schema in
 `content.config.ts` will reject a malformed guest file at build time — treat any
 schema error as something to fix now, not something to explain away.
 
