@@ -1,0 +1,13 @@
+name: "Cassidy Williams"
+snapshots:
+  - key: cwilliams
+    bio: |-
+      Cassidy Williams (aka cassidoo) is Senior Director of Developer Advocacy at GitHub, where she helps developers build better with open source and modern developer tools. She's a software engineer, startup advisor, and investor, and writer of [a weekly newsletter](https://cassidoo.co/newsletter) of tech news, coding practice, and jokes that's been running since 2017. Cassidy has spoken at the Grace Hopper Conference, SXSW, TEDx, the United Nations, and hundreds of other events, and was named one of Glamour's 35 Women Under 35 Changing the Tech Industry. Based in Chicago, she loves mechanical keyboards, cool pens, and making memes.
+    thumbnail: img/guests/cwilliams.png
+    website: "https://cassidoo.co"
+    twitter: cassidoo
+    github: cassidoo
+    linkedin: cassidoo
+    bluesky: cassidoo.co
+    pronouns: "she/her"
+placeholder: false
