@@ -19,6 +19,7 @@ sponsors: []
 aliases:
   - /212
   - /justgeeking
+youtube: LFj2hOpDtzE
 transcript: just-geeking
 explicit: "no"
 ---
