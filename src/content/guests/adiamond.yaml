@@ -1,0 +1,13 @@
+name: "Ali Diamond"
+snapshots:
+  - key: adiamond
+    bio: |-
+      Backend engineer by day, and content creator + cybersecurity reporter by night. You can find me everywhere online @endingwithali, and posting weekly cyberesecurity news stories over at Threat Wire on @hak5
+    thumbnail: img/guests/adiamond.jpg
+    website: "https://ali.dev"
+    twitter: endingwithali
+    github: endingwithali
+    linkedin: ali-diamond
+    bluesky: endingwithali.com
+    pronouns: "She/Her"
+placeholder: false
