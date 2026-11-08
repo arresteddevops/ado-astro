@@ -52,7 +52,7 @@ And, that, that was it. The... And I've been firmly entrenched in observability 
 
 **Matty:** like DevOps, like things, you know, there's, there's different opinions and stuff, so maybe we'll just sort of level set with when we say observability, what does that mean for, to you?
 
-**Adriana Villela:** Okay, so my favorite definition of observability actually comes from Hazel Weekly, and she defines it as the ability to ask meaningful questions and get useful answers and apply, apply that to, a- act effectively basically on what you've learned. and I think it's a great definition, because it, all we wanna do is understand our systems better at the end of [00:07:00] the day.
+**Adriana Villela:** Okay, so my favorite definition of observability actually comes from Hazel Weakly, and she defines it as the ability to ask meaningful questions and get useful answers and apply, apply that to, a- act effectively basically on what you've learned. and I think it's a great definition, because it, all we wanna do is understand our systems better at the end of [00:07:00] the day.
 
 and I think that's why I was drawn to observability. as y- I have a background as a Java developer. I did it for 16 years, and I'm like, "God, I could have really used something a little bit more robust than just, log lines," going through logs. Are you here? Are you here? Is this executing?
 

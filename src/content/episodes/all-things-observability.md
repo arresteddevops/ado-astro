@@ -31,7 +31,7 @@ The fix was to learn in public. Adriana blogged on Medium about Nomad, translati
 
 ## Questions You Didn't Know You Wanted to Ask
 
-Adriana's favorite definition comes from Hazel Weekly: the ability to ask meaningful questions, get useful answers, and act effectively on what you learned. Matty's version is that it lets you ask questions you didn't know you wanted to ask. Monitoring makes you know the question in advance, and mid-incident the first step too often turns out to be "invent a time machine and go back and start doing that."
+Adriana's favorite definition comes from Hazel Weakly: the ability to ask meaningful questions, get useful answers, and act effectively on what you learned. Matty's version is that it lets you ask questions you didn't know you wanted to ask. Monitoring makes you know the question in advance, and mid-incident the first step too often turns out to be "invent a time machine and go back and start doing that."
 
 What separates the two, Adriana says, is the distributed trace. Logs and metrics matter, but the trace is the star: "it's the outline, it's the chapters." Logs are the supporting actors that say what happened at a point in time, and metrics are the indicators of "Oh shit, is this gonna go off the rails?"
 
