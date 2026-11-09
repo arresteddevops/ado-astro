@@ -1,6 +1,6 @@
 ---
 name: create-episode
-description: Create a new episode from a recording transcript plus whatever details Matty supplies (guests, sponsors, artwork, hosting details). Drafts show notes from the transcript, writes the episode + transcript content files, and wires up guest/host/sponsor references.
+description: Create a new episode from a recording transcript plus whatever details Matty supplies (guests, sponsors, artwork, hosting details). Drafts show notes from the transcript, writes the episode + transcript content files, wires up guest/host/sponsor references, suggests the Auphonic metadata fields, and drafts the YouTube description for video episodes.
 ---
 
 Run this when there's a new episode to publish. This is interactive — you
@@ -47,8 +47,12 @@ Ask for (whatever isn't already given):
   match the episode slug). If artwork isn't ready yet, leave the fields
   pointing at filenames Matty will provide later rather than inventing a
   placeholder image yourself.
-- **Explicit flag**, **YouTube URL** (video episodes), **date** — ask if
-  not obvious from context.
+- **Explicit flag**, **date** — ask if not obvious from context.
+- **YouTube**: always ask whether this episode has a video. If it does, the
+  video usually isn't uploaded yet, so don't wait on the ID: leave `youtube`
+  out of the frontmatter, draft the video description in step 8, and add
+  `youtube: <id>` once Matty hands you the ID. If there's no video, skip
+  step 8.
 
 ## 2. Derive the slug
 
@@ -160,5 +164,71 @@ Check the `generate-redirects.mjs` output near the top of the build log
 (`Generated public/_redirects: N rules.` / `No warnings.`) — a "defined
 2x" warning means the new episode's aliases collide with an existing
 one somewhere; don't ignore it.
+
+## 7. Suggest Auphonic metadata
+
+Matty processes the audio in Auphonic (it produces the mp3 and uploads it to
+Blubrry), so the mp3 doesn't exist yet when you draft the episode. Give him
+values for the fields he fills in per episode, in chat as a plain list he can
+copy from. Do this before he processes the audio, which is why it's a
+suggestion and not something to read off the finished file.
+
+Fields that come from the episode:
+
+- **Title**: the episode `title`, including "with <Guest Name>".
+- **Subtitle** (255 characters max): one plain sentence, shorter than the
+  `description`. Count the characters, don't eyeball it.
+- **Summary (Description)**: the `description` field, as plain text.
+- **Cover Image**: the episode art. Give him the path of the source image
+  (the `episodeImage` file you copied into `src/assets/episode-img/`, or
+  where he keeps the original) and don't assume Auphonic wants the same crop
+  the site uses. If the art isn't in yet, say so.
+- **Track**: the episode number. His preset has `##` here, which is the
+  placeholder to replace.
+- **Year**: the year of the episode's `date`.
+- **URL**: the episode page, `https://www.arresteddevops.com/<slug>/`. His
+  preset has the homepage, so this is an override per episode.
+- **Tags** (comma separated): keep `devops`, then add 2 to 4 topic tags drawn
+  from the transcript (for example `observability, opentelemetry`). Same
+  rule as the show notes: only topics that were actually discussed.
+- **Genre**: his preset leaves this blank. Suggest one value and say it's his
+  call.
+
+Fields that are the same every time (Artist, Album, Publisher, License,
+License URL) belong in his Auphonic preset, so don't suggest them. Do point
+out anything in the preset that looks stale (the preset's Year went stale
+once). If he shares a fresh screenshot of the metadata panel, work from that
+and not from this list.
+
+## 8. Draft the YouTube description (video episodes only)
+
+If step 1 found a video, draft the description for the YouTube upload and
+show it in chat inside a code block, so it copies cleanly. YouTube doesn't
+render markdown, so write plain text with bare URLs. Same voice rules as the
+show notes (`docs/SHOW_NOTES_VOICE.md`): no em dashes, nothing that isn't in
+the transcript, no teaser copy or CTA ending beyond the footer below.
+
+Shape:
+
+1. Two or three sentences on what the episode is about, in the guest's and
+   Matty's terms. One short quote from the transcript is fine if it earns its
+   place. Don't paste the whole `description` unless it already reads well on
+   its own.
+2. `Full show notes, links, and transcript: https://www.arresteddevops.com/<slug>/`
+   (say "Full show notes and transcript" if the episode has no links section).
+3. If the episode body has a "Links to Resources Mentioned" section, repeat
+   the main links as plain `Label: URL` lines. Drop the minor ones.
+4. If there's no links section, a "Find <guest first name>:" line with
+   whatever the guest gave (their site, handle).
+5. The footer, unchanged: the show tagline, then
+   `Subscribe: https://www.arresteddevops.com/subscribe` and
+   `Leave a review: https://www.arresteddevops.com/itunes`.
+
+The episode page doesn't exist until the PR merges and `date` passes, so the
+show notes link 404s before then. Tell Matty to keep the video unlisted or
+scheduled until the episode is live.
+
+When he gives you the YouTube ID, add `youtube: <id>` to the episode
+frontmatter (unquoted), and check the built page includes it.
 
 Don't commit or open a PR unless asked.
