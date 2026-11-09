@@ -1,5 +1,16 @@
 name: "Adriana Villela"
 snapshots:
   - key: avillela
-    bio: We're still tracking down this guest's full bio. Check back soon.
-placeholder: true
+    bio: |-
+      Adriana Villela is a serial blogger, speaker, host of the Geeking Out podcast, CNCF Ambassador, AAIF Ambassador, OpenTelemetry Community Manager, and maintainer of the OpenTelemetry End User SIG.
+
+      In past lives, Adriana has worked at various large enterprises as both an individual contributor and leader, including Tucows, Bank of Montreal, Ceridian, and Accenture.
+
+      By day, she focuses on Observability and OpenTelemetry, as a Principal Developer Advocate at Dynatrace. By night, she climbs walls. She also loves capybaras, because they make her happy.
+    thumbnail: img/guests/avillela.jpg
+    website: "https://adrianavillela.com"
+    github: avillela
+    linkedin: adrianavillela
+    bluesky: adrianamvillela.bsky.social
+    pronouns: "she/her"
+placeholder: false
