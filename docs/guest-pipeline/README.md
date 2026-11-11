@@ -93,8 +93,8 @@ to "Guests" on both.
 
    A reminder before we record: https://www.arresteddevops.com/recording/
 
-   Your studio link is in the location field of your calendar invite, and the agenda doc is
-   attached to the same invite. If you can't find either, reply and I'll send them.
+   Your studio link and the agenda doc are on your calendar invite. If you can't find them,
+   reply and I'll send them.
 
    Need to move it? {{ event.reschedule_url }}
 
@@ -104,10 +104,24 @@ to "Guests" on both.
 SavvyCal keeps no log of workflow emails; add your own address as an extra recipient if you want a
 copy. A reschedule moves the "before start" action but doesn't re-send the "after scheduled" one.
 
-A reschedule can also overwrite what `prep-guest` wrote to the calendar event. Tracked in #155.
+## What a reschedule does to the calendar event
+
+Tested on 2026-11-10 with a throwaway booking. A SavvyCal reschedule updates the same Google
+Calendar event in place and rewrites two fields:
+
+| field | after a reschedule |
+|---|---|
+| title, attachments, color | kept |
+| attendee list | kept, but the guest's response resets to "needs action" |
+| **location** | **cleared** (the Descript link is gone) |
+| **description** | **back to the plain SavvyCal text** (the studio and agenda links are gone) |
+
+So an empty `location` on a prepped booking means it was rescheduled. `prep-guest` has a repair
+mode (and a check for it) that restores both fields from the tracker row. The guest-facing emails
+don't depend on which field holds the link, because they say "on your calendar invite".
 
 ## Not built yet
 
 `prep-guest` (`.claude/skills/prep-guest`) is written from the first real run, on Adriana
-Villela. A `guest-sync` skill that reads the calendars and fixes drift comes later. Sponsors
-become a second collection once guests have survived a recording.
+Villela. It also covers the reschedule repair and drift check. Sponsors become a second collection
+once guests have survived a recording.
