@@ -1,0 +1,16 @@
+name: "Katie Kodes"
+snapshots:
+  - key: kkodes
+    bio: |-
+      Katie is a DevOps architect who specializes in making enterprise applications and infrastructure secure by default -- supply chains, identity, CI/CD, and lately, AI agents that don't accidentally leak your data.
+
+      Spent years as a database developer before discovering that every layer of the stack needed fixing.
+
+      Can be found at KatieKodes.com, boosting pho shops and platform architectures with roughly equal passion.
+    thumbnail: img/guests/kkodes.png
+    website: "https://katiekodes.com/"
+    github: kkgthb
+    linkedin: katiekodes
+    bluesky: katiekodes.com
+    pronouns: "she/her"
+placeholder: false
