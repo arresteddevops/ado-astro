@@ -177,6 +177,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     color: var(--color-red-deep);
   }
 
+  /* PRD: hit targets are at least 44px. These two links are the only taps on the page. */
+  .card li a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--hit-target-min);
+  }
+
   @media (max-width: 640px) {
     h1 {
       font-size: 38px;
