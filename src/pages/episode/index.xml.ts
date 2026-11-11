@@ -39,6 +39,12 @@ export async function GET(context: APIContext) {
 
   const episodes = await getEpisodesNewestFirst();
 
+  // lastBuildDate is the newest episode's date, not the build time. A build-time
+  // value changed the feed's bytes (and ETag) on every deploy, so every
+  // subscriber re-downloaded the whole ~600 KB feed after each one.
+  const newest = episodes[0]?.data;
+  const lastBuildDate = (newest ? (newest.publishDate ?? newest.date) : new Date(0)).toUTCString();
+
   const items = await Promise.all(
     episodes.map(async (episode) => {
       const {
@@ -104,7 +110,7 @@ export async function GET(context: APIContext) {
     <atom:link href="${feedUrl}" rel="self" type="application/rss+xml" />
     <link>${site.toString()}</link>
     <description>${escapeXml(CHANNEL.description)}</description>
-    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <lastBuildDate>${lastBuildDate}</lastBuildDate>
     <language>en-us</language>
     <copyright>${escapeXml(CHANNEL.copyright)}</copyright>
     <itunes:subtitle>${escapeXml(CHANNEL.itunesSubtitle)}</itunes:subtitle>

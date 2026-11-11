@@ -1,0 +1,8 @@
+# Hashed build output never changes under the same URL.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# The podcast feed is the heaviest thing we serve (~600 KB gzipped) and apps
+# poll it constantly. A short max-age lets well-behaved clients skip polls.
+/episode/index.xml
+  Cache-Control: public, max-age=600
