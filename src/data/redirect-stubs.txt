@@ -49,3 +49,4 @@
 /thoughtworks https://www.gocd.org/?utm_campaign=arrested_ops_2017&utm_medium=podcast&utm_source=website_banner&utm_content=go_website&utm_term= 301!
 /feed/podcast/	/episode/index.xml	301!
 /category/podcast/feed/	/episode/index.xml	301!
+/img/Bridget.png	/img/bridget.png	301!
