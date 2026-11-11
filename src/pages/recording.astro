@@ -1,0 +1,196 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Before We Record"
+  description="What to expect, and what to have ready, when you record an episode of Arrested DevOps."
+  noindex
+>
+  <section class="intro">
+    <div class="badge">BEFORE WE RECORD</div>
+    <h1>Here's what to expect when we record.</h1>
+    <p class="lede">
+      Thanks for coming on Arrested DevOps. This is the whole checklist, and none of it is a test.
+    </p>
+  </section>
+
+  <section class="content">
+    <div class="card">
+      <h2>How it works</h2>
+      <p>
+        We book an hour. The episode itself usually runs 30 to 40 minutes, and the rest is for hellos
+        and a sound check.
+      </p>
+      <p>
+        We record both audio and video. If you'd rather not be on camera, tell us before the day and we'll
+        make it an audio-only episode.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Joining</h2>
+      <p>
+        Your calendar invite has the studio link in the location field, and the agenda doc is attached to
+        the same invite. Click the link a few minutes early. You don't need an account or an app.
+      </p>
+      <p>
+        Chrome, Edge, Arc, Firefox, and Safari 26 or later all work. If you're on a Mac with an older
+        Safari, use Chrome. Your browser will ask to use your microphone and camera, so say yes. You can
+        join with the camera off if you want.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>What to have ready</h2>
+      <ul>
+        <li>
+          Headphones, wired if you have them. Wired ones are the most reliable, and they keep the sound
+          from echoing. Bluetooth works, but it can drop audio quality or disconnect mid-episode.
+        </li>
+        <li>A quiet, well-lit spot, with your face in front of the camera.</li>
+        <li>
+          A solid connection. A wired one is best. On Wi-Fi, sit near the router and close extra apps and
+          tabs. Aim for at least 10 Mbps up and down.
+        </li>
+        <li>An external microphone or camera, if you have one. Your laptop's will do if you don't.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>The agenda</h2>
+      <p>
+        The doc attached to your invite is a list of things we might ask about. It isn't a script, and you
+        don't need to prepare.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>When we stop</h2>
+      <p>
+        Your recording uploads as we go. After we finish, stay in the room until the upload confirmation
+        appears on your screen, then close the tab. If it stalls, let us know.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Odds and ends</h2>
+      <ul>
+        <li>
+          Need to move it? Use the reschedule link in your confirmation email.
+        </li>
+        <li>
+          Haven't sent your bio and headshot yet? It takes a few minutes:
+          <a href="/guestform/">the guest info form</a>.
+        </li>
+        <li>
+          Anything else:
+          <a href="mailto:shows@arresteddevops.com">shows@arresteddevops.com</a>.
+        </li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  h1,
+  h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+  }
+
+  .intro {
+    padding: 64px var(--page-padding) 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 800px;
+  }
+
+  .badge {
+    display: inline-flex;
+    background: var(--color-red-deep);
+    color: var(--color-cream);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    transform: rotate(-2deg);
+    align-self: flex-start;
+  }
+
+  h1 {
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-wrap: pretty;
+  }
+
+  .lede {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  .content {
+    padding: 24px var(--page-padding) 64px;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .card {
+    border: var(--border-width) solid var(--color-navy);
+    border-radius: var(--radius-card-lg);
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--color-cream-card);
+  }
+
+  h2 {
+    font-size: 24px;
+    letter-spacing: -0.01em;
+  }
+
+  .card p,
+  .card li {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .card ul {
+    margin: 0;
+    padding-left: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  a {
+    color: var(--color-red-deep);
+  }
+
+  /* PRD: hit targets are at least 44px. These two links are the only taps on the page. */
+  .card li a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--hit-target-min);
+  }
+
+  @media (max-width: 640px) {
+    h1 {
+      font-size: 38px;
+    }
+
+    .card {
+      padding: 22px 20px;
+    }
+  }
+</style>

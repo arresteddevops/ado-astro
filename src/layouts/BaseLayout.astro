@@ -30,6 +30,8 @@ interface Props {
    * where the suffix would just repeat the brand name).
    */
   suffixTitle?: boolean;
+  /** Ask search engines not to index this page (guest-facing pages that aren't in the nav). */
+  noindex?: boolean;
 }
 
 const {
@@ -41,6 +43,7 @@ const {
   imageHeight,
   structuredData,
   suffixTitle = true,
+  noindex = false,
 } = Astro.props;
 
 const fullTitle = suffixTitle ? `${title} · Arrested DevOps` : title;
@@ -71,6 +74,7 @@ const jsonLd = structuredData ?? {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={metaDescription} />
+    {noindex && <meta name="robots" content="noindex" />}
     <meta name="theme-color" content="#1e2a52" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
