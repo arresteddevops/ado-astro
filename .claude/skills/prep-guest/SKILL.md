@@ -70,6 +70,10 @@ offered several topics.
   no longer copies bookings to the work calendar by hand. If you do find a hand-made copy
   of this booking there, ask him to delete it first, or the invite leaves a duplicate.
 
+The guest's SavvyCal reminder emails (see "Guest note before recording" in the README) tell them
+the studio link and agenda are on this invite, so don't skip this step. A later reschedule can
+overwrite it (#155); if Matty says a guest rescheduled, re-run this step.
+
 Do not edit or delete anything on the work calendar yourself.
 
 The invite can take a minute to show on the work calendar. Check with `list_events` on
