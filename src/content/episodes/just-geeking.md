@@ -35,7 +35,7 @@ Cassidy started live-streaming almost ten years ago while working on the Echo at
 
 ## Open Unless It's Truly Niche
 
-Her default is public, because "if I want it to exist, someone else probably does too." The exception is her YouTube thumbnail generator, which uses her font and her format and, in her words, is not optimized for clicks. It stays on her machine. Her short link generator is open source, and Matty is, it turns out, already using hers. Someone once wrote to say a script she open sourced five years earlier was the only one they had found that did one specific thing. Matty adds that even when you can't share the thing you built, you can share how you built it, and Cassidy says she keeps a pile of browser tabs for exactly that, including a post about a person who bought a shack in the woods and only added a kitchen and plumbing as they needed them.
+Her default is public, because "if I want it to exist, someone else probably does too." The exception is her YouTube thumbnail generator, which uses her font and her format and, in her words, is not optimized for clicks. It stays on her machine. Her short link generator is open source. Someone once wrote to say a script she open sourced five years earlier was the only one they had found that did one specific thing. Matty adds that even when you can't share the thing you built, you can share how you built it, and Cassidy says she keeps a pile of browser tabs for exactly that, including a post about a person who bought a shack in the woods and only added a kitchen and plumbing as they needed them.
 
 ## Keyboards, Pens, and Other Snobbery
 
