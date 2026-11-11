@@ -1,6 +1,6 @@
 ---
 name: prep-guest
-description: Prep a scheduled guest for recording. Copies the agenda template for them, fills in the Descript room link and names, updates the guest pipeline tracker row, retitles the booking on the calendar with the Descript and agenda links, and drafts agenda topics for the doc. Run when Matty hands over a guest's Descript room link and episode title.
+description: Prep a scheduled guest for recording. Copies the agenda template for them, fills in the Descript room link and names, updates the guest pipeline tracker row, retitles the booking on the calendar with the Descript and agenda links, and drafts agenda topics for the doc. Run when Matty hands over a guest's Descript room link and episode title. Also repairs a booking after a SavvyCal reschedule wiped its location and description, and checks upcoming bookings for that drift.
 ---
 
 Run this when a guest has booked and Matty gives you their **Descript room link** and the
@@ -71,8 +71,8 @@ offered several topics.
   of this booking there, ask him to delete it first, or the invite leaves a duplicate.
 
 The guest's SavvyCal reminder emails (see "Guest note before recording" in the README) tell them
-the studio link and agenda are on this invite, so don't skip this step. A later reschedule can
-overwrite it (#155); if Matty says a guest rescheduled, re-run this step.
+the studio link and agenda are on this invite, so don't skip this step. A later reschedule
+overwrites the location and description; see "Repair after a reschedule" below.
 
 Do not edit or delete anything on the work calendar yourself.
 
@@ -124,3 +124,43 @@ One short message: the doc link, what is still a placeholder, the agenda topics 
 Host Notes tab if you wrote them, and anything odd. Compare
 the recording time with the guest's other calendar items that day and mention a meeting
 that ends right when the recording starts.
+
+## Repair after a reschedule
+
+A SavvyCal reschedule updates the same Google Calendar event and clears the `location` and puts
+the `description` back to the plain SavvyCal text. The title and the attachment survive. Details
+and the test behind this are in `docs/guest-pipeline/README.md`. Run this when Matty says a guest
+rescheduled, or when the drift check below finds a booking that needs it.
+
+1. Read the guest's row: `name`, `descriptLink`, `agendaDoc`, `calendarId`, `calendarEventId`.
+   If `descriptLink` or `agendaDoc` is empty, the guest was never prepped. Stop and run the main
+   steps instead.
+2. `get_event` on the booking. Decide what is missing:
+   - `location` empty or different from `descriptLink`: set it to `descriptLink`.
+   - `description` doesn't contain `Podcast recording studio link`: rebuild it with the two link
+     lines above the current text, as in step 4 (current text kept verbatim, `\n` turned into
+     `<br>`). If it already has the lines, leave it alone.
+   - `summary` isn't `Arrested DevOps Episode - <Guest Name>`: fix it (it normally survives).
+   - The agenda doc isn't in the attachments: add it (it normally survives).
+   Don't re-add attendees; a reschedule keeps them.
+3. `update_event` with only the fields that need it. The guest gets the update email again, which
+   Matty is fine with.
+4. `get_event` again and confirm the location, the description lines and the attachment.
+5. Update the tracker row's `recordingAt` to the event's new start (UTC ISO string), with
+   `if_version` from a fresh read. A reschedule leaves the old time there.
+6. Tell Matty what changed, and that the guest's RSVP reset to "needs action" (nothing to fix; it
+   goes back when they accept the new invite).
+
+## Drift check
+
+Run when Matty asks whether the bookings are in order, or a day or two before a recording. It
+only reads.
+
+1. List the tracker rows with status `scheduled` and a `recordingAt` in the future. Skip rows
+   with no `calendarEventId` or no `descriptLink` (not prepped yet, so nothing to drift from).
+2. `get_event` on each booking. Flag one if its `location` is empty or differs from
+   `descriptLink`, or its description lacks `Podcast recording studio link`. An empty location is
+   the quickest tell.
+3. Also flag a row whose `recordingAt` no longer matches the event's start.
+4. Report the flagged guests and what is wrong with each. Repair only after Matty says to, since
+   a repair emails the guest.
