@@ -136,7 +136,7 @@ And also I'm curious about how this affects your understanding of your customers
 
 **Tanya:** and read a book, but I feel like I've always been the kind of person who learns from doing it, so I feel like even if I did try to sit down and read a book, I never would've, like, fully understood it.
 
-Like, I really needed this experience where I just do it on my own. but there's so much I've learned, and I love to also, like, challenge myself. Um, today I [00:19:00] was able to figure out how to change my theme in Ghost without asking you Matty, and I was so happy that I figured it out, so, like, I like how it looks even more now.
+Like, I really needed this experience where I just do it on my own. but there's so much I've learned, and I love to also, like, challenge myself. Um, today I [00:19:00] was able to figure out how to change my theme in Ghostty without asking you Matty, and I was so happy that I figured it out, so, like, I like how it looks even more now.
 
 We had already done it together. so there's things like that where I'm like, I'll just get, like, a random idea and be like, "Can I do this?" And I'll figure out how to do it, and then I'm so proud. Um, like when you showed me Ponysay
 
