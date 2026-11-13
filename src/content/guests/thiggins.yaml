@@ -1,0 +1,11 @@
+name: "Tanya Higgins"
+snapshots:
+  - key: thiggins
+    bio: |-
+      Tanya is the Design Lead at Tiger Data, where she leads brand design and builds internal tools for the marketing team. Before Tiger Data, she spent eight years as Brand Design Director at Appcues, shaping the company’s visual identity and brand system. Over the past year she has gone from designing software to shipping it, using AI-assisted development to build and deploy tools her team uses every day. Tanya lives in New Hampshire with her reptiles, her chihuahua Milo, and a never-ending horror movie watch list.
+    thumbnail: img/guests/thiggins.jpg
+    website: "http://www.tanyahiggins.com"
+    github: higginst1729-cpu
+    linkedin: tanya-higgins
+    pronouns: "she/her/hers"
+placeholder: false
