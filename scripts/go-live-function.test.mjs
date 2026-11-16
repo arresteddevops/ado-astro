@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { run } from "./go-live.mjs";
+import { run } from "../netlify/functions/go-live.mjs";
 
 const ep = { date: new Date("2026-11-18"), episodeNumber: "216" };
 const feed = (n) => `<itunes:episode>${n}</itunes:episode>`;
