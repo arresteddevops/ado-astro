@@ -51,7 +51,7 @@ The guardrails also cover her forgetting. Matty will ask, "Did you use implement
 
 ## The Phone Already Solved This
 
-Stephan's mental model is that companies already solved this with the phone. "You run apps from people you don't know, and they are next to your banking data, and no one is worried." Normally, if someone writes code, "it can do everything." Model it with permissions and Tanya's module can be deployed without the right to read all customers, so there is "no need to review the code if it does this. You just need to review the permissions." It's the phone asking "Can I read the camera?" and someone answering yes or no. Add a sandbox to shrink the blast radius. [Cloudflare Workers](https://workers.cloudflare.com) and [Fastly Compute](https://www.fastly.com/products/edge-compute) already let people deploy onto their systems, and DevOps may need to set up a platform like that where people can run code without harming the system.
+Stephan's mental model is that companies already solved this with the phone. "You run apps from people you don't know, and they are next to your banking data, and no one is worried." Normally, if someone writes code, "it can do everything." Model it with permissions and Tanya's module can be deployed without the right to read all customers, so there is "no need to review the code if it does this. You just need to review the permissions." Stephan's take on the whole question, "How can marketing ship to production?", lives at [AppOS](https://appos.build). It's the phone asking "Can I read the camera?" and someone answering yes or no. Add a sandbox to shrink the blast radius. [Cloudflare Workers](https://workers.cloudflare.com) and [Fastly Compute](https://www.fastly.com/products/edge-compute) already let people deploy onto their systems, and DevOps may need to set up a platform like that where people can run code without harming the system.
 
 Matty ties it to safety science. When something goes wrong the question isn't what Tanya did wrong. It's what was wrong with the system that allowed it, and how do you build it so you can't drop the production table. Agents make mistakes faster and with a larger blast radius, so he wants least privilege. Engineering knows how to do this but isn't used to doing it for people outside the department, and "nobody on their first day in the org knows the standards."
 
@@ -79,4 +79,5 @@ The video viewers get a bonus: Stephan's puppy, Dorothy, named after the Golden 
 
 - [Tigersay](https://github.com/higginst1729-cpu/tigersay), Tanya's tiger version of Ponysay
 - [How My Coworker Who Didn't Know What CD Meant Ships to Production](https://dev.to/mattstratton/how-my-coworker-who-didnt-know-cd-shipped-to-production-3j6j), Matty's post about the guardrails behind this episode
+- [AppOS](https://appos.build), Stephan's open source take on how marketing can ship to production
 - [Amazing CTO](https://www.amazingcto.com), Stephan's CTO coaching site
