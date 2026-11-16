@@ -102,7 +102,7 @@ and for `astro dev`. It is **on** everywhere else (production, and a local
 ### The go-live trigger
 
 - A scheduled GitHub Action (`.github/workflows/`; today only `codeql.yml` exists)
-  fires at **10:05 and 11:05 UTC** daily so both sides of DST are covered. It checks
+  fires at **:17 and :47 past 10 and 11 UTC** daily so both sides of DST are covered. It checks
   out the repo and asks the shared helper which episodes are live right now, then
   fetches the live feed. Only if a live episode is **absent from the live feed** does
   it POST to a Netlify build hook. This replaces a time-window check ("went live in
