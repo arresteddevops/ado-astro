@@ -38,8 +38,13 @@ gets no page or redirects either, or their page would leak the episode.
   (leak) or a live episode is missing from it (a published item dropping out can read as a
   deletion to directories). They read the built output independently of the filtering
   code, so a filter bug can't hide itself.
-- **An automatic go-live rebuild.** The site is static, so a hidden episode stays hidden
-  until something rebuilds it. `.github/workflows/go-live.yml` runs at 10:05Z and 11:05Z
+- **Netlify scheduled function (primary trigger).** GitHub's scheduler ran this workflow
+  5 to 8 hours late in practice, so `netlify/functions/go-live.mjs` does the same check
+  and build-hook POST on Netlify's own scheduler (`17,47 10,11 * * *` UTC). It needs
+  `NETLIFY_BUILD_HOOK` as a site env var. The GitHub workflow below stays as a backup and
+  as the only part that verifies the feed and emails on failure.
+- **An automatic go-live rebuild (GitHub Actions).** The site is static, so a hidden episode stays hidden
+  until something rebuilds it. `.github/workflows/go-live.yml` runs at :17 and :47 past 10Z and 11Z
   daily (both sides of DST), checks whether a live episode is absent from the live feed,
   and only then POSTs to a Netlify build hook (secret `NETLIFY_BUILD_HOOK`), then polls
   the live feed and fails the run if the episode never appears. The check is idempotent,

@@ -14,14 +14,18 @@ name: Go live
 
 on:
   schedule:
-    - cron: "5 10 * * *"
-    - cron: "5 11 * * *"
+    # Off the :00/:05 slots GitHub throttles, two tries per side of DST. A run that
+    # isn't due is a no-op, so extra tries are cheap.
+    - cron: "17 10 * * *"
+    - cron: "47 10 * * *"
+    - cron: "17 11 * * *"
+    - cron: "47 11 * * *"
   workflow_dispatch:
 
 permissions:
   contents: read
 
-# A delayed 10:05Z run can overlap the 11:05Z one; queue instead of double-POSTing the hook.
+# A delayed run can overlap the next one; queue instead of double-POSTing the hook.
 concurrency:
   group: go-live
   cancel-in-progress: false
