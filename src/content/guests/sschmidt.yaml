@@ -1,0 +1,10 @@
+name: "Stephan Schmidt"
+snapshots:
+  - key: sschmidt
+    bio: |-
+      Stephan Schmidt is a CTO coach at [Amazing CTO](https://www.amazingcto.com) and has run more than 1,200 coaching sessions with CTOs. He started programming in 1981, founded several startups and was CTO of an eBay Inc. company. Today he helps technology leaders through the AI transition of engineering, from what senior developers do once AI writes the code to how companies let marketing ship to production safely.
+    thumbnail: img/guests/sschmidt.jpg
+    website: "https://www.amazingcto.com"
+    linkedin: stephanjschmidt
+    pronouns: "he/him"
+placeholder: false
