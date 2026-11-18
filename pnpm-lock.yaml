@@ -17,8 +17,8 @@ importers:
         specifier: ^3.7.4
         version: 3.7.4
       '@plausible-analytics/tracker':
-        specifier: ^0.4.6
-        version: 0.4.6
+        specifier: ^0.4.7
+        version: 0.4.7
       astro:
         specifier: ^7.4.4
         version: 7.4.4(@types/node@26.4.1)(esbuild@0.28.2)(yaml@2.9.1)
@@ -603,8 +603,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@plausible-analytics/tracker@0.4.6':
-    resolution: {integrity: sha512-nbu6xGgSP6jeYuoVklZBzucUnIpo75tVu3Kr+R0EDycVKaMC/jF5Q/YCaM/8gR4fPZ1IDcXt6FdBJFZ1uZwEPA==}
+  '@plausible-analytics/tracker@0.4.7':
+    resolution: {integrity: sha512-majmq1uion4uLo88Tr0eMCMfi7TY00okp3I0Vql9egFaAz6DYCW4bJaV3t5LB3BfcvW5exJpmqzROU0a1b6nAA==}
 
   '@resvg/resvg-js-android-arm-eabi@2.6.2':
     resolution: {integrity: sha512-FrJibrAk6v29eabIPgcTUMPXiEz8ssrAk7TXxsiZzww9UTQ1Z5KAbFJs+Z0Ez+VZTYgnE5IQJqBcoSiMebtPHA==}
@@ -2057,7 +2057,7 @@ snapshots:
   '@pagefind/windows-x64@1.5.2':
     optional: true
 
-  '@plausible-analytics/tracker@0.4.6': {}
+  '@plausible-analytics/tracker@0.4.7': {}
 
   '@resvg/resvg-js-android-arm-eabi@2.6.2':
     optional: true
