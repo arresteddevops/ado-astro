@@ -1,0 +1,14 @@
+name: "Hazel Weakly"
+snapshots:
+  - key: hweakly
+    bio: |-
+      Hazel spends her days building out teams of humans as well as the systems and tooling to make life better for others. She currently serves as a Fellow of the Nivenly Foundation, and is fondly known as the Infrastructure Witch of Hachyderm (a popular Mastodon instance).
+
+      One of her favourite joys is the light on someone’s face when they understand something for the first time. She also loves shooting pool, swing dancing, and boardgames.
+    thumbnail: img/guests/hweakly.jpg
+    website: "https://hazelweakly.me"
+    github: hazelweakly
+    linkedin: hazelweakly
+    bluesky: hazelweakly.me
+    pronouns: "she/her"
+placeholder: false
