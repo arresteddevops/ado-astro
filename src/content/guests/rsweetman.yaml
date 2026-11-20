@@ -1,0 +1,16 @@
+name: "Robert Sweetman"
+snapshots:
+  - key: rsweetman
+    bio: |-
+      Accidental DevOps engineer by way of sales, project management and then making the fatal error of looking at a 2000 line Power shell script to add Write-Host messages to understand where it was breaking.
+
+      Release manager for a start up and then parlayed the job title into a DevOps role at a consultancy where I finally overcame crippling imposter syndrome
+
+      Have now seen enough to add the word Senior to my title.
+    thumbnail: img/guests/rsweetman.jpg
+    website: "https://robertsweetman.com"
+    github: robertsweetman
+    linkedin: robert-sweetman-979286
+    bluesky: robertsweetman.bsky.social
+    pronouns: "he/him"
+placeholder: false
