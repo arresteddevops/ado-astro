@@ -19,6 +19,7 @@ sponsors: []
 aliases:
   - /218
   - /scalingguardrails
+youtube: ZlhQ9IXXPAM
 transcript: scaling-guardrails
 explicit: "no"
 ---
